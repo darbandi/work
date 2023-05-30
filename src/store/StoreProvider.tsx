@@ -2,7 +2,10 @@ import { useRef, type PropsWithChildren } from 'react'
 import type { StoreType } from './store'
 import { Provider, initializeStore } from './store'
 
-const StoreProvider = ({ children, ...props }: PropsWithChildren) => {
+export const StoreProvider = ({
+  children,
+  ...props
+}: PropsWithChildren) => {
   const storeRef = useRef<StoreType>()
 
   if (!storeRef.current) {
@@ -11,5 +14,3 @@ const StoreProvider = ({ children, ...props }: PropsWithChildren) => {
 
   return <Provider value={storeRef.current}>{children}</Provider>
 }
-
-export default StoreProvider

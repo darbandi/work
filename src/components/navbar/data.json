@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "title": "movies",
+    "link": ""
+  },
+  {
+    "id": 2,
+    "title": "news"
+  },
+  {
+    "id": 3,
+    "title": "categories"
+  },
+  {
+    "id": 4,
+    "title": "festival"
+  }
+]
