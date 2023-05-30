@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { createRouter } from 'next-connect'
+import nextConnect from 'next-connect'
 
 const apiMiddleware = {
   onError: (err: unknown, req: NextApiRequest, res: NextApiResponse) => {
@@ -9,7 +9,8 @@ const apiMiddleware = {
     res.status(404).end('Method is not found')
   },
 }
-const apiConnection = createRouter<NextApiRequest, NextApiResponse>()
-apiConnection.handler(apiMiddleware)
+const apiConnection = nextConnect<NextApiRequest, NextApiResponse>(
+  apiMiddleware,
+)
 
 export { apiConnection }

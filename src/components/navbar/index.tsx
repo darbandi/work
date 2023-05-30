@@ -1,5 +1,5 @@
 import React from 'react'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+// import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 // import { Icon } from '@ui'
 import { useIntl } from 'react-intl'
 import { A, Li, Navbar, Ul } from './Navbar.style'

@@ -1,2 +1,2 @@
-export { apiConnection } from './apiConnection';
-export { checkAuth } from './checkAuth';
+export { apiConnection } from './apiConnection'
+export { checkAuth } from './checkAuth'

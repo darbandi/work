@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { createStore, useStore as useZustandStore } from 'zustand'
+import { StoreApi, createStore, useStore as useZustandStore } from 'zustand'
 
 interface StoreInterface {
   count: number
@@ -17,7 +17,7 @@ const zustandContext = createContext<StoreType | null>(null)
 
 export const Provider = zustandContext.Provider
 
-export const useStore = <T>(selector: (state: StoreInterface) => T) => {
+export const useStore = <T>(selector: (state: StoreInterface) => T): any => {
   const store = useContext(zustandContext)
 
   if (!store) throw new Error('Store is missing the provider')
@@ -27,7 +27,7 @@ export const useStore = <T>(selector: (state: StoreInterface) => T) => {
 
 export const initializeStore = (
   preloadedState: Partial<StoreInterface> = {},
-) => {  
+): StoreApi<StoreInterface> => {
   return createStore<StoreInterface>((set, get) => ({
     ...getDefaultInitialState(),
     ...preloadedState,

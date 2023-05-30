@@ -1,0 +1,10 @@
+.git
+.vscode
+.Next
+.husky
+node_modules
+public
+packages
+build
+commitlint.config.js
+pnpm-lock.yaml

@@ -1,9 +1,10 @@
-import { NavbarComp } from "@/components/navbar";
-import { useStore } from "@/lib/store";
-import { Header } from "./Header.style";
+import React from 'react'
+import { Header } from './Header.style'
+import { NavbarComp } from '@/components/navbar'
+import { useStore } from '@/store/store'
 
-export const HeaderComp = () => {
-  const count = useStore((state) => state.count);
+export function HeaderComp(): JSX.Element {
+  const count = useStore((state) => state.count)
   const increment = useStore((state) => state.increment)
 
   return (
@@ -12,5 +13,5 @@ export const HeaderComp = () => {
       <button onClick={increment}>+</button>
       {count}
     </Header>
-  );
-};
+  )
+}

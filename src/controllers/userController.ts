@@ -1,7 +1,8 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { User, Profile } from '@models';
+import { NextApiRequest, NextApiResponse } from 'next'
+import { User, Profile } from '@/models'
+import { dbConnect } from '@/lib'
 
-type Response = Promise<{ success: boolean; data?: object } | void>;
+type Response = Promise<{ success: boolean; data?: object } | void>
 
 // Get all users
 export const getAllUsers = async (
@@ -9,20 +10,22 @@ export const getAllUsers = async (
   res: NextApiResponse,
 ): Response => {
   try {
+    await dbConnect()
+
     const {
       page = 1,
       perPage = 10,
       userName = '',
       email = '',
-    } = req.query || {};
+    } = req.query || {}
     const filters = {
       ...(userName ? { userName: { $regex: userName } } : {}),
       ...(email ? { email: { $regex: email } } : {}),
-    };
+    }
     const users = await User.find(filters)
       .skip((+page - 1) * +perPage)
-      .limit(+perPage);
-    const totalCount = await User.countDocuments(filters);
+      .limit(+perPage)
+    const totalCount = await User.countDocuments(filters)
     res.status(200).json({
       success: true,
       data: users,
@@ -31,11 +34,11 @@ export const getAllUsers = async (
         page,
         perPage,
       },
-    });
+    })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}
 
 // Create a new user
 export const createUser = async (
@@ -43,12 +46,12 @@ export const createUser = async (
   res: NextApiResponse,
 ): Response => {
   try {
-    const user = await User.create(req.body);
-    res.status(201).json({ success: true, data: user.toJSON() });
+    const user = await User.create(req.body)
+    res.status(201).json({ success: true, data: user.toJSON() })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}
 
 // Get a single user by ID
 export const getUserById = async (
@@ -56,15 +59,13 @@ export const getUserById = async (
   res: NextApiResponse,
 ): Response => {
   try {
-    const user = await User.findById(req.query.id);
-    const profile = await Profile.findOne({ user: req.query.id });
-    res
-      .status(200)
-      .json({ success: true, data: { ...user.toJSON(), profile } });
+    const user = await User.findById(req.query.id)
+    const profile = await Profile.findOne({ user: req.query.id })
+    res.status(200).json({ success: true, data: { ...user.toJSON(), profile } })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}
 
 // Update a user
 export const updateUser = async (
@@ -75,15 +76,15 @@ export const updateUser = async (
     const user = await User.findByIdAndUpdate(req.query.id, req.body, {
       new: true,
       runValidators: true,
-    });
+    })
     if (!user) {
-      return res.status(400).json({ success: false });
+      return res.status(400).json({ success: false })
     }
-    res.status(200).json({ success: true, data: user.toJSON() });
+    res.status(200).json({ success: true, data: user.toJSON() })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}
 
 // Delete a user
 export const deleteUser = async (
@@ -91,12 +92,12 @@ export const deleteUser = async (
   res: NextApiResponse,
 ): Response => {
   try {
-    const deletedUser = await User.findByIdAndRemove(req.query.id);
+    const deletedUser = await User.findByIdAndRemove(req.query.id)
     if (!deletedUser) {
-      return res.status(400).json({ success: false });
+      return res.status(400).json({ success: false })
     }
-    res.status(200).json({ success: true, data: {} });
+    res.status(200).json({ success: true, data: {} })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}

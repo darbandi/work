@@ -1,7 +1,7 @@
-import { Profile } from '@models';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { Profile } from '@models'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-type Response = Promise<{ success: boolean; data?: object } | void>;
+type Response = Promise<{ success: boolean; data?: object } | void>
 
 // Get all profiles
 export const getAllProfiles = async (
@@ -14,15 +14,15 @@ export const getAllProfiles = async (
       perPage = 10,
       profileName = '',
       email = '',
-    } = req.query || {};
+    } = req.query || {}
     const filters = {
       ...(profileName ? { profileName: { $regex: profileName } } : {}),
       ...(email ? { email: { $regex: email } } : {}),
-    };
+    }
     const profiles = await Profile.find(filters)
       .skip((+page - 1) * +perPage)
-      .limit(+perPage);
-    const totalCount = await Profile.countDocuments(filters);
+      .limit(+perPage)
+    const totalCount = await Profile.countDocuments(filters)
     res.status(200).json({
       success: true,
       data: profiles,
@@ -31,11 +31,11 @@ export const getAllProfiles = async (
         page,
         perPage,
       },
-    });
+    })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}
 
 // Create a new profile
 export const createProfile = async (
@@ -43,12 +43,12 @@ export const createProfile = async (
   res: NextApiResponse,
 ): Response => {
   try {
-    const profile = await Profile.create(req.body);
-    res.status(201).json({ success: true, data: profile.toJSON() });
+    const profile = await Profile.create(req.body)
+    res.status(201).json({ success: true, data: profile.toJSON() })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}
 
 // Get a single profile by ID
 export const getProfileById = async (
@@ -56,12 +56,12 @@ export const getProfileById = async (
   res: NextApiResponse,
 ): Response => {
   try {
-    const profile = await Profile.findById(req.query.id).populate('user');
-    res.status(200).json({ success: true, data: profile.toJSON() });
+    const profile = await Profile.findById(req.query.id).populate('user')
+    res.status(200).json({ success: true, data: profile.toJSON() })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}
 
 // Update a profile
 export const updateProfile = async (
@@ -72,15 +72,15 @@ export const updateProfile = async (
     const profile = await Profile.findByIdAndUpdate(req.query.id, req.body, {
       new: true,
       runValidators: true,
-    });
+    })
     if (!profile) {
-      return res.status(400).json({ success: false });
+      return res.status(400).json({ success: false })
     }
-    res.status(200).json({ success: true, data: profile.toJSON() });
+    res.status(200).json({ success: true, data: profile.toJSON() })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}
 
 // Delete a profile
 export const deleteProfile = async (
@@ -88,12 +88,12 @@ export const deleteProfile = async (
   res: NextApiResponse,
 ): Response => {
   try {
-    const deletedProfile = await Profile.findByIdAndRemove(req.query.id);
+    const deletedProfile = await Profile.findByIdAndRemove(req.query.id)
     if (!deletedProfile) {
-      return res.status(400).json({ success: false });
+      return res.status(400).json({ success: false })
     }
-    res.status(200).json({ success: true, data: {} });
+    res.status(200).json({ success: true, data: {} })
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ success: false })
   }
-};
+}

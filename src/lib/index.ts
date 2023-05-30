@@ -1,2 +1,2 @@
-export { dbConnect } from './dbConnect';
-export { ssrConfig } from './ssrConfig';
+export { dbConnect } from './dbConnect'
+export { ssrConfig } from './ssrConfig'
