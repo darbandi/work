@@ -3,7 +3,7 @@ import { Header } from './Header.style'
 import { NavbarComp } from '@/components/navbar'
 import { useStore } from '@/store/store'
 
-export function HeaderComp(): JSX.Element {
+export function HeaderComp(): React.JSX.Element {
   const count = useStore((state) => state.count)
   const increment = useStore((state) => state.increment)
 

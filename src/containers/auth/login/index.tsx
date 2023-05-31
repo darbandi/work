@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function LoginPage(): JSX.Element {
+export function LoginPage(): React.JSX.Element {
   // const [error, setError] = useState('');
   // const router = useRouter();
   // const { data: session, status } = useSession();

@@ -4,10 +4,10 @@ import { FooterComp } from './footer'
 import { HeaderComp } from './header'
 
 type Props = {
-  children: JSX.Element
+  children: React.JSX.Element
 }
 
-export function LayoutComp(props: Props): JSX.Element {
+export function LayoutComp(props: Props): React.JSX.Element {
   return (
     <>
       <HeaderComp />

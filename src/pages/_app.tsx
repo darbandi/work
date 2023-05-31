@@ -14,7 +14,10 @@ const cache = createIntlCache()
 const messages = { fa, en }
 const themes = { dark, light }
 
-export default function App({ Component, pageProps }: AppProps): JSX.Element {
+export default function App({
+  Component,
+  pageProps,
+}: AppProps): React.JSX.Element {
   const themeMode = 'dark'
   const { locale: nextLocale = 'en' } = useRouter()
   const intl = createIntl(

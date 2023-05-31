@@ -5,7 +5,7 @@ import { Provider, initializeStore } from './store'
 export const StoreProvider = ({
   children,
   ...props
-}: PropsWithChildren): JSX.Element => {
+}: PropsWithChildren): React.JSX.Element => {
   const storeRef = useRef<StoreType>()
 
   if (!storeRef.current) {
