@@ -1,13 +1,11 @@
-import { Profile } from '@models'
 import { NextApiRequest, NextApiResponse } from 'next'
-
-type Response = Promise<{ success: boolean; data?: object } | void>
+import { Profile } from '@/models'
 
 // Get all profiles
 export const getAllProfiles = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const {
       page = 1,
@@ -41,7 +39,7 @@ export const getAllProfiles = async (
 export const createProfile = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const profile = await Profile.create(req.body)
     res.status(201).json({ success: true, data: profile.toJSON() })
@@ -54,7 +52,7 @@ export const createProfile = async (
 export const getProfileById = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const profile = await Profile.findById(req.query.id).populate('user')
     res.status(200).json({ success: true, data: profile.toJSON() })
@@ -67,7 +65,7 @@ export const getProfileById = async (
 export const updateProfile = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const profile = await Profile.findByIdAndUpdate(req.query.id, req.body, {
       new: true,
@@ -86,7 +84,7 @@ export const updateProfile = async (
 export const deleteProfile = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const deletedProfile = await Profile.findByIdAndRemove(req.query.id)
     if (!deletedProfile) {

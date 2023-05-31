@@ -3,5 +3,5 @@
 
 pnpm pretty-quick --staged
 pnpm lint-staged
-# pnpm typeCheckAll
+pnpm type-check
 pnpm lint

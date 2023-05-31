@@ -2,13 +2,11 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { User, Profile } from '@/models'
 import { dbConnect } from '@/lib'
 
-type Response = Promise<{ success: boolean; data?: object } | void>
-
 // Get all users
 export const getAllUsers = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     await dbConnect()
 
@@ -44,7 +42,7 @@ export const getAllUsers = async (
 export const createUser = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const user = await User.create(req.body)
     res.status(201).json({ success: true, data: user.toJSON() })
@@ -57,7 +55,7 @@ export const createUser = async (
 export const getUserById = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const user = await User.findById(req.query.id)
     const profile = await Profile.findOne({ user: req.query.id })
@@ -71,7 +69,7 @@ export const getUserById = async (
 export const updateUser = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const user = await User.findByIdAndUpdate(req.query.id, req.body, {
       new: true,
@@ -90,7 +88,7 @@ export const updateUser = async (
 export const deleteUser = async (
   req: NextApiRequest,
   res: NextApiResponse,
-): Response => {
+): Promise<void> => {
   try {
     const deletedUser = await User.findByIdAndRemove(req.query.id)
     if (!deletedUser) {

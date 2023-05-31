@@ -1,36 +1,38 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "rootDir": ".",
+    "sourceMap": false,
+    "declaration": false,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "esnext",
+    "module": "ESNext",
+    "lib": ["es2019", "dom"],
     "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "typeRoots": ["../../node_modules/@types", "../../types"],
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/public/*": ["./public/*"]
+    },
+    "allowJs": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true,
-    "paths": {
-      "@/*": ["./src/*"],
-      "@lib": ["/src/lib"],
-      "@models": ["/src/models"],
-      "@controllers": ["/src/controllers"],
-      "@containers": ["/src/containers"],
-      "@components": ["/src/components"],
-      "@store": ["/src/store"],
-      "@tools": ["/src/tools"],
-      "@api": ["/src/api"]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "esModuleInterop": true,
+    "isolatedModules": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

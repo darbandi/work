@@ -1,7 +1,7 @@
-import { getCurrentUser } from '@api'
-import { IUser, User } from '@models'
 import { signOut } from 'next-auth/react'
 import { StateCreator } from 'zustand'
+import { getCurrentUser } from '@/api'
+import { IUser, User } from '@/models'
 
 export type GlobalSliceType = {
   themeMode: string

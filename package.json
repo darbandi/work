@@ -9,7 +9,10 @@
     "lint:fix": "eslint --fix src",
     "prettier": "prettier --check src",
     "prettier:fix": "yarn prettier --write src",
-    "release": "release-it"
+    "release": "release-it",
+    "type-check:analyze": "tsc --extendedDiagnostics  --project tsconfig.json",
+    "type-check:list": "tsc --noEmit -p tsconfig.json --listFiles ",
+    "type-check": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
