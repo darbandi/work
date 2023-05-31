@@ -8,7 +8,7 @@ import { GlobalStyles } from '../theme/Global.styled'
 import en from '@/public/locales/en/common.json'
 import fa from '@/public/locales/fa/common.json'
 import { LayoutComp } from '@/components'
-import StoreProvider from '@/store/StoreProvider'
+import { StoreProvider } from '@/store'
 
 const cache = createIntlCache()
 const messages = { fa, en }

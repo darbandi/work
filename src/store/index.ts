@@ -1,2 +1,3 @@
-export * from './store'
-export * from './StoreProvider'
+export { useStore, initializeStore } from './store'
+export type { GetState, SetState } from './store'
+export { StoreProvider } from './StoreProvider'

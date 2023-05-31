@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth'
 import { GetServerSidePropsContext } from 'next'
 import { authOptions } from '../pages/api/auth/[...nextauth]'
-import { initializeStore } from '@/store/store'
+import { initializeStore } from '@/store'
 
 export const ssrConfig = async (
   context: GetServerSidePropsContext,

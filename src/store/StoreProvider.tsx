@@ -14,5 +14,3 @@ export const StoreProvider = ({
 
   return <Provider value={storeRef.current}>{children}</Provider>
 }
-
-export default StoreProvider

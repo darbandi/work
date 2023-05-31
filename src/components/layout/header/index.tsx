@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from './Header.style'
 import { NavbarComp } from '@/components/navbar'
-import { useStore } from '@/store/store'
+import { useStore } from '@/store'
 
 export function HeaderComp(): React.JSX.Element {
   const count = useStore((state) => state.count)

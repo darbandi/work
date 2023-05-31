@@ -1,2 +1,1 @@
-export * from './product.slice'
-export * from './global.slice'
+export { increment } from './increment'
