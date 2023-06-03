@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import { useRouter } from 'next/router'
@@ -31,6 +31,11 @@ export default function App({
     },
     cache,
   )
+
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+  }, [])
+
   return (
     <SessionProvider session={session}>
       <StoreProvider {...otherProps.initialZustandState}>

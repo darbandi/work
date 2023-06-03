@@ -1,6 +1,12 @@
 const commonColors = {
-  bg_dark_50: '#00000050',
+  primary: '#F6BE00',
+  secondary: '#0B0B0D',
+  secondary70: '#0B0B0D70',
   text_main: '#FFFFFF',
+  bg_main: '#FFFFFF',
+  bg_main50: '#FFFFFF50',
+  bg_dark_50: '#00000050',
+  text_grey: '#515151',
 }
 
 const remCalc = (px: number, base = 16) => {
@@ -9,6 +15,7 @@ const remCalc = (px: number, base = 16) => {
 
 const common = {
   remCalc,
+  direction: 'rtl',
 }
 
 export const light = {

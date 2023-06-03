@@ -69,7 +69,7 @@ export const getServerSideProps = ssrConfig
 Index.auth = true
 ```
 
-# Global State
+# Global State [Link](https://docs.pmnd.rs/zustand)
 
 ```js
 import { useStore } from '@/store'
@@ -77,7 +77,7 @@ import { useStore } from '@/store'
 const signOut = useStore((store) => store.signOut)
 ```
 
-# User Session
+# User Session [Link](https://next-auth.js.org/getting-started/example)
 
 ```js
 import { useSession } from 'next-auth/react'
@@ -114,7 +114,7 @@ export const messages = defineMessages({
 })
 ```
 
-# Translate
+# Translate [Link](https://formatjs.io/docs/react-intl/)
 
 ```js
 import { useIntl } from 'react-intl'
@@ -129,7 +129,7 @@ const { formatMessage } = useIntl()
 }
 ```
 
-# Styled Components
+# Styled Components [Link](https://styled-components.com/)
 
 ```js
 import * as theme from '@/theme'
@@ -142,6 +142,23 @@ export const Header = styled.header`
 
   // PX to REM
   font-size: ${theme.remCalc(12)};
+`
+```
+
+# Dynamic Props
+
+```js
+export const Header =
+  styled.header <
+  { isOnScreen: boolean } >
+  `
+// some style
+
+  ${(props) =>
+    props.isOnScreen &&
+    css`
+      // some style
+    `}
 `
 ```
 
@@ -176,4 +193,16 @@ import { ObjectInJSX } from '@ui';
 import { Icon } from '@ui'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 ;<Icon icon={faCoffee} />
+```
+
+# Motion [Link](https://github.com/chenglou/react-motion)
+
+```js
+import { Motion, spring } from 'react-motion'
+
+<Motion defaultStyle={{ width: -150 }} style={{ width: spring(0) }}>
+  {(interpolatingStyle) => (
+
+  )}
+</Motion>
 ```

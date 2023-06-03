@@ -1,17 +1,18 @@
 import React from 'react'
+import { Motion, spring } from 'react-motion'
 import { Header } from './Header.style'
 import { NavbarComp } from '@/components/navbar'
-import { useStore } from '@/store'
+import { useScroll } from '@/hooks'
 
 export function HeaderComp(): React.JSX.Element {
-  const count = useStore((state) => state.count)
-  const increment = useStore((state) => state.increment)
-
+  const { isTop } = useScroll('body')
   return (
-    <Header>
-      <NavbarComp />
-      <button onClick={increment}>+</button>
-      {count}
-    </Header>
+    <Motion style={{ opacity: spring(isTop ? 1 : 0) }}>
+      {(interpolatingStyle) => (
+        <Header style={interpolatingStyle} id='header'>
+          <NavbarComp />
+        </Header>
+      )}
+    </Motion>
   )
 }

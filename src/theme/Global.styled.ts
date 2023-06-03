@@ -14,12 +14,13 @@ export const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
 }
 
-body {
+body, html {
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 1%, 16%);
   font-family: 'IRANSansWeb';
   overflow-x: hidden;
   direction  : rtl;
+  scroll-behavior: smooth;
 }
 
 @font-face {
