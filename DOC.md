@@ -206,3 +206,5 @@ import { Motion, spring } from 'react-motion'
   )}
 </Motion>
 ```
+
+# [Carousel](https://maxmarinich.github.io/react-alice-carousel/)
