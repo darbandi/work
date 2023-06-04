@@ -14,6 +14,7 @@ import img3 from '@/assets/images/thumbnails/03.png'
 import img4 from '@/assets/images/thumbnails/04.png'
 import img5 from '@/assets/images/thumbnails/05.png'
 import img6 from '@/assets/images/thumbnails/06.png'
+import { MotionCompEnum } from '@/components/motion'
 
 const items = [
   <ItemWrapper key={1}>
@@ -137,7 +138,7 @@ const items = [
 
 export const TopTen: NextPage = function TopTen() {
   return (
-    <MotionComp>
+    <MotionComp type={MotionCompEnum.carousel}>
       <CarouselComp
         items={items}
         title='10 فیلم برتر'

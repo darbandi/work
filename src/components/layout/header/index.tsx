@@ -9,7 +9,7 @@ export function HeaderComp(): React.JSX.Element {
   return (
     <Motion style={{ opacity: spring(isTop ? 1 : 0) }}>
       {(interpolatingStyle) => (
-        <Header style={interpolatingStyle} id='header'>
+        <Header style={interpolatingStyle}>
           <NavbarComp />
         </Header>
       )}
