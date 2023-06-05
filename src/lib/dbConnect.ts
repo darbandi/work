@@ -38,4 +38,4 @@ async function dbConnect(): Promise<unknown> {
   return cached.conn
 }
 
-export { dbConnect }
+export default dbConnect

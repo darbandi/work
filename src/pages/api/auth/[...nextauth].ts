@@ -3,8 +3,9 @@ import jwt from 'jsonwebtoken'
 import NextAuth, { Awaitable, NextAuthOptions } from 'next-auth'
 import { JWT, JWTDecodeParams, JWTEncodeParams } from 'next-auth/jwt'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { dbConnect } from '@/lib'
-import { IUser, User } from '@/models'
+import dbConnect from '@/lib/dbConnect'
+import { User } from '@/models'
+import type { IUser } from '@/types/user'
 
 export const authOptions: NextAuthOptions = {
   providers: [

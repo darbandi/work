@@ -1,1 +1,0 @@
-export { increment } from './increment'

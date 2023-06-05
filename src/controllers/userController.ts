@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { User, Profile } from '@/models'
-import { dbConnect } from '@/lib'
 
 // Get all users
 export const getAllUsers = async (
@@ -8,8 +7,6 @@ export const getAllUsers = async (
   res: NextApiResponse,
 ): Promise<void> => {
   try {
-    await dbConnect()
-
     const {
       page = 1,
       perPage = 10,

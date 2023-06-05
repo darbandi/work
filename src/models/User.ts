@@ -1,12 +1,6 @@
 import { hash } from 'bcrypt'
 import mongoose, { Model, Schema } from 'mongoose'
-
-export interface IUser {
-  _id?: string
-  userName: string
-  email: string
-  password: string
-}
+import type { IUser } from '@/types/user'
 
 const UserSchema: Schema<IUser> = new mongoose.Schema({
   userName: String,

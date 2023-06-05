@@ -1,13 +1,5 @@
 import mongoose, { Model, Schema } from 'mongoose'
-
-export interface IProfile {
-  phone: string
-  address: string
-  user: {
-    type: mongoose.Types.ObjectId
-    ref: 'User'
-  }
-}
+import type { IProfile } from '@/types/profile'
 
 const ProfileSchema: Schema<IProfile> = new mongoose.Schema({
   phone: String,

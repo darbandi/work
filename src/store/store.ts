@@ -2,19 +2,8 @@ import { createContext, useContext } from 'react'
 import { StoreApi, createStore, useStore as useZustandStore } from 'zustand'
 import { persist, createJSONStorage, StateStorage } from 'zustand/middleware'
 import { get, set, del } from 'idb-keyval'
-import { increment } from './slices'
-
-interface StoreInterface {
-  count: number
-  increment: () => void
-}
-
-export type SetState = (
-  partial: Partial<StoreInterface> | StoreInterface,
-  replace?: boolean,
-) => void
-
-export type GetState = () => StoreInterface
+import { getCurrentUser, increment } from '@/store/utils'
+import type { StoreInterface, StoreType } from '@/types/zustand'
 
 const storage: StateStorage = {
   getItem: async (name: string): Promise<string | null> => {
@@ -31,8 +20,6 @@ const storage: StateStorage = {
 const getDefaultInitialState = () => ({
   count: 10,
 })
-
-export type StoreType = ReturnType<typeof initializeStore>
 
 const zustandContext = createContext<StoreType | null>(null)
 
@@ -57,6 +44,7 @@ export const initializeStore = (
         ...getDefaultInitialState(),
         ...preloadedState,
         increment: increment(set, get),
+        getCurrentUser: (id: string) => getCurrentUser(id)(set),
       }),
       {
         name: 'zustand-storage',

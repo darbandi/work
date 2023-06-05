@@ -1,4 +1,4 @@
-import type { GetState, SetState } from '@/store'
+import type { GetState, SetState } from '@/types/zustand'
 
 export const increment = (set: SetState, get: GetState) => (): void => {
   set({

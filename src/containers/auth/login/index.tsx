@@ -1,46 +1,43 @@
 import React from 'react'
 
 export function LoginPage(): React.JSX.Element {
-  // const [error, setError] = useState('');
-  // const router = useRouter();
-  // const { data: session, status } = useSession();
-  // const getCurrentUser = useAppStore((store) => store.getCurrentUser);
+  // const [error, setError] = useState('')
+  // const router = useRouter()
+  // const { data: session, status } = useSession()
+  // const getCurrentUser = useStore((store) => store.getCurrentUser)
+  // const user = useStore((store) => store.user)
+  // console.log("🚀 ~ file: index.tsx:12 ~ LoginPage ~ user:", user)
+
+  // useEffect(() => {
+  //   getCurrentUser?.('64568c9fc1ec051d4c89b115')
+  // }, [])
 
   // useEffect(() => {
   //   if (session?.user) {
-  //     const user = session.user as { id: string };
-  //     getCurrentUser(user?.id as string);
+  //     const user = session.user as { id: string }
+  //     getCurrentUser?.(user?.id as string)
   //   }
-  // }, [session, getCurrentUser]);
+  // }, [session, getCurrentUser])
 
-  // const schema = yup.object().shape({
-  //   email: yup.string().required('Email is required'),
-  //   password: yup.string().required('Password is required'),
-  // });
-
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm({
-  //   resolver: yupResolver(schema),
-  // });
-
-  // const onSubmit = async ({ email, password }) => {
+  // const onSubmit = async ({ email, password }: { email: string, password: string }) => {
   //   const result = await signIn('credentials', {
   //     email,
   //     password,
   //     redirect: false,
-  //   });
+  //   })
   //   if (result.error) {
-  //     setError(result.error);
+  //     setError(result.error)
   //   }
-  // };
+  // }
 
-  // if (status === 'loading') return null;
+  // useEffect(() => {
+  //   onSubmit({ email: 'admin@hasti.co', password: 'Abc@123456' })
+  // }, [])
+
+  // if (status === 'loading') return null
   // if (status === 'authenticated') {
-  //   router.push('/');
-  //   return null;
+  //   router.push('/')
+  //   return null
   // }
 
   return (
