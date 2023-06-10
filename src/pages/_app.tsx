@@ -16,12 +16,15 @@ const cache = createIntlCache()
 const messages = { fa, en }
 const themes = { dark, light }
 
-type AppType = AppProps & { Component: { auth: boolean } }
+type AppType = AppProps & {
+  Component: { auth?: boolean; header?: React.JSX.Element }
+}
 
-export default function App({
-  Component,
-  pageProps: { session, ...otherProps },
-}: AppType): React.JSX.Element {
+export default function App(props: AppType): React.JSX.Element {
+  const {
+    Component,
+    pageProps: { session, ...otherProps },
+  } = props
   const themeMode = 'dark'
   const { locale: nextLocale = 'en' } = useRouter()
   const intl = createIntl(
@@ -42,7 +45,7 @@ export default function App({
         <IntlProvider {...intl} onError={() => null}>
           <ThemeProvider theme={themes[themeMode as keyof typeof themes]}>
             <GlobalStyles />
-            <LayoutComp>
+            <LayoutComp RenderHeader={Component.header}>
               {Component.auth ? (
                 <Auth>
                   <Component {...otherProps} />

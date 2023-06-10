@@ -5,12 +5,15 @@ import { HeaderComp } from './header'
 
 type Props = {
   children: React.JSX.Element
+  RenderHeader?: React.JSX.Element
 }
 
 export function LayoutComp(props: Props): React.JSX.Element {
+  const { RenderHeader } = props
   return (
     <>
-      <HeaderComp />
+      {RenderHeader ?? <HeaderComp />}
+
       <MainComp>{props.children}</MainComp>
       <FooterComp />
     </>
