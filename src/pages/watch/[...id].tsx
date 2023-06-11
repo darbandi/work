@@ -2,10 +2,10 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { ssrConfig } from '@/lib'
 
-const DetailsHeader = dynamic(
-  async () => (await import('@/components/layout/detailsHeader')).DetailsHeader,
+const WatchHeader = dynamic(
+  async () => (await import('@/components/layout/watchHeader')).WatchHeader,
   {
-    ssr: true,
+    ssr: false,
   },
 )
 
@@ -16,11 +16,11 @@ const WatchPage = dynamic(
   },
 )
 
-const Details = function Details(): React.JSX.Element {
+const Watch = function Watch(): React.JSX.Element {
   return <WatchPage />
 }
 
-Details.header = <DetailsHeader />
+Watch.header = <WatchHeader />
 
 export const getServerSideProps = ssrConfig
-export default Details
+export default Watch

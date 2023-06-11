@@ -1,11 +1,11 @@
 import React from 'react'
 import { useIntl } from 'react-intl'
 import { faArrowLeft, faGear } from '@fortawesome/free-solid-svg-icons'
-import { Back, Header, Main } from './DetailsHeader.style'
+import { Back, Header, Main } from './WatchHeader.style'
 import { Icon } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
-export function DetailsHeader(): React.JSX.Element {
+export function WatchHeader(): React.JSX.Element {
   const { formatMessage } = useIntl()
   return (
     <Header>
