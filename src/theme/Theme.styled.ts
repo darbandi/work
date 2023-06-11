@@ -1,3 +1,21 @@
+export type ThemeType = {
+  theme: {
+    name: 'light-theme' | 'dark-theme'
+    direction: 'rtl' | 'ltr'
+    remCalc: (px: number, base?: number) => string
+    colors: {
+      primary: string
+      secondary: string
+      secondary70: string
+      text_main: string
+      bg_main: string
+      bg_main50: string
+      bg_dark_50: string
+      text_grey: string
+    }
+  }
+}
+
 const commonColors = {
   primary: '#F6BE00',
   secondary: '#0B0B0D',

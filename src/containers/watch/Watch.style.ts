@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { ThemeType } from '@/theme'
 
 export const Container = styled.div`
-  background: ${({ theme }) => theme.colors.secondary};
+  background: ${({ theme }: ThemeType) => theme.colors.secondary};
   height: 100vh;
 `

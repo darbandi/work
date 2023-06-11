@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { ThemeType } from '@/theme'
 
 export const Header = styled.header`
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }: ThemeType) => theme.colors.secondary};
   opacity: 0;
   position: fixed;
   height: 60px;

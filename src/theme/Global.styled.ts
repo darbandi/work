@@ -12,12 +12,12 @@ export const GlobalStyles = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'IRANSansWeb';
 }
 
 body, html {
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 1%, 16%);
-  font-family: 'IRANSansWeb';
   overflow-x: hidden;
   direction  : rtl;
   scroll-behavior: smooth;

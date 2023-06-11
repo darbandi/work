@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import styled, { css } from 'styled-components'
+import { ThemeType } from '@/theme'
 
 export const ActionBar = styled.div<{ autoHide: boolean }>`
-  background: ${({ theme }) => theme.colors.secondary};
+  background: ${({ theme }: ThemeType) => theme.colors.secondary};
   position: fixed;
   left: 0;
   bottom: -70px;
@@ -53,7 +54,7 @@ export const Button = styled.button`
   }
 
   .svg-inline--fa {
-    color: ${({ theme }) => theme.colors.bg_main};
+    color: ${({ theme }: ThemeType) => theme.colors.bg_main};
     font-size: 40px;
   }
 `

@@ -1,2 +1,7 @@
 export { Icon } from './icon'
 export { ObjectInJSX } from './objectInJSX'
+export { Box } from './box'
+export { PrimaryButton, SecondaryButton, OutlinedButton } from './button'
+export { Row, Col } from './grid'
+export { InputText } from './input'
+export { H1, H2, H3, H4, Label, Span } from './typography'

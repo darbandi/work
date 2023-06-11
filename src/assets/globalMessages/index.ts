@@ -11,4 +11,16 @@ export const globalMessages = defineMessages({
     id: `${scope}.mainPage`,
     defaultMessage: 'صفحه‌اصلی',
   },
+  loginRegister: {
+    id: `${scope}.loginRegister`,
+    defaultMessage: 'ورود/ثبت‌نام',
+  },
+  search: {
+    id: `${scope}.search`,
+    defaultMessage: 'جستجو{other}',
+  },
+  seoDescription: {
+    id: `${scope}.seoDescription`,
+    defaultMessage: 'جشنواره فیلم کوتاه',
+  },
 })

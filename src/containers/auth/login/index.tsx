@@ -1,91 +1,83 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Container, Form } from './Login.style'
+import {
+  PrimaryButton,
+  SecondaryButton,
+  InputText,
+  H4,
+  Box,
+  Col,
+  Row,
+} from '@/ui-components'
 
-export function LoginPage(): React.JSX.Element {
-  // const [error, setError] = useState('')
-  // const router = useRouter()
-  // const { data: session, status } = useSession()
-  // const getCurrentUser = useStore((store) => store.getCurrentUser)
-  // const user = useStore((store) => store.user)
-  // console.log("🚀 ~ file: index.tsx:12 ~ LoginPage ~ user:", user)
+export type FormInputs = { phoneNumber: string; otp: string }
+export type LoginFormProps = {
+  onSubmit: ({ phoneNumber, otp }: FormInputs) => void
+}
 
-  // useEffect(() => {
-  //   getCurrentUser?.('64568c9fc1ec051d4c89b115')
-  // }, [])
+const LoginForm = (props: LoginFormProps) => {
+  const { onSubmit } = props
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [otp, setOtp] = useState('')
 
-  // useEffect(() => {
-  //   if (session?.user) {
-  //     const user = session.user as { id: string }
-  //     getCurrentUser?.(user?.id as string)
-  //   }
-  // }, [session, getCurrentUser])
-
-  // const onSubmit = async ({ email, password }: { email: string, password: string }) => {
-  //   const result = await signIn('credentials', {
-  //     email,
-  //     password,
-  //     redirect: false,
-  //   })
-  //   if (result.error) {
-  //     setError(result.error)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   onSubmit({ email: 'admin@hasti.co', password: 'Abc@123456' })
-  // }, [])
-
-  // if (status === 'loading') return null
-  // if (status === 'authenticated') {
-  //   router.push('/')
-  //   return null
-  // }
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    onSubmit({ phoneNumber, otp })
+  }
 
   return (
-    <div>login</div>
-    // <Box display='flex' alignItems='center' justifyContent='center'>
-    //   <Box
-    //     display='flex'
-    //     flexDirection='column'
-    //     alignItems='center'
-    //     width={500}
-    //     mt={8}
-    //   >
-    //     <LockOutlined />
-    //     <Typography component='h1' variant='h5'>
-    //       Sign in
-    //     </Typography>
-    //     <form onSubmit={handleSubmit(onSubmit)}>
-    //       <TextField
-    //         label='Email'
-    //         variant='outlined'
-    //         margin='normal'
-    //         fullWidth
-    //         {...register('email')}
-    //         error={Boolean(errors.email)}
-    //         helperText={<>{errors.email?.message}</>}
-    //       />
-    //       <TextField
-    //         label='Password'
-    //         variant='outlined'
-    //         margin='normal'
-    //         type='password'
-    //         fullWidth
-    //         {...register('password')}
-    //         error={Boolean(errors.password)}
-    //         helperText={<>{errors.email?.message}</>}
-    //       />
-    //       <Button
-    //         // disabled={!userLoading}
-    //         type='submit'
-    //         variant='contained'
-    //         color='primary'
-    //       >
-    //         Sign in
-    //       </Button>
-    //     </form>
-    //     {error && <Typography color='error'>{error}</Typography>}
-    //   </Box>
-    // </Box>
+    <Form onSubmit={handleSubmit}>
+      <H4>ورود با تلفن همراه</H4>
+      <InputText
+        type='tel'
+        placeholder='شماره تلفن همراه  ...0912'
+        value={phoneNumber}
+        onChange={(e) => setPhoneNumber(e.target.value)}
+        onKeyDown={(event) => {
+          if (
+            !/[0-9]/.test(event.key) &&
+            event.key !== 'Backspace' &&
+            event.key !== 'Delete'
+          ) {
+            event.preventDefault()
+          }
+        }}
+      />
+      <Box>
+        <PrimaryButton type='submit'>ارسال رمز یکبار مصرف</PrimaryButton>
+        <SecondaryButton style={{ marginRight: 8 }} type='button'>
+          ثبت نام
+        </SecondaryButton>
+      </Box>
+      {otp && (
+        <InputText
+          type='number'
+          placeholder='رمز یکبار مصرف'
+          value={otp}
+          onChange={(e) => setOtp(e.target.value)}
+        />
+      )}
+    </Form>
   )
 }
-export default LoginPage
+
+export function LoginPage(): React.JSX.Element {
+  const handleLogin = () => {
+    // { phoneNumber, otp }: FormInputs
+    // console.log('Phone Number:', phoneNumber)
+    // console.log('OTP:', otp)
+  }
+
+  return (
+    <Container>
+      <Row display='flex' alignItems='center' justifyContent='center'>
+        <Col md={6} xs={12}>
+          <LoginForm onSubmit={handleLogin} />
+        </Col>
+        <Col md={6} xs={12} hideOn='md'>
+          <Box className='img' />
+        </Col>
+      </Row>
+    </Container>
+  )
+}

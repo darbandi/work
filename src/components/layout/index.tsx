@@ -5,17 +5,18 @@ import { HeaderComp } from './header'
 
 type Props = {
   children: React.JSX.Element
-  RenderHeader?: React.JSX.Element
+  RenderHeader?: React.JSX.Element | 'empty'
+  RenderFooter?: React.JSX.Element | 'empty'
 }
 
 export function LayoutComp(props: Props): React.JSX.Element {
-  const { RenderHeader } = props
+  const { RenderHeader, RenderFooter } = props
+
   return (
     <>
-      {RenderHeader ?? <HeaderComp />}
-
+      {RenderHeader === 'empty' ? '' : RenderHeader ?? <HeaderComp />}
       <MainComp>{props.children}</MainComp>
-      <FooterComp />
+      {RenderFooter === 'empty' ? '' : RenderFooter ?? <FooterComp />}
     </>
   )
 }

@@ -17,7 +17,11 @@ const messages = { fa, en }
 const themes = { dark, light }
 
 type AppType = AppProps & {
-  Component: { auth?: boolean; header?: React.JSX.Element }
+  Component: {
+    auth?: boolean
+    header?: React.JSX.Element | 'empty'
+    footer?: React.JSX.Element | 'empty'
+  }
 }
 
 export default function App(props: AppType): React.JSX.Element {
@@ -45,7 +49,10 @@ export default function App(props: AppType): React.JSX.Element {
         <IntlProvider {...intl} onError={() => null}>
           <ThemeProvider theme={themes[themeMode as keyof typeof themes]}>
             <GlobalStyles />
-            <LayoutComp RenderHeader={Component.header}>
+            <LayoutComp
+              RenderHeader={Component.header}
+              RenderFooter={Component.footer}
+            >
               {Component.auth ? (
                 <Auth>
                   <Component {...otherProps} />

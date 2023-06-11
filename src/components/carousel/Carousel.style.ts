@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { ThemeType } from '@/theme'
 
 export const PrevButtonsStyle = styled.div`
-  background-color: ${({ theme }) => theme.colors.bg_main50};
+  background-color: ${({ theme }: ThemeType) => theme.colors.bg_main50};
   position: absolute;
   width: 48px;
   height: 48px;
@@ -15,11 +16,11 @@ export const PrevButtonsStyle = styled.div`
   transition: all 0.3s;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.bg_main};
+    background-color: ${({ theme }: ThemeType) => theme.colors.bg_main};
   }
 
   .svg-inline--fa {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }: ThemeType) => theme.colors.secondary};
   }
 `
 
@@ -30,10 +31,10 @@ export const NextButtonsStyle = styled(PrevButtonsStyle)`
 
 export const InfoStyle = styled.div`
   padding-top: 4px;
-  direction: ${({ theme }) => theme.direction};
+  direction: ${({ theme }: ThemeType) => theme.direction};
 `
 export const TitleStyle = styled.div`
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }: ThemeType) => theme.colors.secondary};
   font-weight: 500;
   font-size: 20px;
   display: flex;
@@ -47,9 +48,9 @@ export const More = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: ${({ theme }) => theme.colors.text_grey};
+  color: ${({ theme }: ThemeType) => theme.colors.text_grey};
   .svg-inline--fa {
-    color: ${({ theme }) => theme.colors.text_grey};
+    color: ${({ theme }: ThemeType) => theme.colors.text_grey};
     font-size: 10px;
   }
   a {
@@ -65,7 +66,7 @@ export const Header = styled.div`
 export const Title = styled.div`
   font-weight: 500;
   font-size: 32px;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }: ThemeType) => theme.colors.secondary};
   margin-bottom: 12px;
 `
 export const Container = styled.div`

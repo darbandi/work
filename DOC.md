@@ -136,7 +136,7 @@ import * as theme from '@/theme'
 import styled from 'styled-components'
 
 export const Header = styled.header`
-  background: ${({ theme }) => theme.colors.bg_dark_50};
+  background: ${({ theme }: ThemeType) => theme.colors.bg_dark_50};
   // OR
   background: ${theme.dark.colors.bg_dark_50};
 

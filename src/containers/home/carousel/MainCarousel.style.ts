@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ThemeType } from '@/theme'
 
 export const PrevButtonsStyle = styled.div``
 export const NextButtonsStyle = styled(PrevButtonsStyle)``
@@ -16,7 +17,7 @@ export const InfoStyle = styled.div`
   padding-bottom: 88px;
   padding-inline-start: 64px;
   justify-content: start;
-  direction: ${({ theme }) => theme.direction};
+  direction: ${({ theme }: ThemeType) => theme.direction};
   background: linear-gradient(
     270deg,
     rgba(0, 0, 0, 0.7) 50%,
@@ -24,12 +25,12 @@ export const InfoStyle = styled.div`
   );
 `
 export const TitleStyle = styled.div`
-  color: ${({ theme }) => theme.colors.text_main};
+  color: ${({ theme }: ThemeType) => theme.colors.text_main};
   font-weight: 700;
   font-size: 48px;
 `
 export const DescriptionStyle = styled.div`
-  color: ${({ theme }) => theme.colors.text_main};
+  color: ${({ theme }: ThemeType) => theme.colors.text_main};
   font-weight: 400;
   font-size: 24px;
 `
@@ -43,7 +44,7 @@ export const Wrapper = styled.div`
     bottom: 87px;
     width: 48px;
     height: 48px;
-    background-color: ${({ theme }) => theme.colors.bg_main50};
+    background-color: ${({ theme }: ThemeType) => theme.colors.bg_main50};
     border-radius: 60px;
     display: flex;
     align-items: center;
@@ -52,11 +53,11 @@ export const Wrapper = styled.div`
     transition: all 0.3s;
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.bg_main};
+      background-color: ${({ theme }: ThemeType) => theme.colors.bg_main};
     }
 
     .svg-inline--fa {
-      color: ${({ theme }) => theme.colors.secondary};
+      color: ${({ theme }: ThemeType) => theme.colors.secondary};
     }
   }
   .alice-carousel__next-btn {
