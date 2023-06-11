@@ -1,5 +1,4 @@
 import React from 'react'
-import type { NextPage } from 'next'
 import Image from 'next/image'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
@@ -56,7 +55,7 @@ const items = [
   </ItemWrapper>,
 ]
 
-export const MainCarousel: NextPage = function MainCarousel() {
+export function MainCarousel(): React.JSX.Element {
   const direction = theme?.dark?.direction === 'rtl' ? 'rtl' : 'ltr'
   return (
     <Wrapper>

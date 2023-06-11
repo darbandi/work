@@ -16,7 +16,7 @@ const WatchPage = dynamic(
   },
 )
 
-const Watch = function Watch(): React.JSX.Element {
+function Watch(): React.JSX.Element {
   return <WatchPage />
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import { NextPage } from 'next'
 import { CarouselComp, MotionComp } from '@/components'
 import { handleDragStart } from '@/tools'
 import {
@@ -136,7 +135,7 @@ const items = [
   </ItemWrapper>,
 ]
 
-export const TopTen: NextPage = function TopTen() {
+export function TopTen(): React.JSX.Element {
   return (
     <MotionComp type={MotionCompEnum.carousel}>
       <CarouselComp

@@ -9,7 +9,7 @@ const MoviePage = dynamic(
   },
 )
 
-const Watch = function Watch(): React.JSX.Element {
+function Watch(): React.JSX.Element {
   return <MoviePage />
 }
 
