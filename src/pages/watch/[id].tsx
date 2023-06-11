@@ -23,4 +23,5 @@ const Watch = function Watch(): React.JSX.Element {
 Watch.header = <WatchHeader />
 
 export const getServerSideProps = ssrConfig
+
 export default Watch
