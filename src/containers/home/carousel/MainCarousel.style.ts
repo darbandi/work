@@ -25,12 +25,12 @@ export const InfoStyle = styled.div`
   );
 `
 export const TitleStyle = styled.div`
-  color: ${({ theme }: ThemeType) => theme.colors.text_main};
+  color: ${({ theme }: ThemeType) => theme.colors.white};
   font-weight: 700;
   font-size: 48px;
 `
 export const DescriptionStyle = styled.div`
-  color: ${({ theme }: ThemeType) => theme.colors.text_main};
+  color: ${({ theme }: ThemeType) => theme.colors.white};
   font-weight: 400;
   font-size: 24px;
 `
@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
     bottom: 87px;
     width: 48px;
     height: 48px;
-    background-color: ${({ theme }: ThemeType) => theme.colors.bg_main50};
+    background-color: ${({ theme }: ThemeType) => theme.colors.gray_100}50;
     border-radius: 60px;
     display: flex;
     align-items: center;
@@ -53,11 +53,11 @@ export const Wrapper = styled.div`
     transition: all 0.3s;
 
     &:hover {
-      background-color: ${({ theme }: ThemeType) => theme.colors.bg_main};
+      background-color: ${({ theme }: ThemeType) => theme.colors.gray_100};
     }
 
     .svg-inline--fa {
-      color: ${({ theme }: ThemeType) => theme.colors.secondary};
+      color: ${({ theme }: ThemeType) => theme.colors.gray_800};
     }
   }
   .alice-carousel__next-btn {

@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import {
   space,
-  color,
-  typography,
   layout,
   flexbox,
   grid,
@@ -12,8 +10,6 @@ import {
   shadow,
   BackgroundColorProps,
   SpaceProps,
-  ColorProps,
-  TypographyProps,
   LayoutProps,
   FlexboxProps,
   GridProps,
@@ -23,10 +19,8 @@ import {
   ShadowProps,
 } from 'styled-system'
 
-type ButtonProps = BackgroundColorProps &
+type BoxProps = BackgroundColorProps &
   SpaceProps &
-  ColorProps &
-  TypographyProps &
   LayoutProps &
   FlexboxProps &
   GridProps &
@@ -35,10 +29,8 @@ type ButtonProps = BackgroundColorProps &
   PositionProps &
   ShadowProps
 
-export const Box = styled.div<ButtonProps>`
-  ${typography}
+export const Box = styled.div<BoxProps>`
   ${space}
-  ${color} 
   ${layout}
   ${flexbox}
   ${grid}

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { responsive } from '@/theme'
+import { ThemeType, responsive } from '@/theme'
 
 export const Container = styled.div`
   display: flex;
@@ -7,15 +7,15 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  background-color: #eee;
-  background: linear-gradient(45deg, #aaa, #fff);
+  background: ${({ theme }: ThemeType) =>
+    `linear-gradient(45deg, ${theme.colors.gray_500}, ${theme.colors.white})`};
 
   .img {
     background-image: url('/login-banner.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center;
-    background-color: #ddd;
+    background-color: ${({ theme }: ThemeType) => theme.colors.gray_200};
   }
 `
 
@@ -29,8 +29,8 @@ export const Form = styled.form`
   margin: 0 auto;
   padding: 24px;
   border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 0 20px #ccc;
+  background-color: ${({ theme }: ThemeType) => theme.colors.white};
+  box-shadow: 0 0 20px ${({ theme }: ThemeType) => theme.colors.gray_400};
 
   ${responsive(
     'sm',

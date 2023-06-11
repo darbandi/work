@@ -3,7 +3,7 @@ import { ThemeType } from '@/theme'
 
 export const Header = styled.header`
   height: ${({ theme }: ThemeType) => theme.remCalc(57)};
-  background: ${({ theme }: ThemeType) => theme.colors.bg_dark_50};
+  background: ${({ theme }: ThemeType) => theme.colors.gray_900}80;
   display: flex;
   align-items: center;
   padding: ${({ theme }: ThemeType) => theme.remCalc(12)};

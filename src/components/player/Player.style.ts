@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { ThemeType } from '@/theme'
 
 export const ActionBar = styled.div<{ autoHide: boolean }>`
-  background: ${({ theme }: ThemeType) => theme.colors.secondary};
+  background: ${({ theme }: ThemeType) => theme.colors.black};
   position: fixed;
   left: 0;
   bottom: -70px;
@@ -54,12 +54,12 @@ export const Button = styled.button`
   }
 
   .svg-inline--fa {
-    color: ${({ theme }: ThemeType) => theme.colors.bg_main};
+    color: ${({ theme }: ThemeType) => theme.colors.green_600};
     font-size: 40px;
   }
 `
 export const SmallButton = styled(Button)`
-  color: white;
+  color: ${({ theme }: ThemeType) => theme.colors.green_600};
   .svg-inline--fa {
     font-size: 20px;
   }
@@ -73,7 +73,7 @@ export const TimeBar = styled.div`
 export const Time = styled.div`
   width: 100px;
   text-align: center;
-  color: white;
+  color: ${({ theme }: ThemeType) => theme.colors.green_100};
 `
 export const Loop = styled(SmallButton)<{ isLoop: boolean }>`
   position: relative;
@@ -88,7 +88,7 @@ export const Loop = styled(SmallButton)<{ isLoop: boolean }>`
         content: '';
         top: -5px;
         left: 10px;
-        background-color: white;
+        background-color: ${({ theme }: ThemeType) => theme.colors.green_500};
         transform: rotate(-45deg);
       }
     `}
@@ -111,26 +111,37 @@ export const Video = styled.video`
   width: 100%;
   height: 100%;
 `
+const lightButton = css`
+  .svg-inline--fa {
+    color: ${({ theme }: ThemeType) => theme.colors.green_400};
+  }
+`
+
 export const Speed = styled(SmallButton)``
 export const FullScreen = styled(SmallButton)``
 export const Pin = styled(SmallButton)``
-export const Play = styled(Button)``
-export const Pause = styled(Button)``
-export const Stop = styled(Button)``
+export const Play = styled(Button)`
+  ${lightButton}
+`
+export const Pause = styled(Button)`
+  ${lightButton}
+`
 export const Back = styled(SmallButton)`
   display: flex;
   align-items: center;
   gap: 4px;
+  ${lightButton}
 `
 export const Forward = styled(SmallButton)`
   display: flex;
   align-items: center;
   gap: 4px;
+  ${lightButton}
 `
 export const Separator = styled.div`
   width: 2px;
   height: 16px;
-  background-color: white;
+  background-color: ${({ theme }: ThemeType) => theme.colors.white};
   position: relative;
   opacity: 0.1;
   margin: 0 10px;
@@ -141,7 +152,7 @@ export const Seek = styled.input`
   width: 100%;
   height: 3px;
   border-radius: 3px;
-  background: white;
+  background: ${({ theme }: ThemeType) => theme.colors.green_600};
   outline: none;
   opacity: 0.5;
   transition: all 0.3s;
@@ -152,7 +163,7 @@ export const Seek = styled.input`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: white;
+    background: ${({ theme }: ThemeType) => theme.colors.green_300};
     cursor: pointer;
 
     transition: all 0.3s;
@@ -162,7 +173,7 @@ export const Seek = styled.input`
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04aa6d;
+    background: ${({ theme }: ThemeType) => theme.colors.black};
     cursor: pointer;
   }
 

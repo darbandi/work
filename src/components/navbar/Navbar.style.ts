@@ -12,7 +12,7 @@ export const Ul = styled.ul`
 `
 export const Li = styled.li``
 export const A = styled.a`
-  color: ${({ theme }: ThemeType) => theme.colors.text_main};
+  color: ${({ theme }: ThemeType) => theme.colors.gray_300};
   padding: ${({ theme }: ThemeType) => theme.remCalc(16)};
   cursor: pointer;
   display: flex;

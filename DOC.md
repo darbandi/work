@@ -136,9 +136,9 @@ import * as theme from '@/theme'
 import styled from 'styled-components'
 
 export const Header = styled.header`
-  background: ${({ theme }: ThemeType) => theme.colors.bg_dark_50};
+  background: ${({ theme }: ThemeType) => theme.colors.black};
   // OR
-  background: ${theme.dark.colors.bg_dark_50};
+  background: ${theme.dark.colors.black};
 
   // PX to REM
   font-size: ${theme.remCalc(12)};

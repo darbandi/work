@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ThemeType } from '@/theme'
 
 export const Header = styled.header`
-  background-color: ${({ theme }: ThemeType) => theme.colors.secondary};
+  background-color: ${({ theme }: ThemeType) => theme.colors.black};
   opacity: 0;
   position: fixed;
   height: 60px;
@@ -10,7 +10,7 @@ export const Header = styled.header`
   left: 0;
   right: 0;
   z-index: 2;
-  color: white;
+  color: ${({ theme }: ThemeType) => theme.colors.white};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,7 +23,7 @@ export const Header = styled.header`
 `
 
 export const Back = styled.div`
-  color: white;
+  color: ${({ theme }: ThemeType) => theme.colors.white};
   display: flex;
   align-items: center;
   justify-content: space-between;

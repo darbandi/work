@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { Container, Form } from './Login.style'
 import {
-  PrimaryButton,
-  SecondaryButton,
+  ContainedButton,
+  TextButton,
   InputText,
   H4,
   Box,
   Col,
   Row,
+  Typography,
 } from '@/ui-components'
 
 export type FormInputs = { phoneNumber: string; otp: string }
@@ -27,7 +28,11 @@ const LoginForm = (props: LoginFormProps) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <H4>ورود با تلفن همراه</H4>
+      <H4>
+        <Typography fontWeight='bold' color='gray_700'>
+          ورود با تلفن همراه
+        </Typography>
+      </H4>
       <InputText
         type='tel'
         placeholder='شماره تلفن همراه  ...0912'
@@ -44,10 +49,10 @@ const LoginForm = (props: LoginFormProps) => {
         }}
       />
       <Box>
-        <PrimaryButton type='submit'>ارسال رمز یکبار مصرف</PrimaryButton>
-        <SecondaryButton style={{ marginRight: 8 }} type='button'>
+        <ContainedButton type='submit'>ارسال رمز یکبار مصرف</ContainedButton>
+        <TextButton style={{ marginRight: 8 }} type='button'>
           ثبت نام
-        </SecondaryButton>
+        </TextButton>
       </Box>
       {otp && (
         <InputText
