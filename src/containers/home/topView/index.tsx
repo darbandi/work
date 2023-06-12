@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { CardSliderComp, MotionComp } from '@/components'
+import { CardSliderComp, MotionComp, MotionCompEnum } from '@/components'
 import { handleDragStart } from '@/tools'
 import {
   InfoStyle,
@@ -13,7 +13,6 @@ import img3 from '@/assets/images/thumbnails/03.png'
 import img4 from '@/assets/images/thumbnails/04.png'
 import img5 from '@/assets/images/thumbnails/05.png'
 import img6 from '@/assets/images/thumbnails/06.png'
-import { MotionCompEnum } from '@/components'
 
 const items = [
   <ItemWrapper key={1}>

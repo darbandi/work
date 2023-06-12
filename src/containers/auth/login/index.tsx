@@ -14,8 +14,7 @@ import {
   Typography,
   Icon,
 } from '@/ui-components'
-import { MotionComp } from '@/components'
-import { MotionCompEnum } from '@/components'
+import { MotionComp, MotionCompEnum } from '@/components'
 
 export type FormInputs = { phoneNumber: string; otp: string }
 export type LoginFormProps = {

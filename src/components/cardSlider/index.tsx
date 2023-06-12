@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Header, More, Title } from './CardSlider.style'
-import { SliderButtonsPosition, Slider } from '@/ui-components'
-import { Icon } from '@/ui-components'
+import { SliderButtonsPosition, Slider, Icon } from '@/ui-components'
+
 import { MotionComp, MotionCompEnum } from '@/components'
 
 type Props = {

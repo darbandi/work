@@ -1,2 +1,2 @@
-export { useStore, initializeStore } from './store'
+export { initializeStore, useStore } from './store'
 export { StoreProvider } from './StoreProvider'
