@@ -4,15 +4,17 @@ import { Motion, Style, spring } from 'react-motion'
 
 export enum MotionCompEnum {
   carousel = 'carousel',
+  openFromRight = 'openFromRight',
 }
 
 type Props = {
   children: React.JSX.Element
   type: MotionCompEnum
+  active?: boolean
 }
 
-export function MotionComp(props: Props): React.JSX.Element {
-  const { children, type } = props
+export function MotionComp(props: Props): React.JSX.Element | null {
+  const { children, type, active } = props
   const topTenRef = useRef(null)
   const { inView } = useIntersectionObserver(topTenRef)
 
@@ -22,8 +24,13 @@ export function MotionComp(props: Props): React.JSX.Element {
         opacity: spring(inView ? 1 : 0),
         marginTop: spring(inView ? 0 : -50),
       },
+      openFromRight: {
+        opacity: spring(active ? 1 : 0),
+        marginRight: spring(active ? 0 : 50),
+        zIndex: active ? 1 : -1,
+      },
     }),
-    [inView],
+    [inView, active],
   )
 
   return (
