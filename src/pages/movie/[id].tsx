@@ -9,10 +9,8 @@ const MoviePage = dynamic(
   },
 )
 
-function Watch(): React.JSX.Element {
+export default function Watch(): React.JSX.Element {
   return <MoviePage />
 }
 
 export const getServerSideProps = ssrConfig
-
-export default Watch

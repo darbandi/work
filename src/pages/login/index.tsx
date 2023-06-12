@@ -9,7 +9,7 @@ const MainNoSSR = dynamic(
   },
 )
 
-function Login(): React.JSX.Element {
+export default function Login(): React.JSX.Element {
   return (
     <>
       <SEOGenerator title='loginRegister' />
@@ -20,5 +20,3 @@ function Login(): React.JSX.Element {
 
 Login.header = 'empty'
 Login.footer = 'empty'
-
-export default Login

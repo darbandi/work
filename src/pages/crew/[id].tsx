@@ -9,10 +9,8 @@ const CrewPage = dynamic(
   },
 )
 
-function Crew(): React.JSX.Element {
+export default function Crew(): React.JSX.Element {
   return <CrewPage />
 }
 
 export const getServerSideProps = ssrConfig
-
-export default Crew

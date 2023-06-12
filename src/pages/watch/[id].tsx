@@ -16,12 +16,10 @@ const WatchPage = dynamic(
   },
 )
 
-function Watch(): React.JSX.Element {
+export default function Watch(): React.JSX.Element {
   return <WatchPage />
 }
 
 Watch.header = <WatchHeader />
 
 export const getServerSideProps = ssrConfig
-
-export default Watch

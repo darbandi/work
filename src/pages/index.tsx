@@ -19,7 +19,7 @@ const TopTen = dynamic(async () => (await import('@/containers/home')).TopTen, {
   ssr: false,
 })
 
-function Index(): React.JSX.Element {
+export default function Index(): React.JSX.Element {
   return (
     <>
       <SEOGenerator title='mainPage' description='seoDescription' />
@@ -31,4 +31,3 @@ function Index(): React.JSX.Element {
 }
 
 export const getServerSideProps = ssrConfig
-export default Index
