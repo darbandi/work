@@ -3,8 +3,8 @@ import React, { useMemo, useRef } from 'react'
 import { Motion, Style, spring } from 'react-motion'
 
 export enum MotionCompEnum {
-  carousel = 'carousel',
-  openFromRight = 'openFromRight',
+  fromTop = 'fromTop',
+  fromRight = 'fromRight',
 }
 
 type Props = {
@@ -20,11 +20,11 @@ export function MotionComp(props: Props): React.JSX.Element | null {
 
   const styles = useMemo(
     () => ({
-      carousel: {
+      fromTop: {
         opacity: spring(inView ? 1 : 0),
         marginTop: spring(inView ? 0 : -50),
       },
-      openFromRight: {
+      fromRight: {
         opacity: spring(active ? 1 : 0),
         marginRight: spring(active ? 0 : 50),
         zIndex: active ? 1 : -1,

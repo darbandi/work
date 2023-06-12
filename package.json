@@ -39,7 +39,6 @@
     "next-auth": "^4.22.1",
     "next-connect": "^0.13.0",
     "react": "latest",
-    "react-alice-carousel": "^2.7.1",
     "react-dom": "latest",
     "react-intl": "^6.4.2",
     "react-is": "18.2.0",

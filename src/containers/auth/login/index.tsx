@@ -15,7 +15,7 @@ import {
   Icon,
 } from '@/ui-components'
 import { MotionComp } from '@/components'
-import { MotionCompEnum } from '@/components/motion'
+import { MotionCompEnum } from '@/components'
 
 export type FormInputs = { phoneNumber: string; otp: string }
 export type LoginFormProps = {
@@ -38,7 +38,7 @@ const LoginForm = (props: LoginFormProps) => {
   }
 
   return (
-    <MotionComp type={MotionCompEnum.carousel}>
+    <MotionComp type={MotionCompEnum.fromTop}>
       <Form onSubmit={handleSubmit}>
         <H4>
           <Typography fontWeight='bold' color='gray_700'>

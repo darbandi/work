@@ -1,19 +1,19 @@
 import React from 'react'
 import Image from 'next/image'
-import { CarouselComp, MotionComp } from '@/components'
+import { CardSliderComp, MotionComp } from '@/components'
 import { handleDragStart } from '@/tools'
 import {
   InfoStyle,
   ItemWrapper,
   TitleStyle,
-} from '@/components/carousel/Carousel.style'
+} from '@/components/cardSlider/Item.style'
 import img1 from '@/assets/images/thumbnails/01.png'
 import img2 from '@/assets/images/thumbnails/02.png'
 import img3 from '@/assets/images/thumbnails/03.png'
 import img4 from '@/assets/images/thumbnails/04.png'
 import img5 from '@/assets/images/thumbnails/05.png'
 import img6 from '@/assets/images/thumbnails/06.png'
-import { MotionCompEnum } from '@/components/motion'
+import { MotionCompEnum } from '@/components'
 
 const items = [
   <ItemWrapper key={1}>
@@ -22,8 +22,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>مرد عنکبوتی</TitleStyle>
@@ -35,8 +34,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>ماتریکس</TitleStyle>
@@ -48,8 +46,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
@@ -61,8 +58,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
@@ -74,8 +70,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
@@ -87,8 +82,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
@@ -100,8 +94,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
@@ -113,8 +106,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
@@ -126,8 +118,7 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
-      width={205}
-      height={302}
+      style={{ width: '100%', height: 'auto' }}
     />
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
@@ -137,8 +128,8 @@ const items = [
 
 export function TopView(): React.JSX.Element {
   return (
-    <MotionComp type={MotionCompEnum.carousel}>
-      <CarouselComp
+    <MotionComp type={MotionCompEnum.fromTop}>
+      <CardSliderComp
         items={items}
         title='برترین‌ها'
         link='/search?type=topView'

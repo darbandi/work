@@ -1,20 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
-import AliceCarousel from 'react-alice-carousel'
-import 'react-alice-carousel/lib/alice-carousel.css'
-import { NextButtons, PrevButtons } from './Buttons'
+import img1 from '@/assets/images/16.png'
+import img2 from '@/assets/images/17.png'
+import img3 from '@/assets/images/19.png'
+import { CarouselComp } from '@/components'
 import {
   DescriptionStyle,
   InfoStyle,
   TitleStyle,
   ItemWrapper,
-  Wrapper,
-} from './MainCarousel.style'
-import img1 from '@/assets/images/16.png'
-import img2 from '@/assets/images/17.png'
-import img3 from '@/assets/images/19.png'
-import * as theme from '@/theme/Theme.styled'
-import { handleDragStart } from '@/tools'
+} from '@/components/carousel/Item.style'
 
 const items = [
   <ItemWrapper key={1}>
@@ -25,8 +20,8 @@ const items = [
     <Image
       src={img1}
       alt='work'
-      onDragStart={handleDragStart}
       role='presentation'
+      style={{ width: '100%', height: 'auto' }}
     />
   </ItemWrapper>,
   <ItemWrapper key={2}>
@@ -37,8 +32,8 @@ const items = [
     <Image
       src={img2}
       alt='work'
-      onDragStart={handleDragStart}
       role='presentation'
+      style={{ width: '100%', height: 'auto' }}
     />
   </ItemWrapper>,
   <ItemWrapper key={3}>
@@ -49,30 +44,12 @@ const items = [
     <Image
       src={img3}
       alt='work'
-      onDragStart={handleDragStart}
       role='presentation'
+      style={{ width: '100%', height: 'auto' }}
     />
   </ItemWrapper>,
 ]
 
 export function MainCarousel(): React.JSX.Element {
-  const direction = theme?.dark?.direction === 'rtl' ? 'rtl' : 'ltr'
-  return (
-    <Wrapper>
-      <AliceCarousel
-        autoPlay
-        infinite
-        mouseTracking
-        animationType='fadeout'
-        autoPlayDirection={direction}
-        autoPlayInterval={3000}
-        controlsStrategy='responsive'
-        disableDotsControls
-        keyboardNavigation
-        renderPrevButton={() => <PrevButtons />}
-        renderNextButton={() => <NextButtons />}
-        items={items}
-      />
-    </Wrapper>
-  )
+  return <CarouselComp items={items} />
 }

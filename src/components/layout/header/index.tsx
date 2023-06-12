@@ -4,11 +4,10 @@ import { useRouter } from 'next/router'
 import { useIntl } from 'react-intl'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Header } from './Header.style'
-import { NavbarComp } from '@/components/navbar'
 import { useScroll } from '@/hooks'
 import { Box, Icon, InputText, OutlinedButton } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
-import { MotionComp, MotionCompEnum } from '@/components/motion'
+import { MotionComp, MotionCompEnum, NavbarComp } from '@/components'
 
 export function HeaderComp(): React.JSX.Element {
   const { push } = useRouter()
@@ -38,10 +37,7 @@ export function HeaderComp(): React.JSX.Element {
         <Header style={interpolatingStyle}>
           <NavbarComp />
           <Box alignItems={'center'} display={'flex'}>
-            <MotionComp
-              type={MotionCompEnum.openFromRight}
-              active={searchActive}
-            >
+            <MotionComp type={MotionCompEnum.fromRight} active={searchActive}>
               <InputText
                 ref={searchRef}
                 placeholder={formatMessage(globalMessages.search, {

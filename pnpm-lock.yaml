@@ -52,7 +52,6 @@ specifiers:
   prettier: ^2.8.8
   pretty-quick: ^3.1.3
   react: latest
-  react-alice-carousel: ^2.7.1
   react-dom: latest
   react-intl: ^6.4.2
   react-is: 18.2.0
@@ -87,7 +86,6 @@ dependencies:
   next-auth: 4.22.1_8f650e0c8016e2c6687d734f6ab990a9
   next-connect: 0.13.0
   react: 18.2.0
-  react-alice-carousel: 2.7.1_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-intl: 6.4.2_react@18.2.0+typescript@5.1.3
   react-is: 18.2.0
@@ -6290,15 +6288,6 @@ packages:
       strip-json-comments: 2.0.1
     dev: true
 
-  /react-alice-carousel/2.7.1_react@18.2.0:
-    resolution: {integrity: sha512-8ljKi5y+eqlsRkO4qRxEXIP0067w/4zvZvpJ66w+eAbeF0hIgC3iLeSmVtNc+F6ISzFsEJX0cOx7jIawXs0G8A==}
-    peerDependencies:
-      react: '>=15.4'
-    dependencies:
-      react: 18.2.0
-      vanilla-swipe: 2.4.1
-    dev: false
-
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -7536,10 +7525,6 @@ packages:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
     dev: true
-
-  /vanilla-swipe/2.4.1:
-    resolution: {integrity: sha512-o6pfI0dipet88ZnPLV4Jx04Ia+U3xANh14vhROW2TOe/mrwk2JGG68+Z0BPoD1YUcQQEnK4SZBXkqFe+K1l7/w==}
-    dev: false
 
   /vm2/3.9.19:
     resolution: {integrity: sha512-J637XF0DHDMV57R6JyVsTak7nIL8gy5KH4r1HiwWLf/4GBbb5MKL5y7LpmF4A8E2nR6XmzpmMFQ7V7ppPTmUQg==}
