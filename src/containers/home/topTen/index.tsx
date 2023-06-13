@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { CardSliderComp, MotionComp, MotionCompEnum } from '@/components'
+import { CardSliderComp, MotionComp } from '@/components'
 import { handleDragStart } from '@/tools'
 import {
   InfoStyle,
@@ -145,12 +145,49 @@ export const items = [
 
 export function TopTen(): React.JSX.Element {
   return (
-    <MotionComp type={MotionCompEnum.fromTop}>
-      <CardSliderComp
-        items={items}
-        title='10 فیلم برتر'
-        link='/search?type=topView'
-      />
-    </MotionComp>
+    <>
+      <MotionComp>
+        <CardSliderComp
+          items={items}
+          title='10 فیلم برتر'
+          link='/search?type=topView'
+        />
+      </MotionComp>
+      <MotionComp>
+        <CardSliderComp
+          items={items}
+          title='10 فیلم برتر'
+          link='/search?type=topView'
+        />
+      </MotionComp>
+      <MotionComp>
+        <CardSliderComp
+          items={items}
+          title='10 فیلم برتر'
+          link='/search?type=topView'
+        />
+      </MotionComp>
+      <MotionComp>
+        <CardSliderComp
+          items={items}
+          title='10 فیلم برتر'
+          link='/search?type=topView'
+        />
+      </MotionComp>
+      <MotionComp>
+        <CardSliderComp
+          items={items}
+          title='10 فیلم برتر'
+          link='/search?type=topView'
+        />
+      </MotionComp>
+      <MotionComp>
+        <CardSliderComp
+          items={items}
+          title='10 فیلم برتر'
+          link='/search?type=topView'
+        />
+      </MotionComp>
+    </>
   )
 }

@@ -27,6 +27,15 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'IranSans';
   }
 
+  *:active, *:hover {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
   body, html {
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 1%, 16%);

@@ -4,8 +4,6 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Header, More, Title } from './CardSlider.style'
 import { SliderButtonsPosition, Slider, Icon } from '@/ui-components'
 
-import { MotionComp, MotionCompEnum } from '@/components'
-
 type Props = {
   items: React.JSX.Element[]
   title: string
@@ -25,38 +23,36 @@ export function CardSliderComp(props: Props): React.JSX.Element {
           <Icon icon={faChevronLeft} />
         </More>
       </Header>
-      <MotionComp type={MotionCompEnum.fromTop}>
-        <Slider
-          items={items}
-          position={SliderButtonsPosition.side}
-          breakpoints={{
-            0: {
-              slidesPerView: 3,
-              spaceBetween: 24,
-            },
-            576: {
-              slidesPerView: 4,
-              spaceBetween: 24,
-            },
-            768: {
-              slidesPerView: 5,
-              spaceBetween: 24,
-            },
-            992: {
-              slidesPerView: 6,
-              spaceBetween: 24,
-            },
-            1200: {
-              slidesPerView: 7,
-              spaceBetween: 24,
-            },
-            1366: {
-              slidesPerView: 8,
-              spaceBetween: 24,
-            },
-          }}
-        />
-      </MotionComp>
+      <Slider
+        items={items}
+        position={SliderButtonsPosition.side}
+        breakpoints={{
+          0: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          },
+          576: {
+            slidesPerView: 4,
+            spaceBetween: 24,
+          },
+          768: {
+            slidesPerView: 5,
+            spaceBetween: 24,
+          },
+          992: {
+            slidesPerView: 6,
+            spaceBetween: 24,
+          },
+          1200: {
+            slidesPerView: 7,
+            spaceBetween: 24,
+          },
+          1366: {
+            slidesPerView: 8,
+            spaceBetween: 24,
+          },
+        }}
+      />
     </Container>
   )
 }

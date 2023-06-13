@@ -1,7 +1,7 @@
 export { CardSliderComp } from './cardSlider'
 export { CarouselComp } from './carousel'
 export { LayoutComp } from './layout'
-export { MotionComp, MotionCompEnum } from './motion'
+export { MotionComp } from './motion'
 export { NavbarComp } from './navbar'
 export { PlayerComp } from './player'
 export { SEOGenerator } from './seoGenerator'

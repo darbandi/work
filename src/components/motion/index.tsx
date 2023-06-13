@@ -1,45 +1,19 @@
 import { useIntersectionObserver } from '@react-hooks-library/core'
-import React, { useMemo, useRef } from 'react'
-import { Motion, Style, spring } from 'react-motion'
-
-export enum MotionCompEnum {
-  fromTop = 'fromTop',
-  fromRight = 'fromRight',
-}
+import React, { useRef } from 'react'
+import { Motion } from './Motion.style'
 
 type Props = {
   children: React.JSX.Element
-  type: MotionCompEnum
-  active?: boolean
 }
 
 export function MotionComp(props: Props): React.JSX.Element | null {
-  const { children, type, active } = props
+  const { children } = props
   const topTenRef = useRef(null)
   const { inView } = useIntersectionObserver(topTenRef)
 
-  const styles = useMemo(
-    () => ({
-      fromTop: {
-        opacity: spring(inView ? 1 : 0),
-        marginTop: spring(inView ? 0 : -50),
-      },
-      fromRight: {
-        opacity: spring(active ? 1 : 0),
-        marginRight: spring(active ? 0 : 50),
-        zIndex: active ? 1 : -1,
-      },
-    }),
-    [inView, active],
-  )
-
   return (
-    <Motion style={styles?.[type as keyof typeof MotionCompEnum] as Style}>
-      {(interpolatingStyle) => (
-        <div ref={topTenRef} style={interpolatingStyle}>
-          {children}
-        </div>
-      )}
+    <Motion ref={topTenRef} inView={inView}>
+      {children}
     </Motion>
   )
 }

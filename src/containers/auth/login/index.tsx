@@ -14,7 +14,7 @@ import {
   Typography,
   Icon,
 } from '@/ui-components'
-import { MotionComp, MotionCompEnum } from '@/components'
+import { MotionComp } from '@/components'
 
 export type FormInputs = { phoneNumber: string; otp: string }
 export type LoginFormProps = {
@@ -37,7 +37,7 @@ const LoginForm = (props: LoginFormProps) => {
   }
 
   return (
-    <MotionComp type={MotionCompEnum.fromTop}>
+    <MotionComp>
       <Form onSubmit={handleSubmit}>
         <H4>
           <Typography fontWeight='bold' color='gray_700'>

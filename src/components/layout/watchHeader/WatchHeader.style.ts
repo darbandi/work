@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ThemeType } from '@/theme'
+import { ThemeType, flexSB } from '@/theme'
 
 export const Header = styled.header`
   background-color: ${({ theme }: ThemeType) => theme.colors.black};
@@ -11,9 +11,7 @@ export const Header = styled.header`
   right: 0;
   z-index: 2;
   color: ${({ theme }: ThemeType) => theme.colors.white};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${flexSB}
   padding: 0 24px;
   transition: all 0.3s;
 
@@ -24,9 +22,7 @@ export const Header = styled.header`
 
 export const Back = styled.div`
   color: ${({ theme }: ThemeType) => theme.colors.white};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${flexSB}
   gap: 8px;
   cursor: pointer;
 `

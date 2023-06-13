@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ThemeType } from '@/theme'
+import { ThemeType, flexSB } from '@/theme'
 
 export const More = styled.div`
   cursor: pointer;
@@ -17,9 +17,7 @@ export const More = styled.div`
   }
 `
 export const Header = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${flexSB}
   padding-left: ${({ theme }: ThemeType) => theme.remCalc(50)};
 `
 export const Title = styled.div`
