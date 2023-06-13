@@ -11,6 +11,7 @@ import fa from '@/locales/fa/common.json'
 import { LayoutComp } from '@/components'
 import { StoreProvider } from '@/store'
 import { Auth } from '@/tools'
+import '@/public/fonts/fonts.css'
 
 const cache = createIntlCache()
 const messages = { fa, en }

@@ -23,6 +23,9 @@ export const Header = styled.header`
     height: 33px;
     width: 200px;
     margin-left: 8px;
+    &::placeholder {
+      font-weight: 300 !important;
+    }
 
     ${animationSlideInTop}
   }

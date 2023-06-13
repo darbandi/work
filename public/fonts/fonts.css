@@ -1,0 +1,93 @@
+
+@font-face {
+  font-family: Droid;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./Droid.ttf') format('truetype');
+}
+
+/* regular font */
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 100;
+  src: url('./woff/IRANSansX-UltraLight.woff') format('woff'),
+    url('./woff2/IRANSansX-UltraLight.woff2') format('woff2');
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 200;
+  src: url('./woff/IRANSansX-Light.woff') format('woff'),
+    url('./woff2/IRANSansX-Light.woff2') format('woff2');
+}
+
+/*medium font*/
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 300;
+  src: url('./woff/IRANSansX-Regular.woff') format('woff'),
+    url('./woff2/IRANSansX-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 500;
+  src: url('./woff/IRANSansX-Bold.woff') format('woff'),
+    url('./woff2/IRANSansX-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 800;
+  src: url('./woff/IRANSansX-Medium.woff') format('woff'),
+    url('./woff2/IRANSansX-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: lighter;
+  src: url('./woff/IRANSansX-UltraLight.woff') format('woff'),
+    url('./woff2/IRANSansX-UltraLight.woff2') format('woff2');
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: bold;
+  src: url('./woff/IRANSansX-Bold.woff') format('woff'),
+    url('./woff2/IRANSansX-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: bolder;
+  src: url('./woff/IRANSansX-Medium.woff') format('woff'),
+    url('./woff2/IRANSansX-Medium.woff2') format('woff2');
+}
+
+.font-title {
+  font-family: 'Droid' !important;
+}
+
+.font-description {
+  font-family: 'IRANSansX' !important;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IRANSansX';
+}
+
+*:active, *:hover {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
