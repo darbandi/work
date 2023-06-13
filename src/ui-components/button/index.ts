@@ -5,7 +5,7 @@ const globalStyle = css`
   border: none;
   border-radius: 24px;
   padding: 0 24px;
-  font-size: 16px;
+  font-size: ${({ theme }: ThemeType) => theme.remCalc(16)};
   cursor: pointer;
   transition: all 0.3s;
   font-weight: 500;

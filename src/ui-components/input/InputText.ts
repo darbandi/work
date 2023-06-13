@@ -5,7 +5,7 @@ export const InputText = styled.input`
   border: 1px solid ${({ theme }: ThemeType) => theme.colors.gray_200};
   border-radius: 24px;
   padding: 8px 16px;
-  font-size: 16px;
+  font-size: ${({ theme }: ThemeType) => theme.remCalc(16)};
   width: 100%;
   height: 48px;
   transition: all 0.3s;

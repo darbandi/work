@@ -18,6 +18,6 @@ export const A = styled.a`
   display: flex;
   align-items: center;
   gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
-  font-size: 16px;
+  font-size: ${({ theme }: ThemeType) => theme.remCalc(16)};
   font-weight: bold;
 `

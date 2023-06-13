@@ -1,34 +1,57 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
+import { responsive } from './tools'
 
-const IRANSansWeb_woff = '../assets/font/iransans/woff/IRANSansWeb_Bold.woff'
-const IRANSansWeb_woff2 = '../assets/font/iransans/woff2/IRANSansWeb_Bold.woff2'
-const IRANSansWeb_ttf = '../assets/font/iransans/ttf/IRANSansWeb_Bold.ttf'
-const IRANSansWeb_eot = '../assets/font/iransans/eot/IRANSansWeb_Bold.eot'
+const IRANSansWeb_woff = '/fonts/iransans/woff/IRANSansWeb_Bold.woff'
+const IRANSansWeb_woff2 = '/fonts/iransans/woff2/IRANSansWeb_Bold.woff2'
+const IRANSansWeb_ttf = '/fonts/iransans/ttf/IRANSansWeb_Bold.ttf'
+const IRANSansWeb_eot = '/fonts/iransans/eot/IRANSansWeb_Bold.eot'
 
 export const GlobalStyles = createGlobalStyle`
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'IRANSansWeb';
-}
 
-body, html {
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(0, 1%, 16%);
-  overflow-x: hidden;
-  direction  : rtl;
-  scroll-behavior: smooth;
-}
-
-@font-face {
-    font-weight: 200 !important;
-    src: local('IRANSansWeb'), 
-    url(${IRANSansWeb_woff}) format('woff'), 
+  @font-face {
+    font-family: 'IranSans';
+    src: url(${IRANSansWeb_woff}) format('woff'), 
     url(${IRANSansWeb_woff2}) format('woff2'), 
     url(${IRANSansWeb_ttf}) format('truetype'), 
     url(${IRANSansWeb_eot}) format('eot');
-}
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IranSans';
+  }
+
+  body, html {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 1%, 16%);
+    overflow-x: hidden;
+    direction  : rtl;
+    scroll-behavior: smooth;
+    font-size: 16px;
+
+    ${responsive(
+      'lg',
+      css`
+        font-size: 16px;
+      `,
+    )};
+    ${responsive(
+      'md',
+      css`
+        font-size: 14px;
+      `,
+    )};
+    ${responsive(
+      'sm',
+      css`
+        font-size: 12px;
+      `,
+    )};
+  }
 `

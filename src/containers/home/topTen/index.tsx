@@ -14,15 +14,17 @@ import img4 from '@/assets/images/thumbnails/04.png'
 import img5 from '@/assets/images/thumbnails/05.png'
 import img6 from '@/assets/images/thumbnails/06.png'
 
-const items = [
+export const items = [
   <ItemWrapper key={1}>
     <Image
       src={img1}
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>مرد عنکبوتی</TitleStyle>
     </InfoStyle>
@@ -33,8 +35,10 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>ماتریکس</TitleStyle>
     </InfoStyle>
@@ -45,8 +49,10 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
     </InfoStyle>
@@ -57,8 +63,10 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
     </InfoStyle>
@@ -69,8 +77,10 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
     </InfoStyle>
@@ -81,8 +91,10 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
     </InfoStyle>
@@ -93,8 +105,10 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
     </InfoStyle>
@@ -105,8 +119,10 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
     </InfoStyle>
@@ -117,8 +133,10 @@ const items = [
       alt='work'
       onDragStart={handleDragStart}
       role='presentation'
+      loading='lazy'
       style={{ width: '100%', height: 'auto' }}
     />
+    <div className='swiper-lazy-preloader'></div>
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
     </InfoStyle>

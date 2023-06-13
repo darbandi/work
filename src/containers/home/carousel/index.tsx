@@ -9,6 +9,7 @@ import {
   InfoStyle,
   TitleStyle,
   ItemWrapper,
+  ImageWrapper,
 } from '@/components/carousel/Item.style'
 
 const items = [
@@ -17,36 +18,48 @@ const items = [
       <TitleStyle>مرد عنکبوتی</TitleStyle>
       <DescriptionStyle>Spider Man</DescriptionStyle>
     </InfoStyle>
-    <Image
-      src={img1}
-      alt='work'
-      role='presentation'
-      style={{ width: '100%', height: 'auto' }}
-    />
+    <ImageWrapper>
+      <Image
+        className='img'
+        src={img1}
+        alt='work'
+        role='presentation'
+        style={{ width: 'auto', height: '100%' }}
+      />
+    </ImageWrapper>
+    <div className='swiper-lazy-preloader'></div>
   </ItemWrapper>,
   <ItemWrapper key={2}>
     <InfoStyle>
       <TitleStyle>ماتریکس</TitleStyle>
       <DescriptionStyle>Matrix</DescriptionStyle>
     </InfoStyle>
-    <Image
-      src={img2}
-      alt='work'
-      role='presentation'
-      style={{ width: '100%', height: 'auto' }}
-    />
+    <ImageWrapper>
+      <Image
+        className='img'
+        src={img2}
+        alt='work'
+        role='presentation'
+        style={{ width: 'auto', height: '100%' }}
+      />
+    </ImageWrapper>
+    <div className='swiper-lazy-preloader'></div>
   </ItemWrapper>,
   <ItemWrapper key={3}>
     <InfoStyle>
       <TitleStyle>مکس دیوانه</TitleStyle>
       <DescriptionStyle>Mad Max</DescriptionStyle>
     </InfoStyle>
-    <Image
-      src={img3}
-      alt='work'
-      role='presentation'
-      style={{ width: '100%', height: 'auto' }}
-    />
+    <ImageWrapper>
+      <Image
+        className='img'
+        src={img3}
+        alt='work'
+        role='presentation'
+        style={{ width: 'auto', height: '100%' }}
+      />
+    </ImageWrapper>
+    <div className='swiper-lazy-preloader'></div>
   </ItemWrapper>,
 ]
 

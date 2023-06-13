@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { ThemeType, responsive } from '@/theme'
+import styled from 'styled-components'
+import { ThemeType } from '@/theme'
 
 export const More = styled.div`
   cursor: pointer;
@@ -9,7 +9,7 @@ export const More = styled.div`
   color: ${({ theme }: ThemeType) => theme.colors.gray_700};
   .svg-inline--fa {
     color: ${({ theme }: ThemeType) => theme.colors.gray_700};
-    font-size: 10px;
+    font-size: ${({ theme }: ThemeType) => theme.remCalc(10)};
   }
   a {
     color: inherit;
@@ -20,29 +20,15 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 50px;
-
-  ${responsive(
-    'xs',
-    css`
-      padding: 0 50px;
-    `,
-  )}
+  padding-left: ${({ theme }: ThemeType) => theme.remCalc(50)};
 `
 export const Title = styled.div`
   font-weight: 500;
-  font-size: 32px;
+  font-size: ${({ theme }: ThemeType) => theme.remCalc(32)};
   color: ${({ theme }: ThemeType) => theme.colors.gray_800};
   margin-bottom: 12px;
 `
 export const Container = styled.div`
-  margin-right: 50px;
+  padding-right: ${({ theme }: ThemeType) => theme.remCalc(50)};
   margin-top: 80px;
-
-  ${responsive(
-    'xs',
-    css`
-      margin-right: 0;
-    `,
-  )}
 `

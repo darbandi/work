@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { SliderButtonsPosition } from '.'
-import { ThemeType } from '@/theme'
+import { ThemeType, responsive } from '@/theme'
 
 export const PrevButtonsStyle = styled.div<{
   position?: SliderButtonsPosition
@@ -25,6 +25,13 @@ export const PrevButtonsStyle = styled.div<{
     color: ${({ theme }: ThemeType) => theme.colors.gray_800};
   }
 
+  ${responsive(
+    'sm',
+    css`
+      display: none;
+    `,
+  )}
+
   ${({ position }) =>
     position === SliderButtonsPosition.side
       ? css`
@@ -41,7 +48,7 @@ export const PrevButtonsStyle = styled.div<{
           }
           .svg-inline--fa {
             color: ${({ theme }: ThemeType) => theme.colors.gray_100};
-            font-size: 32px;
+            font-size: ${({ theme }: ThemeType) => theme.remCalc(32)};
           }
         `
       : css`

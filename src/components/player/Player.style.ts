@@ -55,13 +55,13 @@ export const Button = styled.button`
 
   .svg-inline--fa {
     color: ${({ theme }: ThemeType) => theme.colors.green_600};
-    font-size: 40px;
+    font-size: ${({ theme }: ThemeType) => theme.remCalc(40)};
   }
 `
 export const SmallButton = styled(Button)`
   color: ${({ theme }: ThemeType) => theme.colors.green_600};
   .svg-inline--fa {
-    font-size: 20px;
+    font-size: ${({ theme }: ThemeType) => theme.remCalc(20)};
   }
 `
 export const TimeBar = styled.div`
