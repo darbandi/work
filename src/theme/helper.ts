@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-const animationTime = '0.3s'
+const animationTime = '0.3s ease-in-out'
 
 export const animationSlideInBottom = css`
   animation: slide-in-bottom ${animationTime};
