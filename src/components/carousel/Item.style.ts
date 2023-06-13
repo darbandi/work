@@ -3,16 +3,16 @@ import { ThemeType, responsive } from '@/theme'
 
 export const InfoStyle = styled.div`
   position: absolute;
-  top: 57px;
+  top: ${({ theme }: ThemeType) => theme.remCalc(57)};
   right: 0;
   left: 50%;
   bottom: 0;
   display: flex;
   align-items: start;
   flex-direction: column;
-  padding-top: 40px;
-  padding-bottom: 88px;
-  padding-inline-start: 64px;
+  padding-top: ${({ theme }: ThemeType) => theme.remCalc(40)};
+  padding-bottom: ${({ theme }: ThemeType) => theme.remCalc(88)};
+  padding-inline-start: ${({ theme }: ThemeType) => theme.remCalc(64)};
   justify-content: start;
   direction: ${({ theme }: ThemeType) => theme.direction};
   background: linear-gradient(
@@ -31,7 +31,7 @@ export const InfoStyle = styled.div`
       width: 100%;
       height: auto;
       align-items: center;
-      padding: 10px 0;
+      padding: ${({ theme }: ThemeType) => theme.remCalc(10)} 0;
       background: linear-gradient(
         0deg,
         rgba(0, 0, 0, 0.7) 50%,
@@ -53,7 +53,7 @@ export const DescriptionStyle = styled.div`
 export const ItemWrapper = styled.div``
 export const ImageWrapper = styled.div`
   overflow: hidden;
-  height: 400px;
+  height: ${({ theme }: ThemeType) => theme.remCalc(400)};
   display: flex;
   align-items: center;
   justify-content: center;

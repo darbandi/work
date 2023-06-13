@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ThemeType, animationSlideInTop, flexSB } from '@/theme'
 
 export const Header = styled.header`
-  height: 57px;
+  height: ${({ theme }: ThemeType) => theme.remCalc(57)};
   background: ${({ theme }: ThemeType) => theme.colors.gray_900}80;
   ${flexSB}
   padding: ${({ theme }: ThemeType) => theme.remCalc(12)};
@@ -14,15 +14,15 @@ export const Header = styled.header`
   ${animationSlideInTop}
 
   .fa-search {
-    margin-left: 8px;
+    margin-left: ${({ theme }: ThemeType) => theme.remCalc(8)};
     cursor: pointer;
     font-size: large;
   }
 
   .input-search {
-    height: 33px;
-    width: 200px;
-    margin-left: 8px;
+    height: ${({ theme }: ThemeType) => theme.remCalc(32)};
+    width: ${({ theme }: ThemeType) => theme.remCalc(200)};
+    margin-left: ${({ theme }: ThemeType) => theme.remCalc(8)};
     &::placeholder {
       font-weight: 300 !important;
     }

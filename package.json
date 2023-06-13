@@ -15,7 +15,8 @@
     "release": "release-it",
     "type-check:analyze": "tsc --extendedDiagnostics  --project tsconfig.json",
     "type-check:list": "tsc --noEmit -p tsconfig.json --listFiles ",
-    "type-check": "tsc --noEmit -p tsconfig.json"
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    "fix": "pnpm lint:fix && pnpm prettier:fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

@@ -3,16 +3,18 @@ import { ThemeType } from '@/theme'
 
 const globalStyle = css`
   border: none;
-  border-radius: 24px;
-  padding: 0 24px;
+  border-radius: ${({ theme }: ThemeType) => theme.remCalc(24)};
+  padding: 0 ${({ theme }: ThemeType) => theme.remCalc(24)};
   font-size: ${({ theme }: ThemeType) => theme.remCalc(16)};
   cursor: pointer;
   transition: all 0.3s;
   font-weight: 500;
-  height: 48px;
+  height: ${({ theme }: ThemeType) => theme.remCalc(48)};
 
   &:hover {
-    box-shadow: 0 0 5px ${({ theme }: ThemeType) => theme.colors.gray_500};
+    box-shadow: 0 0
+      ${({ theme }: ThemeType) =>
+        `${theme.remCalc(5)} ${theme.colors.gray_500}`};
   }
 `
 

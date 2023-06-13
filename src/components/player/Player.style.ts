@@ -6,7 +6,7 @@ export const ActionBar = styled.div<{ autoHide: boolean }>`
   background: ${({ theme }: ThemeType) => theme.colors.black};
   position: fixed;
   left: 0;
-  bottom: -70px;
+  bottom: -${({ theme }: ThemeType) => theme.remCalc(70)};
   right: 0;
   height: auto;
   z-index: 1;
@@ -27,7 +27,7 @@ export const ActionBar = styled.div<{ autoHide: boolean }>`
 `
 export const SeekBar = styled.div`
   position: relative;
-  height: 30px;
+  height: ${({ theme }: ThemeType) => theme.remCalc(30)};
   width: 100%;
   padding: 0;
 `
@@ -36,9 +36,9 @@ export const Actions = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-  padding-bottom: 16px;
-  gap: 24px;
+  padding: ${({ theme }: ThemeType) => theme.remCalc(8)};
+  padding-bottom: ${({ theme }: ThemeType) => theme.remCalc(16)};
+  gap: ${({ theme }: ThemeType) => theme.remCalc(24)};
   width: 100%;
 `
 export const Button = styled.button`
@@ -71,7 +71,7 @@ export const TimeBar = styled.div`
   align-items: center;
 `
 export const Time = styled.div`
-  width: 100px;
+  width: ${({ theme }: ThemeType) => theme.remCalc(100)};
   text-align: center;
   color: ${({ theme }: ThemeType) => theme.colors.green_100};
 `
@@ -83,11 +83,11 @@ export const Loop = styled(SmallButton)<{ isLoop: boolean }>`
       opacity: 0.5;
       &:after {
         position: absolute;
-        width: 1px;
-        height: 30px;
+        width: ${({ theme }: ThemeType) => theme.remCalc(1)};
+        height: ${({ theme }: ThemeType) => theme.remCalc(30)};
         content: '';
-        top: -5px;
-        left: 10px;
+        top: -${({ theme }: ThemeType) => theme.remCalc(5)};
+        left: ${({ theme }: ThemeType) => theme.remCalc(10)};
         background-color: ${({ theme }: ThemeType) => theme.colors.green_500};
         transform: rotate(-45deg);
       }
@@ -97,8 +97,8 @@ export const ThumbnailImage = styled(Image)<{
   left: string | number | undefined
 }>`
   position: absolute;
-  bottom: 20px;
-  border-radius: 4px;
+  bottom: ${({ theme }: ThemeType) => theme.remCalc(20)};
+  border-radius: ${({ theme }: ThemeType) => theme.remCalc(4)};
   box-shadow: 0 0 5px black;
 
   ${({ left }) =>
@@ -129,29 +129,29 @@ export const Pause = styled(Button)`
 export const Back = styled(SmallButton)`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
   ${lightButton}
 `
 export const Forward = styled(SmallButton)`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
   ${lightButton}
 `
 export const Separator = styled.div`
-  width: 2px;
-  height: 16px;
+  width: ${({ theme }: ThemeType) => theme.remCalc(2)};
+  height: ${({ theme }: ThemeType) => theme.remCalc(16)};
   background-color: ${({ theme }: ThemeType) => theme.colors.white};
   position: relative;
   opacity: 0.1;
-  margin: 0 10px;
+  margin: 0 ${({ theme }: ThemeType) => theme.remCalc(10)};
 `
 export const Mute = styled(SmallButton)``
 export const Seek = styled.input`
   -webkit-appearance: none;
   width: 100%;
-  height: 3px;
-  border-radius: 3px;
+  height: ${({ theme }: ThemeType) => theme.remCalc(3)};
+  border-radius: ${({ theme }: ThemeType) => theme.remCalc(3)};
   background: ${({ theme }: ThemeType) => theme.colors.green_600};
   outline: none;
   opacity: 0.5;
@@ -160,8 +160,8 @@ export const Seek = styled.input`
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 10px;
-    height: 10px;
+    width: ${({ theme }: ThemeType) => theme.remCalc(10)};
+    height: ${({ theme }: ThemeType) => theme.remCalc(10)};
     border-radius: 50%;
     background: ${({ theme }: ThemeType) => theme.colors.green_300};
     cursor: pointer;
@@ -170,8 +170,8 @@ export const Seek = styled.input`
   }
 
   &::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+    width: ${({ theme }: ThemeType) => theme.remCalc(25)};
+    height: ${({ theme }: ThemeType) => theme.remCalc(25)};
     border-radius: 50%;
     background: ${({ theme }: ThemeType) => theme.colors.black};
     cursor: pointer;

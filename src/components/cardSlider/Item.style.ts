@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ThemeType } from '@/theme'
 
 export const InfoStyle = styled.div`
-  padding-top: 4px;
+  padding-top: ${({ theme }: ThemeType) => theme.remCalc(4)};
   direction: ${({ theme }: ThemeType) => theme.direction};
 `
 export const TitleStyle = styled.div`

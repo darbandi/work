@@ -34,7 +34,7 @@ export const Ul = styled.ul`
   }
 
   &.mobile {
-    padding: 16px;
+    padding: ${({ theme }: ThemeType) => theme.remCalc(18)};
     display: flex;
     align-items: start;
     flex-direction: column;
@@ -44,7 +44,8 @@ export const Ul = styled.ul`
     bottom: 0;
     width: ${({ theme }: ThemeType) => theme.remCalc(300)};
     background-color: ${({ theme }: ThemeType) => theme.colors.gray_100};
-    box-shadow: 0 0 10px ${({ theme }: ThemeType) => theme.colors.black};
+    box-shadow: 0 0
+      ${({ theme }: ThemeType) => `${theme.remCalc(80)} ${theme.colors.black}`};
 
     .fa-angle {
       color: ${({ theme }: ThemeType) => theme.colors.gray_700};
@@ -55,7 +56,7 @@ export const Ul = styled.ul`
 `
 export const Li = styled.li`
   &.mobile {
-    padding: 16px 0;
+    padding: ${({ theme }: ThemeType) => theme.remCalc(18)} 0;
     width: 100%;
   }
 `

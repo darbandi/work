@@ -22,13 +22,14 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  gap: 48px;
-  width: 400px;
+  gap: ${({ theme }: ThemeType) => theme.remCalc(48)};
+  width: ${({ theme }: ThemeType) => theme.remCalc(400)};
   margin: 0 auto;
-  padding: 24px;
-  border-radius: 8px;
+  padding: ${({ theme }: ThemeType) => theme.remCalc(24)};
+  border-radius: ${({ theme }: ThemeType) => theme.remCalc(8)};
   background-color: ${({ theme }: ThemeType) => theme.colors.white};
-  box-shadow: 0 0 20px ${({ theme }: ThemeType) => theme.colors.gray_400};
+  box-shadow: 0 0
+    ${({ theme }: ThemeType) => `${theme.remCalc(20)} ${theme.colors.gray_400}`};
 
   ${responsive(
     'sm',

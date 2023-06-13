@@ -6,9 +6,9 @@ export const PrevButtonsStyle = styled.div<{
   position?: SliderButtonsPosition
 }>`
   background-color: ${({ theme }: ThemeType) => theme.colors.gray_100}70;
-  width: 48px;
-  height: 48px;
-  border-radius: 60px;
+  width: ${({ theme }: ThemeType) => theme.remCalc(48)};
+  height: ${({ theme }: ThemeType) => theme.remCalc(48)};
+  border-radius: ${({ theme }: ThemeType) => theme.remCalc(60)};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,8 +40,9 @@ export const PrevButtonsStyle = styled.div<{
           top: 0;
           right: 0;
           border-radius: 0;
-          height: calc(100% - 43px);
-          width: 70px;
+          height: ${({ theme }: ThemeType) =>
+            `calc(100% - ${theme.remCalc(43)})`};
+          width: ${({ theme }: ThemeType) => theme.remCalc(70)};
           &:hover {
             background: ${({ theme }: ThemeType) =>
               `linear-gradient(270deg, ${theme.colors.black}, transparent)`};
@@ -52,8 +53,8 @@ export const PrevButtonsStyle = styled.div<{
           }
         `
       : css`
-          bottom: 50px;
-          left: 100px;
+          bottom: ${({ theme }: ThemeType) => theme.remCalc(50)};
+          left: ${({ theme }: ThemeType) => theme.remCalc(100)};
         `}
 `
 export const NextButtonsStyle = styled(PrevButtonsStyle)<{
@@ -68,7 +69,8 @@ export const NextButtonsStyle = styled(PrevButtonsStyle)<{
           right: auto;
           left: 0;
           border-radius: 0;
-          height: calc(100% - 42px);
+          height: ${({ theme }: ThemeType) =>
+            `calc(100% - ${theme.remCalc(42)})`};
 
           &:hover {
             background: ${({ theme }: ThemeType) =>
@@ -77,6 +79,6 @@ export const NextButtonsStyle = styled(PrevButtonsStyle)<{
         `
       : css`
           right: auto;
-          left: 40px;
+          left: ${({ theme }: ThemeType) => theme.remCalc(40)};
         `}
 `
