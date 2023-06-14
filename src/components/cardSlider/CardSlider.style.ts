@@ -22,9 +22,10 @@ export const Header = styled.div`
   margin-bottom: ${({ theme }: ThemeType) => theme.remCalc(12)};
 `
 export const Title = styled.div`
-  font-weight: 500;
+  font-weight: bold;
   font-size: ${({ theme }: ThemeType) => theme.remCalc(32)};
   color: ${({ theme }: ThemeType) => theme.colors.gray_800};
+  font-family: 'Droid';
 `
 export const Container = styled.div`
   padding-right: ${({ theme }: ThemeType) => theme.remCalc(50)};

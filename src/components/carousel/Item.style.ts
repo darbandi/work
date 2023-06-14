@@ -44,6 +44,7 @@ export const TitleStyle = styled.div`
   color: ${({ theme }: ThemeType) => theme.colors.white};
   font-weight: 700;
   font-size: ${({ theme }: ThemeType) => theme.remCalc(48)};
+  font-family: 'Droid';
 `
 export const DescriptionStyle = styled.div`
   color: ${({ theme }: ThemeType) => theme.colors.white};
