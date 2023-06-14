@@ -59,7 +59,7 @@ const LoginForm = (props: LoginFormProps) => {
             }
           }}
         />
-        <Box>
+        <Box display='flex'>
           <ContainedButton type='submit'>ارسال رمز یکبار مصرف</ContainedButton>
           <TextButton
             style={{ marginRight: 8 }}

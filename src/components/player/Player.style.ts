@@ -54,12 +54,12 @@ export const Button = styled.button`
   }
 
   .svg-inline--fa {
-    color: ${({ theme }: ThemeType) => theme.colors.green_600};
+    color: ${({ theme }: ThemeType) => theme.colors.gray_600};
     font-size: ${({ theme }: ThemeType) => theme.remCalc(40)};
   }
 `
 export const SmallButton = styled(Button)`
-  color: ${({ theme }: ThemeType) => theme.colors.green_600};
+  color: ${({ theme }: ThemeType) => theme.colors.gray_600};
   .svg-inline--fa {
     font-size: ${({ theme }: ThemeType) => theme.remCalc(20)};
   }
@@ -73,7 +73,7 @@ export const TimeBar = styled.div`
 export const Time = styled.div`
   width: ${({ theme }: ThemeType) => theme.remCalc(100)};
   text-align: center;
-  color: ${({ theme }: ThemeType) => theme.colors.green_100};
+  color: ${({ theme }: ThemeType) => theme.colors.gray_100};
 `
 export const Loop = styled(SmallButton)<{ isLoop: boolean }>`
   position: relative;
@@ -88,7 +88,7 @@ export const Loop = styled(SmallButton)<{ isLoop: boolean }>`
         content: '';
         top: -${({ theme }: ThemeType) => theme.remCalc(5)};
         left: ${({ theme }: ThemeType) => theme.remCalc(10)};
-        background-color: ${({ theme }: ThemeType) => theme.colors.green_500};
+        background-color: ${({ theme }: ThemeType) => theme.colors.gray_500};
         transform: rotate(-45deg);
       }
     `}
@@ -113,7 +113,7 @@ export const Video = styled.video`
 `
 const lightButton = css`
   .svg-inline--fa {
-    color: ${({ theme }: ThemeType) => theme.colors.green_400};
+    color: ${({ theme }: ThemeType) => theme.colors.gray_400};
   }
 `
 
@@ -152,7 +152,7 @@ export const Seek = styled.input`
   width: 100%;
   height: ${({ theme }: ThemeType) => theme.remCalc(3)};
   border-radius: ${({ theme }: ThemeType) => theme.remCalc(3)};
-  background: ${({ theme }: ThemeType) => theme.colors.green_600};
+  background: ${({ theme }: ThemeType) => theme.colors.gray_600};
   outline: none;
   opacity: 0.5;
   transition: all 0.3s;
@@ -163,7 +163,7 @@ export const Seek = styled.input`
     width: ${({ theme }: ThemeType) => theme.remCalc(10)};
     height: ${({ theme }: ThemeType) => theme.remCalc(10)};
     border-radius: 50%;
-    background: ${({ theme }: ThemeType) => theme.colors.green_300};
+    background: ${({ theme }: ThemeType) => theme.colors.gray_300};
     cursor: pointer;
 
     transition: all 0.3s;
