@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ThemeType } from '@/theme'
+import { ThemeType, flexCC } from '@/theme'
 
 const globalStyle = css`
   border: none;
@@ -10,6 +10,8 @@ const globalStyle = css`
   transition: all 0.3s;
   font-weight: 500;
   height: ${({ theme }: ThemeType) => theme.remCalc(48)};
+  ${flexCC}
+  gap:  ${({ theme }: ThemeType) => theme.remCalc(12)};
 
   &:hover {
     box-shadow: 0 0
@@ -18,21 +20,61 @@ const globalStyle = css`
   }
 `
 
-export const ContainedButton = styled.button`
+export const ContainedButton = styled.button<{
+  variant?: 'primary' | 'secondary'
+}>`
   background-color: ${({ theme }: ThemeType) => theme.colors.yellow_400};
   color: ${({ theme }: ThemeType) => theme.colors.gray_700};
   ${globalStyle}
+  ${(props) =>
+    props.variant === 'primary' &&
+    css`
+      background-color: ${({ theme }: ThemeType) => theme.colors.yellow_400};
+    `}
+  ${(props) =>
+    props.variant === 'secondary' &&
+    css`
+      background-color: ${({ theme }: ThemeType) => theme.colors.white};
+    `}
 `
 
-export const TextButton = styled.button`
-  background-color: ${({ theme }: ThemeType) => theme.colors.white};
+export const TextButton = styled.button<{
+  variant?: 'primary' | 'secondary'
+}>`
+  background-color: transparent;
   color: ${({ theme }: ThemeType) => theme.colors.gray_700};
   ${globalStyle}
+
+  ${(props) =>
+    props.variant === 'primary' &&
+    css`
+      color: ${({ theme }: ThemeType) => theme.colors.yellow_400};
+    `}
+  ${(props) =>
+    props.variant === 'secondary' &&
+    css`
+      color: ${({ theme }: ThemeType) => theme.colors.gray_700};
+    `}
 `
 
-export const OutlinedButton = styled.button`
+export const OutlinedButton = styled.button<{
+  variant?: 'primary' | 'secondary'
+}>`
   background-color: transparent;
   color: ${({ theme }: ThemeType) => theme.colors.gray_100};
   ${globalStyle}
   border: ${({ theme }: ThemeType) => `1px solid ${theme.colors.gray_100}`};
+
+  ${(props) =>
+    props.variant === 'primary' &&
+    css`
+      border-color: ${({ theme }: ThemeType) => theme.colors.yellow_400};
+      color: ${({ theme }: ThemeType) => theme.colors.yellow_400};
+    `}
+  ${(props) =>
+    props.variant === 'secondary' &&
+    css`
+      border-color: ${({ theme }: ThemeType) => theme.colors.gray_700};
+      color: ${({ theme }: ThemeType) => theme.colors.gray_700};
+    `}
 `

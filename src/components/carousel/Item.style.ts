@@ -1,7 +1,15 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, responsive } from '@/theme'
+import { ThemeType, flexCC, responsive } from '@/theme'
 
-export const InfoStyle = styled.div`
+export const InfoSection = styled.div`
+  ${responsive(
+    'md',
+    css`
+      text-align: center;
+    `,
+  )}
+`
+export const InfoWrapper = styled.div`
   position: absolute;
   top: ${({ theme }: ThemeType) => theme.remCalc(57)};
   right: 0;
@@ -15,6 +23,7 @@ export const InfoStyle = styled.div`
   padding-inline-start: ${({ theme }: ThemeType) => theme.remCalc(64)};
   justify-content: start;
   direction: ${({ theme }: ThemeType) => theme.direction};
+  justify-content: space-between;
   background: linear-gradient(
     270deg,
     rgba(0, 0, 0, 0.7) 50%,
@@ -68,6 +77,18 @@ export const ImageWrapper = styled.div`
         height: auto !important;
         width: 100% !important;
       }
+    `,
+  )}
+`
+
+export const Actions = styled.div`
+  gap: ${({ theme }: ThemeType) => theme.remCalc(8)};
+  ${flexCC}
+
+  ${responsive(
+    'md',
+    css`
+      margin-top: ${({ theme }: ThemeType) => theme.remCalc(16)};
     `,
   )}
 `
