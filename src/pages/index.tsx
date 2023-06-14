@@ -1,7 +1,7 @@
-import React from 'react'
 import dynamic from 'next/dynamic'
-import { ssrConfig } from '@/lib'
+import React from 'react'
 import { SEOGenerator } from '@/components'
+import { ssrConfig } from '@/lib'
 
 const MainCarousel = dynamic(
   async () => (await import('@/containers/home')).MainCarousel,

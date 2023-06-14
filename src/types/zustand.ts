@@ -1,17 +1,17 @@
 import { IUser } from './user'
 import { initializeStore } from '@/store'
 
-export interface StoreInterface {
+export interface IStore {
   count: number
   user?: IUser
   increment: () => void
-  getCurrentUser: (id: string) => void
+  setCurrentUser: (user: IUser) => void
 }
 
 export type SetState = (
-  partial: Partial<StoreInterface> | StoreInterface,
+  partial: Partial<IStore> | IStore,
   replace?: boolean,
 ) => void
 
-export type GetState = () => StoreInterface
+export type GetState = () => IStore
 export type StoreType = ReturnType<typeof initializeStore>

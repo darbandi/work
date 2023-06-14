@@ -207,4 +207,42 @@ import { Motion, spring } from 'react-motion'
 </Motion>
 ```
 
+# Use Apis
+
+```js
+// post
+const { data, loading, error, executePost } = usePostUser()
+
+executePost({
+  data: {
+    email: 'test@test.com',
+    password: '123456',
+    userName: 'my user name',
+  },
+})
+
+// get
+const { data, loading, error, refetch } = useGetUser({ id: '' })
+
+// get all users
+const { data, loading, error, refetch } = useGetUsers()
+
+// delete user
+const { data, loading, error, executeDelete } = useDeleteUser()
+executeDelete({
+  data: {
+    id: '',
+  },
+})
+
+// update user
+const { data, loading, error, executeUpdate } = useUpdateUser({ id: '' })
+executeUpdate({
+  data: {
+    password: '123456',
+    userName: 'my user name',
+  },
+})
+```
+
 # [Carousel](https://swiperjs.com/react#useswiper)
