@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import Link from 'next/link'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Header, More, Title } from './CardSlider.style'
+import { Items, ItemsArray } from './Item'
 import { SliderButtonsPosition, Slider, Icon } from '@/ui-components'
 
 type Props = {
-  items: React.JSX.Element[]
+  items: ItemsArray[]
   title: string
   link: string
   style?: object
@@ -13,6 +14,11 @@ type Props = {
 
 export function CardSliderComp(props: Props): React.JSX.Element {
   const { items, title, link, style } = props
+
+  const itemsArray = useMemo(
+    () => items.map((item) => <Items key={item.key} item={item} />),
+    [items],
+  )
 
   return (
     <Container style={style}>
@@ -24,7 +30,7 @@ export function CardSliderComp(props: Props): React.JSX.Element {
         </More>
       </Header>
       <Slider
-        items={items}
+        items={itemsArray}
         position={SliderButtonsPosition.side}
         breakpoints={{
           0: {
