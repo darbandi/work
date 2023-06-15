@@ -46,10 +46,10 @@ const Items = ({ item }: { item: (typeof itemsArray)[0] }) => {
   const handleClickMovie = () => push(`/movie/${item.key}`)
 
   return (
-    <ItemWrapper key={1}>
+    <ItemWrapper>
       <InfoWrapper>
         <InfoSection>
-          <TitleStyle>{item.title}</TitleStyle>
+          <TitleStyle href={`/watch/${item.key}`}>{item.title}</TitleStyle>
           <DescriptionStyle>{item.subtitle}</DescriptionStyle>
         </InfoSection>
         <Actions>

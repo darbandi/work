@@ -137,10 +137,13 @@ export function useVideo(inputs: UseVideoInput): UseVideoOutput {
 
   useEffect(() => {
     handlePlay()
-    document.getElementsByTagName('html')[0].style.overflow = 'hidden'
+    document.getElementsByTagName('html')[0].style.overflowY = 'hidden'
     setTimeout(() => {
       setIsLoaded(true)
     }, 1000)
+    return () => {
+      document.getElementsByTagName('html')[0].style.overflowY = 'auto'
+    }
   }, [])
 
   const handleBack = () => {

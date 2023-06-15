@@ -49,11 +49,12 @@ export const InfoWrapper = styled.div`
     `,
   )}
 `
-export const TitleStyle = styled.div`
+export const TitleStyle = styled.a`
   color: ${({ theme }: ThemeType) => theme.colors.white};
   font-weight: 700;
   font-size: ${({ theme }: ThemeType) => theme.remCalc(48)};
   font-family: 'Droid';
+  text-decoration: none;
 `
 export const DescriptionStyle = styled.div`
   color: ${({ theme }: ThemeType) => theme.colors.white};

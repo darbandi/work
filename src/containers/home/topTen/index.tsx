@@ -14,136 +14,102 @@ import img4 from '@/assets/images/thumbnails/04.png'
 import img5 from '@/assets/images/thumbnails/05.png'
 import img6 from '@/assets/images/thumbnails/06.png'
 
-export const items = [
-  <ItemWrapper key={1}>
-    <Image
-      src={img1}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>مرد عنکبوتی</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
-  <ItemWrapper key={2}>
-    <Image
-      src={img2}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>ماتریکس</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
-  <ItemWrapper key={3}>
-    <Image
-      src={img3}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>مکس دیوانه</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
-  <ItemWrapper key={4}>
-    <Image
-      src={img4}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>مکس دیوانه</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
-  <ItemWrapper key={5}>
-    <Image
-      src={img5}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>مکس دیوانه</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
-  <ItemWrapper key={6}>
-    <Image
-      src={img6}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>مکس دیوانه</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
-  <ItemWrapper key={7}>
-    <Image
-      src={img6}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>مکس دیوانه</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
-  <ItemWrapper key={8}>
-    <Image
-      src={img6}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>مکس دیوانه</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
-  <ItemWrapper key={9}>
-    <Image
-      src={img6}
-      alt='work'
-      onDragStart={handleDragStart}
-      role='presentation'
-      loading='lazy'
-      style={{ width: '100%', height: 'auto' }}
-    />
-    <div className='swiper-lazy-preloader'></div>
-    <InfoStyle>
-      <TitleStyle>مکس دیوانه</TitleStyle>
-    </InfoStyle>
-  </ItemWrapper>,
+export const itemsArray = [
+  {
+    key: 1,
+    title: 'کمدی',
+    subtitle: 'Comedy show',
+    img: img1,
+  },
+  {
+    key: 2,
+    title: 'میندی',
+    subtitle: 'Mindy',
+    img: img2,
+  },
+  {
+    key: 3,
+    title: 'کشور راحت',
+    subtitle: 'Country comfort',
+    img: img3,
+  },
+  {
+    key: 4,
+    title: 'کمدی سیاه',
+    subtitle: 'Black Comedy',
+    img: img4,
+  },
+  {
+    key: 5,
+    title: 'خانه بازی',
+    subtitle: 'Playing House',
+    img: img5,
+  },
+  {
+    key: 6,
+    title: 'میراندا',
+    subtitle: 'Miranda',
+    img: img6,
+  },
+  {
+    key: 6,
+    title: 'کمدی',
+    subtitle: 'Comedy show',
+    img: img1,
+  },
+  {
+    key: 8,
+    title: 'میندی',
+    subtitle: 'Mindy',
+    img: img2,
+  },
+  {
+    key: 9,
+    title: 'کشور راحت',
+    subtitle: 'Country comfort',
+    img: img3,
+  },
+  {
+    key: 10,
+    title: 'کمدی سیاه',
+    subtitle: 'Black Comedy',
+    img: img4,
+  },
+  {
+    key: 11,
+    title: 'خانه بازی',
+    subtitle: 'Playing House',
+    img: img5,
+  },
+  {
+    key: 12,
+    title: 'میراندا',
+    subtitle: 'Miranda',
+    img: img6,
+  },
 ]
 
+export const Items = ({ item }: { item: (typeof itemsArray)[0] }) => {
+  return (
+    <ItemWrapper>
+      <Image
+        src={item.img}
+        alt='work'
+        onDragStart={handleDragStart}
+        role='presentation'
+        loading='lazy'
+        style={{ width: '100%', height: 'auto' }}
+      />
+      <div className='swiper-lazy-preloader'></div>
+      <InfoStyle>
+        <TitleStyle href={`/watch/${item.key}`}>{item.title}</TitleStyle>
+      </InfoStyle>
+    </ItemWrapper>
+  )
+}
+
 export function TopTen(): React.JSX.Element {
+  const items = itemsArray.map((item) => <Items key={item.key} item={item} />)
   return (
     <>
       <MotionComp>
