@@ -7,7 +7,7 @@ export type ThemeType = {
   }
 }
 
-const commonColors = {
+export const commonColors = {
   white: '#FFFFFF',
   black: '#000000',
   gray_100: '#f8f9fa',

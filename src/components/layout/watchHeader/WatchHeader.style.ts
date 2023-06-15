@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import { ThemeType, flexSB } from '@/theme'
 
 export const Header = styled.header`
-  background-color: ${({ theme }: ThemeType) => theme.colors.black};
-  opacity: 0;
+  opacity: 1;
   position: fixed;
   height: ${({ theme }: ThemeType) => theme.remCalc(60)};
   top: 0;

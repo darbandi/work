@@ -63,6 +63,10 @@ export const animationSlideInRight = css`
 export const flex = css`
   display: flex;
 `
+export const flexC = css`
+  display: flex;
+  align-items: center;
+`
 export const flexCC = css`
   ${flex}
   align-items: center;
@@ -73,4 +77,10 @@ export const flexSB = css`
   ${flex}
   align-items: center;
   justify-content: space-between;
+`
+
+export const flexEnd = css`
+  ${flex}
+  align-items: center;
+  justify-content: end;
 `

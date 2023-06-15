@@ -49,4 +49,8 @@ export const GlobalStyles = createGlobalStyle`
       `,
     )};
   }
+
+  .blur {
+    filter: blur(3px);
+  }
 `

@@ -134,15 +134,15 @@ const { formatMessage } = useIntl()
 ```js
 import * as theme from '@/theme'
 import styled from 'styled-components'
+import { ThemeType } from '@/theme'
 
-export const Header = styled.header`
+export const Container = styled.div`
+`
   background: ${({ theme }: ThemeType) => theme.colors.black};
   // OR
   background: ${theme.dark.colors.black};
-
   // PX to REM
   font-size: ${theme.remCalc(12)};
-`
 ```
 
 # Dynamic Props
@@ -165,6 +165,7 @@ export const Header =
 # Alias Import
 
 ```js
+@/public
 @/ui-components
 @/containers
 @/components

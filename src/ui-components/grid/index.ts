@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { responsive } from '@/theme'
+import { flexC, responsive } from '@/theme'
 
 export const Row = styled.div<{
   display?: string
@@ -7,11 +7,7 @@ export const Row = styled.div<{
   justifyContent?: string
 }>`
   width: 100%;
-  &::after {
-    content: '';
-    clear: both;
-    display: table;
-  }
+  ${flexC}
 
   ${({ display }) =>
     display &&
