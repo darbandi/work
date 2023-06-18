@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, flexCC, flexSB, responsive } from '@/theme'
+import { ThemeType, flexCenter, flexSpaceBetween, responsive } from '@/theme'
 
 export const ItemWrapper = styled.div`
   position: relative;
@@ -20,7 +20,22 @@ export const TitleStyle = styled.a`
   cursor: pointer;
   text-decoration: none;
 `
-export const Hovered = styled.div`
+
+const commonHovered = css`
+  opacity: 1;
+
+  .fa-angle-double-down {
+    cursor: pointer;
+    transition: all 0.3s;
+    transform: translateY(${({ theme }: ThemeType) => theme.remCalc(30)});
+  }
+
+  .card-item-footer {
+    transform: translateY(0);
+  }
+`
+
+export const Hovered = styled.div<{ isActive: boolean }>`
   opacity: 0;
   position: absolute;
   inset: 0;
@@ -30,32 +45,21 @@ export const Hovered = styled.div`
   transition: all 0.3s;
   padding: ${({ theme }: ThemeType) =>
     `${theme.remCalc(8)} ${theme.remCalc(16)}`};
-  ${flexSB}
+  ${flexSpaceBetween}
 
   &:hover {
-    opacity: 1;
-
-    .fa-angle-double-down {
-      cursor: pointer;
-      transition: all 0.3s;
-      transform: translateY(${({ theme }: ThemeType) => theme.remCalc(30)});
-    }
-
-    .card-item-footer {
-      transform: translateY(0);
-    }
+    ${commonHovered}
   }
 
-  ${responsive(
-    'sm',
+  ${({ isActive }) =>
+    isActive &&
     css`
-      display: none;
-    `,
-  )}
+      ${commonHovered}
+    `}
 `
 export const Main = styled.div`
   flex: 1;
-  ${flexCC}
+  ${flexCenter}
   flex-direction: column;
 
   .svg-inline--fa {
@@ -83,7 +87,7 @@ export const Play = styled.a`
   color: black;
   transition: all 0.3s;
   cursor: pointer;
-  ${flexCC}
+  ${flexCenter}
 
   .fa-play {
     color: ${({ theme }: ThemeType) => theme.colors.gray_800};
@@ -109,6 +113,13 @@ export const Play = styled.a`
       z-index: 0;
     }
   }
+
+  ${responsive(
+    'sm',
+    css`
+      display: none;
+    `,
+  )}
 `
 export const Details = styled.div`
   .fa-angle-double-down {
@@ -116,13 +127,20 @@ export const Details = styled.div`
   }
 `
 export const Footer = styled.div`
-  ${flexSB}
+  ${flexSpaceBetween}
   width: 100%;
   transition: all 0.3s;
   transform: translateY(${({ theme }: ThemeType) => theme.remCalc(20)});
+
+  ${responsive(
+    'sm',
+    css`
+      display: none;
+    `,
+  )}
 `
 export const LikeView = styled.div`
-  ${flexCC}
+  ${flexCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(12)};
 `
 

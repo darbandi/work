@@ -69,6 +69,7 @@ export function TopTen(): React.JSX.Element {
     <>
       <MotionComp>
         <CardSliderComp
+          id='top11'
           items={itemsArray}
           title='10 فیلم برتر'
           link='/search?type=topView'
@@ -76,6 +77,7 @@ export function TopTen(): React.JSX.Element {
       </MotionComp>
       <MotionComp>
         <CardSliderComp
+          id='top12'
           items={itemsArray}
           title='10 فیلم برتر'
           link='/search?type=topView'
@@ -83,6 +85,7 @@ export function TopTen(): React.JSX.Element {
       </MotionComp>
       <MotionComp>
         <CardSliderComp
+          id='top13'
           items={itemsArray}
           title='10 فیلم برتر'
           link='/search?type=topView'
@@ -90,6 +93,7 @@ export function TopTen(): React.JSX.Element {
       </MotionComp>
       <MotionComp>
         <CardSliderComp
+          id='top14'
           items={itemsArray}
           title='10 فیلم برتر'
           link='/search?type=topView'
@@ -97,6 +101,7 @@ export function TopTen(): React.JSX.Element {
       </MotionComp>
       <MotionComp>
         <CardSliderComp
+          id='top15'
           items={itemsArray}
           title='10 فیلم برتر'
           link='/search?type=topView'
@@ -104,6 +109,7 @@ export function TopTen(): React.JSX.Element {
       </MotionComp>
       <MotionComp>
         <CardSliderComp
+          id='top16'
           items={itemsArray}
           title='10 فیلم برتر'
           link='/search?type=topView'

@@ -1,10 +1,7 @@
-import { faInfoCircle, faPlay } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
-
 import React from 'react'
+import { WatchDetailsButtons } from '../watchDetailsButtons'
 import {
-  Actions,
   DescriptionStyle,
   ImageWrapper,
   InfoSection,
@@ -12,7 +9,7 @@ import {
   ItemWrapper,
   TitleStyle,
 } from '@/components/carousel/Item.style'
-import { ContainedButton, Icon } from '@/ui-components'
+import { Loading } from '@/ui-components'
 
 export type ItemsArray = {
   key: number
@@ -23,11 +20,6 @@ export type ItemsArray = {
 type ItemProps = { item: ItemsArray }
 
 export function Items({ item }: ItemProps): React.JSX.Element {
-  const { push } = useRouter()
-
-  const handleClickWatch = () => push(`/watch/${item.key}`)
-  const handleClickMovie = () => push(`/movie/${item.key}`)
-
   return (
     <ItemWrapper>
       <InfoWrapper>
@@ -35,16 +27,7 @@ export function Items({ item }: ItemProps): React.JSX.Element {
           <TitleStyle href={`/watch/${item.key}`}>{item.title}</TitleStyle>
           <DescriptionStyle>{item.subtitle}</DescriptionStyle>
         </InfoSection>
-        <Actions>
-          <ContainedButton onClick={handleClickWatch}>
-            <Icon icon={faPlay} color='gray_700' />
-            تماشا
-          </ContainedButton>
-          <ContainedButton variant='secondary' onClick={handleClickMovie}>
-            <Icon icon={faInfoCircle} color='gray_700' />
-            جزئیات
-          </ContainedButton>
-        </Actions>
+        <WatchDetailsButtons id={item.key} />
       </InfoWrapper>
       <ImageWrapper>
         {item && (
@@ -59,7 +42,7 @@ export function Items({ item }: ItemProps): React.JSX.Element {
           />
         )}
       </ImageWrapper>
-      <div className='swiper-lazy-preloader'></div>
+      <Loading className='swiper-lazy-preloader' />
     </ItemWrapper>
   )
 }

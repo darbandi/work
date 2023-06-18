@@ -1,5 +1,10 @@
 import styled from 'styled-components'
-import { ThemeType, flexSB } from '@/theme'
+import { ThemeType, flexSpaceBetween } from '@/theme'
+
+export const Container = styled.div`
+  padding-right: ${({ theme }: ThemeType) => theme.remCalc(50)};
+  margin-top: ${({ theme }: ThemeType) => theme.remCalc(80)};
+`
 
 export const More = styled.div`
   cursor: pointer;
@@ -17,7 +22,7 @@ export const More = styled.div`
   }
 `
 export const Header = styled.div`
-  ${flexSB}
+  ${flexSpaceBetween}
   padding-left: ${({ theme }: ThemeType) => theme.remCalc(50)};
   margin-bottom: ${({ theme }: ThemeType) => theme.remCalc(12)};
 `
@@ -26,8 +31,4 @@ export const Title = styled.div`
   font-size: ${({ theme }: ThemeType) => theme.remCalc(32)};
   color: ${({ theme }: ThemeType) => theme.colors.gray_800};
   font-family: 'Droid';
-`
-export const Container = styled.div`
-  padding-right: ${({ theme }: ThemeType) => theme.remCalc(50)};
-  margin-top: ${({ theme }: ThemeType) => theme.remCalc(80)};
 `

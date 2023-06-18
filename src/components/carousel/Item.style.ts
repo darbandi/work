@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, flexCC, responsive } from '@/theme'
+import { ThemeType, responsive } from '@/theme'
 
 export const InfoSection = styled.div`
   ${responsive(
@@ -78,18 +78,6 @@ export const ImageWrapper = styled.div`
         height: auto !important;
         width: 100% !important;
       }
-    `,
-  )}
-`
-
-export const Actions = styled.div`
-  gap: ${({ theme }: ThemeType) => theme.remCalc(8)};
-  ${flexCC}
-
-  ${responsive(
-    'md',
-    css`
-      margin-top: ${({ theme }: ThemeType) => theme.remCalc(16)};
     `,
   )}
 `

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, flexCC } from '@/theme'
+import { ThemeType, flexCenter } from '@/theme'
 
 const globalStyle = css`
   border: none;
@@ -10,7 +10,7 @@ const globalStyle = css`
   transition: all 0.3s;
   font-weight: 500;
   height: ${({ theme }: ThemeType) => theme.remCalc(48)};
-  ${flexCC}
+  ${flexCenter}
   gap:  ${({ theme }: ThemeType) => theme.remCalc(12)};
 
   &:hover {

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { flexC, responsive } from '@/theme'
+import { ThemeType, flexAlignCenter, responsive } from '@/theme'
 
 export const Row = styled.div<{
   display?: string
@@ -7,7 +7,8 @@ export const Row = styled.div<{
   justifyContent?: string
 }>`
   width: 100%;
-  ${flexC}
+  ${flexAlignCenter}
+  /* flex-wrap: wrap; */
 
   ${({ display }) =>
     display &&
@@ -41,6 +42,7 @@ export const Col = styled.div<{
   md?: number
   lg?: number
   hideOn?: string
+  width?: number
 }>`
   float: right;
 
@@ -64,4 +66,9 @@ export const Col = styled.div<{
         display: none;
       `,
     )}
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${({ theme }: ThemeType) => theme.remCalc(width)};
+    `}
 `

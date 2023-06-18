@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, flexSB, responsive } from '@/theme'
+import { ThemeType, flexSpaceBetween, responsive } from '@/theme'
 
 export const Container = styled.div`
   flex-direction: row;
-  ${flexSB}
+  ${flexSpaceBetween}
   height: 100vh;
   background: ${({ theme }: ThemeType) =>
     `linear-gradient(45deg, ${theme.colors.gray_500}, ${theme.colors.white})`};

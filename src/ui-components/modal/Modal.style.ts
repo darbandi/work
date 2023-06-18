@@ -3,7 +3,7 @@ import {
   ThemeType,
   animationSlideInBottom,
   flexEnd,
-  flexSB,
+  flexSpaceBetween,
   responsive,
 } from '@/theme'
 
@@ -73,7 +73,7 @@ export const Header = styled.div`
   font-size: ${({ theme }: ThemeType) => theme.remCalc(18)};
   font-weight: bold;
 
-  ${flexSB}
+  ${flexSpaceBetween}
   .svg-inline--fa {
     cursor: pointer;
   }

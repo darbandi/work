@@ -2,9 +2,15 @@ import { createContext, useContext } from 'react'
 import { StoreApi, createStore, useStore as useZustandStore } from 'zustand'
 import { persist, createJSONStorage, StateStorage } from 'zustand/middleware'
 import { get, set, del } from 'idb-keyval'
-import { setCurrentUser, increment } from '@/store/utils'
+import { getDefaultInitialState } from './init'
+import {
+  setCurrentUser,
+  increment,
+  setSelectedCartSliderItem,
+} from '@/store/utils'
 import type { IStore, StoreType } from '@/types/zustand'
 import { IUser } from '@/types/user'
+import { ItemsArray } from '@/components/cardSlider/Item'
 
 const storage: StateStorage = {
   getItem: async (name: string): Promise<string | null> => {
@@ -17,10 +23,6 @@ const storage: StateStorage = {
     await del(name)
   },
 }
-
-const getDefaultInitialState = () => ({
-  count: 10,
-})
 
 const zustandContext = createContext<StoreType | null>(null)
 
@@ -44,6 +46,8 @@ export const initializeStore = (
         ...preloadedState,
         increment: increment(set, get),
         setCurrentUser: (user: IUser) => setCurrentUser(user)(set),
+        setSelectedCartSliderItem: (cardItem?: ItemsArray, key?: string) =>
+          setSelectedCartSliderItem(cardItem, key)(set),
       }),
       {
         name: 'zustand-storage',

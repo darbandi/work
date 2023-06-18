@@ -1,33 +1,55 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Header, More, Title } from './CardSlider.style'
 import { Items, ItemsArray } from './Item'
+import { Details } from './Details'
 import { SliderButtonsPosition, Slider, Icon } from '@/ui-components'
+import { useStore } from '@/store'
 
 type Props = {
   items: ItemsArray[]
   title: string
   link: string
   style?: object
+  id: string
 }
 
 export function CardSliderComp(props: Props): React.JSX.Element {
-  const { items, title, link, style } = props
+  const { items, title, link, style, id } = props
 
   const itemsArray = useMemo(
-    () => items.map((item) => <Items key={item.key} item={item} />),
+    () =>
+      items.map((item) => (
+        <Items key={`${id}_${item.key}`} item={item} id={id} />
+      )),
     [items],
   )
 
+  const setSelectedCartSliderItem = useStore(
+    (store) => store.setSelectedCartSliderItem,
+  )
+
+  const selectedCartSliderSection = useStore(
+    (store) => store.selectedCartSliderSection,
+  )
+
+  const selected_id = selectedCartSliderSection?.split('_')[0]
+
+  useEffect(() => {
+    setSelectedCartSliderItem?.({} as ItemsArray, '')
+  }, [])
+
   return (
-    <Container style={style}>
+    <Container id={id} style={style}>
       <Header>
         <Title>{title}</Title>
-        <More>
-          <Link href={link}>بیشتر</Link>
-          <Icon icon={faChevronLeft} />
-        </More>
+        {link && (
+          <More>
+            <Link href={link}>بیشتر</Link>
+            <Icon icon={faChevronLeft} />
+          </More>
+        )}
       </Header>
       <Slider
         items={itemsArray}
@@ -59,6 +81,7 @@ export function CardSliderComp(props: Props): React.JSX.Element {
           },
         }}
       />
+      {selected_id === id && <Details />}
     </Container>
   )
 }

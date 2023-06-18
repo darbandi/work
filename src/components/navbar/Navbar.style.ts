@@ -1,5 +1,10 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, responsive, animationSlideInRight, flexSB } from '@/theme'
+import {
+  ThemeType,
+  responsive,
+  animationSlideInRight,
+  flexSpaceBetween,
+} from '@/theme'
 
 export const Navbar = styled.nav`
   .fa-bars {
@@ -71,7 +76,7 @@ export const A = styled.a`
   font-weight: bold;
 
   &.mobile {
-    ${flexSB}
+    ${flexSpaceBetween}
     width: 100%;
     padding: 0;
     color: ${({ theme }: ThemeType) => theme.colors.gray_700};

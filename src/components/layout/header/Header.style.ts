@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { ThemeType, animationSlideInTop, flexSB } from '@/theme'
+import { ThemeType, animationSlideInTop, flexSpaceBetween } from '@/theme'
 
 export const Header = styled.header`
   height: ${({ theme }: ThemeType) => theme.remCalc(57)};
   background: ${({ theme }: ThemeType) => theme.colors.gray_900}80;
-  ${flexSB}
+  ${flexSpaceBetween}
   padding: ${({ theme }: ThemeType) => theme.remCalc(12)};
   position: fixed;
   top: 0;

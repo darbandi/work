@@ -1,11 +1,18 @@
 import { IUser } from './user'
+import { ItemsArray } from '@/components/cardSlider/Item'
 import { initializeStore } from '@/store'
 
-export interface IStore {
+export interface IStoreState {
   count: number
   user?: IUser
+  selectedCartSliderItem: ItemsArray | null
+  selectedCartSliderSection?: string
+}
+
+export interface IStore extends IStoreState {
   increment: () => void
   setCurrentUser: (user: IUser) => void
+  setSelectedCartSliderItem: (cardItem?: ItemsArray, key?: string) => void
 }
 
 export type SetState = (

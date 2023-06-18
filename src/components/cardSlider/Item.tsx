@@ -1,6 +1,3 @@
-import React from 'react'
-import Image from 'next/image'
-import moment from 'moment'
 import {
   faAngleDoubleDown,
   faClock,
@@ -8,6 +5,10 @@ import {
   faPlay,
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
+import moment from 'moment'
+import Image from 'next/image'
+import React, { useEffect } from 'react'
+import { useMediaQuery } from '@react-hooks-library/core'
 import {
   Details,
   Footer,
@@ -22,8 +23,9 @@ import {
   TitleStyle,
   View,
 } from '@/components/cardSlider/Item.style'
+import { useStore } from '@/store'
 import { handleDragStart } from '@/tools'
-import { Icon } from '@/ui-components'
+import { Icon, Loading } from '@/ui-components'
 
 export type ItemsArray = {
   key: number
@@ -31,9 +33,41 @@ export type ItemsArray = {
   subtitle: string
 }
 
-type ItemProps = { item: ItemsArray }
+type ItemProps = { item: ItemsArray; id: string }
 
-export function Items({ item }: ItemProps): React.JSX.Element {
+export function Items(props: ItemProps): React.JSX.Element {
+  const { item, id } = props
+  const isMobile = useMediaQuery('(max-width: 576px)')
+
+  const setSelectedCartSliderItem = useStore(
+    (store) => store.setSelectedCartSliderItem,
+  )
+
+  const selectedCartSliderSection = useStore(
+    (store) => store.selectedCartSliderSection,
+  )
+
+  const selectedCartSliderItem = useStore(
+    (store) => store.selectedCartSliderItem,
+  )
+
+  const handleClickDetails = () => {
+    setSelectedCartSliderItem?.(item, id)
+    if (isMobile) document.documentElement.style.overflowY = 'hidden'
+
+    setTimeout(() => {
+      const top = document.getElementById(id)?.offsetTop
+      window.scrollTo(0, top as number)
+    }, 200)
+  }
+
+  useEffect(() => {
+    if (selectedCartSliderSection) {
+      const top = document.getElementById(selectedCartSliderSection)?.offsetTop
+      window.scrollTo(0, top as number)
+    }
+  }, [selectedCartSliderSection])
+
   return (
     <ItemWrapper>
       <Image
@@ -45,17 +79,27 @@ export function Items({ item }: ItemProps): React.JSX.Element {
         role='presentation'
         loading='lazy'
         style={{ width: '100%', height: 'auto' }}
+        onClick={handleClickDetails}
       />
-      <div className='swiper-lazy-preloader'></div>
+      <Loading className='swiper-lazy-preloader' xs />
       <InfoStyle>
         <TitleStyle href={`/watch/${item.key}`}>{item.title}</TitleStyle>
       </InfoStyle>
-      <Hovered>
+      <Hovered
+        isActive={
+          selectedCartSliderItem?.key === item?.key &&
+          selectedCartSliderSection === id
+        }
+        onClick={handleClickDetails}
+      >
         <Main>
-          <Play href={`/watch/${item.key}`}>
+          <Play
+            href={`/watch/${item.key}`}
+            onClick={(e) => e.stopPropagation()}
+          >
             <Icon icon={faPlay} className='fa-play' />
           </Play>
-          <Details>
+          <Details onClick={handleClickDetails}>
             <Icon icon={faAngleDoubleDown} className='fa-angle-double-down' />
           </Details>
         </Main>

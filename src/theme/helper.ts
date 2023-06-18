@@ -2,6 +2,19 @@ import { css } from 'styled-components'
 
 const animationTime = '0.3s ease-in-out'
 
+export const animationFadeIn = css`
+  animation: fade-in ${animationTime};
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`
+
 export const animationSlideInBottom = css`
   animation: slide-in-bottom ${animationTime};
 
@@ -63,24 +76,27 @@ export const animationSlideInRight = css`
 export const flex = css`
   display: flex;
 `
-export const flexC = css`
+export const flexAlignCenter = css`
   display: flex;
   align-items: center;
 `
-export const flexCC = css`
+export const flexCenter = css`
   ${flex}
   align-items: center;
   justify-content: center;
 `
 
-export const flexSB = css`
-  ${flex}
-  align-items: center;
+export const flexSpaceBetween = css`
+  ${flexAlignCenter}
   justify-content: space-between;
 `
 
 export const flexEnd = css`
-  ${flex}
-  align-items: center;
+  ${flexAlignCenter}
   justify-content: end;
+`
+
+export const flexStart = css`
+  ${flexAlignCenter}
+  justify-content: start;
 `
