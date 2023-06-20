@@ -1,4 +1,16 @@
-export function useDocument() {
+interface IUseDocumentOutput {
+  hideScroll: (isTrue?: boolean) => void
+  offsetTop: (id: string) => number | undefined
+  blurWindow: (isTrue?: boolean) => void
+  fullscreen: (isTrue?: boolean) => void
+  isFullscreen: () => Element | null
+  clientHeight: () => number
+  innerHeight: () => number
+  getElementById: (element: string) => HTMLElement | null
+  getElementsByTagName: (element: string) => HTMLElement
+}
+
+export function useDocument(): IUseDocumentOutput {
   function hideScroll(isTrue = true) {
     document.documentElement.style.overflowY = isTrue ? 'hidden' : 'auto'
   }
