@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components'
+import Link from 'next/link'
 import {
   ThemeType,
   responsive,
   animationSlideInRight,
   flexSpaceBetween,
+  animationFadeIn,
+  flexAlignCenter,
 } from '@/theme'
 
 export const Navbar = styled.nav`
@@ -25,9 +28,10 @@ export const Ul = styled.ul`
   margin: 0;
   list-style-type: none;
   list-style: none;
+
   &.desktop {
-    display: flex;
-    align-items: center;
+    ${flexAlignCenter}
+    gap: ${({ theme }: ThemeType) => theme.remCalc(18)};
     padding: 0;
 
     ${responsive(
@@ -65,15 +69,16 @@ export const Li = styled.li`
     width: 100%;
   }
 `
-export const A = styled.a`
+export const A = styled(Link)<{ isActive?: boolean }>`
+  text-decoration: none;
   color: ${({ theme }: ThemeType) => theme.colors.gray_300};
   padding: ${({ theme }: ThemeType) => theme.remCalc(16)};
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  ${flexAlignCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
   font-size: ${({ theme }: ThemeType) => theme.remCalc(16)};
   font-weight: bold;
+  position: relative;
 
   &.mobile {
     ${flexSpaceBetween}
@@ -81,4 +86,23 @@ export const A = styled.a`
     padding: 0;
     color: ${({ theme }: ThemeType) => theme.colors.gray_700};
   }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      &::after {
+        ${animationFadeIn}
+        position: absolute;
+        right: calc(50% - 15px);
+        bottom: -2px;
+        content: '';
+        width: 0;
+        height: 0;
+        z-index: 1;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid
+          ${({ theme }: ThemeType) => theme.colors.white};
+      }
+    `}
 `

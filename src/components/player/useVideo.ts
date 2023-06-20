@@ -5,6 +5,7 @@ import {
   UseVideoInput,
   SpeedsType,
 } from '@/components/player/types'
+import { useDocument } from '@/hooks'
 
 export function useVideo(inputs: UseVideoInput): UseVideoOutput {
   const { videoId } = inputs
@@ -22,6 +23,7 @@ export function useVideo(inputs: UseVideoInput): UseVideoOutput {
   const [pinActionBar, setPinActionBar] = useState<string>(
     (localStorage.getItem('pinActionBar') as string) || 'isShow',
   )
+  const { hideScroll, fullscreen, isFullscreen } = useDocument()
 
   const [speedNumber, setSpeedNumber] = useState<number>(1)
 
@@ -124,25 +126,23 @@ export function useVideo(inputs: UseVideoInput): UseVideoOutput {
   }
 
   const handleFullScreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen()
+    if (!isFullscreen()) {
+      fullscreen()
       setIsFullScreen(true)
     } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen()
-        setIsFullScreen(false)
-      }
+      fullscreen(false)
+      setIsFullScreen(false)
     }
   }
 
   useEffect(() => {
     handlePlay()
-    document.getElementsByTagName('html')[0].style.overflowY = 'hidden'
+    hideScroll()
     setTimeout(() => {
       setIsLoaded(true)
     }, 1000)
     return () => {
-      document.getElementsByTagName('html')[0].style.overflowY = 'auto'
+      hideScroll(false)
     }
   }, [])
 

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Link from 'next/link'
 import {
   ThemeType,
   animationFadeIn,
@@ -22,17 +23,6 @@ export const Container = styled.div`
   box-shadow: 0 0
     ${({ theme }: ThemeType) => `${theme.remCalc(20)} ${theme.colors.black}`};
 
-  &:after {
-    position: absolute;
-    right: 45px;
-    top: -10px;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid ${({ theme }: ThemeType) => theme.colors.white};
-  }
   ${animationFadeIn}
 
   ${responsive(
@@ -57,7 +47,8 @@ export const Categories = styled.div`
   ${flexStart}
 `
 
-export const CategoryItem = styled.div`
+export const CategoryItem = styled(Link)`
+  text-decoration: none;
   background: ${({ theme }: ThemeType) => theme.colors.gray_200};
   width: ${({ theme }: ThemeType) => theme.remCalc(150)};
   padding: ${({ theme }: ThemeType) =>
@@ -79,5 +70,11 @@ export const CategoryItem = styled.div`
 
 export const MostView = styled.div`
   width: 40%;
-  height: ;
+  overflow: hidden;
+  ${flexCenter}
+  border-radius: 20px;
+
+  img {
+    min-height: 100%;
+  }
 `

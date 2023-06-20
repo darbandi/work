@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ThemeType, flexSpaceBetween } from '@/theme'
+import { ThemeType, flexAlignCenter, flexSpaceBetween } from '@/theme'
 
 export const Container = styled.div`
   padding-right: ${({ theme }: ThemeType) => theme.remCalc(50)};
@@ -8,8 +8,7 @@ export const Container = styled.div`
 
 export const More = styled.div`
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  ${flexAlignCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(8)};
   color: ${({ theme }: ThemeType) => theme.colors.gray_700};
   .svg-inline--fa {

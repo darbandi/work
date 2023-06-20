@@ -1,19 +1,88 @@
 [
   {
     "id": 1,
+    "title": "home",
+    "link": "/"
+  },
+  {
+    "id": 1,
     "title": "movies",
-    "link": ""
+    "link": "/movies/"
   },
   {
     "id": 2,
-    "title": "news"
+    "title": "news",
+    "link": "/news/"
   },
   {
     "id": 3,
-    "title": "categories"
+    "title": "categories",
+    "subMenu": [
+      {
+        "id": 1,
+        "title": "جنایی"
+      },
+      {
+        "id": 1,
+        "title": "معمایی"
+      },
+      {
+        "id": 1,
+        "title": "ورزشی"
+      },
+      {
+        "id": 1,
+        "title": "علمی تخیلی"
+      },
+      {
+        "id": 1,
+        "title": "اکشن"
+      },
+      {
+        "id": 1,
+        "title": "جنگی"
+      },
+      {
+        "id": 1,
+        "title": "بیوگرافی"
+      },
+      {
+        "id": 1,
+        "title": "تاریخی"
+      },
+      {
+        "id": 1,
+        "title": "کمدی"
+      },
+      {
+        "id": 1,
+        "title": "اجتماعی"
+      },
+      {
+        "id": 1,
+        "title": "مستند"
+      },
+      {
+        "id": 1,
+        "title": "وسترن"
+      },
+      {
+        "id": 1,
+        "title": "ترسناک"
+      },
+      {
+        "id": 1,
+        "title": "ماجرایی"
+      },
+      {
+        "id": 1,
+        "title": "درام"
+      }
+    ]
   },
   {
     "id": 4,
-    "title": "festival"
+    "title": "festival",
+    "link": "/festival/"
   }
 ]

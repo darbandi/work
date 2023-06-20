@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { SliderButtonsPosition } from '.'
-import { ThemeType, responsive } from '@/theme'
+import { ThemeType, flexCenter, responsive } from '@/theme'
 
 export const PrevButtonsStyle = styled.div<{
   position?: SliderButtonsPosition
@@ -9,9 +9,7 @@ export const PrevButtonsStyle = styled.div<{
   width: ${({ theme }: ThemeType) => theme.remCalc(48)};
   height: ${({ theme }: ThemeType) => theme.remCalc(48)};
   border-radius: ${({ theme }: ThemeType) => theme.remCalc(60)};
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexCenter}
   cursor: pointer;
   transition: all 0.3s;
   position: absolute;

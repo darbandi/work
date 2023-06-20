@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, responsive } from '@/theme'
+import { ThemeType, flexCenter, responsive } from '@/theme'
 
 export const InfoSection = styled.div`
   ${responsive(
@@ -21,7 +21,6 @@ export const InfoWrapper = styled.div`
   padding-top: ${({ theme }: ThemeType) => theme.remCalc(40)};
   padding-bottom: ${({ theme }: ThemeType) => theme.remCalc(88)};
   padding-inline-start: ${({ theme }: ThemeType) => theme.remCalc(64)};
-  justify-content: start;
   direction: ${({ theme }: ThemeType) => theme.direction};
   justify-content: space-between;
   background: linear-gradient(
@@ -65,9 +64,7 @@ export const ItemWrapper = styled.div``
 export const ImageWrapper = styled.div`
   overflow: hidden;
   height: ${({ theme }: ThemeType) => theme.remCalc(400)};
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexCenter}
 
   ${responsive(
     '-md',

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useDocument } from './useDocument'
 
 type UseScroll = {
   isOnScreen: boolean
@@ -8,15 +9,13 @@ type UseScroll = {
 export function useScroll(element: string): UseScroll {
   const [isOnScreen, setIsOnScreen] = useState<boolean>(false)
   const [isTop, setIsTop] = useState<boolean>(true)
+  const { clientHeight, innerHeight, getElementById, getElementsByTagName } =
+    useDocument()
 
   const isElementInViewport = (el: HTMLElement | null) => {
     const rect = el?.getBoundingClientRect()
     if (!rect) return
-    return (
-      rect.top >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight)
-    )
+    return rect.top >= 0 && rect.bottom <= (innerHeight() || clientHeight())
   }
 
   const isScrollTop = (el: HTMLElement): boolean => {
@@ -26,12 +25,12 @@ export function useScroll(element: string): UseScroll {
 
   useEffect(() => {
     const handleScroll = () => {
-      const _element = document.getElementById(element)
+      const _element = getElementById(element)
       if (_element && isElementInViewport(_element)) {
         setIsOnScreen(true)
       }
       if (element === 'body') {
-        const _element = document.getElementsByTagName(element)[0]
+        const _element = getElementsByTagName(element)
         setIsTop(isScrollTop(_element))
       }
     }

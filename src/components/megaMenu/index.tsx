@@ -1,36 +1,38 @@
 import Image from 'next/image'
 import React, { RefObject, forwardRef } from 'react'
+import { ISubMenu } from '../navbar'
 import { Categories, CategoryItem, Container, MostView } from './MegaMenu.style'
 
 type MegaMenuProps = {
-  open: boolean
+  isOpen: boolean
+  data: ISubMenu[]
+  onClick: (id: number) => void
 }
 
 export const MegaMenu = forwardRef(function MegaMenu(
   props: MegaMenuProps,
   ref,
 ): React.JSX.Element | null {
-  const { open } = props
+  const { isOpen, data, onClick } = props
 
-  if (!open) return null
+  if (!isOpen) return null
   return (
     <Container ref={ref as RefObject<HTMLDivElement> | null | undefined}>
       <Categories>
-        <CategoryItem>جنایی</CategoryItem>
-        <CategoryItem>معمایی</CategoryItem>
-        <CategoryItem>ورزشی</CategoryItem>
-        <CategoryItem>علمی تخیلی</CategoryItem>
-        <CategoryItem>اکشن</CategoryItem>
-        <CategoryItem>جنگی</CategoryItem>
-        <CategoryItem>بیوگرافی</CategoryItem>
-        <CategoryItem>تاریخی</CategoryItem>
-        <CategoryItem>کمدی</CategoryItem>
-        <CategoryItem>اجتماعی</CategoryItem>
-        <CategoryItem>مستند</CategoryItem>
-        <CategoryItem>وسترن</CategoryItem>
-        <CategoryItem>ترسناک</CategoryItem>
-        <CategoryItem>ماجرایی</CategoryItem>
-        <CategoryItem>درام</CategoryItem>
+        {data?.map((item: ISubMenu) => {
+          return (
+            <CategoryItem
+              key={item.id}
+              href={{
+                pathname: '/search/',
+                query: { genre: item.title },
+              }}
+              onClick={() => onClick(-1)}
+            >
+              {item.title}
+            </CategoryItem>
+          )
+        })}
       </Categories>
       <MostView>
         <Image

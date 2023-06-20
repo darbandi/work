@@ -3,6 +3,7 @@ import {
   ThemeType,
   animationFadeIn,
   animationSlideInBottom,
+  flexAlignCenter,
   flexCenter,
   responsive,
 } from '@/theme'
@@ -64,8 +65,7 @@ export const Container = styled.div`
     gap: ${({ theme }: ThemeType) => theme.remCalc(12)};
     & > div {
       gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
-      display: flex;
-      align-items: center;
+      ${flexAlignCenter}
     }
   }
 `

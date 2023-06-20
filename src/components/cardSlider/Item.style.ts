@@ -1,5 +1,12 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, flexCenter, flexSpaceBetween, responsive } from '@/theme'
+import Link from 'next/link'
+import {
+  ThemeType,
+  flexCenter,
+  flexSpaceBetween,
+  flexStart,
+  responsive,
+} from '@/theme'
 
 export const ItemWrapper = styled.div`
   position: relative;
@@ -8,12 +15,12 @@ export const InfoStyle = styled.div`
   padding-top: ${({ theme }: ThemeType) => theme.remCalc(4)};
   direction: ${({ theme }: ThemeType) => theme.direction};
 `
-export const TitleStyle = styled.a`
+export const TitleStyle = styled(Link)`
+  text-decoration: none;
   color: ${({ theme }: ThemeType) => theme.colors.gray_800};
   font-weight: 500;
   font-size: ${({ theme }: ThemeType) => theme.remCalc(20)};
-  display: flex;
-  justify-content: start;
+  ${flexStart}
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

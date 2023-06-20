@@ -26,6 +26,7 @@ import {
 import { useStore } from '@/store'
 import { handleDragStart } from '@/tools'
 import { Icon, Loading } from '@/ui-components'
+import { useDocument } from '@/hooks'
 
 export type ItemsArray = {
   key: number
@@ -38,6 +39,7 @@ type ItemProps = { item: ItemsArray; id: string }
 export function Items(props: ItemProps): React.JSX.Element {
   const { item, id } = props
   const isMobile = useMediaQuery('(max-width: 576px)')
+  const { hideScroll, offsetTop } = useDocument()
 
   const setSelectedCartSliderItem = useStore(
     (store) => store.setSelectedCartSliderItem,
@@ -53,17 +55,18 @@ export function Items(props: ItemProps): React.JSX.Element {
 
   const handleClickDetails = () => {
     setSelectedCartSliderItem?.(item, id)
-    if (isMobile) document.documentElement.style.overflowY = 'hidden'
+    if (isMobile) hideScroll()
 
     setTimeout(() => {
-      const top = document.getElementById(id)?.offsetTop
+      const top = offsetTop(id)
       window.scrollTo(0, top as number)
     }, 200)
   }
 
   useEffect(() => {
     if (selectedCartSliderSection) {
-      const top = document.getElementById(selectedCartSliderSection)?.offsetTop
+      if (isMobile) hideScroll()
+      const top = offsetTop(selectedCartSliderSection)
       window.scrollTo(0, top as number)
     }
   }, [selectedCartSliderSection])

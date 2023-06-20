@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styled, { css } from 'styled-components'
-import { ThemeType } from '@/theme'
+import { ThemeType, flexAlignCenter, flexCenter } from '@/theme'
 
 export const ActionBar = styled.div<{ autoHide: boolean }>`
   background: ${({ theme }: ThemeType) => theme.colors.black};
@@ -10,8 +10,7 @@ export const ActionBar = styled.div<{ autoHide: boolean }>`
   right: 0;
   height: auto;
   z-index: 1;
-  display: flex;
-  align-items: center;
+  ${flexAlignCenter}
   flex-direction: column;
   transition: all 0.3s;
 
@@ -33,9 +32,7 @@ export const SeekBar = styled.div`
 `
 export const Actions = styled.div`
   direction: ltr;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flexCenter}
   padding: ${({ theme }: ThemeType) => theme.remCalc(8)};
   padding-bottom: ${({ theme }: ThemeType) => theme.remCalc(16)};
   gap: ${({ theme }: ThemeType) => theme.remCalc(24)};
@@ -67,8 +64,7 @@ export const SmallButton = styled(Button)`
 export const TimeBar = styled.div`
   direction: ltr;
   width: 100%;
-  display: flex;
-  align-items: center;
+  ${flexAlignCenter}
 `
 export const Time = styled.div`
   width: ${({ theme }: ThemeType) => theme.remCalc(100)};
@@ -127,14 +123,12 @@ export const Pause = styled(Button)`
   ${lightButton}
 `
 export const Back = styled(SmallButton)`
-  display: flex;
-  align-items: center;
+  ${flexAlignCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
   ${lightButton}
 `
 export const Forward = styled(SmallButton)`
-  display: flex;
-  align-items: center;
+  ${flexAlignCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
   ${lightButton}
 `

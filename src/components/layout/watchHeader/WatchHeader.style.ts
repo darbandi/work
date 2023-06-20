@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ThemeType, flexSpaceBetween } from '@/theme'
+import { ThemeType, flexAlignCenter, flexSpaceBetween } from '@/theme'
 
 export const Header = styled.header`
   opacity: 1;
@@ -28,7 +28,6 @@ export const Back = styled.div`
 
 export const Main = styled.div`
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  ${flexAlignCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(16)};
 `

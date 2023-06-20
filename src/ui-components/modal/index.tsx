@@ -5,6 +5,7 @@ import { Icon } from '../icon'
 import { Typography } from '../typography'
 import { Actions, Blur, Container, Header } from './Modal.style'
 import { colors } from '@/theme'
+import { useDocument } from '@/hooks'
 
 type ModalHeaderProps = { children: React.JSX.Element }
 
@@ -44,10 +45,12 @@ export function Modal(props: ModalProps): React.JSX.Element | null {
     onSuccess,
     onCancel,
   } = props
+  const { blurWindow } = useDocument()
+
   useEffect(() => {
-    if (open) document.getElementsByTagName('main')[0].classList.add('blur')
+    if (open) blurWindow()
     return () => {
-      document.getElementsByTagName('main')[0].classList.remove('blur')
+      blurWindow(false)
     }
   }, [open])
   if (!open) return null

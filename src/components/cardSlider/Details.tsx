@@ -19,10 +19,12 @@ import {
 import { ItemsArray } from './Item'
 import { Col, Icon, Loading, Row, Typography } from '@/ui-components'
 import { useStore } from '@/store'
+import { useDocument } from '@/hooks'
 
 export function Details(): React.JSX.Element | null {
   const [imgLoading, setImgLoading] = useState(false)
   const [imgSrc, setImgSrc] = useState('')
+  const { hideScroll } = useDocument()
 
   const selectedCartSliderItem = useStore(
     (store) => store.selectedCartSliderItem,
@@ -31,11 +33,9 @@ export function Details(): React.JSX.Element | null {
   const setSelectedCartSliderItem = useStore(
     (store) => store.setSelectedCartSliderItem,
   )
-
   const handleClearSelectedItem = () => {
     setSelectedCartSliderItem?.({} as ItemsArray, '')
-
-    document.documentElement.style.overflowY = 'auto'
+    hideScroll(false)
   }
 
   useEffect(() => {

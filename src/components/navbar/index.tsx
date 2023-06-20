@@ -1,4 +1,8 @@
-import { faAngleDown, faBars } from '@fortawesome/free-solid-svg-icons'
+import {
+  faAngleDown,
+  faAngleUp,
+  faBars,
+} from '@fortawesome/free-solid-svg-icons'
 import { useClickOutside } from '@react-hooks-library/core'
 import React, { useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
@@ -8,10 +12,22 @@ import data from './data.json'
 import { messages } from './messages'
 import { Icon } from '@/ui-components'
 
+export interface ISubMenu {
+  id: number
+  title: string
+}
+
+export interface IDataMenu {
+  id: number
+  title: string
+  link?: string
+  subMenu?: ISubMenu[]
+}
+
 export function NavbarComp(): React.JSX.Element {
   const { formatMessage } = useIntl()
   const [toggleMenu, setToggleMenu] = useState(false)
-  const [openMegaMenu, setOpenMegaMenu] = useState(false)
+  const [active, setActive] = useState<number>(0)
 
   const menu = useRef(null)
   const handleToggleMenu = () => setToggleMenu((x) => !x)
@@ -20,19 +36,39 @@ export function NavbarComp(): React.JSX.Element {
   })
 
   const megaMenuRef = useRef(null)
-  const handleClickCategory = () => setOpenMegaMenu((x) => !x)
-  useClickOutside(megaMenuRef, () => handleClickCategory())
+  const handleClickMenu = (id?: number) => {
+    if (id) {
+      setActive(id)
+    }
+  }
+  useClickOutside(megaMenuRef, () => handleClickMenu(-1))
 
   return (
     <Navbar>
       <Icon icon={faBars} className='fa-bars' onClick={handleToggleMenu} />
       <Ul className='desktop'>
-        {data.map((x) => (
-          <Li key={x.id} onClick={x.id === 3 ? handleClickCategory : undefined}>
-            <A>
+        {data.map((x: IDataMenu) => (
+          <Li key={x.id}>
+            {/* x.id === 3 ? handleClickMenu : undefined */}
+            <A
+              isActive={x.id === active}
+              href={x.link || ''}
+              onClick={() => x.subMenu && handleClickMenu(x.id)}
+            >
               {formatMessage(messages[x.title as keyof typeof messages])}
-              <Icon icon={faAngleDown} />
+              {x.subMenu && (
+                <Icon icon={x.id === active ? faAngleUp : faAngleDown} />
+              )}
             </A>
+
+            {x.subMenu && (
+              <MegaMenu
+                ref={megaMenuRef}
+                isOpen={x.id === active}
+                data={x.subMenu}
+                onClick={handleClickMenu}
+              />
+            )}
           </Li>
         ))}
       </Ul>
@@ -41,7 +77,7 @@ export function NavbarComp(): React.JSX.Element {
           {/* <Li className='mobile'>aaaaaaa</Li> */}
           {data.map((x) => (
             <Li key={x.id} className='mobile'>
-              <A className='mobile'>
+              <A className='mobile' href={x.link || ''}>
                 {formatMessage(messages[x.title as keyof typeof messages])}
                 <Icon icon={faAngleDown} className='fa-angle' rotation={90} />
               </A>
@@ -49,7 +85,6 @@ export function NavbarComp(): React.JSX.Element {
           ))}
         </Ul>
       )}
-      <MegaMenu ref={megaMenuRef} open={openMegaMenu} />
     </Navbar>
   )
 }

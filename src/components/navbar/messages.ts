@@ -3,6 +3,10 @@ import { defineMessages } from 'react-intl'
 const scope = 'apps.commerce.components.navbar'
 
 export const messages = defineMessages({
+  home: {
+    id: `${scope}.home`,
+    defaultMessage: 'خانه',
+  },
   movies: {
     id: `${scope}.movies`,
     defaultMessage: 'فیلم‌ها',
