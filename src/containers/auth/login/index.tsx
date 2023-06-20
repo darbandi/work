@@ -99,10 +99,10 @@ export function LoginPage(): React.JSX.Element {
   return (
     <Container>
       <Row display='flex' alignItems='center' justifyContent='center'>
-        <Col md={1} xs={1}>
+        <Col md={6} xs={12}>
           <LoginForm onSubmit={handleLogin} />
         </Col>
-        <Col md={1} xs={1} hideOn='md'>
+        <Col md={6} xs={12} hideOn='md'>
           <Box className='img' />
         </Col>
       </Row>
