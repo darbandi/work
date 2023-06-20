@@ -116,20 +116,22 @@ export function Details(): React.JSX.Element | null {
               {imgLoading ? (
                 <Loading sm />
               ) : (
-                <Image
-                  className='detail-image'
-                  src={imgSrc}
-                  onError={() => {
-                    setImgSrc('/images/global/no_image.png')
-                  }}
-                  alt='work'
-                  width={570}
-                  height={841}
-                  role='presentation'
-                  loading='lazy'
-                  sizes='(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw'
-                  style={{ width: 'auto', height: '100%' }}
-                />
+                imgSrc && (
+                  <Image
+                    className='detail-image'
+                    src={imgSrc}
+                    onError={() => {
+                      setImgSrc('/images/global/no_image.png')
+                    }}
+                    alt='work'
+                    width={570}
+                    height={841}
+                    role='presentation'
+                    loading='lazy'
+                    sizes='(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw'
+                    style={{ width: 'auto', height: '100%' }}
+                  />
+                )
               )}
             </CustomImage>
           </Col>

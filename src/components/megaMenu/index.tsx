@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { RefObject, forwardRef } from 'react'
+import React, { RefObject, forwardRef, useId } from 'react'
 import { ISubMenu } from '../navbar'
 import { Categories, CategoryItem, Container, MostView } from './MegaMenu.style'
 
@@ -14,6 +14,7 @@ export const MegaMenu = forwardRef(function MegaMenu(
   ref,
 ): React.JSX.Element | null {
   const { isOpen, data, onClick } = props
+  const uId = useId()
 
   if (!isOpen) return null
   return (
@@ -22,7 +23,7 @@ export const MegaMenu = forwardRef(function MegaMenu(
         {data?.map((item: ISubMenu) => {
           return (
             <CategoryItem
-              key={item.id}
+              key={`${uId}-${item.id}`}
               href={{
                 pathname: '/search/',
                 query: { genre: item.title },

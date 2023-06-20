@@ -4,7 +4,7 @@ import {
   faBars,
 } from '@fortawesome/free-solid-svg-icons'
 import { useClickOutside } from '@react-hooks-library/core'
-import React, { useRef, useState } from 'react'
+import React, { useId, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { MegaMenu } from '../megaMenu'
 import { A, Li, Navbar, Ul } from './Navbar.style'
@@ -28,6 +28,8 @@ export function NavbarComp(): React.JSX.Element {
   const { formatMessage } = useIntl()
   const [toggleMenu, setToggleMenu] = useState(false)
   const [active, setActive] = useState<number>(0)
+  const uId = useId()
+  const uId2 = useId()
 
   const menu = useRef(null)
   const handleToggleMenu = () => setToggleMenu((x) => !x)
@@ -48,10 +50,10 @@ export function NavbarComp(): React.JSX.Element {
       <Icon icon={faBars} className='fa-bars' onClick={handleToggleMenu} />
       <Ul className='desktop'>
         {data.map((x: IDataMenu) => (
-          <Li key={x.id}>
+          <Li key={`${uId}-${x.id}`}>
             {/* x.id === 3 ? handleClickMenu : undefined */}
             <A
-              isActive={x.id === active}
+              active={(x.id === active).toString()}
               href={x.link || ''}
               onClick={() => x.subMenu && handleClickMenu(x.id)}
             >
@@ -76,8 +78,12 @@ export function NavbarComp(): React.JSX.Element {
         <Ul className='mobile' ref={menu}>
           {/* <Li className='mobile'>aaaaaaa</Li> */}
           {data.map((x) => (
-            <Li key={x.id} className='mobile'>
-              <A className='mobile' href={x.link || ''}>
+            <Li key={`${uId2}-${x.id}`} className='mobile'>
+              <A
+                className='mobile'
+                href={x.link || ''}
+                active={(x.id === active).toString()}
+              >
                 {formatMessage(messages[x.title as keyof typeof messages])}
                 <Icon icon={faAngleDown} className='fa-angle' rotation={90} />
               </A>

@@ -69,7 +69,7 @@ export const Li = styled.li`
     width: 100%;
   }
 `
-export const A = styled(Link)<{ isActive?: boolean }>`
+export const A = styled(Link)<{ active?: string }>`
   text-decoration: none;
   color: ${({ theme }: ThemeType) => theme.colors.gray_300};
   padding: ${({ theme }: ThemeType) => theme.remCalc(16)};
@@ -87,8 +87,8 @@ export const A = styled(Link)<{ isActive?: boolean }>`
     color: ${({ theme }: ThemeType) => theme.colors.gray_700};
   }
 
-  ${({ isActive }) =>
-    isActive &&
+  ${({ active }) =>
+    active === 'true' &&
     css`
       &::after {
         ${animationFadeIn}

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useId, useMemo } from 'react'
 import Link from 'next/link'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Header, More, Title } from './CardSlider.style'
@@ -17,11 +17,12 @@ type Props = {
 
 export function CardSliderComp(props: Props): React.JSX.Element {
   const { items, title, link, style, id } = props
+  const uId = useId()
 
   const itemsArray = useMemo(
     () =>
       items.map((item) => (
-        <Items key={`${id}_${item.key}`} item={item} id={id} />
+        <Items key={`${uId}-${item.key}`} item={item} id={id} />
       )),
     [items],
   )

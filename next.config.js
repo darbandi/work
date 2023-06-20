@@ -20,6 +20,9 @@ module.exports = () => {
         },
       ],
     },
+    compiler: {
+      styledComponents: true,
+    },
   }
   return nextConfig
 }
