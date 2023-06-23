@@ -12,7 +12,8 @@ import {
 import { Loading } from '@/ui-components'
 
 export type ItemsArray = {
-  key: number
+  id: string
+  key: string
   title: string
   subtitle: string
 }
@@ -24,16 +25,16 @@ export function Items({ item }: ItemProps): React.JSX.Element {
     <ItemWrapper>
       <InfoWrapper>
         <InfoSection>
-          <TitleStyle href={`/watch/${item.key}`}>{item.title}</TitleStyle>
+          <TitleStyle href={`/watch/${item.id}`}>{item.title}</TitleStyle>
           <DescriptionStyle>{item.subtitle}</DescriptionStyle>
         </InfoSection>
-        <WatchDetailsButtons id={item.key} />
+        <WatchDetailsButtons id={item.id} />
       </InfoWrapper>
       <ImageWrapper>
         {item && (
           <Image
             className='img'
-            src={`/images/sliders/${item.key}.png`}
+            src={`/images/sliders/${item.id}.png`}
             alt='work'
             role='presentation'
             style={{ width: 'auto', height: '100%' }}

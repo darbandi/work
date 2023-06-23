@@ -5,7 +5,7 @@ import { Actions } from './WatchDetailsButtons.style'
 import { ContainedButton, Icon } from '@/ui-components'
 
 type WatchDetailsButtonsProps = {
-  id: number
+  id: string
 }
 
 export function WatchDetailsButtons(

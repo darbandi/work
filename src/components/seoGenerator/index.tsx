@@ -4,12 +4,12 @@ import Head from 'next/head'
 import { globalMessages } from '@/assets/globalMessages'
 
 type SEOGeneratorProps = {
-  title?: keyof typeof globalMessages
-  description?: keyof typeof globalMessages
+  title?: keyof typeof globalMessages | string
+  description?: keyof typeof globalMessages | string
   image?: string
   url?: string
-  keywords?: keyof typeof globalMessages
-  children?: React.JSX.Element
+  keywords?: keyof typeof globalMessages | string
+  children?: React.JSX.Element[]
 }
 
 export function SEOGenerator(props: SEOGeneratorProps): React.JSX.Element {
@@ -17,7 +17,9 @@ export function SEOGenerator(props: SEOGeneratorProps): React.JSX.Element {
   const { formatMessage } = useIntl()
 
   const messageGenerator = (text: string) =>
-    formatMessage(globalMessages[text as keyof typeof globalMessages])
+    typeof text === 'string'
+      ? text
+      : formatMessage(globalMessages[text as keyof typeof globalMessages])
 
   return (
     <Head>

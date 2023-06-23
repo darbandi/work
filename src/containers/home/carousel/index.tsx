@@ -3,17 +3,20 @@ import { CarouselComp } from '@/components'
 
 const itemsArray = [
   {
-    key: 1,
+    id: '1',
+    key: 'spiderMan',
     title: 'مرد عنکبوتی',
     subtitle: 'Spider Man',
   },
   {
-    key: 2,
+    id: '2',
+    key: 'matrix',
     title: 'ماتریکس',
     subtitle: 'Matrix',
   },
   {
-    key: 3,
+    id: '3',
+    key: 'madMax',
     title: 'مکس دیوانه',
     subtitle: 'Mad Max',
   },

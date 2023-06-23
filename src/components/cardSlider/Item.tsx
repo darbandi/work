@@ -29,7 +29,8 @@ import { Icon, Loading } from '@/ui-components'
 import { useDocument } from '@/hooks'
 
 export type ItemsArray = {
-  key: number
+  id: string
+  key: string
   title: string
   subtitle: string
 }
@@ -74,7 +75,7 @@ export function Items(props: ItemProps): React.JSX.Element {
   return (
     <ItemWrapper>
       <Image
-        src={`/images/movies/thumbnails/${item.key}.png`}
+        src={`/images/movies/thumbnails/${item.id}.png`}
         alt='work'
         width={570}
         height={841}
@@ -86,20 +87,17 @@ export function Items(props: ItemProps): React.JSX.Element {
       />
       <Loading className='swiper-lazy-preloader' xs />
       <InfoStyle>
-        <TitleStyle href={`/watch/${item.key}`}>{item.title}</TitleStyle>
+        <TitleStyle href={`/watch/${item.id}`}>{item.title}</TitleStyle>
       </InfoStyle>
       <Hovered
         isActive={
-          selectedCartSliderItem?.key === item?.key &&
+          selectedCartSliderItem?.id === item?.id &&
           selectedCartSliderSection === id
         }
         onClick={handleClickDetails}
       >
         <Main>
-          <Play
-            href={`/watch/${item.key}`}
-            onClick={(e) => e.stopPropagation()}
-          >
+          <Play href={`/watch/${item.id}`} onClick={(e) => e.stopPropagation()}>
             <Icon icon={faPlay} className='fa-play' />
           </Play>
           <Details onClick={handleClickDetails}>

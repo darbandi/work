@@ -40,7 +40,7 @@ export function Details(): React.JSX.Element | null {
 
   useEffect(() => {
     setImgLoading(true)
-    setImgSrc(`/images/sliders/${selectedCartSliderItem?.key}.png`)
+    setImgSrc(`/images/sliders/${selectedCartSliderItem?.id}.png`)
     setTimeout(() => {
       setImgLoading(false)
     }, 500)
@@ -108,7 +108,7 @@ export function Details(): React.JSX.Element | null {
               </Col>
             </Row>
             <Actions>
-              <WatchDetailsButtons id={selectedCartSliderItem?.key as number} />
+              <WatchDetailsButtons id={selectedCartSliderItem.id} />
             </Actions>
           </Col>
           <Col xs={12} sm={5}>

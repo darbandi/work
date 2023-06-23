@@ -34,6 +34,7 @@ export default class CustomDocument extends Document {
       <Html>
         <Head>
           <meta charSet='utf-8' />
+          <meta property='og:site_name' content='work' />
           <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
           <meta
             name='viewport'

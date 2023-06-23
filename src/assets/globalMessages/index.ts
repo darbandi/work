@@ -23,4 +23,8 @@ export const globalMessages = defineMessages({
     id: `${scope}.seoDescription`,
     defaultMessage: 'جشنواره فیلم کوتاه',
   },
+  movieDescription: {
+    id: `${scope}.movieDescription`,
+    defaultMessage: 'توضیحات فیلم',
+  },
 })

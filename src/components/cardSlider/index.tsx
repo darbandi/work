@@ -22,7 +22,7 @@ export function CardSliderComp(props: Props): React.JSX.Element {
   const itemsArray = useMemo(
     () =>
       items.map((item) => (
-        <Items key={`${uId}-${item.key}`} item={item} id={id} />
+        <Items key={`${uId}-${item.id}`} item={item} id={id} />
       )),
     [items],
   )

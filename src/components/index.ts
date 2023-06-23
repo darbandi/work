@@ -1,5 +1,6 @@
 export { CardSliderComp } from './cardSlider'
 export { CarouselComp } from './carousel'
+export { Description } from './description'
 export { LayoutComp } from './layout'
 export { MotionComp } from './motion'
 export { NavbarComp } from './navbar'

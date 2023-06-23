@@ -22,8 +22,12 @@ export function Slider(props: Props): React.JSX.Element {
       {items?.map((item, i) => (
         <SwiperSlide key={`${uId}-${i + 1}`}>{item}</SwiperSlide>
       ))}
-      <PrevButtons position={position} />
-      <NextButtons position={position} />
+      {items.length > 1 && (
+        <>
+          <PrevButtons position={position} />
+          <NextButtons position={position} />
+        </>
+      )}
     </Swiper>
   )
 }

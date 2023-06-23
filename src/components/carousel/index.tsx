@@ -9,7 +9,7 @@ export function CarouselComp(props: Props): React.JSX.Element {
   const uId = useId()
 
   const itemsArray = useMemo(
-    () => items.map((item) => <Items key={`${uId}-${item.key}`} item={item} />),
+    () => items.map((item) => <Items key={`${uId}-${item.id}`} item={item} />),
     [items],
   )
 
