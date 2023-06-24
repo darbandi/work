@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { Container } from './Movie.style'
 import { CarouselComp, Description, SEOGenerator } from '@/components'
+import { MovieMenu } from '@/components/movieMenu'
 
 const item = {
   id: '1',
@@ -35,6 +36,7 @@ export function MoviePage(): React.JSX.Element {
         <meta property='video:duration' content={item.duration} />
       </SEOGenerator>
       <CarouselComp items={[item]} />
+      <MovieMenu />
       <Description value={item.description} />
     </Container>
   )

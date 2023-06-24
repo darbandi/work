@@ -27,4 +27,24 @@ export const globalMessages = defineMessages({
     id: `${scope}.movieDescription`,
     defaultMessage: 'توضیحات فیلم',
   },
+  description: {
+    id: `${scope}.description`,
+    defaultMessage: 'توضیحات',
+  },
+  userComments: {
+    id: `${scope}.userComments`,
+    defaultMessage: 'دیدگاه کاربران',
+  },
+  crew: {
+    id: `${scope}.crew`,
+    defaultMessage: 'عوامل',
+  },
+  suggestions: {
+    id: `${scope}.suggestions`,
+    defaultMessage: 'پیشنهادات',
+  },
+  similarityMovies: {
+    id: `${scope}.similarityMovies`,
+    defaultMessage: 'فیلم‌های مشابه',
+  },
 })
