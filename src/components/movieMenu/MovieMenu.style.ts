@@ -19,6 +19,7 @@ export const Container = styled.div`
   }
 `
 export const MenuItems = styled.div`
+  margin: 0 auto;
   ${flexCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(32)};
   padding: ${({ theme }: ThemeType) => theme.remCalc(32)};
