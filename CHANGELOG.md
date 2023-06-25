@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.4.0](///compare/0.3.0...0.4.0) (2023-06-25)
+
+
+### Features
+
+* card details was added 403616c
+* details of mivie and imorovement slider as SEO component 9464d66
+* movie crew was added bfbd45d
+* movie menu was added 92520cd
+* the pwa was added cfc5c62
+
+
+### Bug Fixes
+
+* reafactor the cardSlider and carousel architecture and added hover to the cardSlider 0839441
+* resolved some console error add3c27
+
+
+### Other Improvement
+
+* data of sliders was integrated and linked title in sliders 9654d93
+* improvement megaMenu and useDocument hook was added f3acfde
+* useDocument interface was added 4ea23ac
+
 ## [0.3.0](///compare/0.1.0...0.3.0) (2023-06-15)
 
 
