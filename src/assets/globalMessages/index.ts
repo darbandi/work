@@ -39,6 +39,10 @@ export const globalMessages = defineMessages({
     id: `${scope}.crew`,
     defaultMessage: 'عوامل',
   },
+  movieCrew: {
+    id: `${scope}.movieCrew`,
+    defaultMessage: 'عوامل فیلم',
+  },
   suggestions: {
     id: `${scope}.suggestions`,
     defaultMessage: 'پیشنهادات',
@@ -46,5 +50,9 @@ export const globalMessages = defineMessages({
   similarityMovies: {
     id: `${scope}.similarityMovies`,
     defaultMessage: 'فیلم‌های مشابه',
+  },
+  profile: {
+    id: `${scope}.profile`,
+    defaultMessage: 'پروفایل',
   },
 })
