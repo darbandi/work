@@ -1,9 +1,13 @@
 import { useRouter } from 'next/router'
 import React from 'react'
+import { itemsArray } from '../home/topTen'
 import { Container } from './Movie.style'
 import {
+  CardSliderComp,
   CarouselComp,
+  Comments,
   Description,
+  MotionComp,
   MovieCrew,
   MovieMenu,
   SEOGenerator,
@@ -44,6 +48,15 @@ export function MoviePage(): React.JSX.Element {
       <MovieMenu />
       <Description value={item.description} />
       <MovieCrew />
+      <Comments />
+      <MotionComp>
+        <CardSliderComp
+          id='top101'
+          items={itemsArray}
+          title='فیلم‌های مشابه'
+          link='/search?type=topView'
+        />
+      </MotionComp>
     </Container>
   )
 }

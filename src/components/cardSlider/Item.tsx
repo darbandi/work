@@ -5,7 +5,6 @@ import {
   faPlay,
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
-import moment from 'moment'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { useMediaQuery } from '@react-hooks-library/core'
@@ -33,6 +32,7 @@ export type ItemsArray = {
   key: string
   title: string
   subtitle: string
+  duration?: string
 }
 
 type ItemProps = { item: ItemsArray; id: string }
@@ -117,7 +117,7 @@ export function Items(props: ItemProps): React.JSX.Element {
           </LikeView>
           <Time>
             <Icon icon={faClock} />
-            {moment().format('HH:mm')}
+            {item?.duration}
           </Time>
         </Footer>
       </Hovered>

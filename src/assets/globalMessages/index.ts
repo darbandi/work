@@ -55,4 +55,12 @@ export const globalMessages = defineMessages({
     id: `${scope}.profile`,
     defaultMessage: 'پروفایل',
   },
+  comments: {
+    id: `${scope}.comments`,
+    defaultMessage: 'دیدگاه کاربران',
+  },
+  reply: {
+    id: `${scope}.comments`,
+    defaultMessage: 'پاسخ به این دیدگاه',
+  },
 })
