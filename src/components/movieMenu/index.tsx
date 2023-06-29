@@ -2,32 +2,33 @@ import React from 'react'
 import { useIntl } from 'react-intl'
 import { Container, MenuItem, MenuItems } from './MovieMenu.style'
 import { globalMessages } from '@/assets/globalMessages'
-import { Separator } from '@/ui-components'
+import { Separator, Text } from '@/ui-components'
+
+const data = [
+  'description',
+  'userComments',
+  'crew',
+  'suggestions',
+  'similarityMovies',
+]
 
 export function MovieMenu(): React.JSX.Element {
   const { formatMessage } = useIntl()
   return (
     <Container>
       <MenuItems>
-        <MenuItem href='#description' scroll={false}>
-          {formatMessage(globalMessages.description)}
-        </MenuItem>
-        <Separator />
-        <MenuItem href='#userComments' scroll={false}>
-          {formatMessage(globalMessages.userComments)}
-        </MenuItem>
-        <Separator />
-        <MenuItem href='#movieCrew' scroll={false}>
-          {formatMessage(globalMessages.crew)}
-        </MenuItem>
-        <Separator />
-        <MenuItem href='#suggestions' scroll={false}>
-          {formatMessage(globalMessages.suggestions)}
-        </MenuItem>
-        <Separator />
-        <MenuItem href='#similarityMovies' scroll={false}>
-          {formatMessage(globalMessages.similarityMovies)}
-        </MenuItem>
+        {data.map((item, index) => (
+          <React.Fragment key={item}>
+            {index > 0 && <Separator />}
+            <MenuItem href={`#${item}`} scroll={false}>
+              <Text size={18} fontWeight='400' color='gray_800'>
+                {formatMessage(
+                  globalMessages[item as keyof typeof globalMessages],
+                )}
+              </Text>
+            </MenuItem>
+          </React.Fragment>
+        ))}
       </MenuItems>
     </Container>
   )

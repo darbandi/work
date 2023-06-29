@@ -9,7 +9,7 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import { Container, CommentContainer, Reply } from './Comments.style'
-import { Box, Col, Icon, Row, Typography } from '@/ui-components'
+import { Box, Col, Icon, Row, Text } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -79,45 +79,32 @@ export function Comment(props: comment): React.JSX.Element {
         </Col>
         <Col xs={11} className='comment'>
           <Box display='flex' className='header'>
-            <Typography
-              fontSize={18}
-              fontWeight={'bold'}
-              color='white'
-              className='name'
-            >
+            <Text size={18} fontWeight='bold' className='name'>
               {name}
-            </Typography>
-            <Typography
-              fontSize={12}
-              fontWeight={'bold'}
-              color='gray'
-              className='time'
-            >
+            </Text>
+            <Text size={12} fontWeight='bold' color='gray_600' className='time'>
               <bdi>{create_at}</bdi>
-            </Typography>
+            </Text>
           </Box>
           <Box>
-            <Typography
-              fontSize={14}
-              fontWeight={'100'}
-              color='white'
-              className='content'
-            >
+            <Text lineHeight={2} className='content' as='p'>
               {content}
-            </Typography>
+            </Text>
           </Box>
           <Box className='footer'>
-            <Typography className='like'>
-              <Icon icon={faThumbsUp} className='icon' />
+            <Text fontWeight='bold' color='green_500' className='like'>
+              <Icon icon={faThumbsUp} className='icon' color='green_500' />
               {likes}
-            </Typography>
-            <Typography className='dislike'>
-              <Icon icon={faThumbsDown} className='icon' />
+            </Text>
+            <Text fontWeight='bold' color='red_500' className='dislike'>
+              <Icon icon={faThumbsDown} className='icon' color='red_500' />
               {dislikes}
-            </Typography>
+            </Text>
             <Reply>
               <Icon icon={faReply} />
-              {formatMessage(globalMessages.reply)}
+              <Text size={16} fontWeight='bold'>
+                {formatMessage(globalMessages.reply)}
+              </Text>
             </Reply>
           </Box>
         </Col>
@@ -133,9 +120,11 @@ export function Comments(props: Props): React.JSX.Element {
 
   return (
     <Container id={id}>
-      <Typography fontSize={24} fontWeight={'bold'} mb={48} color='white'>
-        {formatMessage(globalMessages.comments)}
-      </Typography>
+      <Box mb={48}>
+        <Text size={24} fontWeight='bold' as='h4'>
+          {formatMessage(globalMessages.comments)}
+        </Text>
+      </Box>
       {comments.map((comment) => (
         <Comment key={`${uId}-${comment.id}`} {...comment} />
       ))}

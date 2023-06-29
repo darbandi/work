@@ -5,6 +5,9 @@ export type ThemeType = {
     remCalc: (px: number, base?: number) => string
     colors: typeof commonColors
   }
+  size?: number
+  lineHeight?: number
+  color?: string
 }
 
 export const commonColors = {

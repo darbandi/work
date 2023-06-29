@@ -13,7 +13,7 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 100%;
   padding: ${({ theme }: ThemeType) => theme.remCalc(94)};
-  background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_500};
+  background-color: ${({ theme }: ThemeType) => theme.colors.gray_900};
 
   ${responsive(
     'sm',
@@ -58,34 +58,15 @@ export const CommentContainer = styled.div<{ isReplied: boolean }>`
         ${flexSpaceBetween}
       }
 
-      .content {
-        line-height: 2;
-      }
-
       .footer {
         ${flexAlignCenter}
         gap: ${({ theme }: ThemeType) => theme.remCalc(16)};
 
-        div {
-          gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
-          ${flexStart}
-        }
-
         .like,
         .dislike {
-          font-size: ${({ theme }: ThemeType) => theme.remCalc(14)};
-          font-weight: bold;
           cursor: pointer;
-        }
-
-        .like,
-        .like .icon {
-          color: ${({ theme }: ThemeType) => theme.colors.green_500};
-        }
-
-        .dislike,
-        .dislike .icon {
-          color: ${({ theme }: ThemeType) => theme.colors.red_500};
+          gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
+          ${flexStart}
         }
       }
     }
@@ -102,17 +83,6 @@ export const CommentContainer = styled.div<{ isReplied: boolean }>`
 
           img {
             border-top-left-radius: 0;
-          }
-        }
-        .comment {
-          .header {
-            .name,
-            .time {
-              font-size: ${({ theme }: ThemeType) => theme.remCalc(16)};
-            }
-          }
-          .content {
-            font-size: ${({ theme }: ThemeType) => theme.remCalc(14)};
           }
         }
       }
@@ -153,7 +123,6 @@ export const CommentContainer = styled.div<{ isReplied: boolean }>`
 
 export const Reply = styled.span`
   cursor: pointer;
-  color: ${({ theme }: ThemeType) => theme.colors.white};
   text-decoration: none;
   ${flexStart}
   gap: ${({ theme }: ThemeType) => theme.remCalc(4)};

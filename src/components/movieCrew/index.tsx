@@ -9,10 +9,9 @@ import {
   Item,
   Items,
   JobPosition,
-  Name,
 } from './MovieCrew.style'
 import { globalMessages } from '@/assets/globalMessages'
-import { Typography } from '@/ui-components'
+import { Box, Text } from '@/ui-components'
 
 const movieCrew = [
   {
@@ -57,20 +56,24 @@ interface Props {
 }
 
 export function MovieCrew(props: Props): React.JSX.Element {
-  const { id = 'movieCrew' } = props
+  const { id = 'crew' } = props
   const uId = useId()
   const { formatMessage } = useIntl()
 
   return (
     <Container id={id}>
-      <Typography fontSize={24} fontWeight={'bold'} mb={48}>
-        {formatMessage(globalMessages.movieCrew)}
-      </Typography>
+      <Box mb={48}>
+        <Text size={24} fontWeight='bold' as='h4' color='gray_800'>
+          {formatMessage(globalMessages.movieCrew)}
+        </Text>
+      </Box>
       <Items>
         {movieCrew.map((crew) => (
           <Item key={`${uId}-${crew.id}`}>
             <ImageWrapper className='image-wrapper'>
-              <JobPosition>{crew.jobPosition}</JobPosition>
+              <JobPosition>
+                <Text>{crew.jobPosition}</Text>
+              </JobPosition>
               <Image
                 className='detail-image'
                 src={`/images/profiles/${crew.id}.webp`}
@@ -84,9 +87,13 @@ export function MovieCrew(props: Props): React.JSX.Element {
               />
             </ImageWrapper>
             <Footer>
-              <Name>{crew.name}</Name>
+              <Text color='gray_700' fontWeight='bold' size={16}>
+                {crew.name}
+              </Text>
               <Button href={`/crew/${crew.id}`}>
-                {formatMessage(globalMessages.profile)}
+                <Text size={12} fontWeight='400'>
+                  {formatMessage(globalMessages.profile)}
+                </Text>
               </Button>
             </Footer>
           </Item>

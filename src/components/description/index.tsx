@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { useIntl } from 'react-intl'
 import { Container, More } from './Description.style'
-import { Icon, Typography } from '@/ui-components'
+import { Box, Icon, Text } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -17,17 +17,14 @@ export function Description(prop: Props): React.JSX.Element {
 
   return (
     <Container displayAllText={displayAllText} id={id}>
-      <Typography fontSize={24} fontWeight={'bold'} mb={48}>
-        {formatMessage(globalMessages.movieDescription)}
-      </Typography>
-      <Typography
-        className='description'
-        fontSize={16}
-        fontWeight={'regular'}
-        lineHeight={2}
-      >
+      <Box mb={48}>
+        <Text size={24} fontWeight='bold' as='h4'>
+          {formatMessage(globalMessages.movieDescription)}
+        </Text>
+      </Box>
+      <Text lineHeight={2} as='p' className='description'>
         {value}
-      </Typography>
+      </Text>
       <More>
         <Icon
           onClick={() => setDisplayAllText((x) => !x)}

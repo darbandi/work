@@ -59,11 +59,7 @@ export const Item = styled.div`
     `,
   )}
 `
-export const Name = styled.div`
-  color: ${({ theme }: ThemeType) => theme.colors.gray_900};
-  font-weight: 500;
-  font-size: ${({ theme }: ThemeType) => theme.remCalc(20)};
-`
+
 export const ImageWrapper = styled.div`
   position: relative;
   border-radius: ${({ theme }: ThemeType) => theme.remCalc(8)};
@@ -89,7 +85,6 @@ export const JobPosition = styled.div`
   background-color: ${({ theme }: ThemeType) => theme.colors.red_900};
   border-radius: ${({ theme }: ThemeType) => theme.remCalc(8)};
   border-top-right-radius: 0;
-  color: ${({ theme }: ThemeType) => theme.colors.white};
   padding: ${({ theme }: ThemeType) =>
     `${theme.remCalc(4)} ${theme.remCalc(12)}`};
   box-shadow: -1px 0 5px ${({ theme }: ThemeType) => theme.colors.black};
@@ -112,10 +107,7 @@ export const Button = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   background-color: ${({ theme }: ThemeType) => theme.colors.black};
-  color: ${({ theme }: ThemeType) => theme.colors.white};
   border-radius: ${({ theme }: ThemeType) => theme.remCalc(8)};
-  font-size: ${({ theme }: ThemeType) => theme.remCalc(14)};
-  font-weight: 500;
   padding: ${({ theme }: ThemeType) =>
     `${theme.remCalc(4)} ${theme.remCalc(12)}`};
   ${flexCenter}

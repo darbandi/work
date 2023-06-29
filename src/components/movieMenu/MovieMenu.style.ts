@@ -31,6 +31,5 @@ export const MenuItems = styled.div`
 export const MenuItem = styled(Link)`
   display: inline-block;
   text-decoration: none;
-  color: ${({ theme }: ThemeType) => theme.colors.gray_800};
   cursor: pointer;
 `
