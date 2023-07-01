@@ -35,10 +35,10 @@ export type ItemsArray = {
   duration?: string
 }
 
-type ItemProps = { item: ItemsArray; id: string }
+type ItemProps = { item: ItemsArray; id: string; mode?: 'dark' | 'light' }
 
 export function Items(props: ItemProps): React.JSX.Element {
-  const { item, id } = props
+  const { item, id, mode } = props
   const isMobile = useMediaQuery('(max-width: 576px)')
   const { hideScroll, offsetTop } = useDocument()
 
@@ -87,7 +87,9 @@ export function Items(props: ItemProps): React.JSX.Element {
       />
       <Loading className='swiper-lazy-preloader' xs />
       <InfoStyle>
-        <TitleStyle href={`/watch/${item.id}`}>{item.title}</TitleStyle>
+        <TitleStyle href={`/watch/${item.id}`} mode={mode}>
+          {item.title}
+        </TitleStyle>
       </InfoStyle>
       <Hovered
         isActive={

@@ -68,6 +68,8 @@ export const commonColors = {
   purple_800: '#322873',
   purple_900: '#1D1145',
   darkBlue_500: '#1E2129',
+  darkBlue_900: '#121419',
+  brown_500: '#1d1d1d',
 }
 
 const remCalc = (px: number, base = 16) => {

@@ -15,7 +15,7 @@ export const InfoStyle = styled.div`
   padding-top: ${({ theme }: ThemeType) => theme.remCalc(4)};
   direction: ${({ theme }: ThemeType) => theme.direction};
 `
-export const TitleStyle = styled(Link)`
+export const TitleStyle = styled(Link)<{ mode?: 'dark' | 'light' }>`
   text-decoration: none;
   color: ${({ theme }: ThemeType) => theme.colors.gray_800};
   font-weight: 500;
@@ -26,6 +26,12 @@ export const TitleStyle = styled(Link)`
   white-space: nowrap;
   cursor: pointer;
   text-decoration: none;
+
+  ${({ mode }) =>
+    mode === 'light' &&
+    css`
+      color: ${({ theme }: ThemeType) => theme.colors.white};
+    `}
 `
 
 const commonHovered = css`

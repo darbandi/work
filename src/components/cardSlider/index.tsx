@@ -9,20 +9,21 @@ import { useStore } from '@/store'
 
 type Props = {
   items: ItemsArray[]
-  title: string
+  title: string | React.JSX.Element
   link: string
   style?: object
   id: string
+  mode?: 'dark' | 'light'
 }
 
 export function CardSliderComp(props: Props): React.JSX.Element {
-  const { items, title, link, style, id } = props
+  const { items, title, link, style, id, mode } = props
   const uId = useId()
 
   const itemsArray = useMemo(
     () =>
       items.map((item) => (
-        <Items key={`${uId}-${item.id}`} item={item} id={id} />
+        <Items key={`${uId}-${item.id}`} item={item} id={id} mode={mode} />
       )),
     [items],
   )
@@ -44,9 +45,9 @@ export function CardSliderComp(props: Props): React.JSX.Element {
   return (
     <Container id={id} style={style}>
       <Header>
-        <Title>{title}</Title>
+        <Title mode={mode}>{title}</Title>
         {link && (
-          <More>
+          <More mode={mode}>
             <Link href={link}>بیشتر</Link>
             <Icon icon={faChevronLeft} />
           </More>

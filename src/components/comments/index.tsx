@@ -14,6 +14,7 @@ import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
   id?: string
+  crewName?: string
 }
 
 type comment = {
@@ -114,15 +115,23 @@ export function Comment(props: comment): React.JSX.Element {
 }
 
 export function Comments(props: Props): React.JSX.Element {
-  const { id = 'comments' } = props
+  const { id = 'comments', crewName } = props
   const { formatMessage } = useIntl()
   const uId = useId()
 
   return (
     <Container id={id}>
       <Box mb={48}>
-        <Text size={24} fontWeight='bold' as='h4'>
-          {formatMessage(globalMessages.comments)}
+        <Text
+          size={24}
+          fontWeight='bold'
+          as='h4'
+          color={crewName ? 'gray_600' : 'white'}
+        >
+          {formatMessage(globalMessages.comments)}{' '}
+          <Text size={24} fontWeight='bold' mr={4} display='inline-block'>
+            {crewName}
+          </Text>
         </Text>
       </Box>
       {comments.map((comment) => (

@@ -90,7 +90,12 @@ export function MovieCrew(props: Props): React.JSX.Element {
               <Text color='gray_700' fontWeight='bold' size={16}>
                 {crew.name}
               </Text>
-              <Button href={`/crew/${crew.id}`}>
+              <Button
+                href={`/crew/${crew.id}/?name=${crew.name.replace(
+                  / /g,
+                  '_',
+                )}&jobPosition=${crew.jobPosition.replace(/ /g, '_')}`}
+              >
                 <Text size={12} fontWeight='400'>
                   {formatMessage(globalMessages.profile)}
                 </Text>

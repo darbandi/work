@@ -18,7 +18,8 @@ export const Container = styled.div`
   ${responsive(
     'sm',
     css`
-      padding: ${({ theme }: ThemeType) => theme.remCalc(50)};
+      padding: ${({ theme }: ThemeType) =>
+        `${theme.remCalc(50)} ${theme.remCalc(30)}`};
     `,
   )}
 `

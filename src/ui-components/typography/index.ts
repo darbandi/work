@@ -24,6 +24,11 @@ type TextType = {
   color?: string
   lineHeight?: number
   fontFamily?: 'IRANSansX' | 'Droid'
+  display?: 'block' | 'contents' | 'inline-block'
+  mt?: number
+  mb?: number
+  ml?: number
+  mr?: number
 }
 
 export const BaseTextStyle = styled.span<TextType>`
@@ -32,8 +37,12 @@ export const BaseTextStyle = styled.span<TextType>`
   color: ${({ theme, color }: ThemeType) =>
     theme.colors[color as keyof typeof commonColors] ?? theme.colors.white};
   line-height: ${({ lineHeight }) => lineHeight ?? 1};
-  display: contents;
+  display: ${({ display }) => display ?? 'contents'};
   font-family: ${({ fontFamily }) => fontFamily ?? 'IRANSansX'};
+  ${({ theme, mt }) => mt && `margin-top: ${theme.remCalc(mt)};`};
+  ${({ theme, mb }) => mb && `margin-bottom: ${theme.remCalc(mb)};`};
+  ${({ theme, ml }) => ml && `margin-left: ${theme.remCalc(ml)};`};
+  ${({ theme, mr }) => mr && `margin-right: ${theme.remCalc(mr)};`};
 `
 export const Text = styled(BaseTextStyle).attrs<{ component: string }>(
   (props) => ({
