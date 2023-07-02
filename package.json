@@ -25,9 +25,6 @@
     "@react-hooks-library/core": "^0.5.1",
     "@sentry/nextjs": "^7.53.1",
     "@swc/helpers": "~0.5.0",
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
     "axios": "^1.4.0",
     "axios-hooks": "^4.0.0",
     "bcrypt": "^5.1.0",
@@ -51,7 +48,6 @@
     "styled-system": "^5.1.5",
     "swiper": "^9.3.2",
     "tslib": "^2.3.0",
-    "typescript": "latest",
     "zustand": "latest"
   },
   "devDependencies": {

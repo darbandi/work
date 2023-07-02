@@ -69,23 +69,43 @@ export const Li = styled.li`
     width: 100%;
   }
 `
-export const A = styled(Link)<{ active?: string }>`
+const commonMenuItem = css`
   text-decoration: none;
   color: ${({ theme }: ThemeType) => theme.colors.gray_300};
   padding: ${({ theme }: ThemeType) => theme.remCalc(16)};
   cursor: pointer;
   ${flexAlignCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
-  font-size: ${({ theme }: ThemeType) => theme.remCalc(16)};
-  font-weight: bold;
   position: relative;
+`
+
+export const HyperLink = styled(Link)<{ active?: boolean }>`
+  ${commonMenuItem}
+
+  ${({ active }) =>
+    active &&
+    css`
+      &::after {
+        ${animationFadeIn}
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        z-index: 1;
+        background-color: ${({ theme }: ThemeType) => theme.colors.white};
+      }
+    `}
 
   &.mobile {
     ${flexSpaceBetween}
     width: 100%;
     padding: 0;
-    color: ${({ theme }: ThemeType) => theme.colors.gray_700};
   }
+`
+export const FunctionLink = styled.span<{ active?: string }>`
+  ${commonMenuItem}
 
   ${({ active }) =>
     active === 'true' &&

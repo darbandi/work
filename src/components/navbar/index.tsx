@@ -6,11 +6,12 @@ import {
 import { useClickOutside } from '@react-hooks-library/core'
 import React, { useId, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
+import { useRouter } from 'next/router'
 import { MegaMenu } from '../megaMenu'
-import { A, Li, Navbar, Ul } from './Navbar.style'
+import { HyperLink, FunctionLink, Li, Navbar, Ul } from './Navbar.style'
 import data from './data.json'
 import { messages } from './messages'
-import { Icon } from '@/ui-components'
+import { Icon, Text } from '@/ui-components'
 
 export interface ISubMenu {
   id: number
@@ -26,6 +27,7 @@ export interface IDataMenu {
 
 export function NavbarComp(): React.JSX.Element {
   const { formatMessage } = useIntl()
+  const { asPath } = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)
   const [active, setActive] = useState<number>(0)
   const uId = useId()
@@ -45,48 +47,68 @@ export function NavbarComp(): React.JSX.Element {
   }
   useClickOutside(megaMenuRef, () => handleClickMenu(-1))
 
+  const createMenu = (menu: IDataMenu) => {
+    return (
+      <>
+        <Text size={16}>
+          {formatMessage(messages[menu.title as keyof typeof messages])}
+        </Text>
+        {menu.subMenu && (
+          <Icon icon={menu.id === active ? faAngleUp : faAngleDown} />
+        )}
+      </>
+    )
+  }
+
   return (
     <Navbar>
       <Icon icon={faBars} className='fa-bars' onClick={handleToggleMenu} />
-      <Ul className='desktop'>
-        {data.map((x: IDataMenu) => (
-          <Li key={`${uId}-${x.id}`}>
-            {/* x.id === 3 ? handleClickMenu : undefined */}
-            <A
-              active={(x.id === active).toString()}
-              href={x.link || ''}
-              onClick={() => x.subMenu && handleClickMenu(x.id)}
-            >
-              {formatMessage(messages[x.title as keyof typeof messages])}
-              {x.subMenu && (
-                <Icon icon={x.id === active ? faAngleUp : faAngleDown} />
-              )}
-            </A>
-
-            {x.subMenu && (
-              <MegaMenu
-                ref={megaMenuRef}
-                isOpen={x.id === active}
-                data={x.subMenu}
-                onClick={handleClickMenu}
-              />
-            )}
-          </Li>
-        ))}
-      </Ul>
-      {toggleMenu && (
+      {toggleMenu ? (
         <Ul className='mobile' ref={menu}>
-          {/* <Li className='mobile'>aaaaaaa</Li> */}
-          {data.map((x) => (
-            <Li key={`${uId2}-${x.id}`} className='mobile'>
-              <A
+          {data.map((menu) => (
+            <Li
+              key={`${uId2}-${menu.id}`}
+              className='mobile'
+              onClick={handleToggleMenu}
+            >
+              <HyperLink
                 className='mobile'
-                href={x.link || ''}
-                active={(x.id === active).toString()}
+                href={menu.link || ''}
+                active={menu.id === active}
               >
-                {formatMessage(messages[x.title as keyof typeof messages])}
+                <Text size={18} fontWeight='bold' color='gray_700'>
+                  {formatMessage(messages[menu.title as keyof typeof messages])}
+                </Text>
                 <Icon icon={faAngleDown} className='fa-angle' rotation={90} />
-              </A>
+              </HyperLink>
+            </Li>
+          ))}
+        </Ul>
+      ) : (
+        <Ul className='desktop'>
+          {data.map((menu: IDataMenu) => (
+            <Li key={`${uId}-${menu.id}`}>
+              {menu.subMenu ? (
+                <FunctionLink
+                  active={(menu.id === active).toString()}
+                  onClick={() => menu.subMenu && handleClickMenu(menu.id)}
+                >
+                  {createMenu(menu)}
+                </FunctionLink>
+              ) : (
+                <HyperLink active={asPath === menu.link} href={menu.link || ''}>
+                  {createMenu(menu)}
+                </HyperLink>
+              )}
+
+              {menu.subMenu && (
+                <MegaMenu
+                  ref={megaMenuRef}
+                  isOpen={menu.id === active}
+                  data={menu.subMenu}
+                  onClick={handleClickMenu}
+                />
+              )}
             </Li>
           ))}
         </Ul>

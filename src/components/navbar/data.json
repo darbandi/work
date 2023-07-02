@@ -17,6 +17,7 @@
   {
     "id": 4,
     "title": "categories",
+    "link": "/search/",
     "subMenu": [
       {
         "id": 1,
