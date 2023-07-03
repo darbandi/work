@@ -51,7 +51,7 @@ export function MoviePage(): React.JSX.Element {
       <Comments />
       <MotionComp>
         <CardSliderComp
-          id='top101'
+          id='similarityMovies'
           items={itemsArray}
           title='فیلم‌های مشابه'
           link='/search?type=topView'

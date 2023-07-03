@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import {
   space,
   layout,
@@ -27,7 +27,9 @@ type BoxProps = BackgroundColorProps &
   BackgroundProps &
   BorderProps &
   PositionProps &
-  ShadowProps
+  ShadowProps & {
+    gap?: number
+  }
 
 export const Box = styled.div<BoxProps>`
   ${space}
@@ -38,4 +40,9 @@ export const Box = styled.div<BoxProps>`
   ${border}
   ${position}
   ${shadow}
+  ${({ gap, theme }) =>
+    gap &&
+    css`
+      gap: ${theme.remCalc(gap)};
+    `}
 `

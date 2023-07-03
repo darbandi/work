@@ -63,4 +63,9 @@ export const globalMessages = defineMessages({
     id: `${scope}.comments`,
     defaultMessage: 'پاسخ به این دیدگاه',
   },
+  copyright: {
+    id: `${scope}.copyright`,
+    defaultMessage:
+      'کلیه‌ی حقوق مادی و معنوی اپلیکیشن «ما» متعلق به شرکت «ما» می‌باشد.',
+  },
 })

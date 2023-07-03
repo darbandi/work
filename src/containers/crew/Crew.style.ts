@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { ThemeType, flexCenter, responsive } from '@/theme'
 
 export const Container = styled.div`
+  margin-bottom: ${({ theme }: ThemeType) => theme.remCalc(-40)};
   .information {
     background: ${({ theme }: ThemeType) => theme.colors.brown_500};
     position: relative;
