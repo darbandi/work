@@ -1,10 +1,9 @@
 import React, { useEffect, useId, useMemo } from 'react'
-import Link from 'next/link'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Header, More, Title } from './CardSlider.style'
 import { Items, ItemsArray } from './Item'
 import { Details } from './Details'
-import { SliderButtonsPosition, Slider, Icon } from '@/ui-components'
+import { SliderButtonsPosition, Slider, Icon, UI_Link } from '@/ui-components'
 import { useStore } from '@/store'
 
 type Props = {
@@ -48,7 +47,7 @@ export function CardSliderComp(props: Props): JSX.Element {
         <Title mode={mode}>{title}</Title>
         {link && (
           <More mode={mode}>
-            <Link href={link}>بیشتر</Link>
+            <UI_Link href={link}>بیشتر</UI_Link>
             <Icon icon={faChevronLeft} />
           </More>
         )}

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import Link from 'next/link'
 import {
   ThemeType,
   flexCenter,
@@ -7,6 +6,7 @@ import {
   flexStart,
   responsive,
 } from '@/theme'
+import { UI_Link } from '@/ui-components'
 
 export const Container = styled.div`
   margin: 0 auto;
@@ -103,8 +103,7 @@ export const JobPosition = styled.div`
     border-left: 10px solid ${({ theme }: ThemeType) => theme.colors.black};
   }
 `
-export const Button = styled(Link)`
-  text-decoration: none;
+export const Button = styled(UI_Link)`
   cursor: pointer;
   background-color: ${({ theme }: ThemeType) => theme.colors.black};
   border-radius: ${({ theme }: ThemeType) => theme.remCalc(8)};

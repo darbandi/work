@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import Link from 'next/link'
 import {
   ThemeType,
   flexCenter,
@@ -7,6 +6,7 @@ import {
   flexStart,
   responsive,
 } from '@/theme'
+import { UI_Link } from '@/ui-components'
 
 export const ItemWrapper = styled.div`
   position: relative;
@@ -15,8 +15,7 @@ export const InfoStyle = styled.div`
   padding-top: ${({ theme }: ThemeType) => theme.remCalc(4)};
   direction: ${({ theme }: ThemeType) => theme.direction};
 `
-export const TitleStyle = styled(Link)<{ mode?: 'dark' | 'light' }>`
-  text-decoration: none;
+export const TitleStyle = styled(UI_Link)<{ mode?: 'dark' | 'light' }>`
   color: ${({ theme }: ThemeType) => theme.colors.gray_800};
   font-weight: 500;
   font-size: ${({ theme }: ThemeType) => theme.remCalc(20)};
@@ -25,7 +24,6 @@ export const TitleStyle = styled(Link)<{ mode?: 'dark' | 'light' }>`
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  text-decoration: none;
 
   ${({ mode }) =>
     mode === 'light' &&

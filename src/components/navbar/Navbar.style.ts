@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import Link from 'next/link'
 import {
   ThemeType,
   responsive,
@@ -8,6 +7,7 @@ import {
   animationFadeIn,
   flexAlignCenter,
 } from '@/theme'
+import { UI_Link } from '@/ui-components'
 
 export const Navbar = styled.nav`
   .fa-bars {
@@ -70,7 +70,6 @@ export const Li = styled.li`
   }
 `
 const commonMenuItem = css`
-  text-decoration: none;
   color: ${({ theme }: ThemeType) => theme.colors.gray_300};
   padding: ${({ theme }: ThemeType) => theme.remCalc(16)};
   cursor: pointer;
@@ -79,7 +78,7 @@ const commonMenuItem = css`
   position: relative;
 `
 
-export const HyperLink = styled(Link)<{ active?: boolean }>`
+export const HyperLink = styled(UI_Link)<{ active?: boolean }>`
   ${commonMenuItem}
 
   ${({ active }) =>

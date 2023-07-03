@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Link from 'next/link'
 import { flexCenter, ThemeType } from '@/theme'
+import { UI_Link } from '@/ui-components'
 
 export const Container = styled.div`
   width: 100%;
@@ -28,8 +28,7 @@ export const MenuItems = styled.div`
   width: fit-content;
 `
 
-export const MenuItem = styled(Link)`
+export const MenuItem = styled(UI_Link)`
   display: inline-block;
-  text-decoration: none;
   cursor: pointer;
 `

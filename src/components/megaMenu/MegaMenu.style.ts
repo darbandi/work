@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import Link from 'next/link'
 import {
   ThemeType,
   animationFadeIn,
@@ -7,6 +6,7 @@ import {
   flexStart,
   responsive,
 } from '@/theme'
+import { UI_Link } from '@/ui-components'
 
 export const Container = styled.div`
   background: ${({ theme }: ThemeType) => theme.colors.white};
@@ -47,8 +47,7 @@ export const Categories = styled.div`
   ${flexStart}
 `
 
-export const CategoryItem = styled(Link)`
-  text-decoration: none;
+export const CategoryItem = styled(UI_Link)`
   background: ${({ theme }: ThemeType) => theme.colors.gray_200};
   width: ${({ theme }: ThemeType) => theme.remCalc(150)};
   padding: ${({ theme }: ThemeType) =>
