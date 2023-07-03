@@ -1,4 +1,4 @@
-export { Box } from './box'
+export { UI_Box } from './box'
 export { ContainedButton, OutlinedButton, TextButton } from './button'
 export { Col, Row } from './grid'
 export { Icon } from './icon'

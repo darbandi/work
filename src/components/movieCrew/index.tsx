@@ -11,7 +11,7 @@ import {
   JobPosition,
 } from './MovieCrew.style'
 import { globalMessages } from '@/assets/globalMessages'
-import { Box, Text } from '@/ui-components'
+import { UI_Box, Text } from '@/ui-components'
 
 const movieCrew = [
   {
@@ -62,11 +62,11 @@ export function MovieCrew(props: Props): JSX.Element {
 
   return (
     <Container id={id}>
-      <Box mb={48}>
+      <UI_Box mb={48}>
         <Text size={24} fontWeight='bold' as='h4' color='gray_800'>
           {formatMessage(globalMessages.movieCrew)}
         </Text>
-      </Box>
+      </UI_Box>
       <Items>
         {movieCrew.map((crew) => (
           <Item key={`${uId}-${crew.id}`}>

@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { itemsArray } from '../home/topTen'
 import { Container, Cover, Position } from './Crew.style'
-import { Box, Col, Row, Text } from '@/ui-components'
+import { UI_Box, Col, Row, Text } from '@/ui-components'
 import { CardSliderComp, Comments, MotionComp } from '@/components'
 
 export function CrewPage(): JSX.Element {
@@ -22,7 +22,7 @@ export function CrewPage(): JSX.Element {
               {String(query?.jobPosition).split('_').join(' ')}
             </Text>
           </Position>
-          <Box display='flex' flexDirection='column' width='80%'>
+          <UI_Box display='flex' flexDirection='column' width='80%'>
             <Image
               src={`/images/profiles/${query.id}.webp`}
               alt='work'
@@ -59,10 +59,10 @@ export function CrewPage(): JSX.Element {
               بدون امضا دریافت کرده است. در میان جوایز بین‌المللی نیز جایزه
               بهترین بازیگر مرد را از جشنواره فیلم ونیز دریافت کرد.
             </Text>
-          </Box>
+          </UI_Box>
         </Col>
         <Col sm={6} xs={12}>
-          <Box
+          <UI_Box
             display='flex'
             alignItems='center'
             justifyContent='center'
@@ -78,10 +78,10 @@ export function CrewPage(): JSX.Element {
               loading='lazy'
               style={{ width: 'auto', height: '80vh' }}
             />
-          </Box>
+          </UI_Box>
         </Col>
       </Row>
-      <Box className='top-slider'>
+      <UI_Box className='top-slider'>
         <MotionComp>
           <CardSliderComp
             id='top102'
@@ -106,7 +106,7 @@ export function CrewPage(): JSX.Element {
             mode='light'
           />
         </MotionComp>
-      </Box>
+      </UI_Box>
       <Comments crewName={String(query?.name).split('_').join(' ')} />
     </Container>
   )

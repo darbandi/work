@@ -19,7 +19,7 @@ import {
   ShadowProps,
 } from 'styled-system'
 
-type BoxProps = BackgroundColorProps &
+type UI_BoxProps = BackgroundColorProps &
   SpaceProps &
   LayoutProps &
   FlexboxProps &
@@ -31,7 +31,7 @@ type BoxProps = BackgroundColorProps &
     gap?: number
   }
 
-export const Box = styled.div<BoxProps>`
+export const UI_Box = styled.div<UI_BoxProps>`
   ${space}
   ${layout}
   ${flexbox}

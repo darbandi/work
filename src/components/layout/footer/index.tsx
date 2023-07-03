@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import { Footer } from './Footer.style'
-import { Row, Col, Box, Text, UI_Link } from '@/ui-components'
+import { Row, Col, UI_Box, Text, UI_Link } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 const menuData = [
@@ -77,7 +77,7 @@ export function FooterComp(): JSX.Element {
     <Footer>
       <Row display='table'>
         <Col md={10} sm={12}>
-          <Box
+          <UI_Box
             display='flex'
             alignItems='center'
             gap={32}
@@ -93,8 +93,8 @@ export function FooterComp(): JSX.Element {
                 </UI_Link>
               )
             })}
-          </Box>
-          <Box
+          </UI_Box>
+          <UI_Box
             display='flex'
             gap={32}
             alignItems='center'
@@ -103,7 +103,7 @@ export function FooterComp(): JSX.Element {
             <Text size={12} fontWeight='bold' color='gray_700'>
               {formatMessage(globalMessages.copyright)}
             </Text>
-            <Box
+            <UI_Box
               display='flex'
               gap={16}
               alignItems='center'
@@ -128,11 +128,11 @@ export function FooterComp(): JSX.Element {
                   </UI_Link>
                 )
               })}
-            </Box>
-          </Box>
+            </UI_Box>
+          </UI_Box>
         </Col>
         <Col md={2} sm={12}>
-          <Box display='flex' alignItems='center' gap={16} className='logos'>
+          <UI_Box display='flex' alignItems='center' gap={16} className='logos'>
             <Image
               src={'/images/global/samandehi.svg'}
               alt='work'
@@ -149,7 +149,7 @@ export function FooterComp(): JSX.Element {
               role='presentation'
               loading='lazy'
             />
-          </Box>
+          </UI_Box>
         </Col>
       </Row>
     </Footer>

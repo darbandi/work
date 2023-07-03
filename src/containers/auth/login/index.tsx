@@ -8,7 +8,7 @@ import {
   TextButton,
   InputText,
   H4,
-  Box,
+  UI_Box,
   Col,
   Row,
   Typography,
@@ -59,7 +59,7 @@ const LoginForm = (props: LoginFormProps) => {
             }
           }}
         />
-        <Box display='flex'>
+        <UI_Box display='flex'>
           <ContainedButton type='submit'>ارسال رمز یکبار مصرف</ContainedButton>
           <TextButton
             style={{ marginRight: 8 }}
@@ -75,7 +75,7 @@ const LoginForm = (props: LoginFormProps) => {
               }}
             />
           </TextButton>
-        </Box>
+        </UI_Box>
         {otp && (
           <InputText
             type='number'
@@ -103,7 +103,7 @@ export function LoginPage(): JSX.Element {
           <LoginForm onSubmit={handleLogin} />
         </Col>
         <Col md={6} xs={12} hideOn='md'>
-          <Box className='img' />
+          <UI_Box className='img' />
         </Col>
       </Row>
     </Container>

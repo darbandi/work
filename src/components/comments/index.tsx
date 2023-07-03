@@ -9,7 +9,7 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import { Container, CommentContainer, Reply } from './Comments.style'
-import { Box, Col, Icon, Row, Text } from '@/ui-components'
+import { Col, Icon, Row, Text, UI_Box } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -79,20 +79,20 @@ export function Comment(props: comment): JSX.Element {
           />
         </Col>
         <Col xs={11} className='comment'>
-          <Box display='flex' className='header'>
+          <UI_Box display='flex' className='header'>
             <Text size={18} fontWeight='bold' className='name'>
               {name}
             </Text>
             <Text size={12} fontWeight='bold' color='gray_600' className='time'>
               <bdi>{create_at}</bdi>
             </Text>
-          </Box>
-          <Box>
+          </UI_Box>
+          <UI_Box>
             <Text lineHeight={2} className='content' as='p'>
               {content}
             </Text>
-          </Box>
-          <Box className='footer'>
+          </UI_Box>
+          <UI_Box className='footer'>
             <Text fontWeight='bold' color='green_500' className='like'>
               <Icon icon={faThumbsUp} className='icon' color='green_500' />
               {likes}
@@ -107,7 +107,7 @@ export function Comment(props: comment): JSX.Element {
                 {formatMessage(globalMessages.reply)}
               </Text>
             </Reply>
-          </Box>
+          </UI_Box>
         </Col>
       </Row>
     </CommentContainer>
@@ -121,7 +121,7 @@ export function Comments(props: Props): JSX.Element {
 
   return (
     <Container id={id}>
-      <Box mb={48}>
+      <UI_Box mb={48}>
         <Text
           size={24}
           fontWeight='bold'
@@ -133,7 +133,7 @@ export function Comments(props: Props): JSX.Element {
             {crewName}
           </Text>
         </Text>
-      </Box>
+      </UI_Box>
       {comments.map((comment) => (
         <Comment key={`${uId}-${comment.id}`} {...comment} />
       ))}
