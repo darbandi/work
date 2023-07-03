@@ -37,7 +37,7 @@ import { Icon } from '@/ui-components'
 import { useVideo } from '@/components/player/useVideo'
 import { PlayerCompProps } from '@/components/player/types'
 
-export function PlayerComp(props: PlayerCompProps): React.JSX.Element {
+export function PlayerComp(props: PlayerCompProps): JSX.Element {
   const { videoId } = props
   const {
     videoRef,

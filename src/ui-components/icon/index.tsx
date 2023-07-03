@@ -5,6 +5,6 @@ import {
   FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome'
 
-export function Icon(props: FontAwesomeIconProps): React.JSX.Element {
+export function Icon(props: FontAwesomeIconProps): JSX.Element {
   return <FontAwesomeIcon color='white' {...props} />
 }

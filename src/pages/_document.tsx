@@ -29,7 +29,7 @@ export default class CustomDocument extends Document {
     return { ...initialProps, styles }
   }
 
-  render(): React.JSX.Element {
+  render(): JSX.Element {
     return (
       <Html>
         <Head>

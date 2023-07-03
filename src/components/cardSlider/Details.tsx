@@ -21,7 +21,7 @@ import { Col, Icon, Loading, Row, Typography } from '@/ui-components'
 import { useStore } from '@/store'
 import { useDocument } from '@/hooks'
 
-export function Details(): React.JSX.Element | null {
+export function Details(): JSX.Element | null {
   const [imgLoading, setImgLoading] = useState(false)
   const [imgSrc, setImgSrc] = useState('')
   const { hideScroll } = useDocument()

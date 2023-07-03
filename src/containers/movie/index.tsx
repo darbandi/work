@@ -24,7 +24,7 @@ const item = {
     'سریال Silo محصول کشور United States میباشد و در ژانر درام, آخرالزمانی, مهیج در سال 2023 ساخته شده است. در سریال سیلو بازیگرانی چون ، Common، David Oyelowo، Iain Glen، Rebecca Ferguson، Tim Robbins، Will Patton، Rashida Jones، Ferdinand Kingsley، Harriet Walter، Chipo Chung، Caitlin Zoz، Matt Gomez Hidaka، Georgia Goodman، Paul Bigley، Sophie Thompson، Geraldine JamesBilly Postlethwaite و... به ایفای نقش پرداخته اند.   از آن جایی که هوای کره‌ی زمین به شدت مسموم و خطرناک است، ده‌ها هزار انسان برای حفظ جان خود در سیلوهای غول‌پیکری که زیر زمین ساخته شده‌اند، زندگی می‌کنند. این سیلوها دارای قوانین خاصی است که برای محافظت از جان مردم تنظیم شده است. اما آن چه برای همه سوال است این می‌باشد که این سیلوهای مجهز و به درستی تعبیه شده چه زمانی و چرا ساخته شده‌اند؟',
 }
 
-export function MoviePage(): React.JSX.Element {
+export function MoviePage(): JSX.Element {
   const { query, push, asPath } = useRouter()
 
   if (!query.id) {

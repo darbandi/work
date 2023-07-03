@@ -9,14 +9,14 @@ import { useStore } from '@/store'
 
 type Props = {
   items: ItemsArray[]
-  title: string | React.JSX.Element
+  title: string | JSX.Element
   link: string
   style?: object
   id: string
   mode?: 'dark' | 'light'
 }
 
-export function CardSliderComp(props: Props): React.JSX.Element {
+export function CardSliderComp(props: Props): JSX.Element {
   const { items, title, link, style, id, mode } = props
   const uId = useId()
 

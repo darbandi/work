@@ -71,7 +71,7 @@ const socialData = [
   },
 ]
 
-export function FooterComp(): React.JSX.Element {
+export function FooterComp(): JSX.Element {
   const { formatMessage } = useIntl()
   return (
     <Footer>

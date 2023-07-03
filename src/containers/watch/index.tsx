@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Container } from '@/containers/watch/Watch.style'
 import { PlayerComp } from '@/components'
 
-export function WatchPage(): React.JSX.Element {
+export function WatchPage(): JSX.Element {
   const { query, push } = useRouter()
 
   if (!query.id) {

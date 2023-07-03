@@ -25,7 +25,7 @@ export interface IDataMenu {
   subMenu?: ISubMenu[]
 }
 
-export function NavbarComp(): React.JSX.Element {
+export function NavbarComp(): JSX.Element {
   const { formatMessage } = useIntl()
   const { asPath } = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)

@@ -4,7 +4,7 @@ import { Slider } from '@/ui-components'
 
 type Props = { items: ItemsArray[] }
 
-export function CarouselComp(props: Props): React.JSX.Element {
+export function CarouselComp(props: Props): JSX.Element {
   const { items } = props
   const uId = useId()
 

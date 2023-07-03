@@ -10,7 +10,7 @@ type WatchDetailsButtonsProps = {
 
 export function WatchDetailsButtons(
   props: WatchDetailsButtonsProps,
-): React.JSX.Element {
+): JSX.Element {
   const { push } = useRouter()
   const { id } = props
 

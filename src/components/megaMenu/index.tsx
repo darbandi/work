@@ -12,7 +12,7 @@ type MegaMenuProps = {
 export const MegaMenu = forwardRef(function MegaMenu(
   props: MegaMenuProps,
   ref,
-): React.JSX.Element | null {
+): JSX.Element | null {
   const { isOpen, data, onClick } = props
   const uId = useId()
 

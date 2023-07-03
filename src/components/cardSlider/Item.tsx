@@ -37,7 +37,7 @@ export type ItemsArray = {
 
 type ItemProps = { item: ItemsArray; id: string; mode?: 'dark' | 'light' }
 
-export function Items(props: ItemProps): React.JSX.Element {
+export function Items(props: ItemProps): JSX.Element {
   const { item, id, mode } = props
   const isMobile = useMediaQuery('(max-width: 576px)')
   const { hideScroll, offsetTop } = useDocument()

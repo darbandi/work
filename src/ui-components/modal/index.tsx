@@ -7,14 +7,14 @@ import { Actions, Blur, Container, Header } from './Modal.style'
 import { colors } from '@/theme'
 import { useDocument } from '@/hooks'
 
-type ModalHeaderProps = { children: React.JSX.Element }
+type ModalHeaderProps = { children: JSX.Element }
 
-export function ModalHeader(props: ModalHeaderProps): React.JSX.Element {
+export function ModalHeader(props: ModalHeaderProps): JSX.Element {
   const { children } = props
   return <Header>{children}</Header>
 }
 
-export function ModalAction(props: ModalHeaderProps): React.JSX.Element {
+export function ModalAction(props: ModalHeaderProps): JSX.Element {
   const { children } = props
   return <Actions>{children}</Actions>
 }
@@ -22,7 +22,7 @@ export function ModalAction(props: ModalHeaderProps): React.JSX.Element {
 type ModalProps = {
   open: boolean
   title: string
-  children: React.JSX.Element
+  children: JSX.Element
   onClose: () => void
   xs?: boolean
   sm?: boolean
@@ -32,7 +32,7 @@ type ModalProps = {
   onCancel?: () => void
 }
 
-export function Modal(props: ModalProps): React.JSX.Element | null {
+export function Modal(props: ModalProps): JSX.Element | null {
   const {
     open,
     children,

@@ -10,7 +10,7 @@ interface Props {
   id?: string
 }
 
-export function Description(prop: Props): React.JSX.Element {
+export function Description(prop: Props): JSX.Element {
   const { value, id = 'description' } = prop
   const [displayAllText, setDisplayAllText] = useState(false)
   const { formatMessage } = useIntl()

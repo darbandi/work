@@ -9,7 +9,7 @@ import { NavbarComp } from '@/components'
 import { useScroll } from '@/hooks'
 import { Box, Icon, InputText, OutlinedButton } from '@/ui-components'
 
-export function HeaderComp(): React.JSX.Element | null {
+export function HeaderComp(): JSX.Element | null {
   const { push } = useRouter()
   const { isTop } = useScroll('body')
   const { formatMessage } = useIntl()

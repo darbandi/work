@@ -22,6 +22,6 @@ const itemsArray = [
   },
 ]
 
-export function MainCarousel(): React.JSX.Element {
+export function MainCarousel(): JSX.Element {
   return <CarouselComp items={itemsArray} />
 }

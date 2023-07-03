@@ -3,10 +3,10 @@ import React, { useRef } from 'react'
 import { Motion } from './Motion.style'
 
 type Props = {
-  children: React.JSX.Element
+  children: JSX.Element
 }
 
-export function MotionComp(props: Props): React.JSX.Element | null {
+export function MotionComp(props: Props): JSX.Element | null {
   const { children } = props
   const topTenRef = useRef(null)
   const { inView } = useIntersectionObserver(topTenRef)

@@ -12,7 +12,7 @@ const data = [
   'similarityMovies',
 ]
 
-export function MovieMenu(): React.JSX.Element {
+export function MovieMenu(): JSX.Element {
   const { formatMessage } = useIntl()
   return (
     <Container>

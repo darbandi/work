@@ -20,7 +20,7 @@ export type ItemsArray = {
 
 type ItemProps = { item: ItemsArray }
 
-export function Items({ item }: ItemProps): React.JSX.Element {
+export function Items({ item }: ItemProps): JSX.Element {
   return (
     <ItemWrapper>
       <InfoWrapper>

@@ -6,7 +6,7 @@ import { Container, Cover, Position } from './Crew.style'
 import { Box, Col, Row, Text } from '@/ui-components'
 import { CardSliderComp, Comments, MotionComp } from '@/components'
 
-export function CrewPage(): React.JSX.Element {
+export function CrewPage(): JSX.Element {
   const { query, push } = useRouter()
   if (!query.id) {
     push('/')

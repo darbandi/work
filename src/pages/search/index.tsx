@@ -9,7 +9,7 @@ const SearchPage = dynamic(
   },
 )
 
-export default function Search(): React.JSX.Element {
+export default function Search(): JSX.Element {
   return <SearchPage />
 }
 

@@ -9,10 +9,10 @@ type SEOGeneratorProps = {
   image?: string
   url?: string
   keywords?: keyof typeof globalMessages | string
-  children?: React.JSX.Element[]
+  children?: JSX.Element[]
 }
 
-export function SEOGenerator(props: SEOGeneratorProps): React.JSX.Element {
+export function SEOGenerator(props: SEOGeneratorProps): JSX.Element {
   const { title, description, image, keywords, url, children } = props
   const { formatMessage } = useIntl()
 

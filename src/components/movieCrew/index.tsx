@@ -55,7 +55,7 @@ interface Props {
   id?: string
 }
 
-export function MovieCrew(props: Props): React.JSX.Element {
+export function MovieCrew(props: Props): JSX.Element {
   const { id = 'crew' } = props
   const uId = useId()
   const { formatMessage } = useIntl()

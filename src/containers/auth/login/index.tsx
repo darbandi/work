@@ -89,7 +89,7 @@ const LoginForm = (props: LoginFormProps) => {
   )
 }
 
-export function LoginPage(): React.JSX.Element {
+export function LoginPage(): JSX.Element {
   const handleLogin = () => {
     // { phoneNumber, otp }: FormInputs
     // console.log('Phone Number:', phoneNumber)

@@ -20,12 +20,12 @@ const themes = { dark, light }
 type AppType = AppProps & {
   Component: {
     auth?: boolean
-    header?: React.JSX.Element | 'empty'
-    footer?: React.JSX.Element | 'empty'
+    header?: JSX.Element | 'empty'
+    footer?: JSX.Element | 'empty'
   }
 }
 
-export default function App(props: AppType): React.JSX.Element {
+export default function App(props: AppType): JSX.Element {
   const {
     Component,
     pageProps: { session, ...otherProps },

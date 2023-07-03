@@ -9,7 +9,7 @@ const CrewPage = dynamic(
   },
 )
 
-export default function Crew(): React.JSX.Element {
+export default function Crew(): JSX.Element {
   return <CrewPage />
 }
 

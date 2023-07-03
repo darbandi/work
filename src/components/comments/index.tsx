@@ -59,7 +59,7 @@ const comments: Array<comment> = [
   },
 ]
 
-export function Comment(props: comment): React.JSX.Element {
+export function Comment(props: comment): JSX.Element {
   const { id, create_at, dislikes, likes, name, content, parent_id } = props
   const { formatMessage } = useIntl()
 
@@ -114,7 +114,7 @@ export function Comment(props: comment): React.JSX.Element {
   )
 }
 
-export function Comments(props: Props): React.JSX.Element {
+export function Comments(props: Props): JSX.Element {
   const { id = 'comments', crewName } = props
   const { formatMessage } = useIntl()
   const uId = useId()

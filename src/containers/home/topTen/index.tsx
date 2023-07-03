@@ -88,7 +88,7 @@ export const itemsArray = [
   },
 ]
 
-export function TopTen(): React.JSX.Element {
+export function TopTen(): JSX.Element {
   return (
     <>
       <MotionComp>

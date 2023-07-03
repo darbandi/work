@@ -12,7 +12,7 @@ type Props = {
   position?: SliderButtonsPosition
 }
 
-export function PrevButtons(props: Props): React.JSX.Element {
+export function PrevButtons(props: Props): JSX.Element {
   const { position } = props
   const swiper = useSwiper()
   return (
@@ -22,7 +22,7 @@ export function PrevButtons(props: Props): React.JSX.Element {
   )
 }
 
-export function NextButtons(props: Props): React.JSX.Element {
+export function NextButtons(props: Props): JSX.Element {
   const { position } = props
   const swiper = useSwiper()
   return (

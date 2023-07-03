@@ -15,7 +15,7 @@ const Modal = dynamic(
   },
 )
 
-export function WatchHeader(): React.JSX.Element {
+export function WatchHeader(): JSX.Element {
   const [openSettings, setOpenSettings] = useState(false)
   const { formatMessage } = useIntl()
   const { back, push } = useRouter()
