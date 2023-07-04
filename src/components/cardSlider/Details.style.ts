@@ -110,6 +110,7 @@ export const CustomImage = styled.div`
 `
 export const CloseIcon = styled.div`
   position: absolute;
+  cursor: pointer;
   left: 5%;
   top: ${({ theme }: ThemeType) => theme.remCalc(-35)};
   .svg-inline--fa {
@@ -125,7 +126,8 @@ export const CloseIcon = styled.div`
   ${responsive(
     '-sm',
     css`
-      display: none;
+      right: calc(100% - 20px);
+      top: ${({ theme }: ThemeType) => theme.remCalc(-20)};
     `,
   )}
 `

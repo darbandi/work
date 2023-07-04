@@ -2,14 +2,21 @@ import React, { useId, useMemo } from 'react'
 import { Items, ItemsArray } from './Item'
 import { Slider } from '@/ui-components'
 
-type Props = { items: ItemsArray[] }
+type Props = { items: ItemsArray[]; isDisabledDetailsButton?: boolean }
 
 export function CarouselComp(props: Props): JSX.Element {
-  const { items } = props
+  const { items, isDisabledDetailsButton } = props
   const uId = useId()
 
   const itemsArray = useMemo(
-    () => items.map((item) => <Items key={`${uId}-${item.id}`} item={item} />),
+    () =>
+      items.map((item) => (
+        <Items
+          key={`${uId}-${item.id}`}
+          item={item}
+          isDisabledDetailsButton={isDisabledDetailsButton}
+        />
+      )),
     [items],
   )
 

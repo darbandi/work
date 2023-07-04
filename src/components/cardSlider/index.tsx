@@ -3,7 +3,13 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Header, More, Title } from './CardSlider.style'
 import { Items, ItemsArray } from './Item'
 import { Details } from './Details'
-import { SliderButtonsPosition, Slider, Icon, UI_Link } from '@/ui-components'
+import {
+  SliderButtonsPosition,
+  Slider,
+  Icon,
+  UI_Link,
+  UI_Box,
+} from '@/ui-components'
 import { useStore } from '@/store'
 
 type Props = {
@@ -22,7 +28,9 @@ export function CardSliderComp(props: Props): JSX.Element {
   const itemsArray = useMemo(
     () =>
       items.map((item) => (
-        <Items key={`${uId}-${item.id}`} item={item} id={id} mode={mode} />
+        <UI_Box key={`${uId}-${item.id}`}>
+          <Items item={item} id={id} mode={mode} />
+        </UI_Box>
       )),
     [items],
   )

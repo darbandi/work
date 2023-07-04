@@ -24,7 +24,7 @@ type TextType = {
   color?: string
   lineHeight?: number
   fontFamily?: 'IRANSansX' | 'Droid'
-  display?: 'block' | 'contents' | 'inline-block'
+  display?: 'block' | 'contents' | 'inline-block' | 'flex'
   mt?: number
   mb?: number
   ml?: number

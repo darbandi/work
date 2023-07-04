@@ -6,13 +6,14 @@ import { ContainedButton, Icon } from '@/ui-components'
 
 type WatchDetailsButtonsProps = {
   id: string
+  isDisabledDetailsButton?: boolean
 }
 
 export function WatchDetailsButtons(
   props: WatchDetailsButtonsProps,
 ): JSX.Element {
   const { push } = useRouter()
-  const { id } = props
+  const { id, isDisabledDetailsButton } = props
 
   const handleClickWatch = () => push(`/watch/${id}`)
   const handleClickMovie = () => push(`/movie/${id}`)
@@ -23,10 +24,12 @@ export function WatchDetailsButtons(
         <Icon icon={faPlay} color='gray_700' />
         تماشا
       </ContainedButton>
-      <ContainedButton variant='secondary' onClick={handleClickMovie}>
-        <Icon icon={faInfoCircle} color='gray_700' />
-        جزئیات
-      </ContainedButton>
+      {!isDisabledDetailsButton && (
+        <ContainedButton variant='secondary' onClick={handleClickMovie}>
+          <Icon icon={faInfoCircle} color='gray_700' />
+          جزئیات
+        </ContainedButton>
+      )}
     </Actions>
   )
 }

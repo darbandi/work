@@ -33,12 +33,19 @@ export type ItemsArray = {
   title: string
   subtitle: string
   duration?: string
+  categories: Array<string>
 }
 
-type ItemProps = { item: ItemsArray; id: string; mode?: 'dark' | 'light' }
+type ItemProps = {
+  item: ItemsArray
+  id: string
+  mode?: 'dark' | 'light'
+  isDisabledLoading?: boolean
+  isDisabledScroll?: boolean
+}
 
 export function Items(props: ItemProps): JSX.Element {
-  const { item, id, mode } = props
+  const { item, id, mode, isDisabledLoading, isDisabledScroll } = props
   const isMobile = useMediaQuery('(max-width: 576px)')
   const { hideScroll, offsetTop } = useDocument()
 
@@ -56,6 +63,7 @@ export function Items(props: ItemProps): JSX.Element {
 
   const handleClickDetails = () => {
     setSelectedCartSliderItem?.(item, id)
+    if (isDisabledScroll) return
     if (isMobile) hideScroll()
 
     setTimeout(() => {
@@ -67,6 +75,7 @@ export function Items(props: ItemProps): JSX.Element {
   useEffect(() => {
     if (selectedCartSliderSection) {
       if (isMobile) hideScroll()
+      if (isDisabledScroll) return
       const top = offsetTop(selectedCartSliderSection)
       window.scrollTo(0, top as number)
     }
@@ -85,7 +94,7 @@ export function Items(props: ItemProps): JSX.Element {
         style={{ width: '100%', height: 'auto' }}
         onClick={handleClickDetails}
       />
-      <Loading className='swiper-lazy-preloader' xs />
+      {!isDisabledLoading && <Loading className='swiper-lazy-preloader' xs />}
       <InfoStyle>
         <TitleStyle href={`/watch/${item.id}`} mode={mode}>
           {item.title}

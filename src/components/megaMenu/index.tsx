@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React, { RefObject, forwardRef, useId } from 'react'
+import { useRouter } from 'next/router'
 import { ISubMenu } from '../navbar'
 import { Categories, CategoryItem, Container, MostView } from './MegaMenu.style'
 
@@ -15,6 +16,7 @@ export const MegaMenu = forwardRef(function MegaMenu(
 ): JSX.Element | null {
   const { isOpen, data, onClick } = props
   const uId = useId()
+  const { query } = useRouter()
 
   if (!isOpen) return null
   return (
@@ -26,7 +28,7 @@ export const MegaMenu = forwardRef(function MegaMenu(
               key={`${uId}-${item.id}`}
               href={{
                 pathname: '/search/',
-                query: { genre: item.title },
+                query: { ...query, genre: item.title },
               }}
               onClick={() => onClick(-1)}
             >

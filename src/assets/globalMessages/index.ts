@@ -68,4 +68,8 @@ export const globalMessages = defineMessages({
     defaultMessage:
       'کلیه‌ی حقوق مادی و معنوی اپلیکیشن «ما» متعلق به شرکت «ما» می‌باشد.',
   },
+  filters: {
+    id: `${scope}.filters`,
+    defaultMessage: 'فیلترها',
+  },
 })

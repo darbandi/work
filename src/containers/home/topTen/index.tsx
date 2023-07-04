@@ -8,6 +8,7 @@ export const itemsArray = [
     title: 'کمدی',
     subtitle: 'Comedy show',
     duration: '10:00',
+    categories: ['', 'کمدی', 'جنایی', 'معمایی', 'پلیسی'],
   },
   {
     id: '2',
@@ -15,6 +16,7 @@ export const itemsArray = [
     title: 'میندی',
     subtitle: 'Mindy',
     duration: '10:00',
+    categories: ['', 'کمدی', 'جنایی'],
   },
   {
     id: '3',
@@ -22,6 +24,7 @@ export const itemsArray = [
     title: 'کشور راحت',
     subtitle: 'Country comfort',
     duration: '10:00',
+    categories: ['', 'کمدی', 'جنایی'],
   },
   {
     id: '4',
@@ -29,6 +32,7 @@ export const itemsArray = [
     title: 'کمدی سیاه',
     subtitle: 'Black Comedy',
     duration: '10:00',
+    categories: ['', 'کمدی', 'معمایی'],
   },
   {
     id: '5',
@@ -36,6 +40,7 @@ export const itemsArray = [
     title: 'خانه بازی',
     subtitle: 'Playing House',
     duration: '10:00',
+    categories: ['', 'کمدی', 'معمایی'],
   },
   {
     id: '6',
@@ -43,6 +48,7 @@ export const itemsArray = [
     title: 'میراندا',
     subtitle: 'Miranda',
     duration: '10:00',
+    categories: ['', 'کمدی'],
   },
   {
     id: '7',
@@ -50,6 +56,7 @@ export const itemsArray = [
     title: 'کمدی',
     subtitle: 'Comedy show',
     duration: '10:00',
+    categories: ['', 'کمدی', 'پلیسی'],
   },
   {
     id: '8',
@@ -57,6 +64,7 @@ export const itemsArray = [
     title: 'میندی',
     subtitle: 'Mindy',
     duration: '10:00',
+    categories: ['', 'کمدی', 'پلیسی'],
   },
   {
     id: '9',
@@ -64,6 +72,7 @@ export const itemsArray = [
     title: 'کشور راحت',
     subtitle: 'Country comfort',
     duration: '10:00',
+    categories: ['', 'کمدی', 'پلیسی', 'ورزشی', 'علمی تخیلی'],
   },
   {
     id: '10',
@@ -71,6 +80,7 @@ export const itemsArray = [
     title: 'کمدی سیاه',
     subtitle: 'Black Comedy',
     duration: '10:00',
+    categories: ['', 'کمدی', 'ورزشی'],
   },
   {
     id: '11',
@@ -78,6 +88,7 @@ export const itemsArray = [
     title: 'خانه بازی',
     subtitle: 'Playing House',
     duration: '10:00',
+    categories: ['', 'کمدی', 'پلیسی', 'ورزشی'],
   },
   {
     id: '12',
@@ -85,6 +96,7 @@ export const itemsArray = [
     title: 'میراندا',
     subtitle: 'Miranda',
     duration: '10:00',
+    categories: ['', 'کمدی', 'ورزشی'],
   },
 ]
 

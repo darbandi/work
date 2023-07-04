@@ -18,9 +18,11 @@ export type ItemsArray = {
   subtitle: string
 }
 
-type ItemProps = { item: ItemsArray }
+type ItemProps = { item: ItemsArray; isDisabledDetailsButton?: boolean }
 
-export function Items({ item }: ItemProps): JSX.Element {
+export function Items(props: ItemProps): JSX.Element {
+  const { item, isDisabledDetailsButton } = props
+
   return (
     <ItemWrapper>
       <InfoWrapper>
@@ -28,7 +30,10 @@ export function Items({ item }: ItemProps): JSX.Element {
           <TitleStyle href={`/watch/${item.id}`}>{item.title}</TitleStyle>
           <DescriptionStyle>{item.subtitle}</DescriptionStyle>
         </InfoSection>
-        <WatchDetailsButtons id={item.id} />
+        <WatchDetailsButtons
+          id={item.id}
+          isDisabledDetailsButton={isDisabledDetailsButton}
+        />
       </InfoWrapper>
       <ImageWrapper>
         {item && (

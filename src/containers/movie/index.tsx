@@ -44,7 +44,7 @@ export function MoviePage(): JSX.Element {
         <meta name='Uid' content={item.id} />
         <meta property='video:duration' content={item.duration} />
       </SEOGenerator>
-      <CarouselComp items={[item]} />
+      <CarouselComp items={[item]} isDisabledDetailsButton />
       <MovieMenu />
       <Description value={item.description} />
       <MovieCrew />
