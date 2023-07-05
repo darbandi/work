@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { useIntl } from 'react-intl'
 import { Container, More } from './Description.style'
-import { UI_Box, UI_Icon, Text } from '@/ui-components'
+import { UI_Box, UI_Icon, UI_Text } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -18,13 +18,13 @@ export function Description(prop: Props): JSX.Element {
   return (
     <Container displayAllText={displayAllText} id={id}>
       <UI_Box mb={48}>
-        <Text size={24} fontWeight='bold' as='h4'>
+        <UI_Text size={24} fontWeight='bold' as='h4'>
           {formatMessage(globalMessages.movieDescription)}
-        </Text>
+        </UI_Text>
       </UI_Box>
-      <Text lineHeight={2} as='p' className='description'>
+      <UI_Text lineHeight={2} as='p' className='description'>
         {value}
-      </Text>
+      </UI_Text>
       <More>
         <UI_Icon
           onClick={() => setDisplayAllText((x) => !x)}

@@ -11,7 +11,7 @@ import {
   JobPosition,
 } from './MovieCrew.style'
 import { globalMessages } from '@/assets/globalMessages'
-import { UI_Box, Text } from '@/ui-components'
+import { UI_Box, UI_Text } from '@/ui-components'
 
 const movieCrew = [
   {
@@ -63,16 +63,16 @@ export function MovieCrew(props: Props): JSX.Element {
   return (
     <Container id={id}>
       <UI_Box mb={48}>
-        <Text size={24} fontWeight='bold' as='h4' color='gray_800'>
+        <UI_Text size={24} fontWeight='bold' as='h4' color='gray_800'>
           {formatMessage(globalMessages.movieCrew)}
-        </Text>
+        </UI_Text>
       </UI_Box>
       <Items>
         {movieCrew.map((crew) => (
           <Item key={`${uId}-${crew.id}`}>
             <ImageWrapper className='image-wrapper'>
               <JobPosition>
-                <Text>{crew.jobPosition}</Text>
+                <UI_Text>{crew.jobPosition}</UI_Text>
               </JobPosition>
               <Image
                 className='detail-image'
@@ -87,18 +87,18 @@ export function MovieCrew(props: Props): JSX.Element {
               />
             </ImageWrapper>
             <Footer>
-              <Text color='gray_700' fontWeight='bold' size={16}>
+              <UI_Text color='gray_700' fontWeight='bold' size={16}>
                 {crew.name}
-              </Text>
+              </UI_Text>
               <Button
                 href={`/crew/${crew.id}/?name=${crew.name.replace(
                   / /g,
                   '_',
                 )}&jobPosition=${crew.jobPosition.replace(/ /g, '_')}`}
               >
-                <Text size={12} fontWeight='400'>
+                <UI_Text size={12} fontWeight='400'>
                   {formatMessage(globalMessages.profile)}
-                </Text>
+                </UI_Text>
               </Button>
             </Footer>
           </Item>

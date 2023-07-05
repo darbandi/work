@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { itemsArray } from '../home/topTen'
 import { Container, Cover, Position } from './Crew.style'
-import { UI_Box, UI_Col, UI_Row, Text } from '@/ui-components'
+import { UI_Box, UI_Col, UI_Row, UI_Text } from '@/ui-components'
 import { CardSliderComp, Comments, MotionComp } from '@/components'
 
 export function CrewPage(): JSX.Element {
@@ -18,9 +18,9 @@ export function CrewPage(): JSX.Element {
         <UI_Col sm={6} xs={12} className='information'>
           <Cover />
           <Position>
-            <Text size={96} fontWeight='bold'>
+            <UI_Text size={96} fontWeight='bold'>
               {String(query?.jobPosition).split('_').join(' ')}
-            </Text>
+            </UI_Text>
           </Position>
           <UI_Box display='flex' flexDirection='column' width='80%'>
             <Image
@@ -33,7 +33,7 @@ export function CrewPage(): JSX.Element {
               className='thumbnail-image'
               style={{ width: '100px', height: '100px', borderRadius: '50%' }}
             />
-            <Text
+            <UI_Text
               size={32}
               fontWeight='bold'
               as='h1'
@@ -42,8 +42,8 @@ export function CrewPage(): JSX.Element {
               mb={8}
             >
               {String(query?.name).split('_').join(' ')}
-            </Text>
-            <Text
+            </UI_Text>
+            <UI_Text
               size={20}
               fontWeight='bold'
               color='gray_600'
@@ -52,13 +52,13 @@ export function CrewPage(): JSX.Element {
               mt={4}
             >
               navid mohammadzadeh
-            </Text>
-            <Text size={14} as='p' lineHeight={2} mt={24} display='block'>
+            </UI_Text>
+            <UI_Text size={14} as='p' lineHeight={2} mt={24} display='block'>
               نوید محمدزاده متولد 1365 استان تهران است و تا کنون دو سیمرغ بلورین
               بهترین بازیگر مکمل مرد را برای فیلم‌های ابد و یک روز و بدون تاریخ
               بدون امضا دریافت کرده است. در میان جوایز بین‌المللی نیز جایزه
               بهترین بازیگر مرد را از جشنواره فیلم ونیز دریافت کرد.
-            </Text>
+            </UI_Text>
           </UI_Box>
         </UI_Col>
         <UI_Col sm={6} xs={12}>
@@ -88,10 +88,10 @@ export function CrewPage(): JSX.Element {
             items={itemsArray}
             title={
               <>
-                <Text fontWeight='bold' size={24} color='gray_600'>
+                <UI_Text fontWeight='bold' size={24} color='gray_600'>
                   فیلم‌های{' '}
-                </Text>
-                <Text
+                </UI_Text>
+                <UI_Text
                   fontWeight='bold'
                   size={24}
                   color=''
@@ -99,7 +99,7 @@ export function CrewPage(): JSX.Element {
                   display='inline-block'
                 >
                   {String(query?.name).split('_').join(' ')}
-                </Text>
+                </UI_Text>
               </>
             }
             link='/search?type=topView'

@@ -11,7 +11,7 @@ import { MegaMenu } from '../megaMenu'
 import { HyperLink, FunctionLink, Li, Navbar, Ul } from './Navbar.style'
 import data from './data.json'
 import { messages } from './messages'
-import { UI_Icon, Text } from '@/ui-components'
+import { UI_Icon, UI_Text } from '@/ui-components'
 
 export interface ISubMenu {
   id: number
@@ -50,9 +50,9 @@ export function NavbarComp(): JSX.Element {
   const createMenu = (menu: IDataMenu) => {
     return (
       <>
-        <Text size={16}>
+        <UI_Text size={16}>
           {formatMessage(messages[menu.title as keyof typeof messages])}
-        </Text>
+        </UI_Text>
         {menu.subMenu && (
           <UI_Icon icon={menu.id === active ? faAngleUp : faAngleDown} />
         )}
@@ -76,9 +76,9 @@ export function NavbarComp(): JSX.Element {
                 href={menu.link || ''}
                 active={menu.id === active}
               >
-                <Text size={18} fontWeight='bold' color='gray_700'>
+                <UI_Text size={18} fontWeight='bold' color='gray_700'>
                   {formatMessage(messages[menu.title as keyof typeof messages])}
-                </Text>
+                </UI_Text>
                 <UI_Icon
                   icon={faAngleDown}
                   className='fa-angle'

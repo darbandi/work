@@ -44,7 +44,7 @@ export const BaseTextStyle = styled.span<TextType>`
   ${({ theme, ml }) => ml && `margin-left: ${theme.remCalc(ml)};`};
   ${({ theme, mr }) => mr && `margin-right: ${theme.remCalc(mr)};`};
 `
-export const Text = styled(BaseTextStyle).attrs<{ component: string }>(
+export const UI_Text = styled(BaseTextStyle).attrs<{ component: string }>(
   (props) => ({
     as: props?.component,
   }),

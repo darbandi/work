@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import { Footer } from './Footer.style'
-import { UI_Row, UI_Col, UI_Box, Text, UI_Link } from '@/ui-components'
+import { UI_Row, UI_Col, UI_Box, UI_Text, UI_Link } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 const menuData = [
@@ -87,9 +87,9 @@ export function FooterComp(): JSX.Element {
             {menuData.map((item) => {
               return (
                 <UI_Link key={item.id} href={item.link}>
-                  <Text size={16} fontWeight='bold' color='gray_600'>
+                  <UI_Text size={16} fontWeight='bold' color='gray_600'>
                     {item.title}
-                  </Text>
+                  </UI_Text>
                 </UI_Link>
               )
             })}
@@ -100,9 +100,9 @@ export function FooterComp(): JSX.Element {
             alignItems='center'
             className='copyright'
           >
-            <Text size={12} fontWeight='bold' color='gray_700'>
+            <UI_Text size={12} fontWeight='bold' color='gray_700'>
               {formatMessage(globalMessages.copyright)}
-            </Text>
+            </UI_Text>
             <UI_Box
               display='flex'
               gap={16}

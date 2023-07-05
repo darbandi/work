@@ -9,7 +9,7 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import { Container, CommentContainer, Reply } from './Comments.style'
-import { UI_Col, UI_Icon, UI_Row, Text, UI_Box } from '@/ui-components'
+import { UI_Col, UI_Icon, UI_Row, UI_Text, UI_Box } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -80,32 +80,37 @@ export function Comment(props: comment): JSX.Element {
         </UI_Col>
         <UI_Col xs={11} className='comment'>
           <UI_Box display='flex' className='header'>
-            <Text size={18} fontWeight='bold' className='name'>
+            <UI_Text size={18} fontWeight='bold' className='name'>
               {name}
-            </Text>
-            <Text size={12} fontWeight='bold' color='gray_600' className='time'>
+            </UI_Text>
+            <UI_Text
+              size={12}
+              fontWeight='bold'
+              color='gray_600'
+              className='time'
+            >
               <bdi>{create_at}</bdi>
-            </Text>
+            </UI_Text>
           </UI_Box>
           <UI_Box>
-            <Text lineHeight={2} className='content' as='p'>
+            <UI_Text lineHeight={2} className='content' as='p'>
               {content}
-            </Text>
+            </UI_Text>
           </UI_Box>
           <UI_Box className='footer'>
-            <Text fontWeight='bold' color='green_500' className='like'>
+            <UI_Text fontWeight='bold' color='green_500' className='like'>
               <UI_Icon icon={faThumbsUp} className='icon' color='green_500' />
               {likes}
-            </Text>
-            <Text fontWeight='bold' color='red_500' className='dislike'>
+            </UI_Text>
+            <UI_Text fontWeight='bold' color='red_500' className='dislike'>
               <UI_Icon icon={faThumbsDown} className='icon' color='red_500' />
               {dislikes}
-            </Text>
+            </UI_Text>
             <Reply>
               <UI_Icon icon={faReply} />
-              <Text size={16} fontWeight='bold'>
+              <UI_Text size={16} fontWeight='bold'>
                 {formatMessage(globalMessages.reply)}
-              </Text>
+              </UI_Text>
             </Reply>
           </UI_Box>
         </UI_Col>
@@ -122,17 +127,17 @@ export function Comments(props: Props): JSX.Element {
   return (
     <Container id={id}>
       <UI_Box mb={48}>
-        <Text
+        <UI_Text
           size={24}
           fontWeight='bold'
           as='h4'
           color={crewName ? 'gray_600' : 'white'}
         >
           {formatMessage(globalMessages.comments)}{' '}
-          <Text size={24} fontWeight='bold' mr={4} display='inline-block'>
+          <UI_Text size={24} fontWeight='bold' mr={4} display='inline-block'>
             {crewName}
-          </Text>
-        </Text>
+          </UI_Text>
+        </UI_Text>
       </UI_Box>
       {comments.map((comment) => (
         <Comment key={`${uId}-${comment.id}`} {...comment} />
