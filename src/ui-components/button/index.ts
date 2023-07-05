@@ -20,7 +20,7 @@ const globalStyle = css`
   }
 `
 
-export const ContainedButton = styled.button<{
+export const UI_ContainedButton = styled.button<{
   variant?: 'primary' | 'secondary'
   color?: string
 }>`
@@ -44,7 +44,7 @@ export const ContainedButton = styled.button<{
     `}
 `
 
-export const TextButton = styled.button<{
+export const UI_TextButton = styled.button<{
   variant?: 'primary' | 'secondary'
   color?: string
 }>`
@@ -69,7 +69,7 @@ export const TextButton = styled.button<{
     `}
 `
 
-export const OutlinedButton = styled.button<{
+export const UI_OutlinedButton = styled.button<{
   variant?: 'primary' | 'secondary'
   color?: string
 }>`

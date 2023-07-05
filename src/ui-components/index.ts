@@ -1,5 +1,5 @@
 export { UI_Box } from './box'
-export { ContainedButton, OutlinedButton, TextButton } from './button'
+export { UI_ContainedButton, UI_OutlinedButton, UI_TextButton } from './button'
 export { Col, Row } from './grid'
 export { Icon } from './icon'
 export { InputText } from './input'

@@ -7,7 +7,7 @@ import { Header } from './Header.style'
 import { globalMessages } from '@/assets/globalMessages'
 import { NavbarComp } from '@/components'
 import { useScroll } from '@/hooks'
-import { UI_Box, Icon, InputText, OutlinedButton } from '@/ui-components'
+import { UI_Box, Icon, InputText, UI_OutlinedButton } from '@/ui-components'
 
 export function HeaderComp(): JSX.Element | null {
   const { push } = useRouter()
@@ -58,7 +58,7 @@ export function HeaderComp(): JSX.Element | null {
               flip='horizontal'
               onClick={handleClickOnSearchIcon}
             />
-            <OutlinedButton
+            <UI_OutlinedButton
               onClick={handleClickLoginOrRegister}
               style={{
                 height: 33,
@@ -66,7 +66,7 @@ export function HeaderComp(): JSX.Element | null {
               }}
             >
               {formatMessage(globalMessages.loginRegister)}
-            </OutlinedButton>
+            </UI_OutlinedButton>
           </>
         )}
       </UI_Box>

@@ -2,7 +2,7 @@ import React from 'react'
 import { faInfoCircle, faPlay } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
 import { Actions } from './WatchDetailsButtons.style'
-import { ContainedButton, Icon } from '@/ui-components'
+import { UI_ContainedButton, Icon } from '@/ui-components'
 
 type WatchDetailsButtonsProps = {
   id: string
@@ -20,15 +20,15 @@ export function WatchDetailsButtons(
 
   return (
     <Actions>
-      <ContainedButton onClick={handleClickWatch}>
+      <UI_ContainedButton onClick={handleClickWatch}>
         <Icon icon={faPlay} color='gray_700' />
         تماشا
-      </ContainedButton>
+      </UI_ContainedButton>
       {!isDisabledDetailsButton && (
-        <ContainedButton variant='secondary' onClick={handleClickMovie}>
+        <UI_ContainedButton variant='secondary' onClick={handleClickMovie}>
           <Icon icon={faInfoCircle} color='gray_700' />
           جزئیات
-        </ContainedButton>
+        </UI_ContainedButton>
       )}
     </Actions>
   )

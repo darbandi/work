@@ -4,8 +4,8 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Form } from './Login.style'
 import * as theme from '@/theme/Theme.styled'
 import {
-  ContainedButton,
-  TextButton,
+  UI_ContainedButton,
+  UI_TextButton,
   InputText,
   H4,
   UI_Box,
@@ -60,8 +60,10 @@ const LoginForm = (props: LoginFormProps) => {
           }}
         />
         <UI_Box display='flex'>
-          <ContainedButton type='submit'>ارسال رمز یکبار مصرف</ContainedButton>
-          <TextButton
+          <UI_ContainedButton type='submit'>
+            ارسال رمز یکبار مصرف
+          </UI_ContainedButton>
+          <UI_TextButton
             style={{ marginRight: 8 }}
             type='button'
             onClick={handleBack}
@@ -74,7 +76,7 @@ const LoginForm = (props: LoginFormProps) => {
                 marginRight: 8,
               }}
             />
-          </TextButton>
+          </UI_TextButton>
         </UI_Box>
         {otp && (
           <InputText
