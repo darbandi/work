@@ -32,7 +32,7 @@ type ModalProps = {
   onCancel?: () => void
 }
 
-export function Modal(props: ModalProps): JSX.Element | null {
+export function UI_Modal(props: ModalProps): JSX.Element | null {
   const {
     open,
     children,

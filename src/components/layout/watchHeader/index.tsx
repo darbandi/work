@@ -13,8 +13,8 @@ import {
 } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
-const Modal = dynamic(
-  async () => (await import('@/ui-components/modal')).Modal,
+const UI_Modal = dynamic(
+  async () => (await import('@/ui-components/modal')).UI_Modal,
   {
     ssr: false, // boolean: true | false
   },
@@ -45,7 +45,7 @@ export function WatchHeader(): JSX.Element {
           <UI_Icon icon={faArrowLeft} />
         </Back>
       </Header>
-      <Modal
+      <UI_Modal
         open={openSettings}
         title='تنظیمات پیشفرض'
         onClose={() => setOpenSettings((x) => !x)}
@@ -79,7 +79,7 @@ export function WatchHeader(): JSX.Element {
             <UI_Col xs={11}>فیلم به صورت بی‌صدا اجرا شود</UI_Col>
           </UI_Row>
         </>
-      </Modal>
+      </UI_Modal>
     </>
   )
 }
