@@ -132,7 +132,7 @@ export const Forward = styled(SmallButton)`
   gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
   ${lightButton}
 `
-export const Separator = styled.div`
+export const UI_Separator = styled.div`
   width: ${({ theme }: ThemeType) => theme.remCalc(2)};
   height: ${({ theme }: ThemeType) => theme.remCalc(16)};
   background-color: ${({ theme }: ThemeType) => theme.colors.white};

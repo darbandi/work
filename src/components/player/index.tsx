@@ -26,7 +26,7 @@ import {
   Play,
   Seek,
   SeekBar,
-  Separator,
+  UI_Separator,
   Speed,
   ThumbnailImage,
   Time,
@@ -134,7 +134,7 @@ export function PlayerComp(props: PlayerCompProps): JSX.Element {
             <UI_Icon icon={isFullScreen ? faMinimize : faMaximize} />
           </FullScreen>
           <Speed onClick={handleSpeedChange}>{speedNumber}x</Speed>
-          <Separator />
+          <UI_Separator />
           <Back onClick={handleBack}>
             <UI_Icon icon={faBackward} />
             <span>10</span>
@@ -152,7 +152,7 @@ export function PlayerComp(props: PlayerCompProps): JSX.Element {
             <span>10</span>
             <UI_Icon icon={faForward} />
           </Forward>
-          <Separator />
+          <UI_Separator />
           <Mute onClick={() => handleMutedChange(!isMuted)}>
             <UI_Icon icon={isMuted ? faVolumeXmark : faVolumeHigh} />
           </Mute>
