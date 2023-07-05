@@ -24,7 +24,7 @@ import {
 } from '@/components/cardSlider/Item.style'
 import { useStore } from '@/store'
 import { handleDragStart } from '@/tools'
-import { UI_Icon, Loading } from '@/ui-components'
+import { UI_Icon, UI_Loading } from '@/ui-components'
 import { useDocument } from '@/hooks'
 
 export type ItemsArray = {
@@ -94,7 +94,9 @@ export function Items(props: ItemProps): JSX.Element {
         style={{ width: '100%', height: 'auto' }}
         onClick={handleClickDetails}
       />
-      {!isDisabledLoading && <Loading className='swiper-lazy-preloader' xs />}
+      {!isDisabledLoading && (
+        <UI_Loading className='swiper-lazy-preloader' xs />
+      )}
       <InfoStyle>
         <TitleStyle href={`/watch/${item.id}`} mode={mode}>
           {item.title}

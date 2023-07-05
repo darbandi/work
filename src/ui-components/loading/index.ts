@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { ThemeType, flexCenter } from '@/theme'
 
-export const Loading = styled.div<{
+export const UI_Loading = styled.div<{
   xs?: boolean
   sm?: boolean
   md?: boolean

@@ -9,7 +9,7 @@ import {
   ItemWrapper,
   TitleStyle,
 } from '@/components/carousel/Item.style'
-import { Loading } from '@/ui-components'
+import { UI_Loading } from '@/ui-components'
 
 export type ItemsArray = {
   id: string
@@ -48,7 +48,7 @@ export function Items(props: ItemProps): JSX.Element {
           />
         )}
       </ImageWrapper>
-      <Loading className='swiper-lazy-preloader' />
+      <UI_Loading className='swiper-lazy-preloader' />
     </ItemWrapper>
   )
 }

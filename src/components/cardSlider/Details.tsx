@@ -17,7 +17,13 @@ import {
   Title,
 } from './Details.style'
 import { ItemsArray } from './Item'
-import { UI_Col, UI_Icon, Loading, UI_Row, Typography } from '@/ui-components'
+import {
+  UI_Col,
+  UI_Icon,
+  UI_Loading,
+  UI_Row,
+  Typography,
+} from '@/ui-components'
 import { useStore } from '@/store'
 import { useDocument } from '@/hooks'
 
@@ -114,7 +120,7 @@ export function Details(): JSX.Element | null {
           <UI_Col xs={12} sm={5}>
             <CustomImage>
               {imgLoading ? (
-                <Loading sm />
+                <UI_Loading sm />
               ) : (
                 imgSrc && (
                   <Image
