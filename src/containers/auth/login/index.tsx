@@ -7,12 +7,11 @@ import {
   UI_ContainedButton,
   UI_TextButton,
   UI_InputText,
-  H4,
   UI_Box,
   UI_Col,
   UI_Row,
-  Typography,
   UI_Icon,
+  Text,
 } from '@/ui-components'
 import { MotionComp } from '@/components'
 
@@ -39,11 +38,9 @@ const LoginForm = (props: LoginFormProps) => {
   return (
     <MotionComp>
       <Form onSubmit={handleSubmit}>
-        <H4>
-          <Typography fontWeight='bold' color='gray_700'>
-            ورود با تلفن همراه
-          </Typography>
-        </H4>
+        <Text fontWeight='bold' color='gray_700' size={24}>
+          ورود با تلفن همراه
+        </Text>
         <UI_InputText
           type='tel'
           placeholder='شماره تلفن همراه  ...0912'
