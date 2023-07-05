@@ -1,3 +1,3 @@
 import styled from 'styled-components'
 
-export const InputCheckbox = styled.input``
+export const UI_InputCheckbox = styled.input``
