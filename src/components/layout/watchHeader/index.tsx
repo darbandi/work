@@ -4,7 +4,7 @@ import { faArrowLeft, faGear } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { Back, Header, Main } from './WatchHeader.style'
-import { UI_Col, Icon, UI_Row, Typography } from '@/ui-components'
+import { UI_Col, UI_Icon, UI_Row, Typography } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 import { InputCheckbox } from '@/ui-components/input'
 
@@ -25,7 +25,11 @@ export function WatchHeader(): JSX.Element {
     <>
       <Header>
         <Main>
-          <Icon icon={faGear} spin onClick={() => setOpenSettings((x) => !x)} />
+          <UI_Icon
+            icon={faGear}
+            spin
+            onClick={() => setOpenSettings((x) => !x)}
+          />
           <Typography onClick={handleClickHome}>
             {formatMessage(globalMessages.mainPage)}
           </Typography>
@@ -33,7 +37,7 @@ export function WatchHeader(): JSX.Element {
         <div>عنوان فیلم: بازمانده های تاریخ</div>
         <Back onClick={back}>
           <span>{formatMessage(globalMessages.back)}</span>
-          <Icon icon={faArrowLeft} />
+          <UI_Icon icon={faArrowLeft} />
         </Back>
       </Header>
       <Modal

@@ -17,7 +17,7 @@ import {
   Title,
 } from './Details.style'
 import { ItemsArray } from './Item'
-import { UI_Col, Icon, Loading, UI_Row, Typography } from '@/ui-components'
+import { UI_Col, UI_Icon, Loading, UI_Row, Typography } from '@/ui-components'
 import { useStore } from '@/store'
 import { useDocument } from '@/hooks'
 
@@ -56,7 +56,7 @@ export function Details(): JSX.Element | null {
           <UI_Col xs={12} sm={7}>
             <Title>
               <CloseIcon onClick={handleClearSelectedItem}>
-                <Icon icon={faClose} />
+                <UI_Icon icon={faClose} />
               </CloseIcon>
               {selectedCartSliderItem?.title} 2021
             </Title>
@@ -67,15 +67,15 @@ export function Details(): JSX.Element | null {
             </Description>
             <UI_Row display='flex' className='view-like-time'>
               <UI_Col xs={1}>
-                <Icon icon={faEye} color='gray_100' />
+                <UI_Icon icon={faEye} color='gray_100' />
                 10K
               </UI_Col>
               <UI_Col xs={1}>
-                <Icon icon={faThumbsDown} color='gray_100' />
+                <UI_Icon icon={faThumbsDown} color='gray_100' />
                 300
               </UI_Col>
               <UI_Col xs={1}>
-                <Icon icon={faClock} color='gray_100' />
+                <UI_Icon icon={faClock} color='gray_100' />
                 3:30
               </UI_Col>
             </UI_Row>

@@ -11,7 +11,7 @@ import { MegaMenu } from '../megaMenu'
 import { HyperLink, FunctionLink, Li, Navbar, Ul } from './Navbar.style'
 import data from './data.json'
 import { messages } from './messages'
-import { Icon, Text } from '@/ui-components'
+import { UI_Icon, Text } from '@/ui-components'
 
 export interface ISubMenu {
   id: number
@@ -54,7 +54,7 @@ export function NavbarComp(): JSX.Element {
           {formatMessage(messages[menu.title as keyof typeof messages])}
         </Text>
         {menu.subMenu && (
-          <Icon icon={menu.id === active ? faAngleUp : faAngleDown} />
+          <UI_Icon icon={menu.id === active ? faAngleUp : faAngleDown} />
         )}
       </>
     )
@@ -62,7 +62,7 @@ export function NavbarComp(): JSX.Element {
 
   return (
     <Navbar>
-      <Icon icon={faBars} className='fa-bars' onClick={handleToggleMenu} />
+      <UI_Icon icon={faBars} className='fa-bars' onClick={handleToggleMenu} />
       {toggleMenu ? (
         <Ul className='mobile' ref={menu}>
           {data.map((menu) => (
@@ -79,7 +79,11 @@ export function NavbarComp(): JSX.Element {
                 <Text size={18} fontWeight='bold' color='gray_700'>
                   {formatMessage(messages[menu.title as keyof typeof messages])}
                 </Text>
-                <Icon icon={faAngleDown} className='fa-angle' rotation={90} />
+                <UI_Icon
+                  icon={faAngleDown}
+                  className='fa-angle'
+                  rotation={90}
+                />
               </HyperLink>
             </Li>
           ))}

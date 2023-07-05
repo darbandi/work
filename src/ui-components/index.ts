@@ -1,7 +1,7 @@
 export { UI_Box } from './box'
 export { UI_ContainedButton, UI_OutlinedButton, UI_TextButton } from './button'
 export { UI_Col, UI_Row } from './grid'
-export { Icon } from './icon'
+export { UI_Icon } from './icon'
 export { InputText } from './input'
 export { UI_Link } from './link'
 export { Loading } from './loading'

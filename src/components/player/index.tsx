@@ -33,7 +33,7 @@ import {
   TimeBar,
   Video,
 } from './Player.style'
-import { Icon } from '@/ui-components'
+import { UI_Icon } from '@/ui-components'
 import { useVideo } from '@/components/player/useVideo'
 import { PlayerCompProps } from '@/components/player/types'
 
@@ -122,39 +122,39 @@ export function PlayerComp(props: PlayerCompProps): JSX.Element {
         </TimeBar>
         <Actions>
           <Loop isLoop={isLoop} onClick={handleLoopChange}>
-            <Icon icon={faRepeat} />
+            <UI_Icon icon={faRepeat} />
           </Loop>
           <Pin onClick={handlePinChange}>
-            <Icon
+            <UI_Icon
               icon={pinActionBar === 'isShow' ? faThumbtack : faThumbTack}
               {...(pinActionBar === 'isShow' ? { rotation: 90 } : {})}
             />
           </Pin>
           <FullScreen onClick={handleFullScreen}>
-            <Icon icon={isFullScreen ? faMinimize : faMaximize} />
+            <UI_Icon icon={isFullScreen ? faMinimize : faMaximize} />
           </FullScreen>
           <Speed onClick={handleSpeedChange}>{speedNumber}x</Speed>
           <Separator />
           <Back onClick={handleBack}>
-            <Icon icon={faBackward} />
+            <UI_Icon icon={faBackward} />
             <span>10</span>
           </Back>
           {!videoRef.current || videoRef.current?.paused ? (
             <Play onClick={handlePlay}>
-              <Icon icon={faPlayCircle} />
+              <UI_Icon icon={faPlayCircle} />
             </Play>
           ) : (
             <Pause onClick={handlePause}>
-              <Icon icon={faPauseCircle} />
+              <UI_Icon icon={faPauseCircle} />
             </Pause>
           )}
           <Forward onClick={handleForward}>
             <span>10</span>
-            <Icon icon={faForward} />
+            <UI_Icon icon={faForward} />
           </Forward>
           <Separator />
           <Mute onClick={() => handleMutedChange(!isMuted)}>
-            <Icon icon={isMuted ? faVolumeXmark : faVolumeHigh} />
+            <UI_Icon icon={isMuted ? faVolumeXmark : faVolumeHigh} />
           </Mute>
           <Seek
             type='range'

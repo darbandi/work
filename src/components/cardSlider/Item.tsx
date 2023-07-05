@@ -24,7 +24,7 @@ import {
 } from '@/components/cardSlider/Item.style'
 import { useStore } from '@/store'
 import { handleDragStart } from '@/tools'
-import { Icon, Loading } from '@/ui-components'
+import { UI_Icon, Loading } from '@/ui-components'
 import { useDocument } from '@/hooks'
 
 export type ItemsArray = {
@@ -109,25 +109,28 @@ export function Items(props: ItemProps): JSX.Element {
       >
         <Main>
           <Play href={`/watch/${item.id}`} onClick={(e) => e.stopPropagation()}>
-            <Icon icon={faPlay} className='fa-play' />
+            <UI_Icon icon={faPlay} className='fa-play' />
           </Play>
           <Details onClick={handleClickDetails}>
-            <Icon icon={faAngleDoubleDown} className='fa-angle-double-down' />
+            <UI_Icon
+              icon={faAngleDoubleDown}
+              className='fa-angle-double-down'
+            />
           </Details>
         </Main>
         <Footer className='card-item-footer'>
           <LikeView>
             <Like>
-              <Icon icon={faEye} />
+              <UI_Icon icon={faEye} />
               25
             </Like>
             <View>
-              <Icon icon={faThumbsUp} />
+              <UI_Icon icon={faThumbsUp} />
               500
             </View>
           </LikeView>
           <Time>
-            <Icon icon={faClock} />
+            <UI_Icon icon={faClock} />
             {item?.duration}
           </Time>
         </Footer>

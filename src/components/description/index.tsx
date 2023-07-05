@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { useIntl } from 'react-intl'
 import { Container, More } from './Description.style'
-import { UI_Box, Icon, Text } from '@/ui-components'
+import { UI_Box, UI_Icon, Text } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -26,7 +26,7 @@ export function Description(prop: Props): JSX.Element {
         {value}
       </Text>
       <More>
-        <Icon
+        <UI_Icon
           onClick={() => setDisplayAllText((x) => !x)}
           icon={displayAllText ? faAngleUp : faAngleDown}
           className='fa-more'

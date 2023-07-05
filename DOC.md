@@ -191,9 +191,9 @@ import { ObjectInJSX } from '@ui';
 # Icons [Link](https://fontawesome.com/v5/docs/web/use-with/react)
 
 ```js
-import { Icon } from '@ui'
+import { UI_Icon } from '@ui'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-;<Icon icon={faCoffee} />
+;<UI_Icon icon={faCoffee} />
 ```
 
 # Motion [Link](https://github.com/chenglou/react-motion)

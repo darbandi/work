@@ -9,7 +9,7 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import { Container, CommentContainer, Reply } from './Comments.style'
-import { UI_Col, Icon, UI_Row, Text, UI_Box } from '@/ui-components'
+import { UI_Col, UI_Icon, UI_Row, Text, UI_Box } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -94,15 +94,15 @@ export function Comment(props: comment): JSX.Element {
           </UI_Box>
           <UI_Box className='footer'>
             <Text fontWeight='bold' color='green_500' className='like'>
-              <Icon icon={faThumbsUp} className='icon' color='green_500' />
+              <UI_Icon icon={faThumbsUp} className='icon' color='green_500' />
               {likes}
             </Text>
             <Text fontWeight='bold' color='red_500' className='dislike'>
-              <Icon icon={faThumbsDown} className='icon' color='red_500' />
+              <UI_Icon icon={faThumbsDown} className='icon' color='red_500' />
               {dislikes}
             </Text>
             <Reply>
-              <Icon icon={faReply} />
+              <UI_Icon icon={faReply} />
               <Text size={16} fontWeight='bold'>
                 {formatMessage(globalMessages.reply)}
               </Text>

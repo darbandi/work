@@ -1,7 +1,7 @@
 import { faCheck, faClose } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect } from 'react'
 import { UI_ContainedButton, UI_OutlinedButton } from '../button'
-import { Icon } from '../icon'
+import { UI_Icon } from '../icon'
 import { Typography } from '../typography'
 import { Actions, Blur, Container, Header } from './Modal.style'
 import { colors } from '@/theme'
@@ -61,7 +61,7 @@ export function Modal(props: ModalProps): JSX.Element | null {
         <ModalHeader>
           <>
             <Typography>{title}</Typography>
-            <Icon icon={faClose} color={colors.gray_700} onClick={onClose} />
+            <UI_Icon icon={faClose} color={colors.gray_700} onClick={onClose} />
           </>
         </ModalHeader>
         {children}
@@ -70,13 +70,13 @@ export function Modal(props: ModalProps): JSX.Element | null {
             {onSuccess && (
               <UI_ContainedButton onClick={onSuccess}>
                 تایید
-                <Icon icon={faCheck} color={colors.gray_700} />
+                <UI_Icon icon={faCheck} color={colors.gray_700} />
               </UI_ContainedButton>
             )}
             {onCancel && (
               <UI_OutlinedButton variant='secondary' onClick={onCancel}>
                 لغو
-                <Icon icon={faClose} color={colors.gray_700} />
+                <UI_Icon icon={faClose} color={colors.gray_700} />
               </UI_OutlinedButton>
             )}
           </>

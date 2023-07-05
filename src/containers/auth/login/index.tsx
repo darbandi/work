@@ -12,7 +12,7 @@ import {
   UI_Col,
   UI_Row,
   Typography,
-  Icon,
+  UI_Icon,
 } from '@/ui-components'
 import { MotionComp } from '@/components'
 
@@ -69,7 +69,7 @@ const LoginForm = (props: LoginFormProps) => {
             onClick={handleBack}
           >
             بازگشت
-            <Icon
+            <UI_Icon
               icon={faAngleLeft}
               style={{
                 color: theme.dark.colors.gray_700,

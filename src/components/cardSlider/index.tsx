@@ -6,7 +6,7 @@ import { Details } from './Details'
 import {
   SliderButtonsPosition,
   Slider,
-  Icon,
+  UI_Icon,
   UI_Link,
   UI_Box,
 } from '@/ui-components'
@@ -56,7 +56,7 @@ export function CardSliderComp(props: Props): JSX.Element {
         {link && (
           <More mode={mode}>
             <UI_Link href={link}>بیشتر</UI_Link>
-            <Icon icon={faChevronLeft} />
+            <UI_Icon icon={faChevronLeft} />
           </More>
         )}
       </Header>

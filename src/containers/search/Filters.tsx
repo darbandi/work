@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import React, { KeyboardEvent, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { FiltersContainer } from './Search.style'
-import { Icon, InputText, Text } from '@/ui-components'
+import { UI_Icon, InputText, Text } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 export function Filters(): JSX.Element {
@@ -35,7 +35,7 @@ export function Filters(): JSX.Element {
         as='h1'
         display='flex'
       >
-        <Icon icon={faFilter} color='gray_700' />
+        <UI_Icon icon={faFilter} color='gray_700' />
         {formatMessage(globalMessages.filters)}:
       </Text>
       <InputText
