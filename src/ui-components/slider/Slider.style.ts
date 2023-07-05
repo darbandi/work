@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
-import { SliderButtonsPosition } from '.'
+import { UI_SliderButtonsPosition } from '.'
 import { ThemeType, flexCenter, responsive } from '@/theme'
 
 export const PrevButtonsStyle = styled.div<{
-  position?: SliderButtonsPosition
+  position?: UI_SliderButtonsPosition
 }>`
   background-color: ${({ theme }: ThemeType) => theme.colors.gray_100}70;
   width: ${({ theme }: ThemeType) => theme.remCalc(48)};
@@ -31,7 +31,7 @@ export const PrevButtonsStyle = styled.div<{
   )}
 
   ${({ position }) =>
-    position === SliderButtonsPosition.side
+    position === UI_SliderButtonsPosition.side
       ? css`
           background: ${({ theme }: ThemeType) =>
             `linear-gradient(270deg, ${theme.colors.black}90, transparent)`};
@@ -56,10 +56,10 @@ export const PrevButtonsStyle = styled.div<{
         `}
 `
 export const NextButtonsStyle = styled(PrevButtonsStyle)<{
-  position?: SliderButtonsPosition
+  position?: UI_SliderButtonsPosition
 }>`
   ${({ position }) =>
-    position === SliderButtonsPosition.side
+    position === UI_SliderButtonsPosition.side
       ? css`
           background: ${({ theme }: ThemeType) =>
             `linear-gradient(90deg, ${theme.colors.black}90, transparent)`};

@@ -4,14 +4,14 @@ import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
 import { PrevButtons, NextButtons } from './Buttons'
 import 'swiper/swiper-bundle.css'
 
-export enum SliderButtonsPosition {
+export enum UI_SliderButtonsPosition {
   bottomLeft = 'bottomLeft',
   side = 'side',
 }
 
 type Props = SwiperProps & {
   items: JSX.Element[]
-  position?: SliderButtonsPosition
+  position?: UI_SliderButtonsPosition
 }
 
 export function UI_Slider(props: Props): JSX.Element {

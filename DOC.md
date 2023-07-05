@@ -184,14 +184,14 @@ export const Header =
 # Display Object In JSX
 
 ```js
-import { UI_ObjectInJSX } from '@ui';
+import { UI_ObjectInJSX } from '@/ui-components';
 <UI_ObjectInJSX obj={} />
 ```
 
 # Icons [Link](https://fontawesome.com/v5/docs/web/use-with/react)
 
 ```js
-import { UI_Icon } from '@ui'
+import { UI_Icon } from '@/ui-components'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 ;<UI_Icon icon={faCoffee} />
 ```

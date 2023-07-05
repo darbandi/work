@@ -1,9 +1,8 @@
 import { faCheck, faClose } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect } from 'react'
-import { UI_ContainedButton, UI_OutlinedButton } from '../button'
-import { UI_Icon } from '../icon'
 import { Typography } from '../typography'
 import { Actions, Blur, Container, Header } from './Modal.style'
+import { UI_ContainedButton, UI_OutlinedButton, UI_Icon } from '@/ui-components'
 import { colors } from '@/theme'
 import { useDocument } from '@/hooks'
 
