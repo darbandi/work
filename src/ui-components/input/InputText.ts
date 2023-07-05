@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ThemeType } from '@/theme'
 
-export const InputText = styled.input`
+export const UI_InputText = styled.input`
   border: 1px solid ${({ theme }: ThemeType) => theme.colors.gray_300};
   border-radius: ${({ theme }: ThemeType) => theme.remCalc(24)};
   padding: ${({ theme }: ThemeType) =>

@@ -1,2 +1,2 @@
 export { InputCheckbox } from './InputCheckbox'
-export { InputText } from './InputText'
+export { UI_InputText } from './InputText'

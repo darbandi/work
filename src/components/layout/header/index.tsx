@@ -7,7 +7,12 @@ import { Header } from './Header.style'
 import { globalMessages } from '@/assets/globalMessages'
 import { NavbarComp } from '@/components'
 import { useScroll } from '@/hooks'
-import { UI_Box, UI_Icon, InputText, UI_OutlinedButton } from '@/ui-components'
+import {
+  UI_Box,
+  UI_Icon,
+  UI_InputText,
+  UI_OutlinedButton,
+} from '@/ui-components'
 
 export function HeaderComp(): JSX.Element | null {
   const { push } = useRouter()
@@ -42,7 +47,7 @@ export function HeaderComp(): JSX.Element | null {
       <NavbarComp />
       <UI_Box alignItems={'center'} display={'flex'}>
         {searchActive ? (
-          <InputText
+          <UI_InputText
             ref={searchRef}
             placeholder={formatMessage(globalMessages.search, {
               other: ' ...',

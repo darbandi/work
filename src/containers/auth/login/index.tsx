@@ -6,7 +6,7 @@ import * as theme from '@/theme/Theme.styled'
 import {
   UI_ContainedButton,
   UI_TextButton,
-  InputText,
+  UI_InputText,
   H4,
   UI_Box,
   UI_Col,
@@ -44,7 +44,7 @@ const LoginForm = (props: LoginFormProps) => {
             ورود با تلفن همراه
           </Typography>
         </H4>
-        <InputText
+        <UI_InputText
           type='tel'
           placeholder='شماره تلفن همراه  ...0912'
           value={phoneNumber}
@@ -79,7 +79,7 @@ const LoginForm = (props: LoginFormProps) => {
           </UI_TextButton>
         </UI_Box>
         {otp && (
-          <InputText
+          <UI_InputText
             type='number'
             placeholder='رمز یکبار مصرف'
             value={otp}
