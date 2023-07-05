@@ -9,8 +9,8 @@ import {
   InputText,
   H4,
   UI_Box,
-  Col,
-  Row,
+  UI_Col,
+  UI_Row,
   Typography,
   Icon,
 } from '@/ui-components'
@@ -100,14 +100,14 @@ export function LoginPage(): JSX.Element {
 
   return (
     <Container>
-      <Row display='flex' alignItems='center' justifyContent='center'>
-        <Col md={6} xs={12}>
+      <UI_Row display='flex' alignItems='center' justifyContent='center'>
+        <UI_Col md={6} xs={12}>
           <LoginForm onSubmit={handleLogin} />
-        </Col>
-        <Col md={6} xs={12} hideOn='md'>
+        </UI_Col>
+        <UI_Col md={6} xs={12} hideOn='md'>
           <UI_Box className='img' />
-        </Col>
-      </Row>
+        </UI_Col>
+      </UI_Row>
     </Container>
   )
 }

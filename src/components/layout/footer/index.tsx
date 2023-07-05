@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import { Footer } from './Footer.style'
-import { Row, Col, UI_Box, Text, UI_Link } from '@/ui-components'
+import { UI_Row, UI_Col, UI_Box, Text, UI_Link } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 const menuData = [
@@ -75,8 +75,8 @@ export function FooterComp(): JSX.Element {
   const { formatMessage } = useIntl()
   return (
     <Footer>
-      <Row display='table'>
-        <Col md={10} sm={12}>
+      <UI_Row display='table'>
+        <UI_Col md={10} sm={12}>
           <UI_Box
             display='flex'
             alignItems='center'
@@ -130,8 +130,8 @@ export function FooterComp(): JSX.Element {
               })}
             </UI_Box>
           </UI_Box>
-        </Col>
-        <Col md={2} sm={12}>
+        </UI_Col>
+        <UI_Col md={2} sm={12}>
           <UI_Box display='flex' alignItems='center' gap={16} className='logos'>
             <Image
               src={'/images/global/samandehi.svg'}
@@ -150,8 +150,8 @@ export function FooterComp(): JSX.Element {
               loading='lazy'
             />
           </UI_Box>
-        </Col>
-      </Row>
+        </UI_Col>
+      </UI_Row>
     </Footer>
   )
 }

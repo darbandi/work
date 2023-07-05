@@ -9,7 +9,7 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import { Container, CommentContainer, Reply } from './Comments.style'
-import { Col, Icon, Row, Text, UI_Box } from '@/ui-components'
+import { UI_Col, Icon, UI_Row, Text, UI_Box } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -65,8 +65,8 @@ export function Comment(props: comment): JSX.Element {
 
   return (
     <CommentContainer isReplied={Boolean(parent_id)}>
-      <Row display='flex' className='row'>
-        <Col xs={1} className='image-wrapper'>
+      <UI_Row display='flex' className='row'>
+        <UI_Col xs={1} className='image-wrapper'>
           <Image
             src={`/images/profiles/${id}.webp`}
             alt='work'
@@ -77,8 +77,8 @@ export function Comment(props: comment): JSX.Element {
             sizes='(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw'
             style={{ width: 'auto', height: '100%' }}
           />
-        </Col>
-        <Col xs={11} className='comment'>
+        </UI_Col>
+        <UI_Col xs={11} className='comment'>
           <UI_Box display='flex' className='header'>
             <Text size={18} fontWeight='bold' className='name'>
               {name}
@@ -108,8 +108,8 @@ export function Comment(props: comment): JSX.Element {
               </Text>
             </Reply>
           </UI_Box>
-        </Col>
-      </Row>
+        </UI_Col>
+      </UI_Row>
     </CommentContainer>
   )
 }

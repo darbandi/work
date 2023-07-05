@@ -6,7 +6,7 @@ import { Container, DetailsWrapper } from './Search.style'
 import { Details } from '@/components/cardSlider/Details'
 import { Items, ItemsArray } from '@/components/cardSlider/Item'
 import { useStore } from '@/store'
-import { Col, Row, UI_Box } from '@/ui-components'
+import { UI_Col, UI_Row, UI_Box } from '@/ui-components'
 
 export function SearchPage(): JSX.Element {
   const { query } = useRouter()
@@ -28,10 +28,10 @@ export function SearchPage(): JSX.Element {
   return (
     <Container>
       <Filters />
-      <Row display='table'>
+      <UI_Row display='table'>
         {itemsArray.filter(filters).map((item) => {
           return (
-            <Col key={`${uId}-${item.id}`} xs={6} sm={4} md={3} lg={2}>
+            <UI_Col key={`${uId}-${item.id}`} xs={6} sm={4} md={3} lg={2}>
               <UI_Box padding={10}>
                 <Items
                   id={item.id}
@@ -41,10 +41,10 @@ export function SearchPage(): JSX.Element {
                   isDisabledScroll
                 />
               </UI_Box>
-            </Col>
+            </UI_Col>
           )
         })}
-      </Row>
+      </UI_Row>
       {selected_id && (
         <DetailsWrapper>
           <Details />

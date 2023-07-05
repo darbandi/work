@@ -17,7 +17,7 @@ import {
   Title,
 } from './Details.style'
 import { ItemsArray } from './Item'
-import { Col, Icon, Loading, Row, Typography } from '@/ui-components'
+import { UI_Col, Icon, Loading, UI_Row, Typography } from '@/ui-components'
 import { useStore } from '@/store'
 import { useDocument } from '@/hooks'
 
@@ -52,8 +52,8 @@ export function Details(): JSX.Element | null {
     <>
       <Cover />
       <Container>
-        <Row display='flex' alignItems='stretch'>
-          <Col xs={12} sm={7}>
+        <UI_Row display='flex' alignItems='stretch'>
+          <UI_Col xs={12} sm={7}>
             <Title>
               <CloseIcon onClick={handleClearSelectedItem}>
                 <Icon icon={faClose} />
@@ -65,53 +65,53 @@ export function Details(): JSX.Element | null {
               گفتگوی آخر شب شناخته می‌شود، یک نویسنده جدید را استخدام می‌کند تا
               از جایگزین شدن خودش با یک مجری دیگر جلوگیری نماید و...
             </Description>
-            <Row display='flex' className='view-like-time'>
-              <Col xs={1}>
+            <UI_Row display='flex' className='view-like-time'>
+              <UI_Col xs={1}>
                 <Icon icon={faEye} color='gray_100' />
                 10K
-              </Col>
-              <Col xs={1}>
+              </UI_Col>
+              <UI_Col xs={1}>
                 <Icon icon={faThumbsDown} color='gray_100' />
                 300
-              </Col>
-              <Col xs={1}>
+              </UI_Col>
+              <UI_Col xs={1}>
                 <Icon icon={faClock} color='gray_100' />
                 3:30
-              </Col>
-            </Row>
-            <Row display='flex'>
-              <Col width={100}>
+              </UI_Col>
+            </UI_Row>
+            <UI_Row display='flex'>
+              <UI_Col width={100}>
                 <Typography color='red_700'>ستارگان</Typography>
-              </Col>
-              <Col>
+              </UI_Col>
+              <UI_Col>
                 <Typography color='gray_600'>
                   ساره بیات، سجاد مطلبی، حمید گودرزی، الناز شاکردوست
                 </Typography>
-              </Col>
-            </Row>
-            <Row display='flex'>
-              <Col width={100}>
+              </UI_Col>
+            </UI_Row>
+            <UI_Row display='flex'>
+              <UI_Col width={100}>
                 <Typography color='red_700'>کارگردان</Typography>
-              </Col>
-              <Col>
+              </UI_Col>
+              <UI_Col>
                 <Typography color='gray_600'>سجاد مطلبی</Typography>
-              </Col>
-            </Row>
-            <Row display='flex'>
-              <Col width={100}>
+              </UI_Col>
+            </UI_Row>
+            <UI_Row display='flex'>
+              <UI_Col width={100}>
                 <Typography color='red_700'>دسته‌بندی</Typography>
-              </Col>
-              <Col>
+              </UI_Col>
+              <UI_Col>
                 <Typography color='gray_600'>
                   کمدی، خانوادگی، موزیکال، فیلم خارجی
                 </Typography>
-              </Col>
-            </Row>
+              </UI_Col>
+            </UI_Row>
             <Actions>
               <WatchDetailsButtons id={selectedCartSliderItem.id} />
             </Actions>
-          </Col>
-          <Col xs={12} sm={5}>
+          </UI_Col>
+          <UI_Col xs={12} sm={5}>
             <CustomImage>
               {imgLoading ? (
                 <Loading sm />
@@ -134,8 +134,8 @@ export function Details(): JSX.Element | null {
                 )
               )}
             </CustomImage>
-          </Col>
-        </Row>
+          </UI_Col>
+        </UI_Row>
       </Container>
     </>
   )

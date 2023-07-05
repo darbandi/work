@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { ThemeType, flexAlignCenter, responsive } from '@/theme'
 
-export const Row = styled.div<{
+export const UI_Row = styled.div<{
   display?: string
   alignItems?: string
   justifyContent?: string
@@ -36,7 +36,7 @@ function getWithString(span?: number) {
   return `width: ${width}%;`
 }
 
-export const Col = styled.div<{
+export const UI_Col = styled.div<{
   xs?: number
   sm?: number
   md?: number

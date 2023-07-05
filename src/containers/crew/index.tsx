@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { itemsArray } from '../home/topTen'
 import { Container, Cover, Position } from './Crew.style'
-import { UI_Box, Col, Row, Text } from '@/ui-components'
+import { UI_Box, UI_Col, UI_Row, Text } from '@/ui-components'
 import { CardSliderComp, Comments, MotionComp } from '@/components'
 
 export function CrewPage(): JSX.Element {
@@ -14,8 +14,8 @@ export function CrewPage(): JSX.Element {
 
   return (
     <Container>
-      <Row display='flex' alignItems='stretch' className='row-crew'>
-        <Col sm={6} xs={12} className='information'>
+      <UI_Row display='flex' alignItems='stretch' className='row-crew'>
+        <UI_Col sm={6} xs={12} className='information'>
           <Cover />
           <Position>
             <Text size={96} fontWeight='bold'>
@@ -60,8 +60,8 @@ export function CrewPage(): JSX.Element {
               بهترین بازیگر مرد را از جشنواره فیلم ونیز دریافت کرد.
             </Text>
           </UI_Box>
-        </Col>
-        <Col sm={6} xs={12}>
+        </UI_Col>
+        <UI_Col sm={6} xs={12}>
           <UI_Box
             display='flex'
             alignItems='center'
@@ -79,8 +79,8 @@ export function CrewPage(): JSX.Element {
               style={{ width: 'auto', height: '80vh' }}
             />
           </UI_Box>
-        </Col>
-      </Row>
+        </UI_Col>
+      </UI_Row>
       <UI_Box className='top-slider'>
         <MotionComp>
           <CardSliderComp
