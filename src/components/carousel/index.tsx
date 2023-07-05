@@ -1,6 +1,6 @@
 import React, { useId, useMemo } from 'react'
 import { Items, ItemsArray } from './Item'
-import { Slider } from '@/ui-components'
+import { UI_Slider } from '@/ui-components'
 
 type Props = { items: ItemsArray[]; isDisabledDetailsButton?: boolean }
 
@@ -21,7 +21,7 @@ export function CarouselComp(props: Props): JSX.Element {
   )
 
   return (
-    <Slider
+    <UI_Slider
       items={itemsArray}
       loop
       spaceBetween={0}

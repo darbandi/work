@@ -14,7 +14,7 @@ type Props = SwiperProps & {
   position?: SliderButtonsPosition
 }
 
-export function Slider(props: Props): JSX.Element {
+export function UI_Slider(props: Props): JSX.Element {
   const uId = useId()
   const { items, position, ...otherProps } = props
   return (

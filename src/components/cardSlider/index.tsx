@@ -5,7 +5,7 @@ import { Items, ItemsArray } from './Item'
 import { Details } from './Details'
 import {
   SliderButtonsPosition,
-  Slider,
+  UI_Slider,
   UI_Icon,
   UI_Link,
   UI_Box,
@@ -60,7 +60,7 @@ export function CardSliderComp(props: Props): JSX.Element {
           </More>
         )}
       </Header>
-      <Slider
+      <UI_Slider
         items={itemsArray}
         position={SliderButtonsPosition.side}
         breakpoints={{
