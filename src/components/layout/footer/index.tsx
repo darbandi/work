@@ -87,7 +87,7 @@ export function FooterComp(): JSX.Element {
             {menuData.map((item) => {
               return (
                 <UI_Link key={item.id} href={item.link}>
-                  <UI_Text size={16} fontWeight='bold' color='gray_600'>
+                  <UI_Text size={16} fontWeight='bold' color='gray_200'>
                     {item.title}
                   </UI_Text>
                 </UI_Link>
@@ -100,7 +100,7 @@ export function FooterComp(): JSX.Element {
             alignItems='center'
             className='copyright'
           >
-            <UI_Text size={12} fontWeight='bold' color='gray_700'>
+            <UI_Text size={12} fontWeight='bold' color='gray_400'>
               {formatMessage(globalMessages.copyright)}
             </UI_Text>
             <UI_Box

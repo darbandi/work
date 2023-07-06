@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { WatchDetailsButtons } from '../watchDetailsButtons'
 import {
-  DescriptionStyle,
+  EnTitleStyle,
   ImageWrapper,
   InfoSection,
   InfoWrapper,
@@ -28,7 +28,7 @@ export function Items(props: ItemProps): JSX.Element {
       <InfoWrapper>
         <InfoSection>
           <TitleStyle href={`/watch/${item.id}`}>{item.title}</TitleStyle>
-          <DescriptionStyle>{item.subtitle}</DescriptionStyle>
+          <EnTitleStyle>{item.subtitle}</EnTitleStyle>
         </InfoSection>
         <WatchDetailsButtons
           id={item.id}

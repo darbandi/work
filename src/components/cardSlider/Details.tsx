@@ -23,6 +23,7 @@ import {
   UI_Loading,
   UI_Row,
   Typography,
+  UI_Text,
 } from '@/ui-components'
 import { useStore } from '@/store'
 import { useDocument } from '@/hooks'
@@ -73,42 +74,50 @@ export function Details(): JSX.Element | null {
             </Description>
             <UI_Row display='flex' className='view-like-time'>
               <UI_Col xs={1}>
-                <UI_Icon icon={faEye} color='gray_100' />
-                10K
+                <UI_Icon icon={faEye} />
+                <UI_Text color='gray_400'>10K</UI_Text>
               </UI_Col>
               <UI_Col xs={1}>
-                <UI_Icon icon={faThumbsDown} color='gray_100' />
-                300
+                <UI_Icon icon={faThumbsDown} />
+                <UI_Text color='gray_400'>300</UI_Text>
               </UI_Col>
               <UI_Col xs={1}>
-                <UI_Icon icon={faClock} color='gray_100' />
-                3:30
+                <UI_Icon icon={faClock} />
+                <UI_Text color='gray_400'>3:30</UI_Text>
               </UI_Col>
             </UI_Row>
             <UI_Row display='flex'>
               <UI_Col width={100}>
-                <Typography color='red_700'>ستارگان</Typography>
+                <UI_Text color='blue_300' fontWeight='bold'>
+                  ستارگان
+                </UI_Text>
               </UI_Col>
               <UI_Col>
-                <Typography color='gray_600'>
+                <Typography color='gray_500'>
                   ساره بیات، سجاد مطلبی، حمید گودرزی، الناز شاکردوست
                 </Typography>
               </UI_Col>
             </UI_Row>
             <UI_Row display='flex'>
               <UI_Col width={100}>
-                <Typography color='red_700'>کارگردان</Typography>
+                <UI_Text color='blue_300' fontWeight='bold'>
+                  کارگردان
+                </UI_Text>
               </UI_Col>
               <UI_Col>
-                <Typography color='gray_600'>سجاد مطلبی</Typography>
+                <UI_Text color='gray_500' fontWeight='bold'>
+                  سجاد مطلبی
+                </UI_Text>
               </UI_Col>
             </UI_Row>
             <UI_Row display='flex'>
               <UI_Col width={100}>
-                <Typography color='red_700'>دسته‌بندی</Typography>
+                <UI_Text color='blue_300' fontWeight='bold'>
+                  دسته‌بندی
+                </UI_Text>
               </UI_Col>
               <UI_Col>
-                <Typography color='gray_600'>
+                <Typography color='gray_500'>
                   کمدی، خانوادگی، موزیکال، فیلم خارجی
                 </Typography>
               </UI_Col>

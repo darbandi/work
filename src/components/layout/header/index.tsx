@@ -1,4 +1,7 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import {
+  faArrowRightToBracket,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons'
 import { useClickOutside } from '@react-hooks-library/core'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
@@ -39,6 +42,7 @@ export function HeaderComp(): JSX.Element | null {
   const handleSearch = (e: { key: string }) => {
     if (e.key === 'Enter') {
       push(`/search/?q=${searchRef.current?.value}`)
+      setSearchActive(false)
     }
   }
   if (!isTop) return null
@@ -63,13 +67,15 @@ export function HeaderComp(): JSX.Element | null {
               flip='horizontal'
               onClick={handleClickOnSearchIcon}
             />
+            <UI_Icon
+              icon={faArrowRightToBracket}
+              className='fa-login'
+              onClick={handleClickLoginOrRegister}
+            />
             <UI_OutlinedButton
               variant='light'
+              className='btn-login-register'
               onClick={handleClickLoginOrRegister}
-              style={{
-                height: 33,
-                width: 150,
-              }}
             >
               {formatMessage(globalMessages.loginRegister)}
             </UI_OutlinedButton>

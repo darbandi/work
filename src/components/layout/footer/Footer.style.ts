@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components'
 import { ThemeType, responsive } from '@/theme'
 
 export const Footer = styled.footer`
-  box-shadow: 0 0 3px ${({ theme }: ThemeType) => theme.colors.gray_500};
+  box-shadow: 0 0 3px ${({ theme }: ThemeType) => theme.colors.gray_700};
+  background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_900};
   padding: ${({ theme }: ThemeType) => theme.remCalc(50)};
   margin-top: ${({ theme }: ThemeType) => theme.remCalc(40)};
 

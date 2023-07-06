@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { ThemeType, flexCenter, responsive } from '@/theme'
 
 export const Container = styled.div<{ displayAllText: boolean }>`
-  background: ${({ theme }: ThemeType) => theme.colors.gray_900};
+  background: ${({ theme }: ThemeType) => theme.colors.darkBlue_900};
   color: ${({ theme }: ThemeType) => theme.colors.white};
   padding: ${({ theme }: ThemeType) => theme.remCalc(94)};
 

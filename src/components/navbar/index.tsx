@@ -54,7 +54,10 @@ export function NavbarComp(): JSX.Element {
           {formatMessage(messages[menu.title as keyof typeof messages])}
         </UI_Text>
         {menu.subMenu && (
-          <UI_Icon icon={menu.id === active ? faAngleUp : faAngleDown} />
+          <UI_Icon
+            className='fa-angle'
+            icon={menu.id === active ? faAngleUp : faAngleDown}
+          />
         )}
       </>
     )

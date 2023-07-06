@@ -9,7 +9,7 @@ import {
 import { UI_Link } from '@/ui-components'
 
 export const Container = styled.div`
-  background: ${({ theme }: ThemeType) => theme.colors.white};
+  background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_500};
   position: absolute;
   top: ${({ theme }: ThemeType) => theme.remCalc(58)};
   right: 30px;
@@ -20,8 +20,9 @@ export const Container = styled.div`
   align-items: stretch;
   padding: ${({ theme }: ThemeType) =>
     `${theme.remCalc(32)} ${theme.remCalc(32)}`};
-  box-shadow: 0 0
-    ${({ theme }: ThemeType) => `${theme.remCalc(20)} ${theme.colors.black}`};
+  box-shadow: 0
+    ${({ theme }: ThemeType) =>
+      `${theme.remCalc(10)} ${theme.remCalc(20)} ${theme.colors.black}`};
 
   ${animationFadeIn}
 
@@ -48,22 +49,27 @@ export const Categories = styled.div`
 `
 
 export const CategoryItem = styled(UI_Link)`
-  background: ${({ theme }: ThemeType) => theme.colors.gray_200};
+  background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_900};
   width: ${({ theme }: ThemeType) => theme.remCalc(150)};
   padding: ${({ theme }: ThemeType) =>
     `${theme.remCalc(12)} ${theme.remCalc(8)}`};
   border-radius: ${({ theme }: ThemeType) => `${theme.remCalc(8)}`};
-  color: ${({ theme }: ThemeType) => theme.colors.gray_700};
+  color: ${({ theme }: ThemeType) => theme.colors.gray_500};
   flex-basis: calc(25% - 16px);
   font-size: ${({ theme }: ThemeType) => theme.remCalc(12)};
   font-weight: bold;
   ${flexCenter}
   transition: all .3s ease-in-out;
   cursor: pointer;
+  white-space: nowrap;
+  border: ${({ theme }: ThemeType) =>
+    `${theme.remCalc(1)} solid ${theme.colors.darkBlue_900}`};
 
   &:hover {
-    background: ${({ theme }: ThemeType) => theme.colors.gray_600};
-    color: ${({ theme }: ThemeType) => theme.colors.gray_200};
+    color: ${({ theme }: ThemeType) => theme.colors.gray_100};
+    border: ${({ theme }: ThemeType) =>
+      `${theme.remCalc(1)} solid ${theme.colors.gray_100}`};
+    box-sizing: border-box;
   }
 `
 
@@ -71,7 +77,7 @@ export const MostView = styled.div`
   width: 40%;
   overflow: hidden;
   ${flexCenter}
-  border-radius: 20px;
+  border-radius: ${({ theme }: ThemeType) => theme.remCalc(20)};
 
   img {
     min-height: 100%;

@@ -93,7 +93,7 @@ export function Comment(props: comment): JSX.Element {
             </UI_Text>
           </UI_Box>
           <UI_Box>
-            <UI_Text lineHeight={2} className='content' as='p'>
+            <UI_Text lineHeight={2} className='content' as='p' color='gray_500'>
               {content}
             </UI_Text>
           </UI_Box>
@@ -108,7 +108,7 @@ export function Comment(props: comment): JSX.Element {
             </UI_Text>
             <Reply>
               <UI_Icon icon={faReply} />
-              <UI_Text size={16} fontWeight='bold'>
+              <UI_Text size={16} fontWeight='bold' color='gray_400'>
                 {formatMessage(globalMessages.reply)}
               </UI_Text>
             </Reply>
@@ -131,7 +131,7 @@ export function Comments(props: Props): JSX.Element {
           size={24}
           fontWeight='bold'
           as='h4'
-          color={crewName ? 'gray_600' : 'white'}
+          color={crewName ? 'gray_600' : 'gray_400'}
         >
           {formatMessage(globalMessages.comments)}{' '}
           <UI_Text size={24} fontWeight='bold' mr={4} display='inline-block'>

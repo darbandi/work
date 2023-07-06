@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     direction  : rtl;
     scroll-behavior: smooth;
     font-size: 16px;
-    background-color: ${({ theme }: ThemeType) => theme.colors.gray_100};
+    background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_500};
  
     ::-webkit-scrollbar {
       width: 5px;

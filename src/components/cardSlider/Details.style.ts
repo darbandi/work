@@ -22,7 +22,7 @@ export const Cover = styled.div`
   )}
 `
 export const Container = styled.div`
-  background-color: ${({ theme }: ThemeType) => theme.colors.gray_300};
+  background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_900};
   padding: ${({ theme }: ThemeType) => theme.remCalc(24)};
   padding-right: ${({ theme }: ThemeType) => theme.remCalc(50)};
   margin-left: ${({ theme }: ThemeType) => theme.remCalc(10)};
@@ -30,7 +30,7 @@ export const Container = styled.div`
   margin-right: -${({ theme }: ThemeType) => theme.remCalc(50)};
   margin-left: 0;
   box-shadow: ${({ theme }: ThemeType) =>
-    `0 0 5px ${theme.colors.gray_600}, 0 0 30px ${theme.colors.gray_600}`};
+    `0 0 5px ${theme.colors.gray_200}, 0 0 25px ${theme.colors.gray_500}`};
 
   ${animationFadeIn}
 
@@ -70,7 +70,7 @@ export const Container = styled.div`
   }
 `
 export const Title = styled.h1`
-  color: ${({ theme }: ThemeType) => theme.colors.gray_800};
+  color: ${({ theme }: ThemeType) => theme.colors.gray_100};
   margin-bottom: ${({ theme }: ThemeType) => theme.remCalc(12)};
   font-weight: 700;
   font-size: ${({ theme }: ThemeType) => theme.remCalc(48)};
@@ -79,7 +79,7 @@ export const Title = styled.h1`
   position: relative;
 `
 export const Description = styled.div`
-  color: ${({ theme }: ThemeType) => theme.colors.gray_800};
+  color: ${({ theme }: ThemeType) => theme.colors.gray_400};
   font-size: ${({ theme }: ThemeType) => theme.remCalc(14)};
   margin-bottom: ${({ theme }: ThemeType) => theme.remCalc(16)};
 `
@@ -89,7 +89,7 @@ export const CustomImage = styled.div`
   overflow: hidden;
   ${flexCenter}
   box-shadow: ${({ theme }: ThemeType) =>
-    `0 0 3px ${theme.colors.gray_600}, 0 0 10px ${theme.colors.gray_600}`};
+    `0 0 3px ${theme.colors.gray_800}, 0 0 10px ${theme.colors.gray_800}`};
 
   ${responsive(
     'sm',
@@ -98,7 +98,7 @@ export const CustomImage = styled.div`
       margin: -${({ theme }: ThemeType) => theme.remCalc(16)};
       height: max-content;
       box-shadow: ${({ theme }: ThemeType) =>
-        `0 3px 5px ${theme.colors.gray_600}`};
+        `0 3px 5px ${theme.colors.gray_800}`};
 
       .detail-image {
         width: 100% !important;
@@ -114,7 +114,7 @@ export const CloseIcon = styled.div`
   left: 5%;
   top: ${({ theme }: ThemeType) => theme.remCalc(-35)};
   .svg-inline--fa {
-    border: 5px solid ${({ theme }: ThemeType) => theme.colors.gray_300};
+    border: 5px solid ${({ theme }: ThemeType) => theme.colors.darkBlue_500};
     background-color: ${({ theme }: ThemeType) => theme.colors.white};
     color: ${({ theme }: ThemeType) => theme.colors.gray_700};
     width: ${({ theme }: ThemeType) => theme.remCalc(32)};

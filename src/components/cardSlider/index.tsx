@@ -22,7 +22,7 @@ type Props = {
 }
 
 export function CardSliderComp(props: Props): JSX.Element {
-  const { items, title, link, style, id, mode } = props
+  const { items, title, link, style, id, mode = 'light' } = props
   const uId = useId()
 
   const itemsArray = useMemo(

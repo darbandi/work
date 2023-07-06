@@ -18,11 +18,11 @@ export function Description(prop: Props): JSX.Element {
   return (
     <Container displayAllText={displayAllText} id={id}>
       <UI_Box mb={48}>
-        <UI_Text size={24} fontWeight='bold' as='h4'>
+        <UI_Text size={24} fontWeight='bold' as='h4' color='gray_200'>
           {formatMessage(globalMessages.movieDescription)}
         </UI_Text>
       </UI_Box>
-      <UI_Text lineHeight={2} as='p' className='description'>
+      <UI_Text lineHeight={2} as='p' className='description' color='gray_400'>
         {value}
       </UI_Text>
       <More>

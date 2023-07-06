@@ -13,7 +13,7 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 100%;
   padding: ${({ theme }: ThemeType) => theme.remCalc(94)};
-  background-color: ${({ theme }: ThemeType) => theme.colors.gray_900};
+  background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_900};
 
   ${responsive(
     'sm',
@@ -46,7 +46,7 @@ export const CommentContainer = styled.div<{ isReplied: boolean }>`
     .comment {
       max-width: fit-content;
       flex: 1;
-      background-color: ${({ theme }: ThemeType) => theme.colors.black}50;
+      background-color: ${({ theme }: ThemeType) => theme.colors.black}60;
       border-radius: ${({ theme }: ThemeType) => theme.remCalc(12)};
       border-top-right-radius: 0;
       gap: ${({ theme }: ThemeType) => theme.remCalc(8)};

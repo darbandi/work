@@ -26,7 +26,7 @@ export function Filters(): JSX.Element {
   return (
     <FiltersContainer>
       <UI_Text
-        color='gray_700'
+        color='gray_600'
         size={32}
         fontWeight='bold'
         fontFamily='Droid'

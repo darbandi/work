@@ -16,10 +16,9 @@ export const Navbar = styled.nav`
   ${responsive(
     'sm',
     css`
-      padding-inline-start: ${({ theme }: ThemeType) => theme.remCalc(24)};
       .fa-bars {
         display: block;
-        font-size: large;
+        font-size: ${({ theme }: ThemeType) => theme.remCalc(28)};
       }
     `,
   )}
@@ -28,6 +27,10 @@ export const Ul = styled.ul`
   margin: 0;
   list-style-type: none;
   list-style: none;
+
+  .fa-angle {
+    font-size: 12px;
+  }
 
   &.desktop {
     ${flexAlignCenter}
@@ -56,8 +59,10 @@ export const Ul = styled.ul`
     box-shadow: 0 0
       ${({ theme }: ThemeType) => `${theme.remCalc(80)} ${theme.colors.black}`};
 
+    padding-top: ${({ theme }: ThemeType) => theme.remCalc(48)};
     .fa-angle {
       color: ${({ theme }: ThemeType) => theme.colors.gray_700};
+      font-size: 12px;
     }
 
     ${animationSlideInRight}
@@ -74,7 +79,7 @@ const commonMenuItem = css`
   padding: ${({ theme }: ThemeType) => theme.remCalc(16)};
   cursor: pointer;
   ${flexAlignCenter}
-  gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
+  gap: ${({ theme }: ThemeType) => theme.remCalc(8)};
   position: relative;
 `
 
@@ -113,7 +118,7 @@ export const FunctionLink = styled.span<{ active?: string }>`
         ${animationFadeIn}
         position: absolute;
         right: calc(50% - 15px);
-        bottom: -2px;
+        bottom: -1px;
         content: '';
         width: 0;
         height: 0;
@@ -121,7 +126,7 @@ export const FunctionLink = styled.span<{ active?: string }>`
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
         border-bottom: 10px solid
-          ${({ theme }: ThemeType) => theme.colors.white};
+          ${({ theme }: ThemeType) => theme.colors.darkBlue_500};
       }
     `}
 `

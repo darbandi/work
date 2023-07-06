@@ -23,7 +23,6 @@ export const MenuItems = styled.div`
   ${flexCenter}
   gap: ${({ theme }: ThemeType) => theme.remCalc(32)};
   padding: ${({ theme }: ThemeType) => theme.remCalc(32)};
-  background-color: ${({ theme }: ThemeType) => theme.colors.gray_100};
   white-space: nowrap;
   width: fit-content;
 `

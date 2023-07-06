@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import React, { useId } from 'react'
 import { itemsArray } from '../home/topTen'
 import { Filters } from './Filters'
-import { Container, DetailsWrapper } from './Search.style'
+import { Container, DetailsWrapper, MoviesWrapper } from './Search.style'
 import { Details } from '@/components/cardSlider/Details'
 import { Items, ItemsArray } from '@/components/cardSlider/Item'
 import { useStore } from '@/store'
@@ -28,23 +28,26 @@ export function SearchPage(): JSX.Element {
   return (
     <Container>
       <Filters />
-      <UI_Row display='table'>
-        {itemsArray.filter(filters).map((item) => {
-          return (
-            <UI_Col key={`${uId}-${item.id}`} xs={6} sm={4} md={3} lg={2}>
-              <UI_Box padding={10}>
-                <Items
-                  id={item.id}
-                  item={item}
-                  key={item.id}
-                  isDisabledLoading
-                  isDisabledScroll
-                />
-              </UI_Box>
-            </UI_Col>
-          )
-        })}
-      </UI_Row>
+      <MoviesWrapper>
+        <UI_Row display='table'>
+          {itemsArray.filter(filters).map((item) => {
+            return (
+              <UI_Col key={`${uId}-${item.id}`} xs={6} sm={4} md={3} lg={2}>
+                <UI_Box padding={10}>
+                  <Items
+                    id={item.id}
+                    item={item}
+                    key={item.id}
+                    isDisabledLoading
+                    isDisabledScroll
+                    mode='light'
+                  />
+                </UI_Box>
+              </UI_Col>
+            )
+          })}
+        </UI_Row>
+      </MoviesWrapper>
       {selected_id && (
         <DetailsWrapper>
           <Details />
