@@ -20,13 +20,17 @@ export function WatchDetailsButtons(
 
   return (
     <Actions>
-      <UI_ContainedButton onClick={handleClickWatch}>
-        <UI_Icon icon={faPlay} color='gray_700' />
+      <UI_ContainedButton
+        variant='primary'
+        onClick={handleClickWatch}
+        lineHeight={12}
+      >
+        <UI_Icon icon={faPlay} />
         تماشا
       </UI_ContainedButton>
       {!isDisabledDetailsButton && (
         <UI_ContainedButton variant='secondary' onClick={handleClickMovie}>
-          <UI_Icon icon={faInfoCircle} color='gray_700' />
+          <UI_Icon icon={faInfoCircle} />
           جزئیات
         </UI_ContainedButton>
       )}

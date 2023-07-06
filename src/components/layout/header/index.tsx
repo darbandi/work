@@ -64,6 +64,7 @@ export function HeaderComp(): JSX.Element | null {
               onClick={handleClickOnSearchIcon}
             />
             <UI_OutlinedButton
+              variant='light'
               onClick={handleClickLoginOrRegister}
               style={{
                 height: 33,

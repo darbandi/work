@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Form } from './Login.style'
-import * as theme from '@/theme/Theme.styled'
 import {
   UI_ContainedButton,
   UI_TextButton,
@@ -57,10 +56,11 @@ const LoginForm = (props: LoginFormProps) => {
           }}
         />
         <UI_Box display='flex'>
-          <UI_ContainedButton type='submit'>
+          <UI_ContainedButton type='submit' variant='primary'>
             ارسال رمز یکبار مصرف
           </UI_ContainedButton>
           <UI_TextButton
+            variant='secondary'
             style={{ marginRight: 8 }}
             type='button'
             onClick={handleBack}
@@ -69,7 +69,6 @@ const LoginForm = (props: LoginFormProps) => {
             <UI_Icon
               icon={faAngleLeft}
               style={{
-                color: theme.dark.colors.gray_700,
                 marginRight: 8,
               }}
             />

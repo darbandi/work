@@ -67,15 +67,15 @@ export function UI_Modal(props: ModalProps): JSX.Element | null {
         <ModalAction>
           <>
             {onSuccess && (
-              <UI_ContainedButton onClick={onSuccess}>
+              <UI_ContainedButton variant='primary' onClick={onSuccess}>
                 تایید
-                <UI_Icon icon={faCheck} color={colors.gray_700} />
+                <UI_Icon icon={faCheck} />
               </UI_ContainedButton>
             )}
             {onCancel && (
               <UI_OutlinedButton variant='secondary' onClick={onCancel}>
                 لغو
-                <UI_Icon icon={faClose} color={colors.gray_700} />
+                <UI_Icon icon={faClose} />
               </UI_OutlinedButton>
             )}
           </>

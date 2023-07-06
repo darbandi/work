@@ -8,6 +8,8 @@ export type ThemeType = {
   size?: number
   lineHeight?: number
   color?: string
+  variant?: 'primary' | 'secondary' | 'light'
+  backgroundColor?: string
 }
 
 export const commonColors = {
@@ -70,6 +72,7 @@ export const commonColors = {
   darkBlue_500: '#1E2129',
   darkBlue_900: '#121419',
   brown_500: '#1d1d1d',
+  transparent: 'transparent',
 }
 
 const remCalc = (px: number, base = 16) => {
