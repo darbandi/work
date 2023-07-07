@@ -6,15 +6,12 @@ export const Container = styled.div`
     flex-direction: row;
     ${flexSpaceBetween}
     height: 100vh;
-    background: ${`linear-gradient(45deg, ${colors.gray_500}, ${colors.white})`};
 
-    .img {
-      background-image: url('/login-banner.jpg');
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-color: ${colors.gray_200};
-    }
+    background-image: url('/login-banner.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: ${colors.gray_200};
   `}
 `
 
@@ -25,12 +22,12 @@ export const Form = styled.form`
     align-items: start;
     justify-content: center;
     gap: ${remCalc(48)};
-    width: ${remCalc(400)};
+    width: 450px;
     margin: 0 auto;
-    padding: ${remCalc(24)};
+    padding: ${remCalc(36)};
     border-radius: ${remCalc(8)};
-    background-color: ${colors.white};
-    box-shadow: 0 0 ${`${remCalc(20)} ${colors.gray_400}`};
+    background-color: ${colors.black}c9;
+    box-shadow: 0 0 ${`${remCalc(20)} ${colors.black}`};
 
     ${responsive(
       'sm',

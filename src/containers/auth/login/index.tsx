@@ -1,3 +1,4 @@
+import { useIntl } from 'react-intl'
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
@@ -13,6 +14,7 @@ import {
   UI_Text,
 } from '@/ui-components'
 import { MotionComp } from '@/components'
+import { globalMessages } from '@/assets/globalMessages'
 
 export type FormInputs = { phoneNumber: string; otp: string }
 export type LoginFormProps = {
@@ -24,6 +26,7 @@ const LoginForm = (props: LoginFormProps) => {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [otp, setOtp] = useState('')
   const { push } = useRouter()
+  const { formatMessage } = useIntl()
 
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -37,12 +40,13 @@ const LoginForm = (props: LoginFormProps) => {
   return (
     <MotionComp>
       <Form onSubmit={handleSubmit}>
-        <UI_Text fontWeight='bold' color='gray_700' size={24}>
-          ورود با تلفن همراه
+        <UI_Text fontWeight='bold' color='gray_200' size={24}>
+          {formatMessage(globalMessages.loginWithMobile)}
         </UI_Text>
         <UI_InputText
           type='tel'
-          placeholder='شماره تلفن همراه  ...0912'
+          mode='light'
+          placeholder={formatMessage(globalMessages.mobileNumberPlaceholder)}
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           onKeyDown={(event) => {
@@ -57,7 +61,7 @@ const LoginForm = (props: LoginFormProps) => {
         />
         <UI_Box display='flex'>
           <UI_ContainedButton type='submit' variant='primary'>
-            ارسال رمز یکبار مصرف
+            {formatMessage(globalMessages.sendOTP)}
           </UI_ContainedButton>
           <UI_TextButton
             variant='secondary'
@@ -65,7 +69,7 @@ const LoginForm = (props: LoginFormProps) => {
             type='button'
             onClick={handleBack}
           >
-            بازگشت
+            {formatMessage(globalMessages.back)}
             <UI_Icon
               icon={faAngleLeft}
               style={{
@@ -77,7 +81,7 @@ const LoginForm = (props: LoginFormProps) => {
         {otp && (
           <UI_InputText
             type='number'
-            placeholder='رمز یکبار مصرف'
+            placeholder={formatMessage(globalMessages.oTPNumber)}
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
           />

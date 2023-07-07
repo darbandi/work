@@ -168,4 +168,20 @@ export const globalMessages = defineMessages({
     id: `${scope}.festival`,
     defaultMessage: 'جشنواره',
   },
+  loginWithMobile: {
+    id: `${scope}.loginWithMobile`,
+    defaultMessage: 'ورود با تلفن همراه',
+  },
+  mobileNumberPlaceholder: {
+    id: `${scope}.mobileNumberPlaceholder`,
+    defaultMessage: 'شماره تلفن همراه  ...0912',
+  },
+  sendOTP: {
+    id: `${scope}.sendOTP`,
+    defaultMessage: 'ارسال رمز یکبار مصرف',
+  },
+  oTPNumber: {
+    id: `${scope}.oTPNumber`,
+    defaultMessage: 'رمز یکبار مصرف',
+  },
 })

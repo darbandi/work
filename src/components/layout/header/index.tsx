@@ -53,6 +53,8 @@ export function HeaderComp(): JSX.Element | null {
         {searchActive ? (
           <UI_InputText
             ref={searchRef}
+            rounded
+            mode='light'
             placeholder={formatMessage(globalMessages.search, {
               other: ' ...',
             })}
