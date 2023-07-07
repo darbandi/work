@@ -39,7 +39,9 @@ export function WatchHeader(): JSX.Element {
             {formatMessage(globalMessages.mainPage)}
           </Typography>
         </Main>
-        <div>عنوان فیلم: بازمانده های تاریخ</div>
+        <div>
+          {formatMessage(globalMessages.movieTitle)}: بازمانده های تاریخ
+        </div>
         <Back onClick={back}>
           <span>{formatMessage(globalMessages.back)}</span>
           <UI_Icon icon={faArrowLeft} />
@@ -47,7 +49,7 @@ export function WatchHeader(): JSX.Element {
       </Header>
       <UI_Modal
         open={openSettings}
-        title='تنظیمات پیشفرض'
+        title={formatMessage(globalMessages.defaultSetting)}
         onClose={() => setOpenSettings((x) => !x)}
         xs
         onSuccess={() => setOpenSettings((x) => !x)}
@@ -58,25 +60,29 @@ export function WatchHeader(): JSX.Element {
             <UI_Col xs={1}>
               <UI_InputCheckbox type='checkbox' />
             </UI_Col>
-            <UI_Col xs={11}>نمایش نوار کنترل به صورت ثابت</UI_Col>
+            <UI_Col xs={11}>
+              {formatMessage(globalMessages.displayControlPanel)}
+            </UI_Col>
           </UI_Row>
           <UI_Row display='flex'>
             <UI_Col xs={1}>
               <UI_InputCheckbox type='checkbox' />
             </UI_Col>
-            <UI_Col xs={11}>اجرا شدن فیلم به صورت خودکار</UI_Col>
+            <UI_Col xs={11}>{formatMessage(globalMessages.autoPlay)}</UI_Col>
           </UI_Row>
           <UI_Row display='flex'>
             <UI_Col xs={1}>
               <UI_InputCheckbox type='checkbox' />
             </UI_Col>
-            <UI_Col xs={11}>نمایش نوار بالای صفحه، به صورت ثابت</UI_Col>
+            <UI_Col xs={11}>
+              {formatMessage(globalMessages.displayTopBar)}
+            </UI_Col>
           </UI_Row>
           <UI_Row display='flex'>
             <UI_Col xs={1}>
               <UI_InputCheckbox type='checkbox' />
             </UI_Col>
-            <UI_Col xs={11}>فیلم به صورت بی‌صدا اجرا شود</UI_Col>
+            <UI_Col xs={11}>{formatMessage(globalMessages.playMuted)}</UI_Col>
           </UI_Row>
         </>
       </UI_Modal>

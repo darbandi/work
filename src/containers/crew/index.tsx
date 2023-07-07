@@ -1,13 +1,17 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 import Image from 'next/image'
+import { useIntl } from 'react-intl'
 import { itemsArray } from '../home/topTen'
 import { Container, Cover, Position } from './Crew.style'
 import { UI_Box, UI_Col, UI_Row, UI_Text } from '@/ui-components'
 import { CardSliderComp, Comments, MotionComp } from '@/components'
+import { globalMessages } from '@/assets/globalMessages'
 
 export function CrewPage(): JSX.Element {
   const { query, push } = useRouter()
+  const { formatMessage } = useIntl()
+
   if (!query.id) {
     push('/')
   }
@@ -89,7 +93,7 @@ export function CrewPage(): JSX.Element {
             title={
               <>
                 <UI_Text fontWeight='bold' size={24} color='gray_600'>
-                  فیلم‌های{' '}
+                  {formatMessage(globalMessages.moviesOf)}{' '}
                 </UI_Text>
                 <UI_Text
                   fontWeight='bold'

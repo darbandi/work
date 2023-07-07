@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useIntl } from 'react-intl'
 import { WatchDetailsButtons } from '../watchDetailsButtons'
 import {
   Actions,
@@ -27,11 +28,13 @@ import {
 } from '@/ui-components'
 import { useStore } from '@/store'
 import { useDocument } from '@/hooks'
+import { globalMessages } from '@/assets/globalMessages'
 
 export function Details(): JSX.Element | null {
   const [imgLoading, setImgLoading] = useState(false)
   const [imgSrc, setImgSrc] = useState('')
   const { hideScroll } = useDocument()
+  const { formatMessage } = useIntl()
 
   const selectedCartSliderItem = useStore(
     (store) => store.selectedCartSliderItem,
@@ -89,7 +92,7 @@ export function Details(): JSX.Element | null {
             <UI_Row display='flex'>
               <UI_Col width={100}>
                 <UI_Text color='blue_300' fontWeight='bold'>
-                  ستارگان
+                  {formatMessage(globalMessages.stars)}
                 </UI_Text>
               </UI_Col>
               <UI_Col>
@@ -101,7 +104,7 @@ export function Details(): JSX.Element | null {
             <UI_Row display='flex'>
               <UI_Col width={100}>
                 <UI_Text color='blue_300' fontWeight='bold'>
-                  کارگردان
+                  {formatMessage(globalMessages.director)}
                 </UI_Text>
               </UI_Col>
               <UI_Col>
@@ -113,7 +116,7 @@ export function Details(): JSX.Element | null {
             <UI_Row display='flex'>
               <UI_Col width={100}>
                 <UI_Text color='blue_300' fontWeight='bold'>
-                  دسته‌بندی
+                  {formatMessage(globalMessages.category)}
                 </UI_Text>
               </UI_Col>
               <UI_Col>

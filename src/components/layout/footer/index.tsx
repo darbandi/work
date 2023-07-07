@@ -8,37 +8,37 @@ import { globalMessages } from '@/assets/globalMessages'
 const menuData = [
   {
     id: '1',
-    title: 'صفحه‌اصلی',
+    title: 'mainPage',
     link: '/',
   },
   {
     id: '2',
-    title: 'درباره‌ ما',
+    title: 'aboutUs',
     link: '/about',
   },
   {
     id: '3',
-    title: 'تماس با‌ ما',
+    title: 'contactUs',
     link: '/contact',
   },
   {
     id: '4',
-    title: 'تبلیغات',
+    title: 'adds',
     link: '/adds',
   },
   {
     id: '5',
-    title: 'پرسش‌های متداول',
+    title: 'faq',
     link: '/faq',
   },
   {
     id: '6',
-    title: 'قوانین و مقررات',
+    title: 'rules',
     link: '/rules',
   },
   {
     id: '7',
-    title: 'ارسال فیلمنامه',
+    title: 'sendScript',
     link: '/',
   },
 ]
@@ -88,7 +88,9 @@ export function FooterComp(): JSX.Element {
               return (
                 <UI_Link key={item.id} href={item.link}>
                   <UI_Text size={16} fontWeight='bold' color='gray_200'>
-                    {item.title}
+                    {formatMessage(
+                      globalMessages[item.title as keyof typeof globalMessages],
+                    )}
                   </UI_Text>
                 </UI_Link>
               )

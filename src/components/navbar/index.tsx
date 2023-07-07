@@ -10,8 +10,8 @@ import { useRouter } from 'next/router'
 import { MegaMenu } from '../megaMenu'
 import { HyperLink, FunctionLink, Li, Navbar, Ul } from './Navbar.style'
 import data from './data.json'
-import { messages } from './messages'
 import { UI_Icon, UI_Text } from '@/ui-components'
+import { globalMessages } from '@/assets/globalMessages'
 
 export interface ISubMenu {
   id: number
@@ -51,7 +51,9 @@ export function NavbarComp(): JSX.Element {
     return (
       <>
         <UI_Text size={16}>
-          {formatMessage(messages[menu.title as keyof typeof messages])}
+          {formatMessage(
+            globalMessages[menu.title as keyof typeof globalMessages],
+          )}
         </UI_Text>
         {menu.subMenu && (
           <UI_Icon
@@ -80,7 +82,9 @@ export function NavbarComp(): JSX.Element {
                 active={menu.id === active}
               >
                 <UI_Text size={18} fontWeight='bold' color='gray_700'>
-                  {formatMessage(messages[menu.title as keyof typeof messages])}
+                  {formatMessage(
+                    globalMessages[menu.title as keyof typeof globalMessages],
+                  )}
                 </UI_Text>
                 <UI_Icon
                   icon={faAngleDown}

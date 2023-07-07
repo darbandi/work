@@ -11,6 +11,30 @@ export const globalMessages = defineMessages({
     id: `${scope}.mainPage`,
     defaultMessage: 'صفحه‌اصلی',
   },
+  aboutUs: {
+    id: `${scope}.aboutUs`,
+    defaultMessage: 'درباره‌ ما',
+  },
+  contactUs: {
+    id: `${scope}.contactUs`,
+    defaultMessage: 'تماس با‌ ما',
+  },
+  adds: {
+    id: `${scope}.adds`,
+    defaultMessage: 'تبلیغات',
+  },
+  faq: {
+    id: `${scope}.faq`,
+    defaultMessage: 'پرسش‌های متداول',
+  },
+  rules: {
+    id: `${scope}.rules`,
+    defaultMessage: 'قوانین و مقررات',
+  },
+  sendScript: {
+    id: `${scope}.sendScript`,
+    defaultMessage: 'ارسال فیلمنامه',
+  },
   loginRegister: {
     id: `${scope}.loginRegister`,
     defaultMessage: 'ورود/ثبت‌نام',
@@ -51,6 +75,10 @@ export const globalMessages = defineMessages({
     id: `${scope}.similarityMovies`,
     defaultMessage: 'فیلم‌های مشابه',
   },
+  moviesOf: {
+    id: `${scope}.moviesOf`,
+    defaultMessage: 'فیلم‌های',
+  },
   profile: {
     id: `${scope}.profile`,
     defaultMessage: 'پروفایل',
@@ -71,5 +99,73 @@ export const globalMessages = defineMessages({
   filters: {
     id: `${scope}.filters`,
     defaultMessage: 'فیلترها',
+  },
+  play: {
+    id: `${scope}.play`,
+    defaultMessage: 'تماشا',
+  },
+  detail: {
+    id: `${scope}.detail`,
+    defaultMessage: 'جزئیات',
+  },
+  stars: {
+    id: `${scope}.stars`,
+    defaultMessage: 'ستارگان',
+  },
+  director: {
+    id: `${scope}.director`,
+    defaultMessage: 'کارگردان',
+  },
+  category: {
+    id: `${scope}.category`,
+    defaultMessage: 'دسته‌بندی',
+  },
+  categories: {
+    id: `${scope}.category`,
+    defaultMessage: 'دسته‌بندی‌ها',
+  },
+  more: {
+    id: `${scope}.more`,
+    defaultMessage: 'بیشتر',
+  },
+  defaultSetting: {
+    id: `${scope}.defaultSetting`,
+    defaultMessage: 'تنظیمات پیشفرض',
+  },
+  displayControlPanel: {
+    id: `${scope}.displayControlPanel`,
+    defaultMessage: 'نمایش نوار کنترل به صورت ثابت',
+  },
+  autoPlay: {
+    id: `${scope}.autoPlay`,
+    defaultMessage: 'اجرا شدن فیلم به صورت خودکار',
+  },
+  displayTopBar: {
+    id: `${scope}.displayTopBar`,
+    defaultMessage: 'نمایش نوار بالای صفحه، به صورت ثابت',
+  },
+  playMuted: {
+    id: `${scope}.playMuted`,
+    defaultMessage: 'فیلم به صورت بی‌صدا اجرا شود',
+  },
+  movieTitle: {
+    id: `${scope}.movieTitle`,
+    defaultMessage: 'عنوان فیلم',
+  },
+  home: {
+    id: `${scope}.home`,
+    defaultMessage: 'خانه',
+  },
+  movies: {
+    id: `${scope}.movies`,
+    defaultMessage: 'فیلم‌ها',
+  },
+  news: {
+    id: `${scope}.news`,
+    defaultMessage: 'تازه‌ها',
+  },
+  festival: {
+    id: `${scope}.festival`,
+    defaultMessage: 'جشنواره',
   },
 })

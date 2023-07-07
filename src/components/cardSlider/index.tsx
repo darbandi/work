@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useMemo } from 'react'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { useIntl } from 'react-intl'
 import { Container, Header, More, Title } from './CardSlider.style'
 import { Items, ItemsArray } from './Item'
 import { Details } from './Details'
@@ -11,6 +12,7 @@ import {
   UI_Box,
 } from '@/ui-components'
 import { useStore } from '@/store'
+import { globalMessages } from '@/assets/globalMessages'
 
 type Props = {
   items: ItemsArray[]
@@ -24,6 +26,7 @@ type Props = {
 export function CardSliderComp(props: Props): JSX.Element {
   const { items, title, link, style, id, mode = 'light' } = props
   const uId = useId()
+  const { formatMessage } = useIntl()
 
   const itemsArray = useMemo(
     () =>
@@ -55,7 +58,7 @@ export function CardSliderComp(props: Props): JSX.Element {
         <Title mode={mode}>{title}</Title>
         {link && (
           <More mode={mode}>
-            <UI_Link href={link}>بیشتر</UI_Link>
+            <UI_Link href={link}>{formatMessage(globalMessages.more)}</UI_Link>
             <UI_Icon icon={faChevronLeft} />
           </More>
         )}
