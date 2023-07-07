@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.5.0](///compare/0.4.0...0.5.0) (2023-07-07)
+
+
+### Features
+
+* comments was added in the detail page 754df6d
+* crew page was added 8a66e47
+* footer was added 8f1fbc3
+* the search page was added d1a7839
+
+
+### Bug Fixes
+
+* movie menu center 3865314
+* update packages 108a667
+
 ## [0.4.0](///compare/0.3.0...0.4.0) (2023-06-25)
 
 
