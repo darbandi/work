@@ -3,22 +3,24 @@ import { responsive } from './tools'
 import { ThemeType } from './Theme.styled'
 
 export const GlobalStyles = createGlobalStyle`
-  body, html {
+${({ theme: { colors } }: ThemeType) => css`
+  body,
+  html {
     background-color: hsl(0, 0%, 100%);
     color: hsl(0, 1%, 16%);
     overflow-x: hidden;
-    direction  : rtl;
+    direction: rtl;
     scroll-behavior: smooth;
     font-size: 16px;
-    background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_500};
- 
+    background-color: ${colors.darkBlue_500};
+
     ::-webkit-scrollbar {
       width: 5px;
       height: 5px;
     }
 
     ::-webkit-scrollbar-thumb {
-      background-color: ${({ theme }: ThemeType) => theme.colors.gray_800};
+      background-color: ${colors.gray_800};
       border-radius: 10px;
     }
 
@@ -54,4 +56,5 @@ export const GlobalStyles = createGlobalStyle`
   .blur {
     filter: blur(3px);
   }
+`}
 `

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import {
   space,
   color,
@@ -32,17 +32,30 @@ type TextType = {
 }
 
 export const BaseTextStyle = styled.span<TextType>`
-  font-size: ${({ theme, size }: ThemeType) => theme.remCalc(size ?? 14)};
-  font-weight: ${({ fontWeight }) => fontWeight ?? '200'};
-  color: ${({ theme, color }: ThemeType) =>
-    theme.colors[color as keyof typeof commonColors] ?? theme.colors.white};
-  line-height: ${({ lineHeight }) => lineHeight ?? 1};
-  display: ${({ display }) => display ?? 'contents'};
-  font-family: ${({ fontFamily }) => fontFamily ?? 'IRANSansX'};
-  ${({ theme, mt }) => mt && `margin-top: ${theme.remCalc(mt)};`};
-  ${({ theme, mb }) => mb && `margin-bottom: ${theme.remCalc(mb)};`};
-  ${({ theme, ml }) => ml && `margin-left: ${theme.remCalc(ml)};`};
-  ${({ theme, mr }) => mr && `margin-right: ${theme.remCalc(mr)};`};
+  ${({
+    theme: { colors, remCalc },
+    fontWeight,
+    lineHeight,
+    display,
+    fontFamily,
+    size,
+    color,
+    mt,
+    mb,
+    ml,
+    mr,
+  }: ThemeType & TextType) => css`
+    font-size: ${remCalc(size ?? 14)};
+    font-weight: ${fontWeight ?? '200'};
+    color: ${colors[color as keyof typeof commonColors] ?? colors.white};
+    line-height: ${lineHeight ?? 1};
+    display: ${display ?? 'contents'};
+    font-family: ${fontFamily ?? 'IRANSansX'};
+    ${mt && `margin-top: ${remCalc(mt)};`};
+    ${mb && `margin-bottom: ${remCalc(mb)};`};
+    ${ml && `margin-left: ${remCalc(ml)};`};
+    ${mr && `margin-right: ${remCalc(mr)};`};
+  `}
 `
 export const UI_Text = styled(BaseTextStyle).attrs<{ component: string }>(
   (props) => ({

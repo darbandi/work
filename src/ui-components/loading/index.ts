@@ -1,57 +1,56 @@
 import styled, { css } from 'styled-components'
 import { ThemeType, flexCenter } from '@/theme'
 
-export const UI_Loading = styled.div<{
+type UI_LoadingType = {
   xs?: boolean
   sm?: boolean
   md?: boolean
   lg?: boolean
-}>`
-  border: ${({ theme }: ThemeType) => theme.remCalc(5)} solid #f3f3f3;
-  border-top: ${({ theme }: ThemeType) => theme.remCalc(5)} solid #3498db;
-  border-radius: 50%;
-  animation: spin 2s linear infinite;
-  ${flexCenter}
+}
 
-  ${({ xs, theme }) =>
-    xs
+export const UI_Loading = styled.div<UI_LoadingType>`
+  ${({ theme: { remCalc }, xs, sm, md, lg }: ThemeType & UI_LoadingType) => css`
+    border: ${remCalc(5)} solid #f3f3f3;
+    border-top: ${remCalc(5)} solid #3498db;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    ${flexCenter}
+
+    ${xs
       ? css`
-          width: ${theme.remCalc(40)};
-          height: ${theme.remCalc(40)};
+          width: ${remCalc(40)};
+          height: ${remCalc(40)};
         `
       : css`
-          width: ${theme.remCalc(100)};
-          height: ${theme.remCalc(100)};
+          width: ${remCalc(100)};
+          height: ${remCalc(100)};
         `}
 
-  ${({ sm, theme }) =>
-    sm &&
+  ${sm &&
     css`
-      width: ${theme.remCalc(60)};
-      height: ${theme.remCalc(60)};
+      width: ${remCalc(60)};
+      height: ${remCalc(60)};
     `}
 
-    ${({ md, theme }) =>
-    md &&
+    ${md &&
     css`
-      width: ${theme.remCalc(80)};
-      height: ${theme.remCalc(80)};
+      width: ${remCalc(80)};
+      height: ${remCalc(80)};
     `}
   
-    ${({ lg, theme }) =>
-    lg &&
+    ${lg &&
     css`
-      width: ${theme.remCalc(100)};
-      height: ${theme.remCalc(100)};
+      width: ${remCalc(100)};
+      height: ${remCalc(100)};
     `}
-  
 
   @keyframes spin {
-    0% {
-      transform: rotate(0deg);
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  `}
 `

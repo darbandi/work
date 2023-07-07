@@ -10,94 +10,97 @@ import {
 } from '@/theme'
 
 export const Container = styled.div`
-  margin: 0 auto;
-  width: 100%;
-  padding: ${({ theme }: ThemeType) => theme.remCalc(94)};
-  background-color: ${({ theme }: ThemeType) => theme.colors.darkBlue_900};
+  ${({ theme: { colors, remCalc } }: ThemeType) => css`
+    margin: 0 auto;
+    width: 100%;
+    padding: ${remCalc(94)};
+    background-color: ${colors.darkBlue_900};
 
-  ${responsive(
-    'sm',
-    css`
-      padding: ${({ theme }: ThemeType) =>
-        `${theme.remCalc(50)} ${theme.remCalc(30)}`};
-    `,
-  )}
+    ${responsive(
+      'sm',
+      css`
+        padding: ${`${remCalc(50)} ${remCalc(30)}`};
+      `,
+    )}
+  `}
 `
-export const CommentContainer = styled.div<{ isReplied: boolean }>`
-  margin-bottom: ${({ theme }: ThemeType) => theme.remCalc(24)};
 
-  .row {
-    gap: ${({ theme }: ThemeType) => theme.remCalc(16)};
-    align-items: stretch;
+type CommentType = { isReplied: boolean }
 
-    .image-wrapper {
-      overflow: hidden;
-      width: ${({ theme }: ThemeType) => theme.remCalc(100)};
-      height: ${({ theme }: ThemeType) => theme.remCalc(100)};
-      border-radius: 0 50% 50% 50%;
-      ${flexCenter}
+export const CommentContainer = styled.div<CommentType>`
+  ${({ theme: { colors, remCalc }, isReplied }: ThemeType & CommentType) => css`
+    margin-bottom: ${remCalc(24)};
 
-      img {
-        border-radius: ${({ theme }: ThemeType) => theme.remCalc(12)};
-        border-top-left-radius: 0;
-      }
-    }
+    .row {
+      gap: ${remCalc(16)};
+      align-items: stretch;
 
-    .comment {
-      max-width: fit-content;
-      flex: 1;
-      background-color: ${({ theme }: ThemeType) => theme.colors.black}60;
-      border-radius: ${({ theme }: ThemeType) => theme.remCalc(12)};
-      border-top-right-radius: 0;
-      gap: ${({ theme }: ThemeType) => theme.remCalc(8)};
-      padding: ${({ theme }: ThemeType) =>
-        `${theme.remCalc(16)} ${theme.remCalc(24)}`};
-      flex-direction: column;
-      ${flex}
+      .image-wrapper {
+        overflow: hidden;
+        width: ${remCalc(100)};
+        height: ${remCalc(100)};
+        border-radius: 0 50% 50% 50%;
+        ${flexCenter}
 
-      .header {
-        ${flexSpaceBetween}
-      }
-
-      .footer {
-        ${flexAlignCenter}
-        gap: ${({ theme }: ThemeType) => theme.remCalc(16)};
-
-        .like,
-        .dislike {
-          cursor: pointer;
-          gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
-          ${flexStart}
+        img {
+          border-radius: ${remCalc(12)};
+          border-top-left-radius: 0;
         }
       }
-    }
-  }
 
-  ${responsive(
-    'sm',
-    css`
-      .row {
-        .image-wrapper {
-          width: ${({ theme }: ThemeType) => theme.remCalc(60)};
-          height: ${({ theme }: ThemeType) => theme.remCalc(60)};
-          border-top-left-radius: 0;
+      .comment {
+        max-width: fit-content;
+        flex: 1;
+        background-color: ${colors.black}60;
+        border-radius: ${remCalc(12)};
+        border-top-right-radius: 0;
+        gap: ${remCalc(8)};
+        padding: ${`${remCalc(16)} ${remCalc(24)}`};
+        flex-direction: column;
+        ${flex}
 
-          img {
-            border-top-left-radius: 0;
+        .header {
+          ${flexSpaceBetween}
+        }
+
+        .footer {
+          ${flexAlignCenter}
+          gap: ${remCalc(16)};
+
+          .like,
+          .dislike {
+            cursor: pointer;
+            gap: ${remCalc(4)};
+            ${flexStart}
           }
         }
       }
-    `,
-  )}
+    }
 
-  ${({ isReplied }) =>
-    isReplied &&
+    ${responsive(
+      'sm',
+      css`
+        .row {
+          .image-wrapper {
+            width: ${remCalc(60)};
+            height: ${remCalc(60)};
+            border-top-left-radius: 0;
+
+            img {
+              border-top-left-radius: 0;
+            }
+          }
+        }
+      `,
+    )}
+
+    ${isReplied &&
     css`
-      padding-right: ${({ theme }: ThemeType) => theme.remCalc(116)};
+      padding-right: ${remCalc(116)};
       ${responsive(
         'sm',
         css`
-          padding-right: ${({ theme }: ThemeType) => theme.remCalc(76)};
+          padding-right: ${remCalc(76)};
           .row {
             flex-direction: row-reverse;
 
@@ -112,20 +115,22 @@ export const CommentContainer = styled.div<{ isReplied: boolean }>`
             }
 
             .comment {
-              border-top-right-radius: ${({ theme }: ThemeType) =>
-                theme.remCalc(12)};
+              border-top-right-radius: ${remCalc(12)};
               border-top-left-radius: 0;
             }
           }
         `,
       )}
     `}
+  `}
 `
 
 export const Reply = styled.span`
-  cursor: pointer;
-  text-decoration: none;
-  ${flexStart}
-  gap: ${({ theme }: ThemeType) => theme.remCalc(4)};
-  margin-inline-start: ${({ theme }: ThemeType) => theme.remCalc(18)};
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    cursor: pointer;
+    text-decoration: none;
+    ${flexStart}
+    gap: ${remCalc(4)};
+    margin-inline-start: ${remCalc(18)};
+  `}
 `

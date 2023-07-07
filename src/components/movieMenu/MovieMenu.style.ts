@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { flexCenter, ThemeType } from '@/theme'
 import { UI_Link } from '@/ui-components'
 
@@ -19,12 +19,14 @@ export const Container = styled.div`
   }
 `
 export const MenuItems = styled.div`
-  margin: 0 auto;
-  ${flexCenter}
-  gap: ${({ theme }: ThemeType) => theme.remCalc(32)};
-  padding: ${({ theme }: ThemeType) => theme.remCalc(32)};
-  white-space: nowrap;
-  width: fit-content;
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    margin: 0 auto;
+    ${flexCenter}
+    gap: ${remCalc(32)};
+    padding: ${remCalc(32)};
+    white-space: nowrap;
+    width: fit-content;
+  `}
 `
 
 export const MenuItem = styled(UI_Link)`

@@ -97,7 +97,7 @@ export function NavbarComp(): JSX.Element {
             <Li key={`${uId}-${menu.id}`}>
               {menu.subMenu ? (
                 <FunctionLink
-                  active={(menu.id === active).toString()}
+                  active={menu.id === active}
                   onClick={() => menu.subMenu && handleClickMenu(menu.id)}
                 >
                   {createMenu(menu)}

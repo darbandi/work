@@ -10,6 +10,8 @@ export type ThemeType = {
   color?: string
   variant?: 'primary' | 'secondary' | 'light'
   backgroundColor?: string
+  mode?: 'dark' | 'light'
+  isActive?: boolean
 }
 
 export const commonColors = {

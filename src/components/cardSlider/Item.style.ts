@@ -12,125 +12,136 @@ export const ItemWrapper = styled.div`
   position: relative;
 `
 export const InfoStyle = styled.div`
-  padding-top: ${({ theme }: ThemeType) => theme.remCalc(4)};
-  direction: ${({ theme }: ThemeType) => theme.direction};
+  ${({ theme: { remCalc, direction } }: ThemeType) => css`
+    padding-top: ${remCalc(4)};
+    direction: ${direction};
+  `}
 `
-export const TitleStyle = styled(UI_Link)<{ mode?: 'dark' | 'light' }>`
-  color: ${({ theme }: ThemeType) => theme.colors.gray_800};
-  font-weight: 500;
-  font-size: ${({ theme }: ThemeType) => theme.remCalc(20)};
-  ${flexStart}
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
+export const TitleStyle = styled(UI_Link)`
+  ${({ theme: { colors, remCalc }, mode }: ThemeType) => css`
+    color: ${colors.gray_800};
+    font-weight: 500;
+    font-size: ${remCalc(20)};
+    ${flexStart}
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
 
-  ${({ mode }) =>
-    mode === 'light' &&
+    ${mode === 'light' &&
     css`
-      color: ${({ theme }: ThemeType) => theme.colors.white};
+      color: ${colors.white};
     `}
+  `}
 `
 
 const commonHovered = css`
-  opacity: 1;
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    opacity: 1;
 
-  .fa-angle-double-down {
-    cursor: pointer;
-    transition: all 0.3s;
-    transform: translateY(${({ theme }: ThemeType) => theme.remCalc(30)});
-  }
+    .fa-angle-double-down {
+      cursor: pointer;
+      transition: all 0.3s;
+      transform: translateY(${remCalc(30)});
+    }
 
-  .card-item-footer {
-    transform: translateY(0);
-  }
+    .card-item-footer {
+      transform: translateY(0);
+    }
+  `}
 `
 
-export const Hovered = styled.div<{ isActive: boolean }>`
-  opacity: 0;
-  position: absolute;
-  inset: 0;
-  background-color: ${({ theme }: ThemeType) => theme.colors.black}c7;
-  bottom: ${({ theme }: ThemeType) => theme.remCalc(42)};
-  flex-direction: column;
-  transition: all 0.3s;
-  padding: ${({ theme }: ThemeType) =>
-    `${theme.remCalc(8)} ${theme.remCalc(16)}`};
-  ${flexSpaceBetween}
+export const Hovered = styled.div`
+  ${({ theme: { colors, remCalc }, isActive }: ThemeType) => css`
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    background-color: ${colors.black}c7;
+    bottom: ${remCalc(42)};
+    flex-direction: column;
+    transition: all 0.3s;
+    padding: ${`${remCalc(8)} ${remCalc(16)}`};
+    ${flexSpaceBetween}
 
-  &:hover {
-    ${commonHovered}
-  }
+    &:hover {
+      ${commonHovered}
+    }
 
-  ${({ isActive }) =>
-    isActive &&
+    ${isActive &&
     css`
       ${commonHovered}
     `}
+  `}
 `
 export const Main = styled.div`
-  flex: 1;
-  ${flexCenter}
-  flex-direction: column;
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    flex: 1;
+    ${flexCenter}
+    flex-direction: column;
 
-  .svg-inline--fa {
-    font-size: ${({ theme }: ThemeType) => theme.remCalc(24)};
-  }
+    .svg-inline--fa {
+      font-size: ${remCalc(24)};
+    }
+  `}
 `
 const commonCss = css`
-  transition: all 0.3s;
-  position: absolute;
-  content: '';
-  left: -${({ theme }: ThemeType) => theme.remCalc(10)};
-  right: -${({ theme }: ThemeType) => theme.remCalc(10)};
-  width: ${({ theme }: ThemeType) => theme.remCalc(70)};
-  height: ${({ theme }: ThemeType) => theme.remCalc(70)};
-  border-radius: 50%;
-  background-color: ${({ theme }: ThemeType) => theme.colors.white}50;
+  ${({ theme: { colors, remCalc } }: ThemeType) => css`
+    transition: all 0.3s;
+    position: absolute;
+    content: '';
+    left: -${remCalc(10)};
+    right: -${remCalc(10)};
+    width: ${remCalc(70)};
+    height: ${remCalc(70)};
+    border-radius: 50%;
+    background-color: ${colors.white}50;
+  `}
 `
 
 export const Play = styled.a`
-  background-color: ${({ theme }: ThemeType) => theme.colors.white};
-  border-radius: 50%;
-  width: ${({ theme }: ThemeType) => theme.remCalc(50)};
-  height: ${({ theme }: ThemeType) => theme.remCalc(50)};
-  position: relative;
-  color: black;
-  transition: all 0.3s;
-  cursor: pointer;
-  ${flexCenter}
-
-  .fa-play {
-    color: ${({ theme }: ThemeType) => theme.colors.gray_800};
-    z-index: 1;
-  }
-
-  &::after {
-    opacity: 0;
-    transform: scale(0);
-    ${commonCss}
-  }
-
-  &:hover {
+  ${({ theme: { colors, remCalc } }: ThemeType) => css`
+    background-color: ${colors.white};
+    border-radius: 50%;
+    width: ${remCalc(50)};
+    height: ${remCalc(50)};
+    position: relative;
+    color: black;
     transition: all 0.3s;
+    cursor: pointer;
+    ${flexCenter}
+
     .fa-play {
-      color: ${({ theme }: ThemeType) => theme.colors.black};
+      color: ${colors.gray_800};
+      z-index: 1;
     }
 
     &::after {
-      transform: scale(1);
-      opacity: 1;
+      opacity: 0;
+      transform: scale(0);
       ${commonCss}
-      z-index: 0;
     }
-  }
 
-  ${responsive(
-    'sm',
-    css`
-      display: none;
-    `,
-  )}
+    &:hover {
+      transition: all 0.3s;
+      .fa-play {
+        color: ${colors.black};
+      }
+
+      &::after {
+        transform: scale(1);
+        opacity: 1;
+        ${commonCss}
+        z-index: 0;
+      }
+    }
+
+    ${responsive(
+      'sm',
+      css`
+        display: none;
+      `,
+    )}
+  `}
 `
 export const Details = styled.div`
   .fa-angle-double-down {
@@ -138,29 +149,35 @@ export const Details = styled.div`
   }
 `
 export const Footer = styled.div`
-  ${flexSpaceBetween}
-  width: 100%;
-  transition: all 0.3s;
-  transform: translateY(${({ theme }: ThemeType) => theme.remCalc(20)});
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    ${flexSpaceBetween}
+    width: 100%;
+    transition: all 0.3s;
+    transform: translateY(${remCalc(20)});
 
-  ${responsive(
-    'sm',
-    css`
-      display: none;
-    `,
-  )}
+    ${responsive(
+      'sm',
+      css`
+        display: none;
+      `,
+    )}
+  `}
 `
 export const LikeView = styled.div`
-  ${flexCenter}
-  gap: ${({ theme }: ThemeType) => theme.remCalc(12)};
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    ${flexCenter}
+    gap: ${remCalc(12)};
+  `}
 `
 
 const commonFontColors = css`
-  color: ${({ theme }: ThemeType) => theme.colors.white};
-  font-size: ${({ theme }: ThemeType) => theme.remCalc(12)};
-  .svg-inline--fa {
-    margin-inline-end: ${({ theme }: ThemeType) => theme.remCalc(4)};
-  }
+  ${({ theme: { colors, remCalc } }: ThemeType) => css`
+    color: ${colors.white};
+    font-size: ${remCalc(12)};
+    .svg-inline--fa {
+      margin-inline-end: ${remCalc(4)};
+    }
+  `}
 `
 
 export const Like = styled.div`

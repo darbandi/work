@@ -137,28 +137,35 @@ import styled from 'styled-components'
 import { ThemeType } from '@/theme'
 
 export const Container = styled.div`
+${({ theme: { colors, remCalc } }: ThemeType) => css`
+  background-color: ${colors.black};
+  font-size: ${remCalc(12)};
+`}
 `
-  background: ${({ theme }: ThemeType) => theme.colors.black};
+  background: ${colors.black};
   // OR
   background: ${theme.dark.colors.black};
   // PX to REM
-  font-size: ${theme.remCalc(12)};
+  font-size: ${remCalc(12)};
 ```
 
 # Dynamic Props
 
 ```js
+type HeaderType = { isOnScreen: boolean }
 export const Header =
   styled.header <
-  { isOnScreen: boolean } >
+  HeaderType >
   `
-// some style
+  ${({ theme: { colors }, isOnScreen }: ThemeType & HeaderType) => css``}
+  // some style
 
-  ${(props) =>
-    props.isOnScreen &&
+  ${
+    isOnScreen &&
     css`
       // some style
-    `}
+    `
+  }
 `
 ```
 

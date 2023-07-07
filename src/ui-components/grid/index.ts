@@ -36,39 +36,49 @@ function getWithString(span?: number) {
   return `width: ${width}%;`
 }
 
-export const UI_Col = styled.div<{
+type UI_ColType = {
   xs?: number
   sm?: number
   md?: number
   lg?: number
   hideOn?: string
   width?: number
-}>`
-  float: right;
+}
 
-  ${({ xs }) => (xs ? getWithString(xs) : 'width: 100%;')}
+export const UI_Col = styled.div<UI_ColType>`
+  ${({
+    theme: { remCalc },
+    xs,
+    sm,
+    md,
+    lg,
+    hideOn,
+    width,
+  }: ThemeType & UI_ColType) => css`
+    float: right;
 
-  @media only screen and (min-width: 768px) {
-    ${({ sm }) => sm && getWithString(sm)}
-  }
-  @media only screen and (min-width: 992px) {
-    ${({ md }) => md && getWithString(md)}
-  }
-  @media only screen and (min-width: 1200px) {
-    ${({ lg }) => lg && getWithString(lg)}
-  }
+    ${xs ? getWithString(xs) : 'width: 100%;'}
 
-  ${({ hideOn }) =>
-    hideOn &&
+    @media only screen and (min-width: 768px) {
+      ${sm && getWithString(sm)}
+    }
+    @media only screen and (min-width: 992px) {
+      ${md && getWithString(md)}
+    }
+    @media only screen and (min-width: 1200px) {
+      ${lg && getWithString(lg)}
+    }
+
+    ${hideOn &&
     responsive(
       hideOn,
       css`
         display: none;
       `,
     )}
-  ${({ width }) =>
-    width &&
+    ${width &&
     css`
-      width: ${({ theme }: ThemeType) => theme.remCalc(width)};
+      width: ${remCalc(width)};
     `}
+  `}
 `

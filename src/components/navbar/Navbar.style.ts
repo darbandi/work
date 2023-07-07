@@ -10,84 +10,92 @@ import {
 import { UI_Link } from '@/ui-components'
 
 export const Navbar = styled.nav`
-  .fa-bars {
-    display: none;
-  }
-  ${responsive(
-    'sm',
-    css`
-      .fa-bars {
-        display: block;
-        font-size: ${({ theme }: ThemeType) => theme.remCalc(28)};
-      }
-    `,
-  )}
-`
-export const Ul = styled.ul`
-  margin: 0;
-  list-style-type: none;
-  list-style: none;
-
-  .fa-angle {
-    font-size: 12px;
-  }
-
-  &.desktop {
-    ${flexAlignCenter}
-    gap: ${({ theme }: ThemeType) => theme.remCalc(18)};
-    padding: 0;
-
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    .fa-bars {
+      display: none;
+    }
     ${responsive(
       'sm',
       css`
-        display: none;
+        .fa-bars {
+          display: block;
+          font-size: ${remCalc(28)};
+        }
       `,
     )}
-  }
+  `}
+`
+export const Ul = styled.ul`
+  ${({ theme: { colors, remCalc } }: ThemeType) => css`
+    margin: 0;
+    list-style-type: none;
+    list-style: none;
 
-  &.mobile {
-    padding: ${({ theme }: ThemeType) => theme.remCalc(18)};
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: ${({ theme }: ThemeType) => theme.remCalc(300)};
-    background-color: ${({ theme }: ThemeType) => theme.colors.gray_100};
-    box-shadow: 0 0
-      ${({ theme }: ThemeType) => `${theme.remCalc(80)} ${theme.colors.black}`};
-
-    padding-top: ${({ theme }: ThemeType) => theme.remCalc(48)};
     .fa-angle {
-      color: ${({ theme }: ThemeType) => theme.colors.gray_700};
       font-size: 12px;
     }
 
-    ${animationSlideInRight}
-  }
+    &.desktop {
+      ${flexAlignCenter}
+      gap: ${remCalc(18)};
+      padding: 0;
+
+      ${responsive(
+        'sm',
+        css`
+          display: none;
+        `,
+      )}
+    }
+
+    &.mobile {
+      padding: ${remCalc(18)};
+      display: flex;
+      align-items: start;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: ${remCalc(300)};
+      background-color: ${colors.gray_100};
+      box-shadow: 0 0 ${`${remCalc(80)} ${colors.black}`};
+      padding-top: ${remCalc(48)};
+
+      .fa-angle {
+        color: ${colors.gray_700};
+        font-size: 12px;
+      }
+
+      ${animationSlideInRight}
+    }
+  `}
 `
 export const Li = styled.li`
-  &.mobile {
-    padding: ${({ theme }: ThemeType) => theme.remCalc(18)} 0;
-    width: 100%;
-  }
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    &.mobile {
+      padding: ${remCalc(18)} 0;
+      width: 100%;
+    }
+  `}
 `
 const commonMenuItem = css`
-  color: ${({ theme }: ThemeType) => theme.colors.gray_300};
-  padding: ${({ theme }: ThemeType) => theme.remCalc(16)};
-  cursor: pointer;
-  ${flexAlignCenter}
-  gap: ${({ theme }: ThemeType) => theme.remCalc(8)};
-  position: relative;
+  ${({ theme: { colors, remCalc } }: ThemeType) => css`
+    color: ${colors.gray_300};
+    padding: ${remCalc(16)};
+    cursor: pointer;
+    ${flexAlignCenter}
+    gap: ${remCalc(8)};
+    position: relative;
+  `}
 `
+type LinkType = { active?: boolean }
 
-export const HyperLink = styled(UI_Link)<{ active?: boolean }>`
-  ${commonMenuItem}
+export const HyperLink = styled(UI_Link)<LinkType>`
+  ${({ theme: { colors }, active }: ThemeType & LinkType) => css`
+    ${commonMenuItem}
 
-  ${({ active }) =>
-    active &&
+    ${active &&
     css`
       &::after {
         ${animationFadeIn}
@@ -98,21 +106,22 @@ export const HyperLink = styled(UI_Link)<{ active?: boolean }>`
         width: 100%;
         height: 2px;
         z-index: 1;
-        background-color: ${({ theme }: ThemeType) => theme.colors.white};
+        background-color: ${colors.white};
       }
     `}
 
   &.mobile {
-    ${flexSpaceBetween}
-    width: 100%;
-    padding: 0;
-  }
+      ${flexSpaceBetween}
+      width: 100%;
+      padding: 0;
+    }
+  `}
 `
-export const FunctionLink = styled.span<{ active?: string }>`
-  ${commonMenuItem}
+export const FunctionLink = styled.span<LinkType>`
+  ${({ theme: { colors }, active }: ThemeType & LinkType) => css`
+    ${commonMenuItem}
 
-  ${({ active }) =>
-    active === 'true' &&
+    ${active &&
     css`
       &::after {
         ${animationFadeIn}
@@ -125,8 +134,8 @@ export const FunctionLink = styled.span<{ active?: string }>`
         z-index: 1;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-bottom: 10px solid
-          ${({ theme }: ThemeType) => theme.colors.darkBlue_500};
+        border-bottom: 10px solid ${colors.darkBlue_500};
       }
     `}
+  `}
 `

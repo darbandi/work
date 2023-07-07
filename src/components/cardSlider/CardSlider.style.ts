@@ -2,46 +2,52 @@ import styled, { css } from 'styled-components'
 import { ThemeType, flexAlignCenter, flexSpaceBetween } from '@/theme'
 
 export const Container = styled.div`
-  padding-right: ${({ theme }: ThemeType) => theme.remCalc(50)};
-  margin-top: ${({ theme }: ThemeType) => theme.remCalc(80)};
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    padding-right: ${remCalc(50)};
+    margin-top: ${remCalc(80)};
+  `}
 `
-export const More = styled.div<{ mode?: 'dark' | 'light' }>`
-  cursor: pointer;
-  ${flexAlignCenter}
-  gap: ${({ theme }: ThemeType) => theme.remCalc(8)};
-  color: ${({ theme }: ThemeType) => theme.colors.gray_700};
-  .svg-inline--fa {
-    color: ${({ theme }: ThemeType) => theme.colors.gray_700};
-    font-size: ${({ theme }: ThemeType) => theme.remCalc(10)};
-  }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+export const More = styled.div`
+  ${({ theme: { colors, remCalc }, mode }: ThemeType) => css`
+    cursor: pointer;
+    ${flexAlignCenter}
+    gap: ${remCalc(8)};
+    color: ${colors.gray_700};
+    .svg-inline--fa {
+      color: ${colors.gray_700};
+      font-size: ${remCalc(10)};
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  ${({ mode }) =>
-    mode === 'light' &&
+    ${mode === 'light' &&
     css`
-      color: ${({ theme }: ThemeType) => theme.colors.white};
+      color: ${colors.white};
       .svg-inline--fa {
-        color: ${({ theme }: ThemeType) => theme.colors.white};
+        color: ${colors.white};
       }
     `}
+  `}
 `
 export const Header = styled.div`
-  ${flexSpaceBetween}
-  padding-left: ${({ theme }: ThemeType) => theme.remCalc(50)};
-  margin-bottom: ${({ theme }: ThemeType) => theme.remCalc(12)};
+  ${({ theme: { remCalc } }: ThemeType) => css`
+    ${flexSpaceBetween}
+    padding-left: ${remCalc(50)};
+    margin-bottom: ${remCalc(12)};
+  `}
 `
-export const Title = styled.div<{ mode?: 'dark' | 'light' }>`
-  font-weight: bold;
-  font-size: ${({ theme }: ThemeType) => theme.remCalc(32)};
-  color: ${({ theme }: ThemeType) => theme.colors.gray_800};
-  font-family: 'Droid';
+export const Title = styled.div`
+  ${({ theme: { colors, remCalc }, mode }: ThemeType) => css`
+    font-weight: bold;
+    font-size: ${remCalc(32)};
+    color: ${colors.gray_800};
+    font-family: 'Droid';
 
-  ${({ mode }) =>
-    mode === 'light' &&
+    ${mode === 'light' &&
     css`
-      color: ${({ theme }: ThemeType) => theme.colors.white};
+      color: ${colors.white};
     `}
+  `}
 `
