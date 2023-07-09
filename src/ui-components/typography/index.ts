@@ -1,22 +1,6 @@
 import styled, { css } from 'styled-components'
-import {
-  space,
-  color,
-  typography,
-  SpaceProps,
-  ColorProps,
-  TypographyProps,
-} from 'styled-system'
 import { ThemeType } from '@/theme'
 import { commonColors } from '@/theme/Theme.styled'
-
-type TypoProps = SpaceProps & ColorProps & TypographyProps
-
-export const Typography = styled.div<TypoProps>`
-  ${space}
-  ${typography}
-  ${color}
-`
 
 type TextType = {
   size?: number

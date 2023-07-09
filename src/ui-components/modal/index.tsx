@@ -1,8 +1,12 @@
 import { faCheck, faClose } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect } from 'react'
-import { Typography } from '../typography'
 import { Actions, Blur, Container, Header } from './Modal.style'
-import { UI_ContainedButton, UI_OutlinedButton, UI_Icon } from '@/ui-components'
+import {
+  UI_ContainedButton,
+  UI_OutlinedButton,
+  UI_Icon,
+  UI_Text,
+} from '@/ui-components'
 import { colors } from '@/theme'
 import { useDocument } from '@/hooks'
 
@@ -59,8 +63,10 @@ export function UI_Modal(props: ModalProps): JSX.Element | null {
       <Container xs={xs} sm={sm} md={md} lg={lg}>
         <ModalHeader>
           <>
-            <Typography>{title}</Typography>
-            <UI_Icon icon={faClose} color={colors.gray_700} onClick={onClose} />
+            <UI_Text fontWeight='bold' color='gray_100' size={18}>
+              {title}
+            </UI_Text>
+            <UI_Icon icon={faClose} color={colors.gray_100} onClick={onClose} />
           </>
         </ModalHeader>
         {children}

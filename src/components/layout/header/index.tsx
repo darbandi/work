@@ -49,7 +49,7 @@ export function HeaderComp(): JSX.Element | null {
   return (
     <Header>
       <NavbarComp />
-      <UI_Box alignItems={'center'} display={'flex'}>
+      <UI_Box alignItems='center' display='flex'>
         {searchActive ? (
           <UI_InputText
             ref={searchRef}

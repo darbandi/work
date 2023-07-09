@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import {
-  space,
   layout,
   flexbox,
   grid,
@@ -32,7 +31,6 @@ type UI_BoxProps = BackgroundColorProps &
   }
 
 export const UI_Box = styled.div<UI_BoxProps>`
-  ${space}
   ${layout}
   ${flexbox}
   ${grid}
@@ -40,9 +38,51 @@ export const UI_Box = styled.div<UI_BoxProps>`
   ${border}
   ${position}
   ${shadow}
-  ${({ gap, theme }) =>
-    gap &&
+  ${({ gap, theme, m, mb, mt, ml, mr, p, pb, pt, pl, pr }) =>
     css`
-      gap: ${theme.remCalc(gap)};
+      ${gap &&
+      css`
+        gap: ${theme.remCalc(gap)};
+      `}
+      ${m &&
+      css`
+        margin: ${theme.remCalc(m)};
+      `}
+      ${mb &&
+      css`
+        margin-bottom: ${theme.remCalc(mb)};
+      `}
+      ${mt &&
+      css`
+        margin-top: ${theme.remCalc(mt)};
+      `}
+      ${ml &&
+      css`
+        margin-left: ${theme.remCalc(ml)};
+      `}
+      ${mr &&
+      css`
+        margin-right: ${theme.remCalc(mr)};
+      `}
+      ${p &&
+      css`
+        padding: ${theme.remCalc(p)};
+      `}
+      ${pb &&
+      css`
+        padding-bottom: ${theme.remCalc(pb)};
+      `}
+      ${pt &&
+      css`
+        padding-top: ${theme.remCalc(pt)};
+      `}
+      ${pl &&
+      css`
+        padding-left: ${theme.remCalc(pl)};
+      `}
+      ${pr &&
+      css`
+        padding-right: ${theme.remCalc(pr)};
+      `}
     `}
 `

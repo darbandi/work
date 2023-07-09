@@ -22,7 +22,7 @@ export const Container = styled.div<ContainerType>`
     md,
     lg,
   }: ThemeType & ContainerType) => css`
-    background: ${colors.white};
+    background: ${colors.darkBlue_500};
     width: 50%;
     height: auto;
     left: 50%;

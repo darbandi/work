@@ -33,7 +33,7 @@ export function SearchPage(): JSX.Element {
           {itemsArray.filter(filters).map((item) => {
             return (
               <UI_Col key={`${uId}-${item.id}`} xs={6} sm={4} md={3} lg={2}>
-                <UI_Box padding={10}>
+                <UI_Box p={10}>
                   <Items
                     id={item.id}
                     item={item}

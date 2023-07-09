@@ -23,16 +23,20 @@ export const Cover = styled.div`
     )}
   `}
 `
-export const Container = styled.div`
-  ${({ theme: { colors, remCalc } }: ThemeType) => css`
+type ContainerType = {
+  id?: string
+}
+
+export const Container = styled.div<ContainerType>`
+  ${({ theme: { colors, remCalc }, id }: ThemeType & ContainerType) => css`
     background-color: ${colors.darkBlue_900};
-    padding: ${remCalc(24)};
-    padding-right: ${remCalc(50)};
+    padding: ${remCalc(0)};
+    padding-right: ${remCalc(0)};
     margin-left: ${remCalc(10)};
     margin-top: ${remCalc(32)};
-    margin-right: -${remCalc(50)};
+    margin-right: ${remCalc(-50)};
     margin-left: 0;
-    box-shadow: ${`0 0 5px ${colors.gray_200}, 0 0 25px ${colors.gray_500}`};
+    box-shadow: ${`0 0 5px ${colors.black}, 0 0 25px ${colors.black}`};
 
     ${animationFadeIn}
 
@@ -64,11 +68,43 @@ export const Container = styled.div`
       color: ${colors.gray_700};
       margin-bottom: ${remCalc(40)};
       gap: ${remCalc(12)};
+
       & > div {
         gap: ${remCalc(4)};
         ${flexAlignCenter}
       }
     }
+
+    ${responsive(
+      '-sm',
+      css`
+        .base-row {
+          background-image: url('/images/sliders/${id}.png');
+          background-size: cover;
+          background-position: center;
+          background-color: ${colors.gray_200};
+          background-attachment: fixed;
+        }
+
+        .base-col {
+          position: relative;
+          padding: ${remCalc(50)};
+
+          &::before {
+            position: absolute;
+            content: '';
+            inset: 0;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 1;
+            background: linear-gradient(90deg, transparent, black);
+          }
+        }
+      `,
+    )}
   `}
 `
 export const Title = styled.h1`
@@ -82,21 +118,11 @@ export const Title = styled.h1`
     position: relative;
   `}
 `
-export const Description = styled.div`
-  ${({ theme: { colors, remCalc } }: ThemeType) => css`
-    color: ${colors.gray_400};
-    font-size: ${remCalc(14)};
-    margin-bottom: ${remCalc(16)};
-  `}
-`
 export const CustomImage = styled.div`
   ${({ theme: { colors, remCalc } }: ThemeType) => css`
-    border-radius: ${remCalc(8)};
     height: 100%;
-
     overflow: hidden;
     ${flexCenter}
-    box-shadow: ${`0 0 3px ${colors.gray_800}, 0 0 10px ${colors.gray_800}`};
 
     ${responsive(
       'sm',
@@ -120,7 +146,8 @@ export const CloseIcon = styled.div`
     position: absolute;
     cursor: pointer;
     left: 5%;
-    top: ${remCalc(-35)};
+    top: ${remCalc(-50)};
+
     .svg-inline--fa {
       border: 5px solid ${colors.darkBlue_500};
       background-color: ${colors.white};
@@ -131,11 +158,12 @@ export const CloseIcon = styled.div`
       border-radius: 50%;
       ${flexCenter}
     }
+
     ${responsive(
       '-sm',
       css`
-        right: calc(100% - 20px);
-        top: ${remCalc(-20)};
+        right: calc(90% - ${remCalc(16)});
+        top: ${remCalc(-100)};
       `,
     )}
   `}

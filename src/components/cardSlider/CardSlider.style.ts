@@ -13,10 +13,12 @@ export const More = styled.div`
     ${flexAlignCenter}
     gap: ${remCalc(8)};
     color: ${colors.gray_700};
+
     .svg-inline--fa {
       color: ${colors.gray_700};
       font-size: ${remCalc(10)};
     }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -25,6 +27,7 @@ export const More = styled.div`
     ${mode === 'light' &&
     css`
       color: ${colors.white};
+
       .svg-inline--fa {
         color: ${colors.white};
       }

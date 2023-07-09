@@ -8,8 +8,8 @@ import {
   UI_Col,
   UI_Icon,
   UI_Row,
-  Typography,
   UI_InputCheckbox,
+  UI_Text,
 } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
@@ -35,9 +35,9 @@ export function WatchHeader(): JSX.Element {
             spin
             onClick={() => setOpenSettings((x) => !x)}
           />
-          <Typography onClick={handleClickHome}>
+          <UI_Text onClick={handleClickHome} fontWeight='bold'>
             {formatMessage(globalMessages.mainPage)}
-          </Typography>
+          </UI_Text>
         </Main>
         <div>
           {formatMessage(globalMessages.movieTitle)}: بازمانده های تاریخ
@@ -61,28 +61,34 @@ export function WatchHeader(): JSX.Element {
               <UI_InputCheckbox type='checkbox' />
             </UI_Col>
             <UI_Col xs={11}>
-              {formatMessage(globalMessages.displayControlPanel)}
+              <UI_Text>
+                {formatMessage(globalMessages.displayControlPanel)}
+              </UI_Text>
             </UI_Col>
-          </UI_Row>
-          <UI_Row display='flex'>
-            <UI_Col xs={1}>
-              <UI_InputCheckbox type='checkbox' />
-            </UI_Col>
-            <UI_Col xs={11}>{formatMessage(globalMessages.autoPlay)}</UI_Col>
           </UI_Row>
           <UI_Row display='flex'>
             <UI_Col xs={1}>
               <UI_InputCheckbox type='checkbox' />
             </UI_Col>
             <UI_Col xs={11}>
-              {formatMessage(globalMessages.displayTopBar)}
+              <UI_Text>{formatMessage(globalMessages.autoPlay)}</UI_Text>
             </UI_Col>
           </UI_Row>
           <UI_Row display='flex'>
             <UI_Col xs={1}>
               <UI_InputCheckbox type='checkbox' />
             </UI_Col>
-            <UI_Col xs={11}>{formatMessage(globalMessages.playMuted)}</UI_Col>
+            <UI_Col xs={11}>
+              <UI_Text>{formatMessage(globalMessages.displayTopBar)}</UI_Text>
+            </UI_Col>
+          </UI_Row>
+          <UI_Row display='flex'>
+            <UI_Col xs={1}>
+              <UI_InputCheckbox type='checkbox' />
+            </UI_Col>
+            <UI_Col xs={11}>
+              <UI_Text>{formatMessage(globalMessages.playMuted)}</UI_Text>
+            </UI_Col>
           </UI_Row>
         </>
       </UI_Modal>
