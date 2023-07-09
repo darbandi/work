@@ -4,8 +4,7 @@ import { useRouter } from 'next/router'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { Container, Form } from './Login.style'
 import {
-  UI_ContainedButton,
-  UI_TextButton,
+  UI_Button,
   UI_InputText,
   UI_Box,
   UI_Col,
@@ -60,11 +59,10 @@ const LoginForm = (props: LoginFormProps) => {
           }}
         />
         <UI_Box display='flex'>
-          <UI_ContainedButton type='submit' variant='primary'>
+          <UI_Button type='submit' variant='contained' color='primary'>
             {formatMessage(globalMessages.sendOTP)}
-          </UI_ContainedButton>
-          <UI_TextButton
-            variant='secondary'
+          </UI_Button>
+          <UI_Button
             style={{ marginRight: 8 }}
             type='button'
             onClick={handleBack}
@@ -76,7 +74,7 @@ const LoginForm = (props: LoginFormProps) => {
                 marginRight: 8,
               }}
             />
-          </UI_TextButton>
+          </UI_Button>
         </UI_Box>
         {otp && (
           <UI_InputText

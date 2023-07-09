@@ -1,14 +1,11 @@
+import { useIntl } from 'react-intl'
 import { faCheck, faClose } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect } from 'react'
 import { Actions, Blur, Container, Header } from './Modal.style'
-import {
-  UI_ContainedButton,
-  UI_OutlinedButton,
-  UI_Icon,
-  UI_Text,
-} from '@/ui-components'
+import { UI_Icon, UI_Text, UI_Button } from '@/ui-components'
 import { colors } from '@/theme'
 import { useDocument } from '@/hooks'
+import { globalMessages } from '@/assets/globalMessages'
 
 type ModalHeaderProps = { children: JSX.Element }
 
@@ -49,6 +46,7 @@ export function UI_Modal(props: ModalProps): JSX.Element | null {
     onCancel,
   } = props
   const { blurWindow } = useDocument()
+  const { formatMessage } = useIntl()
 
   useEffect(() => {
     if (open) blurWindow()
@@ -73,16 +71,16 @@ export function UI_Modal(props: ModalProps): JSX.Element | null {
         <ModalAction>
           <>
             {onSuccess && (
-              <UI_ContainedButton variant='primary' onClick={onSuccess}>
-                تایید
+              <UI_Button variant='contained' onClick={onSuccess}>
+                {formatMessage(globalMessages.accept)}
                 <UI_Icon icon={faCheck} />
-              </UI_ContainedButton>
+              </UI_Button>
             )}
             {onCancel && (
-              <UI_OutlinedButton variant='secondary' onClick={onCancel}>
-                لغو
+              <UI_Button variant='outlined' color='gray_100' onClick={onCancel}>
+                {formatMessage(globalMessages.cancel)}
                 <UI_Icon icon={faClose} />
-              </UI_OutlinedButton>
+              </UI_Button>
             )}
           </>
         </ModalAction>

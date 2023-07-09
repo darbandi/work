@@ -2,23 +2,22 @@ import styled, { css } from 'styled-components'
 import { ThemeType, flexCenter } from '@/theme'
 import { commonColors } from '@/theme/Theme.styled'
 
-type globalStyleType = Omit<ThemeType, 'theme' | 'size' | 'lineHeight'>
+type globalStyleType = Omit<
+  ThemeType,
+  'theme' | 'size' | 'lineHeight' | 'variant'
+> & { variant?: 'contained' | 'outlined' }
+
+type UI_ButtonType = Omit<ThemeType, 'variant'> & {
+  variant?: 'contained' | 'outlined'
+}
 
 const globalStyle = styled.button<globalStyleType>`
-  ${({
-    theme: { colors, remCalc },
-    color = 'gray_700',
-    backgroundColor = 'white',
-  }: ThemeType) => css`
-    &,
-    * {
-      color: ${colors[color as keyof typeof commonColors]};
-    }
-    background-color: ${colors[backgroundColor as keyof typeof commonColors]};
-    border: ${`1px solid ${colors[color as keyof typeof commonColors]}`};
+  ${({ theme: { colors, remCalc } }: UI_ButtonType) => css`
     border-radius: ${remCalc(24)};
     padding: 0 ${remCalc(24)};
     font-size: ${remCalc(16)};
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     transition: all 0.3s;
     font-weight: 500;
@@ -32,66 +31,66 @@ const globalStyle = styled.button<globalStyleType>`
   `}
 `
 
-export const UI_ContainedButton = styled(globalStyle)`
-  ${({ theme: { colors }, variant }: ThemeType) => css`
-    border: none;
-    ${variant === 'primary' &&
+export const UI_Button = styled(globalStyle)`
+  ${({
+    theme: { colors },
+    variant,
+    color,
+    backgroundColor,
+  }: UI_ButtonType) => css`
+    &,
+    * {
+      color: ${color
+        ? colors[color as keyof typeof commonColors]
+        : colors.gray_100};
+    }
+
+    ${variant === 'contained' &&
+    css`
+      background-color: ${backgroundColor
+        ? colors[backgroundColor as keyof typeof commonColors]
+        : colors.yellow_400};
+
+      border: ${`1px solid ${
+        backgroundColor
+          ? colors[backgroundColor as keyof typeof commonColors]
+          : colors.yellow_400
+      }`};
+      &,
+      * {
+        color: ${colors.gray_800};
+      }
+    `}
+    ${variant === 'outlined' &&
+    css`
+      border: ${`1px solid ${
+        color ? colors[color as keyof typeof commonColors] : colors.yellow_400
+      }`};
+      &,
+      * {
+        color: ${color
+          ? colors[color as keyof typeof commonColors]
+          : colors.yellow_400};
+      }
+    `}
+
+    ${color === 'primary' &&
     css`
       background-color: ${colors.yellow_400};
+      border: ${`1px solid ${colors.yellow_400}`};
+      &,
+      * {
+        color: ${colors.gray_800};
+      }
     `}
-    ${variant === 'secondary' &&
+    ${color === 'secondary' &&
     css`
       background-color: ${colors.white};
-    `}
-  `}
-`
-
-export const UI_TextButton = styled(globalStyle)`
-  ${({ theme: { colors }, variant }: ThemeType) => css`
-    border: none;
-    ${variant === 'primary' &&
-    css`
+      border: ${`1px solid ${colors.white}`};
       &,
       * {
-        color: ${colors.yellow_400};
+        color: ${colors.gray_800};
       }
-    `}
-    ${variant === 'secondary' &&
-    css`
-      &,
-      * {
-        color: ${colors.gray_700};
-      }
-    `}
-  `}
-`
-
-export const UI_OutlinedButton = styled(globalStyle)`
-  ${({ theme: { colors }, variant }: ThemeType) => css`
-    background-color: transparent;
-    ${variant === 'primary' &&
-    css`
-      &,
-      * {
-        color: ${colors.yellow_400};
-      }
-      border-color: ${colors.yellow_400};
-    `}
-    ${variant === 'secondary' &&
-    css`
-      &,
-      * {
-        color: ${colors.gray_700};
-      }
-      border-color: ${colors.gray_700};
-    `}
-    ${variant === 'light' &&
-    css`
-      &,
-      * {
-        color: ${colors.gray_100};
-      }
-      border-color: ${colors.gray_100};
     `}
   `}
 `

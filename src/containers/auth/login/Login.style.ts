@@ -1,12 +1,16 @@
 import styled, { css } from 'styled-components'
-import { ThemeType, flexSpaceBetween, responsive } from '@/theme'
+import {
+  ThemeType,
+  flexColStartCenter,
+  flexSpaceBetween,
+  responsive,
+} from '@/theme'
 
 export const Container = styled.div`
   ${({ theme: { colors } }: ThemeType) => css`
     flex-direction: row;
     ${flexSpaceBetween}
     height: 100vh;
-
     background-image: url('/login-banner.jpg');
     height: 100vh;
     background-size: cover;
@@ -17,16 +21,13 @@ export const Container = styled.div`
 
 export const Form = styled.form`
   ${({ theme: { colors, remCalc } }: ThemeType) => css`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
+    ${flexColStartCenter}
     gap: ${remCalc(48)};
     width: 450px;
     margin: 0 auto;
     padding: ${remCalc(36)};
     border-radius: ${remCalc(8)};
-    background-color: ${colors.black}c9;
+    background-color: ${colors.darkBlue_900}e9;
     box-shadow: 0 0 ${`${remCalc(20)} ${colors.black}`};
 
     ${responsive(

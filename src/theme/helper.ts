@@ -72,7 +72,6 @@ export const animationSlideInRight = css`
     }
   }
 `
-
 export const flex = css`
   display: flex;
 `
@@ -85,18 +84,21 @@ export const flexCenter = css`
   align-items: center;
   justify-content: center;
 `
-
 export const flexSpaceBetween = css`
   ${flexAlignCenter}
   justify-content: space-between;
 `
-
 export const flexEnd = css`
   ${flexAlignCenter}
   justify-content: end;
 `
-
 export const flexStart = css`
   ${flexAlignCenter}
   justify-content: start;
+`
+export const flexColStartCenter = css`
+  ${flex}
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
 `

@@ -3,7 +3,7 @@ import { faInfoCircle, faPlay } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
 import { useIntl } from 'react-intl'
 import { Actions } from './WatchDetailsButtons.style'
-import { UI_ContainedButton, UI_Icon } from '@/ui-components'
+import { UI_Button, UI_Icon } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 type WatchDetailsButtonsProps = {
@@ -23,19 +23,19 @@ export function WatchDetailsButtons(
 
   return (
     <Actions>
-      <UI_ContainedButton
-        variant='primary'
-        onClick={handleClickWatch}
-        lineHeight={12}
-      >
+      <UI_Button variant='contained' onClick={handleClickWatch}>
         <UI_Icon icon={faPlay} />
         {formatMessage(globalMessages.play)}
-      </UI_ContainedButton>
+      </UI_Button>
       {!isDisabledDetailsButton && (
-        <UI_ContainedButton variant='secondary' onClick={handleClickMovie}>
+        <UI_Button
+          variant='contained'
+          color='secondary'
+          onClick={handleClickMovie}
+        >
           <UI_Icon icon={faInfoCircle} />
           {formatMessage(globalMessages.detail)}
-        </UI_ContainedButton>
+        </UI_Button>
       )}
     </Actions>
   )

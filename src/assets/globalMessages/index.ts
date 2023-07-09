@@ -184,4 +184,12 @@ export const globalMessages = defineMessages({
     id: `${scope}.oTPNumber`,
     defaultMessage: 'رمز یکبار مصرف',
   },
+  accept: {
+    id: `${scope}.accept`,
+    defaultMessage: 'تایید',
+  },
+  cancel: {
+    id: `${scope}.cancel`,
+    defaultMessage: 'لغو',
+  },
 })

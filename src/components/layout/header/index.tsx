@@ -10,12 +10,7 @@ import { Header } from './Header.style'
 import { globalMessages } from '@/assets/globalMessages'
 import { NavbarComp } from '@/components'
 import { useScroll } from '@/hooks'
-import {
-  UI_Box,
-  UI_Icon,
-  UI_InputText,
-  UI_OutlinedButton,
-} from '@/ui-components'
+import { UI_Box, UI_Button, UI_Icon, UI_InputText } from '@/ui-components'
 
 export function HeaderComp(): JSX.Element | null {
   const { push } = useRouter()
@@ -74,13 +69,14 @@ export function HeaderComp(): JSX.Element | null {
               className='fa-login'
               onClick={handleClickLoginOrRegister}
             />
-            <UI_OutlinedButton
-              variant='light'
+            <UI_Button
+              variant='outlined'
+              color='gray_100'
               className='btn-login-register'
               onClick={handleClickLoginOrRegister}
             >
               {formatMessage(globalMessages.loginRegister)}
-            </UI_OutlinedButton>
+            </UI_Button>
           </>
         )}
       </UI_Box>
