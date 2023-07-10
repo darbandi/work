@@ -180,6 +180,10 @@ export const globalMessages = defineMessages({
     id: `${scope}.sendOTP`,
     defaultMessage: 'ارسال رمز یکبار مصرف',
   },
+  getOTP: {
+    id: `${scope}.getOTP`,
+    defaultMessage: 'دریافت رمز یکبار مصرف',
+  },
   oTPNumber: {
     id: `${scope}.oTPNumber`,
     defaultMessage: 'رمز یکبار مصرف',

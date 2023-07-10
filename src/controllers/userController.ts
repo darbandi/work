@@ -31,7 +31,7 @@ export const getAllUsers = async (
       },
     })
   } catch (error) {
-    res.status(400).json({ success: false })
+    res.status(400).json({ success: false, error })
   }
 }
 
@@ -44,7 +44,7 @@ export const createUser = async (
     const user = await User.create(req.body)
     res.status(201).json({ success: true, data: user.toJSON() })
   } catch (error) {
-    res.status(400).json({ success: false })
+    res.status(400).json({ success: false, error })
   }
 }
 
@@ -58,7 +58,7 @@ export const getUserById = async (
     const profile = await Profile.findOne({ user: req.query.id })
     res.status(200).json({ success: true, data: { ...user.toJSON(), profile } })
   } catch (error) {
-    res.status(400).json({ success: false })
+    res.status(400).json({ success: false, error })
   }
 }
 
@@ -77,7 +77,7 @@ export const updateUser = async (
     }
     res.status(200).json({ success: true, data: user.toJSON() })
   } catch (error) {
-    res.status(400).json({ success: false })
+    res.status(400).json({ success: false, error })
   }
 }
 
@@ -93,6 +93,6 @@ export const deleteUser = async (
     }
     res.status(200).json({ success: true, data: {} })
   } catch (error) {
-    res.status(400).json({ success: false })
+    res.status(400).json({ success: false, error })
   }
 }

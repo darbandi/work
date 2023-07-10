@@ -4,9 +4,11 @@ import { IProfile } from './profile'
 
 export interface IUser {
   _id?: string
-  userName: string
-  email: string
-  password: string
+  userName?: string
+  email?: string
+  password?: string
+  mobile: string
+  isActiveOtp: boolean
 }
 
 export interface IUserApiOutput {
@@ -54,5 +56,8 @@ export interface IUseDeleteUserOutput {
   data: IUserApiOutput
   loading: boolean
   error: AxiosError<string, IUser> | null
-  executeDelete: RefetchFunction<{ id: string }, { success: boolean }>
+  executeDelete: RefetchFunction<
+    IUseDeleteUserInput,
+    Omit<IUserApiOutput, 'data'>
+  >
 }

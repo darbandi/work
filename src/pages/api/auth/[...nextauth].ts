@@ -1,4 +1,3 @@
-import { compare } from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import NextAuth, { Awaitable, NextAuthOptions } from 'next-auth'
 import { JWT, JWTDecodeParams, JWTEncodeParams } from 'next-auth/jwt'
@@ -14,13 +13,15 @@ export const authOptions: NextAuthOptions = {
       credentials: {},
       async authorize(credentials) {
         await dbConnect()
-        const { email, password } = credentials as {
-          email: string
-          password: string
+        const { mobile } = credentials as {
+          mobile: string
         }
-        const user: IUser = (await User.findOne({ email }).lean()) as IUser
-        const isPasswordMatched = await compare(password, user.password)
-        if (user && isPasswordMatched) {
+        const user: IUser = (await User.findOne({
+          mobile,
+          isActiveOtp: true,
+        }).lean()) as IUser
+
+        if (user) {
           return {
             id: user._id?.toString() ?? '',
             name: user.userName,
