@@ -1,88 +1,48 @@
-import { useIntl } from 'react-intl'
-import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import { faAngleLeft, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { signIn } from 'next-auth/react'
+import React from 'react'
 import { Container, Form } from './Login.style'
-import {
-  UI_Button,
-  UI_InputText,
-  UI_Box,
-  UI_Col,
-  UI_Row,
-  UI_Icon,
-  UI_Text,
-} from '@/ui-components'
-import { MotionComp } from '@/components'
+import { useLogic } from './useLogic'
 import { globalMessages } from '@/assets/globalMessages'
-import { useGetOtp, usePostOtp } from '@/apis'
+import { MotionComp } from '@/components'
+import {
+  UI_Box,
+  UI_Button,
+  UI_Col,
+  UI_Icon,
+  UI_InputText,
+  UI_Row,
+  UI_Text,
+  UI_Toast,
+} from '@/ui-components'
 
-const LoginForm = () => {
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [otp, setOtp] = useState('')
-  const { push } = useRouter()
-  const { formatMessage } = useIntl()
-  const { data, execute: getOtp, loading: getOtpLoading } = useGetOtp()
+function LoginForm() {
   const {
-    data: postedOtpDate,
-    execute: postOtp,
-    loading: postOtpLoading,
-  } = usePostOtp()
-
-  const handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    if (otp) {
-      if (!otp) return
-      postOtp({
-        data: {
-          mobile: phoneNumber,
-          code: otp,
-        },
-      })
-    } else {
-      if (!phoneNumber) return
-      getOtp({
-        params: {
-          mobile: phoneNumber,
-        },
-      })
-    }
-  }
-
-  useEffect(() => {
-    if (postedOtpDate?.success) {
-      const credentials = { mobile: phoneNumber, callbackUrl: '/' }
-      signIn('credentials', credentials)
-    }
-  }, [postedOtpDate?.success])
-
-  const handleBack = () => {
-    push('/')
-  }
-
-  const isLoading = getOtpLoading || postOtpLoading || postedOtpDate?.success
+    otp,
+    getOtpDate,
+    phoneNumber,
+    isLoading,
+    handleSubmit,
+    formatMessage,
+    setOtp,
+    handleKeyDown,
+    setPhoneNumber,
+    handleBack,
+  } = useLogic()
 
   return (
     <MotionComp>
       <Form onSubmit={handleSubmit}>
         <UI_Text fontWeight='bold' color='gray_200' size={24}>
-          {formatMessage(globalMessages.loginWithMobile)} {otp}
+          {formatMessage(globalMessages.loginWithMobile)}
         </UI_Text>
-        {data?.success ? (
+        {getOtpDate?.success ? (
           <UI_InputText
             type='text'
+            mode='light'
             placeholder={formatMessage(globalMessages.oTPNumber)}
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
-            onKeyDown={(event) => {
-              if (
-                !/[0-9]/.test(event.key) &&
-                event.key !== 'Backspace' &&
-                event.key !== 'Delete'
-              ) {
-                event.preventDefault()
-              }
-            }}
+            onKeyDown={handleKeyDown}
           />
         ) : (
           <UI_InputText
@@ -91,15 +51,7 @@ const LoginForm = () => {
             placeholder={formatMessage(globalMessages.mobileNumberPlaceholder)}
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            onKeyDown={(event) => {
-              if (
-                !/[0-9]/.test(event.key) &&
-                event.key !== 'Backspace' &&
-                event.key !== 'Delete'
-              ) {
-                event.preventDefault()
-              }
-            }}
+            onKeyDown={handleKeyDown}
           />
         )}
 
@@ -111,12 +63,12 @@ const LoginForm = () => {
             disabled={isLoading}
           >
             {formatMessage(
-              globalMessages[data?.success ? 'sendOTP' : 'getOTP'],
+              globalMessages[getOtpDate?.success ? 'sendOTP' : 'getOTP'],
             )}
             {isLoading && <UI_Icon icon={faSpinner} spin />}
           </UI_Button>
           <UI_Button
-            style={{ marginRight: 8 }}
+            style={{ marginRight: 24 }}
             type='button'
             onClick={handleBack}
           >
@@ -145,6 +97,7 @@ export function LoginPage(): JSX.Element {
           <UI_Box className='img' />
         </UI_Col>
       </UI_Row>
+      <UI_Toast />
     </Container>
   )
 }

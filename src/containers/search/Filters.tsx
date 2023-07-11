@@ -1,17 +1,18 @@
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
-import React, { KeyboardEvent, useState } from 'react'
+import React, { useState } from 'react'
 import { useIntl } from 'react-intl'
 import { FiltersContainer } from './Search.style'
 import { UI_Icon, UI_InputText, UI_Text } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
+import { inputTextType } from '@/types/elements'
 
 export function Filters(): JSX.Element {
   const { formatMessage } = useIntl()
   const { query, replace, pathname } = useRouter()
   const [searched, setSearched] = useState(query.q?.toString())
 
-  const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleEnter = (e: inputTextType) => {
     if (e.key === 'Enter') {
       replace({
         pathname,

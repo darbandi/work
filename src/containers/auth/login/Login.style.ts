@@ -27,7 +27,7 @@ export const Form = styled.form`
     margin: 0 auto;
     padding: ${remCalc(36)};
     border-radius: ${remCalc(8)};
-    background-color: ${colors.darkBlue_900}e9;
+    background-color: ${colors.darkBlue_900}f5;
     box-shadow: 0 0 ${`${remCalc(20)} ${colors.black}`};
 
     ${responsive(

@@ -1,10 +1,11 @@
 import { AxiosError } from 'axios'
 import { RefetchFunction } from 'axios-hooks'
 import mongoose from 'mongoose'
-import { IUser, IUserApiOutput } from './user'
+import { IUser } from './user'
 
 export interface IOtp {
   _id?: string
+  id?: string
   code: string
   createAt: string
   userId: mongoose.Schema.Types.ObjectId
@@ -22,9 +23,9 @@ export interface IOtpApiOutput {
 }
 
 export interface IUseGetOtpOutput {
-  data: IUserApiOutput
+  data: IOtpApiOutput
   loading: boolean
-  error: AxiosError<string, IUseGetOtpInput> | null
+  error: AxiosError<IOtpApiOutput, IOtpApiOutput> | null
   execute: RefetchFunction<IUseGetOtpInput, IOtpApiOutput>
   cancelRequest: () => void
 }
@@ -37,7 +38,7 @@ export interface IUsePostOtpInput {
 export interface IUsePostOtpOutput {
   data: IOtpApiOutput
   loading: boolean
-  error: AxiosError<string, IOtp> | null
+  error: AxiosError<IOtpApiOutput, IOtpApiOutput> | null
   execute: RefetchFunction<IUsePostOtpInput, IOtpApiOutput>
   cancelRequest: () => void
 }

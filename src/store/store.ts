@@ -45,7 +45,7 @@ export const initializeStore = (
         ...getDefaultInitialState(),
         ...preloadedState,
         increment: increment(set, get),
-        setCurrentUser: (user: IUser) => setCurrentUser(user)(set),
+        setCurrentUser: (user: IUser | undefined) => setCurrentUser(user)(set),
         setSelectedCartSliderItem: (cardItem?: ItemsArray, key?: string) =>
           setSelectedCartSliderItem(cardItem, key)(set),
       }),

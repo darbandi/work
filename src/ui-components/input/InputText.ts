@@ -16,17 +16,11 @@ export const UI_InputText = styled.input<UI_InputTextType>`
     width: 100%;
     height: ${remCalc(48)};
     transition: all 0.3s;
-    color: ${colors.gray_700};
     background-color: transparent;
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 ${`${remCalc(5)} ${colors.gray_700}`};
-      color: ${colors.gray_100};
-    }
-
-    &::placeholder {
-      color: ${colors.gray_500};
+      box-shadow: 0 0 ${`${remCalc(5)} ${colors.gray_500}`};
     }
 
     ${rounded &&
@@ -36,18 +30,20 @@ export const UI_InputText = styled.input<UI_InputTextType>`
 
     ${mode === 'light' &&
     css`
-      color: ${colors.gray_700};
-      border-color: ${colors.white};
-      &:focus {
-        box-shadow: 0 0 ${`${remCalc(5)} ${colors.gray_200}`};
+      color: ${colors.gray_100};
+      border-color: ${colors.gray_600};
+
+      &::placeholder {
+        color: ${colors.gray_600};
       }
     `}
     ${mode === 'dark' &&
     css`
-      color: ${colors.gray_100};
-      border-color: ${colors.darkBlue_900};
-      &:focus {
-        box-shadow: 0 0 ${`${remCalc(5)} ${colors.gray_600}`};
+      color: ${colors.gray_800};
+      border-color: ${colors.gray_400};
+
+      &::placeholder {
+        color: ${colors.gray_400};
       }
     `}
   `}

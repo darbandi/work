@@ -4,6 +4,7 @@ import { IProfile } from './profile'
 
 export interface IUser {
   _id?: string
+  id?: string
   userName?: string
   email?: string
   password?: string

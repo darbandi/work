@@ -42,7 +42,7 @@ export const Header = styled.header`
 
     .btn-login-register {
       height: ${remCalc(33)};
-      width: ${remCalc(150)};
+      width: 'fix-content';
     }
 
     .fa-login {

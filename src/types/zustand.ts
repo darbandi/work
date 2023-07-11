@@ -11,7 +11,7 @@ export interface IStoreState {
 
 export interface IStore extends IStoreState {
   increment: () => void
-  setCurrentUser: (user: IUser) => void
+  setCurrentUser: (user: IUser | undefined) => void
   setSelectedCartSliderItem: (cardItem?: ItemsArray, key?: string) => void
 }
 

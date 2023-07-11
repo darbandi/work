@@ -24,7 +24,7 @@ export const authOptions: NextAuthOptions = {
         if (user) {
           return {
             id: user._id?.toString() ?? '',
-            name: user.userName,
+            name: user.userName || user.mobile,
             email: user.email,
           }
         }

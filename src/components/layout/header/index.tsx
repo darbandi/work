@@ -1,51 +1,72 @@
 import {
   faArrowRightToBracket,
   faSearch,
+  faSignOut,
 } from '@fortawesome/free-solid-svg-icons'
 import { useClickOutside } from '@react-hooks-library/core'
+import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { Header } from './Header.style'
-import { globalMessages } from '@/assets/globalMessages'
-import { NavbarComp } from '@/components'
+import {
+  UI_Box,
+  UI_Button,
+  UI_Icon,
+  UI_InputText,
+  UI_Text,
+} from '@/ui-components'
+import { inputTextType } from '@/types/elements'
+import { useStore } from '@/store'
 import { useScroll } from '@/hooks'
-import { UI_Box, UI_Button, UI_Icon, UI_InputText } from '@/ui-components'
+import { NavbarComp } from '@/components'
+import { globalMessages } from '@/assets/globalMessages'
 
 export function HeaderComp(): JSX.Element | null {
+  const { data } = useSession()
   const { push } = useRouter()
   const { isTop } = useScroll('body')
   const { formatMessage } = useIntl()
-  const [searchActive, setSearchActive] = useState(false)
+  const [isSearchMode, setIsSearchMode] = useState(false)
   const searchRef = useRef<HTMLInputElement>(null)
-  useClickOutside(searchRef, () => setSearchActive(false))
+  useClickOutside(searchRef, () => setIsSearchMode(false))
+  const setCurrentUser = useStore((user) => user.setCurrentUser)
 
   const handleClickLoginOrRegister = () => {
-    push('/login')
+    push('/login', undefined, { shallow: true })
+  }
+
+  const handleLogout = () => {
+    setCurrentUser?.(undefined)
+    signOut({
+      callbackUrl: '/login',
+      redirect: true,
+    })
   }
 
   const handleClickOnSearchIcon = () => {
-    setSearchActive(true)
+    setIsSearchMode(true)
   }
 
   useEffect(() => {
-    if (searchActive) {
+    if (isSearchMode) {
       searchRef.current?.focus()
     }
-  }, [searchActive])
+  }, [isSearchMode])
 
-  const handleSearch = (e: { key: string }) => {
+  const handleSearch = (e: inputTextType) => {
     if (e.key === 'Enter') {
       push(`/search/?q=${searchRef.current?.value}`)
-      setSearchActive(false)
+      setIsSearchMode(false)
     }
   }
+
   if (!isTop) return null
   return (
     <Header>
       <NavbarComp />
       <UI_Box alignItems='center' display='flex'>
-        {searchActive ? (
+        {isSearchMode ? (
           <UI_InputText
             ref={searchRef}
             rounded
@@ -69,14 +90,27 @@ export function HeaderComp(): JSX.Element | null {
               className='fa-login'
               onClick={handleClickLoginOrRegister}
             />
-            <UI_Button
-              variant='outlined'
-              color='gray_100'
-              className='btn-login-register'
-              onClick={handleClickLoginOrRegister}
-            >
-              {formatMessage(globalMessages.loginRegister)}
-            </UI_Button>
+            {data?.user?.name ? (
+              <UI_Button
+                variant='outlined'
+                color='gray_100'
+                className='btn-login-register'
+                onClick={handleLogout}
+              >
+                {/* {user.userName || user.mobile} */}
+                <UI_Text>{data?.user?.name}</UI_Text>
+                <UI_Icon icon={faSignOut} />
+              </UI_Button>
+            ) : (
+              <UI_Button
+                variant='outlined'
+                color='gray_100'
+                className='btn-login-register'
+                onClick={handleClickLoginOrRegister}
+              >
+                {formatMessage(globalMessages.loginRegister)}
+              </UI_Button>
+            )}
           </>
         )}
       </UI_Box>

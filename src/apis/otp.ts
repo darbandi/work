@@ -9,7 +9,6 @@ export const useGetOtp = (): IUseGetOtpOutput => {
     },
     { manual: true },
   )
-
   return {
     data,
     loading,
@@ -26,7 +25,6 @@ export const usePostOtp = (): IUsePostOtpOutput => {
     },
     { manual: true },
   )
-
   return {
     data,
     loading,

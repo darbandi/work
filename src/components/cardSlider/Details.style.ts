@@ -83,7 +83,7 @@ export const Container = styled.div<ContainerType>`
           background-size: cover;
           background-position: center;
           background-color: ${colors.gray_200};
-          background-attachment: fixed;
+          background-attachment: inherit;
         }
 
         .base-col {
