@@ -48,7 +48,7 @@
     "styled-system": "^5.1.5",
     "swiper": "^9.3.2",
     "tslib": "^2.3.0",
-    "zustand": "latest"
+    "zustand": "^4.3.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
