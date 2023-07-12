@@ -85,11 +85,20 @@ export function HeaderComp(): JSX.Element | null {
               flip='horizontal'
               onClick={handleClickOnSearchIcon}
             />
-            <UI_Icon
-              icon={faArrowRightToBracket}
-              className='fa-login'
-              onClick={handleClickLoginOrRegister}
-            />
+            {data?.user?.name ? (
+              <UI_Icon
+                icon={faSignOut}
+                className='fa-login'
+                onClick={handleClickLoginOrRegister}
+              />
+            ) : (
+              <UI_Icon
+                icon={faArrowRightToBracket}
+                className='fa-login'
+                onClick={handleClickLoginOrRegister}
+              />
+            )}
+
             {data?.user?.name ? (
               <UI_Button
                 variant='outlined'

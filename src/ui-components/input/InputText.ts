@@ -20,7 +20,7 @@ export const UI_InputText = styled.input<UI_InputTextType>`
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 ${`${remCalc(5)} ${colors.gray_500}`};
+      border: 1px solid ${colors.gray_500};
     }
 
     ${rounded &&

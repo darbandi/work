@@ -44,6 +44,7 @@ export function Filters(): JSX.Element {
         value={searched}
         onChange={(e) => setSearched(e.target.value)}
         onKeyDown={handleEnter}
+        mode='light'
       />
     </FiltersContainer>
   )

@@ -33,6 +33,9 @@ export const Header = styled.header`
       height: ${remCalc(32)};
       width: ${remCalc(200)};
       margin-left: ${remCalc(8)};
+      background-color: ${colors.white};
+      color: ${colors.gray_700};
+
       &::placeholder {
         font-weight: 300 !important;
       }
