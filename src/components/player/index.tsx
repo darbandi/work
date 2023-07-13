@@ -12,7 +12,6 @@ import {
   faVolumeXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment'
-import React from 'react'
 import {
   ActionBar,
   Actions,

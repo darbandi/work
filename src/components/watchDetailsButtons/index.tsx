@@ -1,4 +1,3 @@
-import React from 'react'
 import { faInfoCircle, faPlay } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
 import { useIntl } from 'react-intl'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRouter } from 'next/router'
 import { Container } from '@/containers/watch/Watch.style'
 import { PlayerComp } from '@/components'

@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import React from 'react'
 import { itemsArray } from '../home/topTen'
 import { Container } from './Movie.style'
 import {

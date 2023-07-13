@@ -6,7 +6,7 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useMediaQuery } from '@react-hooks-library/core'
 import {
   Details,

@@ -1,4 +1,3 @@
-import React from 'react'
 import { itemsArray } from '../topTen'
 import { CardSliderComp } from '@/components'
 

@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components'
 import { ThemeType } from '@/theme'
 import { commonColors } from '@/theme/Theme.styled'
 
-type TextType = {
+export type TextType = {
+  as?: string
   size?: number
   fontWeight?: 'bold' | 'light' | '100' | '200' | '300' | '400' | '500'
   color?: string
@@ -13,6 +14,13 @@ type TextType = {
   mb?: number
   ml?: number
   mr?: number
+  whiteSpace?:
+    | 'nowrap'
+    | 'pre-wrap'
+    | 'break-spaces'
+    | 'normal'
+    | 'pre'
+    | 'line'
 }
 
 export const BaseTextStyle = styled.span<TextType>`
@@ -28,6 +36,7 @@ export const BaseTextStyle = styled.span<TextType>`
     mb,
     ml,
     mr,
+    whiteSpace,
   }: ThemeType & TextType) => css`
     font-size: ${remCalc(size ?? 14)};
     font-weight: ${fontWeight ?? '200'};
@@ -39,10 +48,11 @@ export const BaseTextStyle = styled.span<TextType>`
     ${mb && `margin-bottom: ${remCalc(mb)};`};
     ${ml && `margin-left: ${remCalc(ml)};`};
     ${mr && `margin-right: ${remCalc(mr)};`};
+    ${whiteSpace && `white-space: ${whiteSpace};`};
   `}
 `
-export const UI_Text = styled(BaseTextStyle).attrs<{ component: string }>(
-  (props) => ({
-    as: props?.component,
-  }),
-)``
+export const UI_Text = styled(BaseTextStyle).attrs<{
+  component: string
+}>((props) => ({
+  as: props?.component ?? 'span',
+}))``

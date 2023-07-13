@@ -1,4 +1,3 @@
-import React from 'react'
 import { CardSliderComp, MotionComp } from '@/components'
 
 export const itemsArray = [

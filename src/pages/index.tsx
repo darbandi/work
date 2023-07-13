@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-import React from 'react'
 import { SEOGenerator } from '@/components'
 import { ssrConfig } from '@/lib'
 

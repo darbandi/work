@@ -23,7 +23,6 @@ const MainNoSSR = dynamic(
 # Pages
 
 ```js
-import React from 'react'
 import dynamic from 'next/dynamic'
 import { NextPage } from 'next'
 import { ssrConfig } from '@/lib'
@@ -46,7 +45,6 @@ export default Index
 # Component
 
 ```js
-import React from 'react'
 import type { NextPage } from 'next'
 import type { MainProps } from '@/types'
 

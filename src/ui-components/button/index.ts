@@ -2,17 +2,14 @@ import styled, { css } from 'styled-components'
 import { ThemeType, flexCenter } from '@/theme'
 import { commonColors } from '@/theme/Theme.styled'
 
-type globalStyleType = Omit<
-  ThemeType,
-  'theme' | 'size' | 'lineHeight' | 'variant'
-> & { variant?: 'contained' | 'outlined' }
+type innerType = { variant?: 'contained' | 'outlined'; loading?: boolean }
 
-type UI_ButtonType = Omit<ThemeType, 'variant'> & {
-  variant?: 'contained' | 'outlined'
-}
+type UI_ButtonType = Omit<ThemeType, 'variant'> & innerType
+
+type globalStyleType = Omit<UI_ButtonType, 'theme' | 'size' | 'lineHeight'>
 
 const globalStyle = styled.button<globalStyleType>`
-  ${({ theme: { colors, remCalc } }: UI_ButtonType) => css`
+  ${({ theme: { colors, remCalc }, loading }: UI_ButtonType) => css`
     border-radius: ${remCalc(24)};
     padding: 0 ${remCalc(24)};
     font-size: ${remCalc(16)};
@@ -28,6 +25,42 @@ const globalStyle = styled.button<globalStyleType>`
     &:hover {
       box-shadow: 0 0 ${`${remCalc(5)} ${colors.gray_500}`};
     }
+    position: relative;
+    z-index: 2;
+
+    ${loading &&
+    css`
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border: 1px solid ${colors.yellow_400};
+        transition: all 3s;
+        animation: clippath 3s infinite linear;
+        border-radius: ${remCalc(30)};
+      }
+
+      @keyframes clippath {
+        0%,
+        100% {
+          clip-path: inset(0 0 68% 0);
+        }
+
+        25% {
+          clip-path: inset(0 89% 0 0);
+        }
+        50% {
+          clip-path: inset(68% 0 0 0);
+        }
+        75% {
+          clip-path: inset(0 0 0 89%);
+        }
+      }
+    `}
   `}
 `
 

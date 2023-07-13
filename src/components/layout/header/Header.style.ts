@@ -34,7 +34,7 @@ export const Header = styled.header`
       width: ${remCalc(200)};
       margin-left: ${remCalc(8)};
       background-color: ${colors.white};
-      color: ${colors.gray_700};
+      color: ${colors.gray_700} !important;
 
       &::placeholder {
         font-weight: 300 !important;

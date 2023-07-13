@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import React from 'react'
 import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import { itemsArray } from '../home/topTen'

@@ -1,4 +1,4 @@
-import React, { useId } from 'react'
+import { useId } from 'react'
 import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
 import { PrevButtons, NextButtons } from './Buttons'

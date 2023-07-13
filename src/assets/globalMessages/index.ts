@@ -196,4 +196,8 @@ export const globalMessages = defineMessages({
     id: `${scope}.cancel`,
     defaultMessage: 'لغو',
   },
+  reCode: {
+    id: `${scope}.reCode`,
+    defaultMessage: 'دریافت مجدد کد',
+  },
 })

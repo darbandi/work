@@ -1,17 +1,35 @@
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react'
 import { toast } from 'react-hot-toast'
-import { useIntl } from 'react-intl'
-import { inputTextType } from '@/types/elements'
+import { inputOnKeyDownType } from '@/types/elements'
 import { useStore } from '@/store'
 import { useGetOtp, usePostOtp } from '@/apis'
 
-export function useLogic() {
+type useLogicOutput = {
+  otp: string
+  phoneNumber: string
+  isLoading: boolean
+  isSentOtp: boolean
+  setIsSentOtp: Dispatch<SetStateAction<boolean>>
+  handleSubmit: (event: ChangeEvent<HTMLFormElement>) => Promise<void>
+  setOtp: Dispatch<SetStateAction<string>>
+  handleKeyDown: (e: inputOnKeyDownType) => void
+  setPhoneNumber: Dispatch<SetStateAction<string>>
+  handleBack: () => void
+}
+
+export function useLogic(): useLogicOutput {
   const [phoneNumber, setPhoneNumber] = useState('')
+  const [isSentOtp, setIsSentOtp] = useState(false)
   const [otp, setOtp] = useState('')
   const { push } = useRouter()
-  const { formatMessage } = useIntl()
   const setCurrentUser = useStore((user) => user.setCurrentUser)
   const {
     data: getOtpDate,
@@ -26,10 +44,10 @@ export function useLogic() {
     error: postOtpError,
   } = usePostOtp()
 
-  const handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (otp) {
-      if (!otp) return
+    if (!phoneNumber) return
+    if (otp && isSentOtp) {
       postOtp({
         data: {
           mobile: phoneNumber,
@@ -37,12 +55,14 @@ export function useLogic() {
         },
       })
     } else {
-      if (!phoneNumber) return
-      getOtp({
-        params: {
-          mobile: phoneNumber,
-        },
-      })
+      if (!isSentOtp) {
+        getOtp({
+          params: {
+            mobile: phoneNumber,
+          },
+        })
+        setIsSentOtp(true)
+      }
     }
   }
 
@@ -82,7 +102,7 @@ export function useLogic() {
     push('/', undefined, { shallow: true })
   }
 
-  const handleKeyDown = (e: inputTextType) => {
+  const handleKeyDown = (e: inputOnKeyDownType) => {
     if (
       !/[0-9]/.test(e.key) &&
       e.key !== 'Backspace' &&
@@ -97,11 +117,11 @@ export function useLogic() {
 
   return {
     otp,
-    getOtpDate,
     phoneNumber,
     isLoading,
+    isSentOtp,
+    setIsSentOtp,
     handleSubmit,
-    formatMessage,
     setOtp,
     handleKeyDown,
     setPhoneNumber,

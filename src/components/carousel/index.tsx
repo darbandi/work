@@ -1,4 +1,4 @@
-import React, { useId, useMemo } from 'react'
+import { useId, useMemo } from 'react'
 import { Items, ItemsArray } from './Item'
 import { UI_Slider } from '@/ui-components'
 

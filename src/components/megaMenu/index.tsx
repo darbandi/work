@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { RefObject, forwardRef, useId } from 'react'
+import { RefObject, forwardRef, useId } from 'react'
 import { useRouter } from 'next/router'
 import { ISubMenu } from '../navbar'
 import { Categories, CategoryItem, Container, MostView } from './MegaMenu.style'

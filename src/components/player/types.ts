@@ -1,28 +1,34 @@
+import {
+  ChangeEvent,
+  MouseEvent,
+  MutableRefObject,
+  RefObject,
+  SetStateAction,
+} from 'react'
+
 export type PlayerCompProps = { videoId: string }
 
 export type UseVideoOutput = {
-  videoRef: React.RefObject<HTMLVideoElement>
+  videoRef: RefObject<HTMLVideoElement>
   src: string
   thumbnailUrl: null
-  seekTime: React.SetStateAction<number>
+  seekTime: SetStateAction<number>
   isFullScreen: boolean
   isMuted: boolean
   pinActionBar: string
-  seekBarRef: React.RefObject<HTMLDivElement>
-  left: React.MutableRefObject<number | undefined>
+  seekBarRef: RefObject<HTMLDivElement>
+  left: MutableRefObject<number | undefined>
   isLoop: boolean
   speedNumber: number
   handlePlay: () => void
   handleMutedChange: (value: boolean) => void
   handlePause: () => void
   handleToggle: () => void
-  handleVolumeChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  handleVolumeChange: (event: ChangeEvent<HTMLInputElement>) => void
   handleLoopChange: () => void
   handleTimeUpdate: () => void
-  handleSeekChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => Promise<void>
-  handleSeekMouseMove: (event: React.MouseEvent<HTMLDivElement>) => void
+  handleSeekChange: (event: ChangeEvent<HTMLInputElement>) => Promise<void>
+  handleSeekMouseMove: (event: MouseEvent<HTMLDivElement>) => void
   handleSeekMouseOut: () => void
   handleSpeedChange: () => void
   handleFullScreen: () => void

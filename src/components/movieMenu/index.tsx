@@ -1,5 +1,5 @@
-import React from 'react'
 import { useIntl } from 'react-intl'
+import { Fragment } from 'react'
 import { Container, MenuItem, MenuItems } from './MovieMenu.style'
 import { globalMessages } from '@/assets/globalMessages'
 import { UI_Separator, UI_Text } from '@/ui-components'
@@ -18,7 +18,7 @@ export function MovieMenu(): JSX.Element {
     <Container>
       <MenuItems>
         {data.map((item, index) => (
-          <React.Fragment key={item}>
+          <Fragment key={item}>
             {index > 0 && <UI_Separator />}
             <MenuItem href={`#${item}`} scroll={false}>
               <UI_Text size={18} fontWeight='400' color='gray_300'>
@@ -27,7 +27,7 @@ export function MovieMenu(): JSX.Element {
                 )}
               </UI_Text>
             </MenuItem>
-          </React.Fragment>
+          </Fragment>
         ))}
       </MenuItems>
     </Container>

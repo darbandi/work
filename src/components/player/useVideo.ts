@@ -1,5 +1,12 @@
 import axios from 'axios'
-import React, { useEffect, useRef, useState } from 'react'
+import {
+  ChangeEvent,
+  MouseEvent,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import {
   UseVideoOutput,
   UseVideoInput,
@@ -12,7 +19,7 @@ export function useVideo(inputs: UseVideoInput): UseVideoOutput {
   const src = `/api/video/?videoId=${videoId}`
   const videoRef = useRef<HTMLVideoElement>(null)
   const [thumbnailUrl, setThumbnailUrl] = useState(null)
-  const [seekTime, setSeekTime] = useState<React.SetStateAction<number>>(0)
+  const [seekTime, setSeekTime] = useState<SetStateAction<number>>(0)
   const timeout = useRef<NodeJS.Timeout>()
   const left = useRef<number>()
   const seekBarRef = useRef<HTMLDivElement>(null)
@@ -50,7 +57,7 @@ export function useVideo(inputs: UseVideoInput): UseVideoOutput {
     }
   }
 
-  const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleVolumeChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (videoRef.current) {
       videoRef.current.volume = Number(event.target.value)
       if (Number(event.target.value) === 0) {
@@ -73,9 +80,7 @@ export function useVideo(inputs: UseVideoInput): UseVideoOutput {
     setSeekTime(Number(videoRef.current?.currentTime))
   }
 
-  const handleSeekChange = async (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handleSeekChange = async (event: ChangeEvent<HTMLInputElement>) => {
     if (videoRef.current) {
       videoRef.current.currentTime = Number(event.target.value)
 
@@ -83,7 +88,7 @@ export function useVideo(inputs: UseVideoInput): UseVideoOutput {
     }
   }
 
-  const handleSeekMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleSeekMouseMove = (event: MouseEvent<HTMLDivElement>) => {
     clearTimeout(timeout.current)
     timeout.current = setTimeout(async () => {
       if (seekBarRef.current) {

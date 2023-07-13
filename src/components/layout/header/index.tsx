@@ -6,17 +6,17 @@ import {
 import { useClickOutside } from '@react-hooks-library/core'
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { Header } from './Header.style'
 import {
   UI_Box,
   UI_Button,
   UI_Icon,
-  UI_InputText,
+  UI_TextField,
   UI_Text,
 } from '@/ui-components'
-import { inputTextType } from '@/types/elements'
+import { inputOnKeyDownType } from '@/types/elements'
 import { useStore } from '@/store'
 import { useScroll } from '@/hooks'
 import { NavbarComp } from '@/components'
@@ -54,7 +54,7 @@ export function HeaderComp(): JSX.Element | null {
     }
   }, [isSearchMode])
 
-  const handleSearch = (e: inputTextType) => {
+  const handleSearch = (e: inputOnKeyDownType) => {
     if (e.key === 'Enter') {
       push(`/search/?q=${searchRef.current?.value}`)
       setIsSearchMode(false)
@@ -67,7 +67,7 @@ export function HeaderComp(): JSX.Element | null {
       <NavbarComp />
       <UI_Box alignItems='center' display='flex'>
         {isSearchMode ? (
-          <UI_InputText
+          <UI_TextField
             ref={searchRef}
             rounded
             mode='light'
@@ -76,6 +76,7 @@ export function HeaderComp(): JSX.Element | null {
             })}
             className='input-search'
             onKeyDown={handleSearch}
+            color='gray_700'
           />
         ) : (
           <>
@@ -106,7 +107,6 @@ export function HeaderComp(): JSX.Element | null {
                 className='btn-login-register'
                 onClick={handleLogout}
               >
-                {/* {user.userName || user.mobile} */}
                 <UI_Text>{data?.user?.name}</UI_Text>
                 <UI_Icon icon={faSignOut} />
               </UI_Button>

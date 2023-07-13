@@ -1,3 +1,4 @@
-import { KeyboardEvent } from 'react'
+import { ChangeEvent, KeyboardEvent } from 'react'
 
-export type inputTextType = KeyboardEvent<HTMLInputElement>
+export type inputOnKeyDownType = KeyboardEvent<HTMLInputElement>
+export type inputOnChangeType = ChangeEvent<HTMLInputElement>

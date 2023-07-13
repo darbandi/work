@@ -1,4 +1,3 @@
-import React from 'react'
 import { CarouselComp } from '@/components'
 
 const itemsArray = [

@@ -1,5 +1,5 @@
 import { useIntersectionObserver } from '@react-hooks-library/core'
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Motion } from './Motion.style'
 
 type Props = {

@@ -23,6 +23,7 @@
   ],
   "rules": {
     // "simple-import-sort/imports": "error",
+    "react/react-in-jsx-scope": "off",
     "simple-import-sort/exports": "error",
     "import/no-duplicates": "error",
     "quotes": ["error", "single", { "avoidEscape": true }],

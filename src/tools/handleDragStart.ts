@@ -1,3 +1,5 @@
+import { FormEvent } from 'react'
+
 export const handleDragStart = (
-  e: React.FormEvent<HTMLImageElement> | undefined,
+  e: FormEvent<HTMLImageElement> | undefined,
 ): void => e?.preventDefault?.()

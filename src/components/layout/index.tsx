@@ -1,4 +1,3 @@
-import React from 'react'
 import { MainComp } from './main'
 import { FooterComp } from './footer'
 import { HeaderComp } from './header'

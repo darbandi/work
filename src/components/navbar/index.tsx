@@ -4,7 +4,7 @@ import {
   faBars,
 } from '@fortawesome/free-solid-svg-icons'
 import { useClickOutside } from '@react-hooks-library/core'
-import React, { useId, useRef, useState } from 'react'
+import { useId, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { useRouter } from 'next/router'
 import { MegaMenu } from '../megaMenu'

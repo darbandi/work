@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl'
 import { faCheck, faClose } from '@fortawesome/free-solid-svg-icons'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Actions, Blur, Container, Header } from './Modal.style'
 import { UI_Icon, UI_Text, UI_Button } from '@/ui-components'
 import { colors } from '@/theme'

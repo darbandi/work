@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import { Footer } from './Footer.style'

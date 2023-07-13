@@ -4,7 +4,7 @@ import {
   faEye,
   faThumbsDown,
 } from '@fortawesome/free-solid-svg-icons'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import { WatchDetailsButtons } from '../watchDetailsButtons'

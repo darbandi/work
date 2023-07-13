@@ -1,18 +1,18 @@
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useIntl } from 'react-intl'
 import { FiltersContainer } from './Search.style'
-import { UI_Icon, UI_InputText, UI_Text } from '@/ui-components'
+import { UI_Icon, UI_TextField, UI_Text } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
-import { inputTextType } from '@/types/elements'
+import { inputOnChangeType, inputOnKeyDownType } from '@/types/elements'
 
 export function Filters(): JSX.Element {
   const { formatMessage } = useIntl()
   const { query, replace, pathname } = useRouter()
   const [searched, setSearched] = useState(query.q?.toString())
 
-  const handleEnter = (e: inputTextType) => {
+  const handleEnter = (e: inputOnKeyDownType) => {
     if (e.key === 'Enter') {
       replace({
         pathname,
@@ -39,10 +39,10 @@ export function Filters(): JSX.Element {
         <UI_Icon icon={faFilter} color='gray_700' />
         {formatMessage(globalMessages.filters)}:
       </UI_Text>
-      <UI_InputText
+      <UI_TextField
         placeholder={formatMessage(globalMessages.search, { other: ' ...' })}
         value={searched}
-        onChange={(e) => setSearched(e.target.value)}
+        onChange={(e: inputOnChangeType) => setSearched(e.target.value)}
         onKeyDown={handleEnter}
         mode='light'
       />

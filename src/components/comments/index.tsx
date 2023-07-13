@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useId } from 'react'
+import { useId } from 'react'
 import { useIntl } from 'react-intl'
 import Image from 'next/image'
 import {

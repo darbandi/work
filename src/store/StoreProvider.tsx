@@ -1,4 +1,4 @@
-import React, { useRef, type PropsWithChildren } from 'react'
+import { useRef, type PropsWithChildren } from 'react'
 import { Provider, initializeStore } from './store'
 import type { StoreType } from '@/types/zustand'
 

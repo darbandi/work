@@ -10,7 +10,7 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
 })
 
-module.exports = withPWA({
+const config = {
   env: {
     ...localEnv,
   },
@@ -32,4 +32,7 @@ module.exports = withPWA({
   compiler: {
     styledComponents: true,
   },
-})
+}
+
+module.exports =
+  process.env.NODE_ENV === 'production' ? withPWA(config) : config

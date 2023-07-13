@@ -1,4 +1,3 @@
-import React from 'react'
 import { useIntl } from 'react-intl'
 import Head from 'next/head'
 import { globalMessages } from '@/assets/globalMessages'

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { useIntl } from 'react-intl'
 import { Container, More } from './Description.style'

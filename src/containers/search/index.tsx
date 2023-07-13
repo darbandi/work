@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React, { useId } from 'react'
+import { useId } from 'react'
 import { itemsArray } from '../home/topTen'
 import { Filters } from './Filters'
 import { Container, DetailsWrapper, MoviesWrapper } from './Search.style'

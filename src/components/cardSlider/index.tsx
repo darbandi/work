@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useMemo } from 'react'
+import { useEffect, useId, useMemo } from 'react'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { useIntl } from 'react-intl'
 import { Container, Header, More, Title } from './CardSlider.style'

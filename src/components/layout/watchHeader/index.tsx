@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useIntl } from 'react-intl'
 import { faArrowLeft, faGear } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from 'next/router'
