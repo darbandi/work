@@ -1,4 +1,5 @@
 import mongoose, { Model, Schema } from 'mongoose'
+import { CommonTypesSchema } from './commonTypes'
 import type { IProfile } from '@/types/profile'
 
 const ProfileSchema: Schema<IProfile> = new mongoose.Schema({
@@ -8,7 +9,7 @@ const ProfileSchema: Schema<IProfile> = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'User',
   },
-})
+}).add(CommonTypesSchema)
 
 ProfileSchema.methods.toJSON = function () {
   const profileObject = this.toObject()

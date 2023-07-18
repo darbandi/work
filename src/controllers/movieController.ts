@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { User, Profile } from '@/models'
+import { Movie } from '@/models'
 
-// Get all users
-export const getAllUsers = async (
+// Get all movies
+export const getAllMovies = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
@@ -17,13 +17,13 @@ export const getAllUsers = async (
       ...(userName ? { userName: { $regex: userName } } : {}),
       ...(email ? { email: { $regex: email } } : {}),
     }
-    const users = await User.find(filters)
+    const movies = await Movie.find(filters)
       .skip((+page - 1) * +perPage)
       .limit(+perPage)
-    const totalCount = await User.countDocuments(filters)
+    const totalCount = await Movie.countDocuments(filters)
     res.status(200).json({
       success: true,
-      data: users,
+      data: movies,
       meta: {
         totalCount,
         page,
@@ -35,40 +35,39 @@ export const getAllUsers = async (
   }
 }
 
-// Create a new user
-export const createUser = async (
+// Create a new movie
+export const createMovie = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
   try {
-    const user = await User.create(req.body)
-    res.status(201).json({ success: true, data: user.toJSON() })
+    const movie = await Movie.create(req.body)
+    res.status(201).json({ success: true, data: movie.toJSON() })
   } catch (error) {
     res.status(400).json({ success: false, error })
   }
 }
 
-// Get a single user by ID
-export const getUserById = async (
+// Get a single movie by ID
+export const getMovieById = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
   try {
-    const user = await User.findById(req.query.id)
-    const profile = await Profile.findOne({ user: req.query.id })
-    res.status(200).json({ success: true, data: { ...user.toJSON(), profile } })
+    const movie = await Movie.findById(req.query.id)
+    res.status(200).json({ success: true, data: movie.toJSON() })
   } catch (error) {
     res.status(400).json({ success: false, error })
   }
 }
 
-// Update a user
-export const updateUser = async (
+// Update a movie
+export const updateMovie = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
   try {
-    const user = await User.findByIdAndUpdate(
+    const movie = await Movie.findByIdAndUpdate(
       req.query.id,
       { ...req.body, updatedAt: new Date() },
       {
@@ -76,23 +75,23 @@ export const updateUser = async (
         runValidators: true,
       },
     )
-    if (!user) {
+    if (!movie) {
       return res.status(400).json({ success: false })
     }
-    res.status(200).json({ success: true, data: user.toJSON() })
+    res.status(200).json({ success: true, data: movie.toJSON() })
   } catch (error) {
     res.status(400).json({ success: false, error })
   }
 }
 
-// Delete a user
-export const deleteUser = async (
+// Delete a movie
+export const deleteMovie = async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
   try {
-    const deletedUser = await User.findByIdAndRemove(req.query.id)
-    if (!deletedUser) {
+    const deletedMovie = await Movie.findByIdAndRemove(req.query.id)
+    if (!deletedMovie) {
       return res.status(400).json({ success: false })
     }
     res.status(200).json({ success: true, data: {} })

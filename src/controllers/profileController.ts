@@ -67,10 +67,14 @@ export const updateProfile = async (
   res: NextApiResponse,
 ): Promise<void> => {
   try {
-    const profile = await Profile.findByIdAndUpdate(req.query.id, req.body, {
-      new: true,
-      runValidators: true,
-    })
+    const profile = await Profile.findByIdAndUpdate(
+      req.query.id,
+      { ...req.body, updatedAt: new Date() },
+      {
+        new: true,
+        runValidators: true,
+      },
+    )
     if (!profile) {
       return res.status(400).json({ success: false })
     }

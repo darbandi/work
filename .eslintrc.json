@@ -23,6 +23,7 @@
   ],
   "rules": {
     // "simple-import-sort/imports": "error",
+    // "@typescript-eslint/no-unsafe-assignment": "error",
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/exports": "error",
     "import/no-duplicates": "error",

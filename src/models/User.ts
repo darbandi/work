@@ -1,5 +1,6 @@
 import { hash } from 'bcrypt'
 import mongoose, { Model, Schema } from 'mongoose'
+import { CommonTypesSchema } from './commonTypes'
 import type { IUser } from '@/types/user'
 
 const UserSchema: Schema<IUser> = new mongoose.Schema({
@@ -8,7 +9,7 @@ const UserSchema: Schema<IUser> = new mongoose.Schema({
   email: String,
   password: String,
   isActiveOtp: Boolean,
-})
+}).add(CommonTypesSchema)
 
 UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
