@@ -1,5 +1,34 @@
 # Changelog
 
+## [0.6.0](///compare/0.5.0...0.6.0) (2023-07-20)
+
+
+### Features
+
+* added genre api, filters movies and style improvements 6d52963
+* movie api was added 66368ff
+* the login with otp code was implemented 9dd0846
+
+
+### Bug Fixes
+
+* removed import react, button loading, improvement login page 6799c69
+
+
+### Other Improvement
+
+* auto-install-peers 6b3cb9a
+* auto-install-peers=false ee2455e
+* auto-install-peers=true 0b7c844
+* change env 3b45b43
+* fixed zustand version cf85678
+* improvement style 49f0736
+* lock file 1e5674d
+* login page style was changed and translated and the input text was improved 01fe3f1
+* remove all the old otps & finde last otp code & logout & toastify & input style 34944bb
+* remove ts-prune e81ee26
+* translate all the static text ca27460
+
 ## [0.5.0](///compare/0.4.0...0.5.0) (2023-07-07)
 
 
