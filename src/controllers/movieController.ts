@@ -10,12 +10,29 @@ export const getAllMovies = async (
     const {
       page = 1,
       perPage = 10,
-      userName = '',
-      email = '',
+      title,
+      enTitle,
+      summary,
+      description,
+      releaseYear,
+      releaseYearMin,
+      releaseYearMax,
+      rateMin,
+      rateMax,
+      viewMin,
+      viewMax,
     } = req.query || {}
     const filters = {
-      ...(userName ? { userName: { $regex: userName } } : {}),
-      ...(email ? { email: { $regex: email } } : {}),
+      ...(title ? { title: { $regex: title } } : {}),
+      ...(enTitle ? { enTitle: { $regex: enTitle } } : {}),
+      ...(summary ? { summary: { $regex: summary } } : {}),
+      ...(description ? { description: { $regex: description } } : {}),
+      ...(releaseYear ? { releaseYear: { $regex: releaseYear } } : {}),
+      ...(releaseYearMin && releaseYearMax
+        ? { releaseYear: { $gte: releaseYearMin, $lt: releaseYearMax } }
+        : {}),
+      ...(rateMin && rateMax ? { rate: { $gte: rateMin, $lt: rateMax } } : {}),
+      ...(viewMin && viewMax ? { view: { $gte: viewMin, $lt: viewMax } } : {}),
     }
     const movies = await Movie.find(filters)
       .skip((+page - 1) * +perPage)

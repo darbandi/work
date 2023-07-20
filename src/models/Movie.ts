@@ -23,7 +23,7 @@ const MovieSchema: Schema<IMovie> = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  rating: {
+  rate: {
     type: Number,
     required: true,
     default: 0,

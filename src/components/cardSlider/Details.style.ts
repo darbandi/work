@@ -57,6 +57,12 @@ export const Container = styled.div<ContainerType>`
         padding: ${remCalc(16)};
         margin: 0;
         box-shadow: 0 0 3px ${colors.black}, 0 0 20px ${colors.black};
+        height: 100%;
+
+        .image-col,
+        .base-row {
+          height: 100%;
+        }
 
         & > div {
           flex-direction: column-reverse;
@@ -131,10 +137,10 @@ export const CustomImage = styled.div`
         margin: -${remCalc(16)};
         height: max-content;
         box-shadow: ${`0 3px 5px ${colors.gray_800}`};
-
+        height: 100%;
         .detail-image {
-          width: 100% !important;
-          height: auto !important;
+          height: 100% !important;
+          width: auto !important;
           border-radius: 0;
         }
       `,
@@ -146,16 +152,16 @@ export const CloseIcon = styled.div`
     position: absolute;
     cursor: pointer;
     left: 5%;
-    top: ${remCalc(-50)};
+    top: ${remCalc(-70)};
 
     .svg-inline--fa {
-      border: 5px solid ${colors.darkBlue_500};
       background-color: ${colors.white};
       color: ${colors.gray_700};
-      width: ${remCalc(32)};
-      height: ${remCalc(32)};
+      width: ${remCalc(18)};
+      height: ${remCalc(18)};
       padding: ${remCalc(15)};
       border-radius: 50%;
+      box-shadow: 0 0 ${remCalc(5)} ${colors.black};
       ${flexCenter}
     }
 
@@ -163,7 +169,7 @@ export const CloseIcon = styled.div`
       '-sm',
       css`
         right: calc(90% - ${remCalc(16)});
-        top: ${remCalc(-100)};
+        top: ${remCalc(-90)};
       `,
     )}
   `}

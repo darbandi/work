@@ -6,7 +6,7 @@ export interface IMovie extends CommonTypes {
   summary: string
   description: string
   releaseYear: number
-  rating: number
+  rate: number
   country: string
   language: string
   view: number

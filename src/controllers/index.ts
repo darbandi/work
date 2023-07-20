@@ -1,3 +1,4 @@
+export * from './genreController'
 export * from './movieController'
 export * from './otpController'
 export * from './profileController'

@@ -129,7 +129,7 @@ export function Details(): JSX.Element | null {
               </Actions>
             </UI_Box>
           </UI_Col>
-          <UI_Col xs={12} sm={5} hideOn='-sm'>
+          <UI_Col xs={12} sm={5} hideOn='-sm' className='image-col'>
             <CustomImage>
               {imgLoading ? (
                 <UI_Loading sm />
