@@ -26,6 +26,12 @@ export const responsive = (breakpoint: string, content: any): any => {
           ${content};
         }
       `
+    case 'xlg':
+      return css`
+        @media only screen and (max-width: 1440px) {
+          ${content};
+        }
+      `
     case '-xs':
       return css`
         @media only screen and (min-width: 576px) {
@@ -47,6 +53,12 @@ export const responsive = (breakpoint: string, content: any): any => {
     case '-lg':
       return css`
         @media only screen and (min-width: 1200px) {
+          ${content};
+        }
+      `
+    case '-xlg':
+      return css`
+        @media only screen and (min-width: 1440px) {
           ${content};
         }
       `

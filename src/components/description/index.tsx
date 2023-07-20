@@ -22,7 +22,13 @@ export function Description(prop: Props): JSX.Element {
           {formatMessage(globalMessages.movieDescription)}
         </UI_Text>
       </UI_Box>
-      <UI_Text lineHeight={2} as='p' className='description' color='gray_400'>
+      <UI_Text
+        lineHeight={2}
+        as='p'
+        className='description'
+        color='gray_400'
+        size={16}
+      >
         {value}
       </UI_Text>
       <More>

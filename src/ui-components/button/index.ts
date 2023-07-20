@@ -2,14 +2,24 @@ import styled, { css } from 'styled-components'
 import { ThemeType, flexCenter } from '@/theme'
 import { commonColors } from '@/theme/Theme.styled'
 
-type innerType = { variant?: 'contained' | 'outlined'; loading?: boolean }
+type innerType = {
+  variant?: 'contained' | 'outlined'
+  loading?: boolean
+  fullWidth?: boolean
+  size?: 'xs' | 'sm' | 'md'
+}
 
-type UI_ButtonType = Omit<ThemeType, 'variant'> & innerType
+type UI_ButtonType = Omit<ThemeType, 'variant' | 'size'> & innerType
 
-type globalStyleType = Omit<UI_ButtonType, 'theme' | 'size' | 'lineHeight'>
+type globalStyleType = Omit<UI_ButtonType, 'theme' | 'lineHeight'>
 
 const globalStyle = styled.button<globalStyleType>`
-  ${({ theme: { colors, remCalc }, loading }: UI_ButtonType) => css`
+  ${({
+    theme: { colors, remCalc },
+    loading,
+    fullWidth,
+    size,
+  }: UI_ButtonType) => css`
     border-radius: ${remCalc(24)};
     padding: 0 ${remCalc(24)};
     font-size: ${remCalc(16)};
@@ -21,6 +31,11 @@ const globalStyle = styled.button<globalStyleType>`
     height: ${remCalc(48)};
     ${flexCenter}
     gap:  ${remCalc(12)};
+
+    ${fullWidth &&
+    css`
+      width: 100%;
+    `}
 
     &:hover {
       box-shadow: 0 0 ${`${remCalc(5)} ${colors.gray_500}`};
@@ -60,6 +75,25 @@ const globalStyle = styled.button<globalStyleType>`
           clip-path: inset(0 0 0 89%);
         }
       }
+    `}
+
+    ${size === 'md' &&
+    css`
+      height: ${remCalc(32)};
+      font-size: ${remCalc(14)};
+      padding: 0 ${remCalc(18)};
+    `}
+    ${size === 'sm' &&
+    css`
+      height: ${remCalc(28)};
+      font-size: ${remCalc(12)};
+      padding: 0 ${remCalc(14)};
+    `}
+    ${size === 'xs' &&
+    css`
+      height: ${remCalc(24)};
+      font-size: ${remCalc(10)};
+      padding: 0 ${remCalc(10)};
     `}
   `}
 `

@@ -1,17 +1,9 @@
 import Image from 'next/image'
 import { useId } from 'react'
 import { useIntl } from 'react-intl'
-import {
-  Button,
-  Container,
-  Footer,
-  ImageWrapper,
-  Item,
-  Items,
-  JobPosition,
-} from './MovieCrew.style'
+import { Container, Footer, ImageWrapper, Item, Items } from './MovieCrew.style'
 import { globalMessages } from '@/assets/globalMessages'
-import { UI_Box, UI_Text } from '@/ui-components'
+import { UI_Box, UI_Button, UI_Link, UI_Text } from '@/ui-components'
 
 const movieCrew = [
   {
@@ -63,7 +55,7 @@ export function MovieCrew(props: Props): JSX.Element {
   return (
     <Container id={id}>
       <UI_Box mb={48}>
-        <UI_Text size={24} fontWeight='bold' as='h4' color='gray_800'>
+        <UI_Text size={24} fontWeight='bold' as='h4' color='gray_100'>
           {formatMessage(globalMessages.movieCrew)}
         </UI_Text>
       </UI_Box>
@@ -71,9 +63,6 @@ export function MovieCrew(props: Props): JSX.Element {
         {movieCrew.map((crew) => (
           <Item key={`${uId}-${crew.id}`}>
             <ImageWrapper className='image-wrapper'>
-              <JobPosition>
-                <UI_Text>{crew.jobPosition}</UI_Text>
-              </JobPosition>
               <Image
                 className='detail-image'
                 src={`/images/profiles/${crew.id}.webp`}
@@ -87,19 +76,37 @@ export function MovieCrew(props: Props): JSX.Element {
               />
             </ImageWrapper>
             <Footer>
-              <UI_Text color='gray_700' fontWeight='bold' size={16}>
+              <UI_Text
+                color='gray_500'
+                fontWeight='300'
+                size={14}
+                as='h4'
+                display='block'
+              >
+                {crew.jobPosition}
+              </UI_Text>
+
+              <UI_Text
+                color='gray_100'
+                fontWeight='bold'
+                size={18}
+                as='p'
+                display='block'
+              >
                 {crew.name}
               </UI_Text>
-              <Button
-                href={`/crew/${crew.id}/?name=${crew.name.replace(
-                  / /g,
-                  '_',
-                )}&jobPosition=${crew.jobPosition.replace(/ /g, '_')}`}
-              >
-                <UI_Text size={12} fontWeight='400'>
-                  {formatMessage(globalMessages.profile)}
-                </UI_Text>
-              </Button>
+              <UI_Box display='flex' justifyContent='end'>
+                <UI_Link
+                  href={`/crew/${crew.id}/?name=${crew.name.replace(
+                    / /g,
+                    '_',
+                  )}&jobPosition=${crew.jobPosition.replace(/ /g, '_')}`}
+                >
+                  <UI_Button variant='outlined' color='yellow_700' size='md'>
+                    {formatMessage(globalMessages.viewProfile)}
+                  </UI_Button>
+                </UI_Link>
+              </UI_Box>
             </Footer>
           </Item>
         ))}

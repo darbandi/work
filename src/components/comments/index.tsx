@@ -9,7 +9,14 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
 import { Container, CommentContainer, Reply } from './Comments.style'
-import { UI_Col, UI_Icon, UI_Row, UI_Text, UI_Box } from '@/ui-components'
+import {
+  UI_Col,
+  UI_Icon,
+  UI_Row,
+  UI_Text,
+  UI_Box,
+  UI_Button,
+} from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 interface Props {
@@ -93,24 +100,30 @@ export function Comment(props: comment): JSX.Element {
             </UI_Text>
           </UI_Box>
           <UI_Box>
-            <UI_Text lineHeight={2} className='content' as='p' color='gray_500'>
+            <UI_Text
+              lineHeight={2}
+              size={16}
+              className='content'
+              as='p'
+              color='gray_500'
+            >
               {content}
             </UI_Text>
           </UI_Box>
           <UI_Box className='footer'>
-            <UI_Text fontWeight='bold' color='green_500' className='like'>
+            <UI_Text fontWeight='400' color='green_500' className='like'>
               <UI_Icon icon={faThumbsUp} className='icon' color='green_500' />
               {likes}
             </UI_Text>
-            <UI_Text fontWeight='bold' color='red_500' className='dislike'>
+            <UI_Text fontWeight='400' color='red_500' className='dislike'>
               <UI_Icon icon={faThumbsDown} className='icon' color='red_500' />
               {dislikes}
             </UI_Text>
             <Reply>
-              <UI_Icon icon={faReply} />
-              <UI_Text size={16} fontWeight='bold' color='gray_400'>
+              <UI_Button variant='outlined' size={'xs'} color='gray_600'>
+                <UI_Icon icon={faReply} />
                 {formatMessage(globalMessages.reply)}
-              </UI_Text>
+              </UI_Button>
             </Reply>
           </UI_Box>
         </UI_Col>

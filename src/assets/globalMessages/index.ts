@@ -83,13 +83,17 @@ export const globalMessages = defineMessages({
     id: `${scope}.profile`,
     defaultMessage: 'پروفایل',
   },
+  viewProfile: {
+    id: `${scope}.viewProfile`,
+    defaultMessage: 'مشاهده پروفایل',
+  },
   comments: {
     id: `${scope}.comments`,
     defaultMessage: 'دیدگاه کاربران',
   },
   reply: {
     id: `${scope}.comments`,
-    defaultMessage: 'پاسخ به این دیدگاه',
+    defaultMessage: 'پاسخ',
   },
   copyright: {
     id: `${scope}.copyright`,

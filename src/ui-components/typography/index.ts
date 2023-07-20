@@ -52,7 +52,7 @@ export const BaseTextStyle = styled.span<TextType>`
   `}
 `
 export const UI_Text = styled(BaseTextStyle).attrs<{
-  component: string
+  as: string
 }>((props) => ({
-  as: props?.component ?? 'span',
+  as: props?.as ?? 'span',
 }))``
