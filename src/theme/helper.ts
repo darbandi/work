@@ -102,3 +102,42 @@ export const flexColStartCenter = css`
   justify-content: center;
   flex-direction: column;
 `
+
+export const spinner = css`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    background-image: url('/images/global/loading.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    animation: spinX 3s infinite;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    z-index: 0;
+  }
+
+  img {
+    z-index: 0;
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes spinX {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`

@@ -2,7 +2,6 @@
 
 import { useId } from 'react'
 import { useIntl } from 'react-intl'
-import Image from 'next/image'
 import {
   faReply,
   faThumbsDown,
@@ -16,6 +15,7 @@ import {
   UI_Text,
   UI_Box,
   UI_Button,
+  UI_ImageLoading,
 } from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
@@ -74,15 +74,10 @@ export function Comment(props: comment): JSX.Element {
     <CommentContainer isReplied={Boolean(parent_id)}>
       <UI_Row display='flex' className='row'>
         <UI_Col xs={1} className='image-wrapper'>
-          <Image
+          <UI_ImageLoading
             src={`/images/profiles/${id}.webp`}
-            alt='work'
             width={100}
             height={100}
-            role='presentation'
-            loading='lazy'
-            sizes='(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw'
-            style={{ width: 'auto', height: '100%' }}
           />
         </UI_Col>
         <UI_Col xs={11} className='comment'>

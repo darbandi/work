@@ -57,7 +57,7 @@ export const Hovered = styled.div`
     position: absolute;
     inset: 0;
     background-color: ${colors.black}c7;
-    bottom: ${remCalc(42)};
+    bottom: ${remCalc(34)};
     flex-direction: column;
     transition: all 0.3s;
     padding: ${`${remCalc(8)} ${remCalc(16)}`};

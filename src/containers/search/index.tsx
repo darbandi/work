@@ -38,7 +38,6 @@ export function SearchPage(): JSX.Element {
                     id={item.id}
                     item={item}
                     key={item.id}
-                    isDisabledLoading
                     isDisabledScroll
                     mode='light'
                   />

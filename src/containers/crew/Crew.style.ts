@@ -37,10 +37,6 @@ export const Container = styled.div`
           flex-direction: column-reverse;
         }
 
-        .thumbnail-image {
-          display: none;
-        }
-
         .image-wrapper {
           height: 70vh;
         }
@@ -57,7 +53,7 @@ export const Cover = styled.div`
     top: 0;
     width: 100px;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
 
     ${responsive(
       'sm',
@@ -65,7 +61,7 @@ export const Cover = styled.div`
         width: 100%;
         height: 100px;
         top: -100px;
-        z-index: 0;
+        z-index: 1;
         opacity: 1;
         background: ${`linear-gradient(180deg, transparent, ${colors.brown_500})`};
       `,
@@ -78,6 +74,9 @@ export const Position = styled.div`
     top: 50%;
     left: 0;
     transform: translate(-54%, -50%) rotate(270deg);
+    z-index: 1;
+    width: 100%;
+    text-align: center;
 
     ${responsive(
       'sm',

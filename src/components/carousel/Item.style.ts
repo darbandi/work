@@ -30,6 +30,7 @@ export const InfoWrapper = styled.div`
       rgba(0, 0, 0, 0.7) 50%,
       rgba(0, 0, 0, 0) 100%
     );
+    z-index: 1;
 
     ${responsive(
       'sm',

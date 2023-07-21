@@ -1,9 +1,14 @@
-import Image from 'next/image'
 import { useId } from 'react'
 import { useIntl } from 'react-intl'
 import { Container, Footer, ImageWrapper, Item, Items } from './MovieCrew.style'
 import { globalMessages } from '@/assets/globalMessages'
-import { UI_Box, UI_Button, UI_Link, UI_Text } from '@/ui-components'
+import {
+  UI_Box,
+  UI_Button,
+  UI_ImageLoading,
+  UI_Link,
+  UI_Text,
+} from '@/ui-components'
 
 const movieCrew = [
   {
@@ -63,18 +68,14 @@ export function MovieCrew(props: Props): JSX.Element {
         {movieCrew.map((crew) => (
           <Item key={`${uId}-${crew.id}`}>
             <ImageWrapper className='image-wrapper'>
-              <Image
-                className='detail-image'
+              <UI_ImageLoading
                 src={`/images/profiles/${crew.id}.webp`}
-                alt='work'
                 width={378}
                 height={450}
-                role='presentation'
-                loading='lazy'
-                sizes='(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw'
-                style={{ width: '100%', height: 'auto' }}
+                className='detail-image'
               />
             </ImageWrapper>
+
             <Footer>
               <UI_Text
                 color='gray_500'

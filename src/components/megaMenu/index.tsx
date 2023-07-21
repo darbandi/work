@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import { RefObject, forwardRef, useId } from 'react'
 import { useRouter } from 'next/router'
 import { ISubMenu } from '../navbar'
 import { Categories, CategoryItem, Container, MostView } from './MegaMenu.style'
+import { UI_ImageLoading } from '@/ui-components'
 
 type MegaMenuProps = {
   isOpen: boolean
@@ -38,11 +38,10 @@ export const MegaMenu = forwardRef(function MegaMenu(
         })}
       </Categories>
       <MostView>
-        <Image
+        <UI_ImageLoading
           src={'/images/sliders/small/1.jpg'}
           width={430}
           height={210}
-          alt='work'
           style={{
             borderRadius: '30px',
           }}

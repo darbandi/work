@@ -5,7 +5,6 @@ import {
   faPlay,
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons'
-import Image from 'next/image'
 import { useEffect } from 'react'
 import { useMediaQuery } from '@react-hooks-library/core'
 import {
@@ -24,7 +23,7 @@ import {
 } from '@/components/cardSlider/Item.style'
 import { useStore } from '@/store'
 import { handleDragStart } from '@/tools'
-import { UI_Icon, UI_Loading } from '@/ui-components'
+import { UI_Icon, UI_ImageLoading } from '@/ui-components'
 import { useDocument } from '@/hooks'
 
 export type ItemsArray = {
@@ -40,12 +39,11 @@ type ItemProps = {
   item: ItemsArray
   id: string
   mode?: 'dark' | 'light'
-  isDisabledLoading?: boolean
   isDisabledScroll?: boolean
 }
 
 export function Items(props: ItemProps): JSX.Element {
-  const { item, id, mode, isDisabledLoading, isDisabledScroll } = props
+  const { item, id, mode, isDisabledScroll } = props
   const isMobile = useMediaQuery('(max-width: 576px)')
   const { hideScroll, offsetTop } = useDocument()
 
@@ -83,20 +81,13 @@ export function Items(props: ItemProps): JSX.Element {
 
   return (
     <ItemWrapper>
-      <Image
+      <UI_ImageLoading
         src={`/images/movies/thumbnails/${item.id}.png`}
-        alt='work'
         width={570}
         height={841}
         onDragStart={handleDragStart}
-        role='presentation'
-        loading='lazy'
-        style={{ width: '100%', height: 'auto' }}
         onClick={handleClickDetails}
       />
-      {!isDisabledLoading && (
-        <UI_Loading className='swiper-lazy-preloader' xs />
-      )}
       <InfoStyle>
         <TitleStyle href={`/watch/${item.id}`} mode={mode}>
           {item.title}

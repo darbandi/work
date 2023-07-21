@@ -1,7 +1,13 @@
-import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import { Footer } from './Footer.style'
-import { UI_Row, UI_Col, UI_Box, UI_Text, UI_Link } from '@/ui-components'
+import {
+  UI_Row,
+  UI_Col,
+  UI_Box,
+  UI_Text,
+  UI_Link,
+  UI_ImageLoading,
+} from '@/ui-components'
 import { globalMessages } from '@/assets/globalMessages'
 
 const menuData = [
@@ -118,13 +124,10 @@ export function FooterComp(): JSX.Element {
                     target='_blank'
                     rel='noopener noreferrer'
                   >
-                    <Image
+                    <UI_ImageLoading
                       src={`/images/global/${item.type}.png`}
-                      alt='work'
                       width={24}
                       height={24}
-                      role='presentation'
-                      loading='lazy'
                     />
                   </UI_Link>
                 )
@@ -134,22 +137,20 @@ export function FooterComp(): JSX.Element {
         </UI_Col>
         <UI_Col md={2} sm={12}>
           <UI_Box display='flex' alignItems='center' gap={16} className='logos'>
-            <Image
-              src={'/images/global/samandehi.svg'}
-              alt='work'
-              width={100}
-              height={100}
-              role='presentation'
-              loading='lazy'
-            />
-            <Image
-              src={'/images/global/enamad.png'}
-              alt='work'
-              width={100}
-              height={100}
-              role='presentation'
-              loading='lazy'
-            />
+            <UI_Box width={100} height={100}>
+              <UI_ImageLoading
+                src={'/images/global/samandehi.svg'}
+                width={100}
+                height={100}
+              />
+            </UI_Box>
+            <UI_Box width={100} height={100}>
+              <UI_ImageLoading
+                src={'/images/global/enamad.png'}
+                width={100}
+                height={100}
+              />
+            </UI_Box>
           </UI_Box>
         </UI_Col>
       </UI_Row>

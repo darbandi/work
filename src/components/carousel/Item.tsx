@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { WatchDetailsButtons } from '../watchDetailsButtons'
 import {
   EnTitleStyle,
@@ -8,7 +7,7 @@ import {
   ItemWrapper,
   TitleStyle,
 } from '@/components/carousel/Item.style'
-import { UI_Loading } from '@/ui-components'
+import { UI_ImageLoading } from '@/ui-components'
 
 export type ItemsArray = {
   id: string
@@ -36,18 +35,14 @@ export function Items(props: ItemProps): JSX.Element {
       </InfoWrapper>
       <ImageWrapper>
         {item && (
-          <Image
+          <UI_ImageLoading
             className='img'
             src={`/images/sliders/${item.id}.png`}
-            alt='work'
-            role='presentation'
-            style={{ width: 'auto', height: '100%' }}
             width={1920}
             height={650}
           />
         )}
       </ImageWrapper>
-      <UI_Loading className='swiper-lazy-preloader' />
     </ItemWrapper>
   )
 }

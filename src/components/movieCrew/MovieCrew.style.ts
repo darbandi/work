@@ -60,12 +60,13 @@ export const Item = styled.div`
 
 export const ImageWrapper = styled.div`
   ${({ theme: { colors, remCalc } }: ThemeType) => css`
+    height: 100%;
     border-radius: ${remCalc(24)} ${remCalc(24)} 0 0;
-    height: 100&;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+
     img {
       transition: all 0.3s;
       box-shadow: 0 0 5px ${colors.gray_700};

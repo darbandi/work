@@ -1,9 +1,14 @@
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import { useIntl } from 'react-intl'
 import { itemsArray } from '../home/topTen'
 import { Container, Cover, Position } from './Crew.style'
-import { UI_Box, UI_Col, UI_Row, UI_Text } from '@/ui-components'
+import {
+  UI_Box,
+  UI_Col,
+  UI_ImageLoading,
+  UI_Row,
+  UI_Text,
+} from '@/ui-components'
 import { CardSliderComp, Comments, MotionComp } from '@/components'
 import { globalMessages } from '@/assets/globalMessages'
 
@@ -26,16 +31,15 @@ export function CrewPage(): JSX.Element {
             </UI_Text>
           </Position>
           <UI_Box display='flex' flexDirection='column' width='80%'>
-            <Image
-              src={`/images/profiles/${query.id}.webp`}
-              alt='work'
-              width={100}
-              height={100}
-              role='presentation'
-              loading='lazy'
-              className='thumbnail-image'
-              style={{ width: '100px', height: '100px', borderRadius: '50%' }}
-            />
+            <UI_Box width={100} height={100}>
+              <UI_ImageLoading
+                src={`/images/profiles/${query.id}.webp`}
+                width={100}
+                height={100}
+                className='thumbnail-image'
+                style={{ borderRadius: '50%' }}
+              />
+            </UI_Box>
             <UI_Text
               size={32}
               fontWeight='bold'
@@ -72,14 +76,10 @@ export function CrewPage(): JSX.Element {
             overflow='hidden'
             className='image-wrapper'
           >
-            <Image
+            <UI_ImageLoading
               src={'/images/crew/full/1.jpg'}
-              alt='work'
               width={570}
               height={841}
-              role='presentation'
-              loading='lazy'
-              style={{ width: 'auto', height: '80vh' }}
             />
           </UI_Box>
         </UI_Col>
