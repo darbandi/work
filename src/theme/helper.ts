@@ -113,10 +113,10 @@ export const spinner = css`
 
   &::before {
     content: '';
-    background-image: url('/images/global/loading.png');
+    background-image: url('/images/global/loading_light.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 30%;
+    background-size: 26%;
     animation: spinX 3s infinite;
     width: 50%;
     height: 50%;

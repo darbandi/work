@@ -19,7 +19,7 @@ const config = {
     locales: ['fa', 'en'],
     defaultLocale: 'fa',
   },
-  trailingSlash: true,
+  trailingSlash: false,
   images: {
     remotePatterns: [
       {
