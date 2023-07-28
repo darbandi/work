@@ -1,3 +1,3 @@
-export { MainCarousel } from './carousel'
-export { TopTen } from './topTen'
-export { TopView } from './topView'
+export { MainCarousel } from './carousel/MainCarousel.helper'
+export { TopTen } from './topTen/TopTen.helper'
+export { TopView } from './topView/TopView.helper'

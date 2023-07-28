@@ -72,7 +72,7 @@ export const Position = styled.div`
   ${({ theme: { remCalc } }: ThemeType) => css`
     position: absolute;
     top: 50%;
-    left: 0;
+    left: ${remCalc(24)};
     transform: translate(-54%, -50%) rotate(270deg);
     z-index: 1;
     width: 100%;

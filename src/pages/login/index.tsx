@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic'
-import { SEOGenerator } from '@/components'
+import { SEOGenerator_comp } from '@/components'
 
 const MainNoSSR = dynamic(
-  async () => (await import('@/containers/auth/login')).LoginPage,
+  async () => (await import('@/containers/auth/login/LoginPage')).Login_page,
   {
     ssr: false,
   },
@@ -11,7 +11,7 @@ const MainNoSSR = dynamic(
 export default function Login(): JSX.Element {
   return (
     <>
-      <SEOGenerator title='loginRegister' />
+      <SEOGenerator_comp title='loginRegister' />
       <MainNoSSR />
     </>
   )

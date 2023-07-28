@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import { useIntl } from 'react-intl'
-import { WatchDetailsButtons } from '../watchDetailsButtons'
+import { WatchDetailsButtons_comp } from '../watchDetailsButtons/WatchDetailsButtons'
 import { Actions, CloseIcon, Container, Title } from './Details.style'
 import { ItemsArray } from './Item'
 import {
@@ -21,7 +21,7 @@ import { useStore } from '@/store'
 import { useDocument } from '@/hooks'
 import { globalMessages } from '@/assets/globalMessages'
 
-export function Details(): JSX.Element | null {
+export function Details_comp(): JSX.Element | null {
   const { hideScroll } = useDocument()
   const { formatMessage } = useIntl()
 
@@ -42,7 +42,7 @@ export function Details(): JSX.Element | null {
   useEffect(() => {
     setImgSrc('')
     setTimeout(() => {
-      setImgSrc(`/images/sliders/${selectedCartSliderItem?.id}.png?q=100`)
+      setImgSrc(`/images/sliders/${selectedCartSliderItem?.id}.webp?q=100`)
     }, 100)
   }, [selectedCartSliderItem])
 
@@ -54,7 +54,7 @@ export function Details(): JSX.Element | null {
         src={imgSrc}
         width={1920}
         height={650}
-        onError={() => setImgSrc('/images/global/no_image.png')}
+        onError={() => setImgSrc('/images/global/no_image.webp')}
         baseClassName='image-loading'
       />
       <UI_Row display='flex' alignItems='stretch' className='base-row'>
@@ -121,7 +121,7 @@ export function Details(): JSX.Element | null {
               </UI_Col>
             </UI_Row>
             <Actions>
-              <WatchDetailsButtons id={selectedCartSliderItem.id} />
+              <WatchDetailsButtons_comp id={selectedCartSliderItem.id} />
             </Actions>
           </UI_Box>
         </UI_Col>
@@ -131,7 +131,7 @@ export function Details(): JSX.Element | null {
               src={imgSrc}
               width={1920}
               height={650}
-              onError={() => setImgSrc('/images/global/no_image.png')}
+              onError={() => setImgSrc('/images/global/no_image.webp')}
               className='detail-image'
             />
           </UI_Box>

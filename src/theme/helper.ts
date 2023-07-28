@@ -113,7 +113,7 @@ export const spinner = css`
 
   &::before {
     content: '';
-    background-image: url('/images/global/loading_light.png');
+    background-image: url('/images/global/loading_light.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 26%;

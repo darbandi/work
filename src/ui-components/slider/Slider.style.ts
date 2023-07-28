@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { UI_SliderButtonsPosition } from '.'
+import { UI_SliderButtonsPosition } from './UI_Slider'
 import { ThemeType, flexCenter, responsive } from '@/theme'
 
 type ButtonsType = {

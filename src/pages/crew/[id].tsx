@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import { ssrConfig } from '@/lib'
 
 const CrewPage = dynamic(
-  async () => (await import('@/containers/crew')).CrewPage,
+  async () => (await import('@/containers/crew/CrewPage')).CrewPage_page,
   {
     ssr: true,
   },

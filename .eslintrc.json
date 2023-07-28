@@ -19,11 +19,19 @@
     "@typescript-eslint",
     "prettier",
     "import",
-    "simple-import-sort"
+    "simple-import-sort",
+    "eslint-plugin-local-rules",
+    "local-rules"
   ],
   "rules": {
+    "local-rules/component-name-end-with-comp": "error",
+    "local-rules/pascal-case-component-names": "error",
+    "local-rules/ui-component-file-name-start-with-ui": "error",
+    "local-rules/ui-component-name-start-with-ui": "error",
+    "local-rules/containers-component-name-end-with-page": "error",
     // "simple-import-sort/imports": "error",
     // "@typescript-eslint/no-unsafe-assignment": "error",
+    "react-hooks/rules-of-hooks": "off",
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/exports": "error",
     "import/no-duplicates": "error",
@@ -77,7 +85,6 @@
     "react/jsx-no-useless-fragment": "error",
     "@typescript-eslint/no-var-requires": "error",
     "react-hooks/exhaustive-deps": "off",
-    "react-hooks/rules-of-hooks": "off",
     "object-shorthand": "error"
   }
 }

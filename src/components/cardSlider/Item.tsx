@@ -42,7 +42,7 @@ type ItemProps = {
   isDisabledScroll?: boolean
 }
 
-export function Items(props: ItemProps): JSX.Element {
+export function Items_comp(props: ItemProps): JSX.Element {
   const { item, id, mode, isDisabledScroll } = props
   const isMobile = useMediaQuery('(max-width: 576px)')
   const { hideScroll, offsetTop } = useDocument()
@@ -82,7 +82,7 @@ export function Items(props: ItemProps): JSX.Element {
   return (
     <ItemWrapper>
       <UI_ImageLoading
-        src={`/images/movies/thumbnails/${item.id}.png`}
+        src={`/images/movies/thumbnails/${item.id}.webp`}
         width={570}
         height={841}
         onDragStart={handleDragStart}
@@ -101,7 +101,11 @@ export function Items(props: ItemProps): JSX.Element {
         onClick={handleClickDetails}
       >
         <Main>
-          <Play href={`/watch/${item.id}`} onClick={(e) => e.stopPropagation()}>
+          <Play
+            href={`/watch/${item.id}`}
+            onClick={(e) => e.stopPropagation()}
+            aria-label={item.title}
+          >
             <UI_Icon icon={faPlay} className='fa-play' />
           </Play>
           <Details onClick={handleClickDetails}>

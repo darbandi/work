@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import { ssrConfig } from '@/lib'
 
 const MoviePage = dynamic(
-  async () => (await import('@/containers/movie')).MoviePage,
+  async () => (await import('@/containers/movie/MoviePage')).Movie_page,
   {
     ssr: true,
   },

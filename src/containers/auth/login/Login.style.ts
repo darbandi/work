@@ -11,7 +11,7 @@ export const Container = styled.div`
     flex-direction: row;
     ${flexSpaceBetween}
     height: 100vh;
-    background-image: url('/login-banner.jpg');
+    background-image: url('/login-banner.webp');
     height: 100vh;
     background-size: cover;
     background-position: center;

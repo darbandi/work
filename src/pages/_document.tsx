@@ -34,10 +34,19 @@ export default class CustomDocument extends Document {
         <Head>
           <meta charSet='utf-8' />
           <meta property='og:site_name' content='work' />
+          <link rel='preload' as='image' href='/images/sliders/1.webp' />
+          <link rel='preload' as='image' href='/images/sliders/2.webp' />
+          <link rel='preload' as='image' href='/images/sliders/3.webp' />
+          <link
+            rel='preload'
+            as='image'
+            href='/images/global/loading_light.webp'
+          />
+
           <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
           <meta
             name='viewport'
-            content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'
+            content='minimum-scale=1, maximum-scale=5, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover'
           />
           <link rel='manifest' href='/manifest.json' />
           <link rel='apple-touch-icon' href='/icons/icon-72x72.png' />

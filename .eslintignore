@@ -5,6 +5,8 @@ dist
 tmp
 /out-tsc
 .env
+rules
+/rules
 
 # dependencies
 node_modules

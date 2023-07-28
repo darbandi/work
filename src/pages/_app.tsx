@@ -8,7 +8,7 @@ import { dark, light } from '@/theme/Theme.styled'
 import { GlobalStyles } from '@/theme/Global.styled'
 import en from '@/locales/en/common.json'
 import fa from '@/locales/fa/common.json'
-import { LayoutComp } from '@/components'
+import { Layout_comp } from '@/components'
 import { StoreProvider } from '@/store'
 import { Auth } from '@/tools'
 import '@/public/fonts/fonts.css'
@@ -50,7 +50,7 @@ export default function App(props: AppType): JSX.Element {
         <IntlProvider {...intl} onError={() => null}>
           <ThemeProvider theme={themes[themeMode as keyof typeof themes]}>
             <GlobalStyles />
-            <LayoutComp
+            <Layout_comp
               RenderHeader={Component.header}
               RenderFooter={Component.footer}
             >
@@ -61,7 +61,7 @@ export default function App(props: AppType): JSX.Element {
               ) : (
                 <Component {...otherProps} />
               )}
-            </LayoutComp>
+            </Layout_comp>
           </ThemeProvider>
         </IntlProvider>
       </StoreProvider>

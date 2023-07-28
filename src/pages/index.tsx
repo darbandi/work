@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { SEOGenerator } from '@/components'
+import { SEOGenerator_comp } from '@/components'
 import { ssrConfig } from '@/lib'
 
 const MainCarousel = dynamic(
@@ -21,7 +21,7 @@ const TopTen = dynamic(async () => (await import('@/containers/home')).TopTen, {
 export default function Index(): JSX.Element {
   return (
     <>
-      <SEOGenerator title='mainPage' description='seoDescription' />
+      <SEOGenerator_comp title='mainPage' description='seoDescription' />
       <MainCarousel />
       <TopView />
       <TopTen />

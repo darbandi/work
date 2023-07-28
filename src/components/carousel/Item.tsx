@@ -1,4 +1,4 @@
-import { WatchDetailsButtons } from '../watchDetailsButtons'
+import { WatchDetailsButtons_comp } from '../watchDetailsButtons/WatchDetailsButtons'
 import {
   EnTitleStyle,
   ImageWrapper,
@@ -18,7 +18,7 @@ export type ItemsArray = {
 
 type ItemProps = { item: ItemsArray; isDisabledDetailsButton?: boolean }
 
-export function Items(props: ItemProps): JSX.Element {
+export function Items_comp(props: ItemProps): JSX.Element {
   const { item, isDisabledDetailsButton } = props
 
   return (
@@ -28,7 +28,7 @@ export function Items(props: ItemProps): JSX.Element {
           <TitleStyle href={`/watch/${item.id}`}>{item.title}</TitleStyle>
           <EnTitleStyle>{item.subtitle}</EnTitleStyle>
         </InfoSection>
-        <WatchDetailsButtons
+        <WatchDetailsButtons_comp
           id={item.id}
           isDisabledDetailsButton={isDisabledDetailsButton}
         />
@@ -37,7 +37,7 @@ export function Items(props: ItemProps): JSX.Element {
         {item && (
           <UI_ImageLoading
             className='img'
-            src={`/images/sliders/${item.id}.png`}
+            src={`/images/sliders/${item.id}.webp`}
             width={1920}
             height={650}
           />

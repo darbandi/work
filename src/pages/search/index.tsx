@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import { ssrConfig } from '@/lib'
 
 const SearchPage = dynamic(
-  async () => (await import('@/containers/search')).SearchPage,
+  async () => (await import('@/containers/search/SearchPage')).Search_page,
   {
     ssr: false,
   },
