@@ -25,7 +25,7 @@
   ],
   "rules": {
     "local-rules/component-name-end-with-comp": "error",
-    "local-rules/pascal-case-component-names": "error",
+    "local-rules/pascal-case-component-names": "off",
     "local-rules/ui-component-file-name-start-with-ui": "error",
     "local-rules/ui-component-name-start-with-ui": "error",
     "local-rules/containers-component-name-end-with-page": "error",
